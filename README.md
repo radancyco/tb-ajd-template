@@ -15,3 +15,5 @@ ALL HTML and Razor works in the TB system with the latest features of
 the TB Job Details page as of 5/16/2017  
 
 This templates SASS variables, mixins and functions work with the default SASS and Compass for TB Full Theme as of 5/16/2017  
+
+# Instructions
