@@ -1,5 +1,5 @@
 # AJD-Template
-Advanced Job Details (AJD) Template version 1.0
+# Advanced Job Details (AJD) Template version 1.0
 Last Updated 5/18/2017
 
 # Introduction
