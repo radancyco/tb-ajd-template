@@ -13,7 +13,7 @@ BEM: Is a class naming strucure of Block__Element--Modifer it helps you to
 achieve reusable components and code and it makes CSS specificity very flat
 and low reducing the need for importants
 
-#W hat this works with
+# What this template works with
 HTML and Razor that works in the TB system with the latest features of
 the TB Job Details page as of 5/16/2017
 using the default SASS and Compass for TB Full Theme
