@@ -16,4 +16,14 @@ the TB Job Details page as of 5/16/2017
 
 This templates SASS variables, mixins and functions work with the default SASS and Compass for TB Full Theme as of 5/16/2017  
 
-# Instructions
+# Instructions for creating the first AJD on a site
+1. Begin by creating a new Theme inside the current TB site. 
+* Name this theme AJD – [custom theme name (Normally category or Job title)]
+2. Edit the new theme code
+* Copy all the HTML and Razor from the Default "Full" Theme to this new theme
+* Add this
+~~~~
+This is a 
+piece of code 
+in a block
+~~~~
