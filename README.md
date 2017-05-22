@@ -20,5 +20,5 @@ This templates SASS variables, mixins and functions work with the default SASS a
 1. Begin by creating a new Theme inside the current TB site. 
   * Name this theme AJD – [custom theme name (Normally category or Job title)]
 2. Edit the new theme code
-  * Copy all the HTML and Razor from the Default "Full" Theme to this new theme
-  * Add `@Html.GetThemeCSS("Full")` 
+    * Copy all the HTML and Razor from the Default "Full" Theme to this new theme
+  *     Add `@Html.GetThemeCSS("Full")` 
