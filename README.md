@@ -22,4 +22,4 @@ This templates SASS variables, mixins and functions work with the default SASS a
 2. Edit the new theme code
   * Copy all the HTML and Razor from the Default "Full" Theme to this new theme
   * Add this
-   @Html.GetThemeCSS("Full")
+      @Html.GetThemeCSS("Full")
