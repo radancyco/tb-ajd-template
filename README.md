@@ -1,6 +1,6 @@
 # Advanced Job Details (AJD) Template version 1.0
 Last Updated 5/18/2017
-[create an anchor](#anchors-in-markdown)
+[create an anchor]
 
 ## Introduction
 AJD Template is meant to be a skeleton version of HTML and SASS to speed up Development on AJD Themes.
@@ -16,7 +16,7 @@ ALL HTML and Razor works in the TB system with the latest features of
 the TB Job Details page as of 5/16/2017  
 
 This templates SASS variables, mixins and functions work with the default SASS and Compass for TB Full Theme as of 5/16/2017  
-
+(#anchors-in-markdown)
 ## Instructions for creating the first AJD on a site
 1. Begin by creating a new Theme inside the current TB site. 
     * Name this theme [custom theme name (Normally category and or location or Job title)]
