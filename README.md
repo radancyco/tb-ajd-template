@@ -19,7 +19,7 @@ This templates SASS variables, mixins and functions work with the default SASS a
 # Instructions for creating the first AJD on a site
 1. Begin by creating a new Theme inside the current TB site. 
     * Name this theme AJD – [custom theme name (Normally category or Job title)]
-2. Edit the new theme code
+2. Edit the new theme HTML and Razor
     1. Copy all the HTML and Razor from the Default "Full" Theme to this new theme
     2. Add `@Html.GetThemeCSS("Full")` (which is the default theme's css) above `@Html.Partial("_ThemeCSS")` (which is your current themes css)
     3. Add `@Html.GetThemeJavascript("Full")` (which is the default theme's JavaScript) above `@Html.Partial("_ThemeJavascript")` (which is your current themes JavaScript)
