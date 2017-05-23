@@ -23,5 +23,8 @@ This templates SASS variables, mixins and functions work with the default SASS a
     1. Copy all the HTML and Razor from the Default "Full" Theme to this new theme
     2. Add `@Html.GetThemeCSS("Full")` (which is the default theme's css) above `@Html.Partial("_ThemeCSS")` (which is your current themes css)
     3. Add `@Html.GetThemeJavascript("Full")` (which is the default theme's JavaScript) above `@Html.Partial("_ThemeJavascript")` (which is your current themes JavaScript)
-    4. Add `<script type="text/javascript" src="//clientfiles.tmpwebeng.com/tmp/tb-assets/ajd/jquery-scrolltofixed-min.js"></script>` then `<script type="text/javascript" src="//clientfiles.tmpwebeng.com/tmp/tb-assets/ajd/ajd-scripts-min.js"></script>` under `@Html.Partial("_ThemeJavascript")`
-
+    4. Add `<script type="text/javascript" src="//clientfiles.tmpwebeng.com/tmp/tb-assets/ajd/jquery-scrolltofixed-min.js"></script>` then `<script type="text/javascript" src="//clientfiles.tmpwebeng.com/tmp/tb-assets/ajd/ajd-scripts-min.js"></script>` under `@Html.Partial("_ThemeJavascript")` (Both files are needed and work together to add functionality to the AJD. The first script is for the sticky header and the second has the JS calling the first and has other AJD functions )
+3. Edit the SASS and JavasScript for the AJD theme
+    1. Replace all SASS for the theme with `//using full theme sass` (We will put our styles in the full theme as many other AJD pages may need this same styles)
+    2. Replace all JavaScript with `//using full theme javascript`
+ 4.
