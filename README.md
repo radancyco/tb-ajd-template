@@ -1,4 +1,4 @@
-# Advanced Job Details (AJD) Template version 1.0
+# Advanced Job Details (AJD) Template for TB Admin
 Last Updated 5/18/2017
 
 ### Contents
