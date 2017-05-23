@@ -6,6 +6,9 @@ Last Updated 5/18/2017
 * [Techonlogies used](#techonlogies-used)
 * [What this template works with](#what-this-template-works-with)
 * [Instructions for creating the first AJD on a site](#instructions-for-creating-the-first-ajd-on-a-site)
+* [Visual Examples](#visual-examples)
+* [Undstanding what you can do and change](#undstanding-what-you-can-do-and-change)
+* [Instructions for creating an addtional AJD after one already exists on a site](#instructions-for-creating-an-addtional-ajd-after-one-already-exists-on-a-site)
 
 ## Introduction
 AJD Template is meant to be a skeleton version of HTML and SASS to speed up Development on AJD Themes.
