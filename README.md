@@ -51,4 +51,11 @@ This templates SASS variables, mixins and functions work with the default SASS a
 
 ## Undstanding what you can do and change
 
+### Add unquie SVG images
+1. Save your illustration as an SVG
+2. Compress your SVG https://jakearchibald.github.io/svgomg/
+3. Encode SVG for background image http://codepen.io/jakob-e/pen/doMoML
+4. Add this encoded CSS into your SASS file
+5. Replace the stroke with a variable for example if you were doing one for the rewards sections you can change `stroke='%23000'` to `stroke='rgba(#{$icon-color})'`
+
 ## Instructions for creating an additional AJD after one already exists on a site
