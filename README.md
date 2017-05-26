@@ -1,7 +1,4 @@
 
-<title>test</title>
-
-
 # Advanced Job Details (AJD) Template for TB Admin
 Last Updated 5/18/2017
 
