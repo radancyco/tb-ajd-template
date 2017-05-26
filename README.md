@@ -1,5 +1,6 @@
 ---
-# Front matter comment to ensure Jekyll reads file file properly.
+layout: default
+title: Advanced Job Details (AJD) Template for TB Admin
 ---
 
 # Advanced Job Details (AJD) Template for TB Admin
