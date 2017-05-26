@@ -1,3 +1,6 @@
+---
+# Front matter comment to ensure Jekyll reads file file properly.
+---
 
 # Advanced Job Details (AJD) Template for TB Admin
 Last Updated 5/18/2017
