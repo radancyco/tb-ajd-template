@@ -48,6 +48,8 @@ This templates SASS variables, mixins and functions work with the default SASS a
 
 ## Visual Examples
 
+* [Skeleton Example](https://tmpworldwide.github.io/AJD-Template/examples/skeleton/) This example shows what an AJD would look like if you made one only using the default styles of a Full TB.
+
 
 ## Undstanding what you can do and change
 
