@@ -1,6 +1,6 @@
 
-# Advanced Job Details (AJD) Template for TB Admin
-Last Updated: **{{ "now" | date: "%A, %B %-d, %Y" }}**
+# Advanced Job Details (AJD) Template 2.0
+Last Updated: **5/25/2017**
 
 ### Contents
 * [Introduction](#introduction)
