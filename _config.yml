@@ -1,9 +1,5 @@
 markdown: kramdown
-highlighter: rouge
 destination: _httpdocs
 url: tmpworldwide.github.io/AJD-Template/
 sass:
     style: :compressed
-exclude: [
-  README.md
-]
