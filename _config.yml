@@ -1,5 +1,4 @@
 markdown: kramdown
 destination: _httpdocs
-url: tmpworldwide.github.io/AJD-Template/
-sass:
-    style: :compressed
+repo: https://github.com/tmpworldwide/AJD-Template/
+ghpage: https://tmpworldwide.github.io/AJD-Template/
