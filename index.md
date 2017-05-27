@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Advanced Job Details (AJD) Template for TB Admin
+title: Advanced Job Details (AJD) 2.0 Template
 ---
 
 {% include_relative README.md %}
