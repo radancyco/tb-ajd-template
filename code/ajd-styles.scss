@@ -353,9 +353,9 @@ $back-to-ajd-nav-color: 255,255,255,1; // White
 
 		&__logo {
 			&:before {
-					background-image: url("//clientfiles.tmpwebeng.com/TMP/tb-assets/ajd/logo-glassdoor-color.png");
+					background-image: url("https://clientfiles.tmpwebeng.com/TMP/tb-assets/ajd/logo-glassdoor-color.png");
 					// There are two differnt logo versions for Glass door, one filled with their brand green and one filled with white
-					// background-image: url("//clientfiles.tmpwebeng.com/TMP/tb-assets/ajd/logo-glassdoor-white.png");
+					// background-image: url("https://clientfiles.tmpwebeng.com/TMP/tb-assets/ajd/logo-glassdoor-white.png");
 			    content: "";
 			    display: inline-block;
 			    height: 25px;
