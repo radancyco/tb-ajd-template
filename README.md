@@ -51,7 +51,9 @@ This templates SASS variables, mixins and functions work with the default SASS a
 6. Create a new Job Details module from the Modules page and name it "AJD – [current custom theme name]"
     * Inside of the newly created Job Details Module you will replace all of the HTML/razor that is currently there with the [AJD template HTML](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/ajd-module.html)
 7. In your new AJD named Job Details page go to the partial assignment where the default Job Details Module is and click on the dropdown arrow and choose to replace the default Job Details Module with your newly created module. (If you do not see your module in the dropdown first make sure the module has been saved and refresh the job details page)
-8. Go to any modules that are also in the AJD in page navigation for example the Callout Link Module for the Map and add the class `ajd_section` to the module and add an id of "anchor-[section name]" so for that map module it would be `id="anchor-map"` Also at the bottom of the module add an accessibility link to get back into the navigation for the map module it would be `                <p class="back-to-ajd-nav"><a class="back-to-ajd-nav__a" href="#ajd-anchor-map">Back to Job Navigation (Map)</a></p>`
+8. Go to any modules that are also in the AJD in page navigation for example the Callout Link Module for the Map and add the class `ajd_section` to the module and add an id of "anchor-[section name]" so for that map module it would be `id="anchor-map"` Also at the bottom of the module add an accessibility link to get back into the navigation for the map module it would be 
+
+<pre>`<p class="back-to-ajd-nav"><a class="back-to-ajd-nav__a" href="#ajd-anchor-map">Back to Job Navigation (Map)</a></p>`</pre>
 
 ## Visual Examples
 
