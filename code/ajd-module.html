@@ -5,7 +5,7 @@
 
 @helper ApplyButton(string position)  {
 
-    <a class="ajd_btn__apply button job-apply @position" @Html.JobDetailsApplyAttributes(Model) itemprop="url">@Model.ApplyButtonText</a>
+    <a class="ajd_btn__apply button job-apply @position" @Html.JobDetailsApplyAttributes(Model)>@Model.ApplyButtonText</a>
 
 }
 
@@ -17,7 +17,7 @@
 
 @if (Model != null) {
 
-        <section class="ajd" itemscope itemtype="@Constants.JobPostingSchema" @Html.CustomSelector(Model) @Html.JobDetailsAttributes(Model)>
+        <section class="ajd" @Html.CustomSelector(Model) @Html.JobDetailsAttributes(Model)>
 
             <div id="ajd-header" class="ajd_header make-sticky">
 
@@ -563,7 +563,7 @@
 
                 <h2 class="ajd_section__heading ajd_job-details__heading">Responsibilities</h2>
 
-                <div class="ats-description ajd_job-details__ats-description" itemprop="description">
+                <div class="ats-description ajd_job-details__ats-description">
 
                     @Html.Raw(Model.JobDescription)
 
@@ -583,7 +583,7 @@
 
                 @if (Model.CanShowReferrerPage) {
 
-                <a class="ajd_btn__referred button job-apply job-get-referred" @Html.JobDetailsReferrerAttributes(Model) itemprop="url">@Model.ReferrerPageButtonText</a>
+                <a class="ajd_btn__referred button job-apply job-get-referred" @Html.JobDetailsReferrerAttributes(Model)>@Model.ReferrerPageButtonText</a>
 
                 }
 
