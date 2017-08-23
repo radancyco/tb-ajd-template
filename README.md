@@ -67,6 +67,14 @@ This templates SASS variables, mixins and functions work with the default SASS a
 4. Add this encoded CSS into your SASS file
 5. Replace the stroke with a variable for example if you were doing one for the rewards sections you can change `stroke='%23000'` to `stroke='rgba(#{$icon-color})'`
 
+
+### Add or remove sticky functionality
+
+All you need to do for this is to add or remove the class `make-sticky` which is by default on the `id="ajd_header"`
+
+### Add, remove animations on scroll or change how often animations happen
+add `enhance-element` class to any elements you want to enhacne when they come into view of the viewport. When this element comes into view two classes will be added `active` and `actived-once` when this elment goes out of view the class `active` is removed but `actived-once` remains. So when you want to only animate something once then you put your css animations of the `actived-once` class. This may be ideal for the rwards icons to only animate on the first time you see them and not animate again when you scroll past them and then back up again.
+
 ## Instructions for creating an additional AJD after one already exists on a site
 
 Coming soon.
