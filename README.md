@@ -1,6 +1,6 @@
 # Advanced Job Details (AJD) Template 2.0
 
-Last Updated: **5/25/2017**
+Last Updated: **8/23/2017**
 
 This is the boilerplate used to create advanced job detail pages on TalentBrew. Visit the [repository](https://github.com/tmpworldwide/tb-ajd-template) to learn more or [download](https://github.com/tmpworldwide/tb-ajd-template/archive/gh-pages.zip) now.
 
