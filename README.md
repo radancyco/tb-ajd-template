@@ -1,4 +1,3 @@
-# Advanced Job Details (AJD) Template 2.0
 
 Last Updated: **11/07/2017**
 
