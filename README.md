@@ -92,7 +92,7 @@ In order to do this all you have to do is look for the class `ajd_navigation` in
 
 ### Updating Glassdoor to match company
 1. Search for the companies glassdoor review page [here](https://www.glassdoor.com/Reviews/index.htm)
-2. Then click on the company name in the resilts list
+2. Then click on the company name in the results list
 3. Click on the reviews tab
 4. use the URL in the browser, for example TMP's is https://www.glassdoor.com/Reviews/TMP-Worldwide-Reviews-E247764.htm
 5. Find the anchor tag for glassdoor and replace `#REPLACEME` with the url
