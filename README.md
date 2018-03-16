@@ -96,7 +96,7 @@ In order to do this all you have to do is look for the class `ajd_navigation` in
 3. Click on the reviews tab
 4. use the URL in the browser, for example TMP's is https://www.glassdoor.com/Reviews/TMP-Worldwide-Reviews-E247764.htm
 5. Find the anchor tag for glassdoor and replace `#REPLACEME` with the url
-6. Copy the numbers in the URL that trai the E, for example TNP's is 247764 
+6. Copy the numbers in the URL that trail the E, for example TNP's is 247764 
 7. Find the Glassdoor background image in the CSS and replace the `01` after the `?e=` with the copied numbers
 
 ## Instructions for creating an additional AJD after one already exists on a site
