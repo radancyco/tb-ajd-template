@@ -1,5 +1,5 @@
 
-Last Updated: **11/07/2017**
+Last Updated: **03/16/2018**
 
 This is the boilerplate used to create advanced job detail pages on TalentBrew. Visit the [repository](https://github.com/tmpworldwide/tb-ajd-template) to learn more or [download](https://github.com/tmpworldwide/tb-ajd-template/archive/gh-pages.zip) now.
 
@@ -62,11 +62,23 @@ This templates SASS variables, mixins and functions work with the default SASS a
 ### Add unique SVG images
 
 1. Save your illustration as an SVG
-2. Compress your SVG https://jakearchibald.github.io/svgomg/
-3. Encode SVG for background image http://codepen.io/jakob-e/pen/doMoML
-4. Add this encoded CSS into your SASS file
-5. Replace the stroke with a variable for example if you were doing one for the rewards sections you can change `stroke='%23000'` to `stroke='rgba(#{$icon-color})'`
-
+2. Compress your SVG https://jakearchibald.github.io/svgomg/ (Make sure 'remove ViewBox' is disabled but 'Prefer viewBox to width/height' is enabled)
+3. Change the stroke color to `REPLACEME`
+4. Encode SVG for background image http://codepen.io/jakob-e/pen/doMoML
+5. Search for `REPLACEME` and replace it with `#{$icon-color}`
+6. Then you place that background image css into the following code and of course give it a name 
+```
+@mixin ico-[you icon name here]($icon-color:#000) {
+  $icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+  [Your Background image css here]
+}
+```
+7. Then you can call that SVG wherever you want like this
+```
+.class {
+  @include ico-test(#ccc);
+ }
+ ```
 
 ### Add or remove sticky functionality
 
@@ -74,6 +86,18 @@ All you need to do for this is to add or remove the class `make-sticky` which is
 
 ### Add, remove animations on scroll or change how often animations happen
 add `enhance-element` class to any elements you want to enhacne when they come into view of the viewport. When this element comes into view two classes will be added `active` and `actived-once` when this elment goes out of view the class `active` is removed but `actived-once` remains. So when you want to only animate something once then you put your css animations of the `actived-once` class. This may be ideal for the rwards icons to only animate on the first time you see them and not animate again when you scroll past them and then back up again.
+
+### Make in page navigation highlight only one section at a time
+In order to do this all you have to do is look for the class `ajd_navigation` in the HTML and add a class to that same div called `singular-highlighting`
+
+### Updating Glassdoor to match company
+1. Search for the companies glassdoor review page [here](https://www.glassdoor.com/Reviews/index.htm)
+2. Then click on the company name in the resilts list
+3. Click on the reviews tab
+4. use the URL in the browser, for example TMP's is https://www.glassdoor.com/Reviews/TMP-Worldwide-Reviews-E247764.htm
+5. Find the anchor tag for glassdoor and replace `#REPLACEME` with the url
+6. Copy the numbers in the URL that trai the E, for example TNP's is 247764 
+7. Find the Glassdoor background image in the CSS and replace the `01` after the `?e=` with the copied numbers
 
 ## Instructions for creating an additional AJD after one already exists on a site
 
