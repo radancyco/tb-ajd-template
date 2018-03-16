@@ -3,11 +3,15 @@
 <head>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="robots" content="noindex, nofollow" />
+        <meta name="robots" content="noindex, nofollow" />
     <meta name="description" content="Learn more about applying for Delivery Driver at CVS"/>
 	<title>AJD Skeleton</title>
+    <!-- matchmedia polyfill -->
+	<!--[if lte IE 9]>
+		<script src="//tbcdn.staging.talentbrew.com/bundles/polyfill"></script>
+	<![endif]-->
     <!-- <link rel="stylesheet" href="css/5137-Full.css"/> -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css"  href="css/style.css">
 
 
         <link rel="icon" href="data:;base64,="/>
@@ -893,7 +897,7 @@
 
 
 
-        <section class="ajd" data-selector-name="jobdetails" data-org-id="28" data-job-id="1007783">
+        <section class="ajd" itemscope itemtype="//schema.org/JobPosting" data-selector-name="jobdetails" data-org-id="28" data-job-id="1007783">
 
             <div id="ajd-header" class="ajd_header make-sticky">
 
@@ -912,7 +916,7 @@
                         <div class="ajd_header__job-buttons">
 
 
-    <a class="ajd_btn__apply button job-apply top" data-job-id="1007783" data-job-organization-id="28" data-selector-name="job-apply-link" data-page-type="Job" data-page-Name="Job Details" data-override-candidate-card="False" href="#" data-apply-mobile="true">Apply</a>
+    <a class="ajd_btn__apply button job-apply top" data-job-id="1007783" data-job-organization-id="28" data-selector-name="job-apply-link" data-page-type="Job" data-page-Name="Job Details" data-override-candidate-card="False" href="#" data-apply-mobile="true" itemprop="url">Apply</a>
 
 
                     </div><!--/.ajd_header__job-buttons-->
@@ -922,8 +926,8 @@
           </div><!--/.max-width-wrapper-->
 
 
+            <!-- <div class="ajd_navigation singular-highlighting"> -->
             <div class="ajd_navigation">
-
                 <ul class="ajd_navigation__ul max-width-wrapper">
                     <li id="ajd-anchor-overview" class="ajd_navigation__li"><a href="#anchor-overview" class="ajd_navigation__a">Overview</a></li>
                     <li id="ajd-anchor-success" class="ajd_navigation__li"><a href="#anchor-success" class="ajd_navigation__a">Success Profile</a></li>
@@ -952,9 +956,9 @@
                       <li class="ajd_overview__quick-fact ajd_overview__quick-fact--travel"><i class="ajd_overview__quick-fact-ico ico-travel"></i>Travel: Minimal (if any)</li>
                       <li class="ajd_overview__quick-fact ajd_overview__quick-fact--salary"><i class="ajd_overview__quick-fact-ico ico-salary"></i>Salary: $63K-$96K</li>
                       <li class="ajd_overview__quick-fact ajd_overview__quick-fact--glassdoor">
-                        <a href="https://www.glassdoor.com/Reviews/TMP-Worldwide-Reviews-E247764.htm" class="ajd_overview__quick-fact--glassdoor__logo">
+                        <a href="#REPLACEME" class="ajd-glassdoor__link">
 
-                            <div class="ajd_overview__quick-fact--glassdoor__rating"><span style="width:66%" class="ajd_overview__quick-fact--glassdoor__percentage">Glassdoor: 66%</span></div>
+                            <span  class="ajd-glassdoor__text">Glassdoor Reviews and Company Rating</span>
 
                         </a>
                       </li>
@@ -1027,7 +1031,7 @@
 
                   <li class="ajd_trending__li ajd_trending__li--two-col">
 
-                    <a class="ajd_trending__a" href="#">
+                    <a class="ajd_trending__a" href="#REPLACEME">
 
                       <img class="ajd_trending__img" src="http://placehold.it/350x150" alt="Change Me"/>
 
@@ -1046,7 +1050,7 @@
                   </li>
                   <li class="ajd_trending__li ajd_trending__li--two-col">
 
-                    <a class="ajd_trending__a" href="#">
+                    <a class="ajd_trending__a" href="#REPLACEME">
 
                       <img class="ajd_trending__img" src="http://placehold.it/350x150" alt="Change Me"/>
 
@@ -1064,7 +1068,7 @@
 
                   <li class="ajd_trending__li ajd_trending__li--one-col">
 
-                    <a class="ajd_trending__a" href="#">
+                    <a class="ajd_trending__a" href="#REPLACEME">
 
                       <img class="ajd_trending__img" src="http://placehold.it/350x150" alt="Change Me"/>
 
@@ -1084,7 +1088,7 @@
 
                   <li class="ajd_trending__li ajd_trending__li--one-col">
 
-                    <a class="ajd_trending__a " href="/digital-strategist-inside-scoop-what-to-read-before-you-apply">
+                    <a class="ajd_trending__a " href="#REPLACEME">
 
                       <img class="ajd_trending__img" src="http://placehold.it/350x150" alt="Change Me"/>
 
@@ -1564,7 +1568,7 @@
 
                 <h2 class="ajd_section__heading ajd_job-details__heading">Responsibilities</h2>
 
-                <div class="ats-description ajd_job-details__ats-description">
+                <div class="ats-description ajd_job-details__ats-description" itemprop="description">
 
                     Job skills/requirements:
 The good news is that your training will teach you everything you need to know to succeed on the job. But here are a few skills you should have from the get-go, as well as some requirements:
@@ -1597,23 +1601,23 @@ Just a few more things: You’ll need some basic math skills, the desire to work
 
 
 
-<form id="social-share" action="/subscribe/workwithme" data-error="Please enter a valid email address" data-logged-in="You are now logged in. Share using the buttons above and we will track your referrals." data-registered="A confirmation email has been sent to your inbox. Please confirm your registration, so we can give you credit for your referrals." data-approved-domains="" data-ajax-url="https://adp.runmytests.com/subscribe/workwithme/" data-workwithme="False" data-selector-name="socialshare">
+<form id="social-share" action="/subscribe/workwithme" data-error="Please enter a valid email address" data-logged-in="You are now logged in. Share using the buttons above and we will track your referrals." data-registered="A confirmation email has been sent to your inbox. Please confirm your registration, so we can give you credit for your referrals." data-approved-domains="" data-ajax-url="//adp.runmytests.com//subscribe/workwithme/" data-workwithme="False" data-selector-name="socialshare">
         <section class="social-share">
             <h3>Share</h3>
             <ul class="social-share-items">
-	                <li><a class="share email" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="https://adp.runmytests.com/subscribe/refer/" data-share-type="email" href="mailto:?subject=Delivery Driver&amp;body=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3demail%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social">Email</a></li>
-	                <li><a class="share linkedin" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="https://adp.runmytests.com/subscribe/refer/" data-share-type="linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3dlinkedin.com%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social&amp;title=Delivery+Driver" target="_blank">LinkedIn</a></li>
-	                <li><a class="share twitter" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="https://adp.runmytests.com/subscribe/refer/" data-share-type="twitter" href="https://twitter.com/intent/tweet?text=Delivery+Driver&amp;url=http://adp.runmytests.com/job/florida/delivery-driver/28/1007783?utm_source=twitter.com%26utm_medium=social_post%26utm_campaign=CVS_social" target="_blank">Twitter</a></li>
-	                <li><a class="share facebook" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="https://adp.runmytests.com/subscribe/refer/" data-share-type="facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3dfacebook.com%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social" target="_blank">Facebook</a></li>
+	                <li><a class="share email" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="//adp.runmytests.com/subscribe/refer/" data-share-type="email" href="mailto:?subject=Delivery Driver&amp;body=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3demail%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social">Email</a></li>
+	                <li><a class="share linkedin" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="//adp.runmytests.com/subscribe/refer/" data-share-type="linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3dlinkedin.com%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social&amp;title=Delivery+Driver" target="_blank">LinkedIn</a></li>
+	                <li><a class="share twitter" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="//adp.runmytests.com/subscribe/refer/" data-share-type="twitter" href="https://twitter.com/intent/tweet?text=Delivery+Driver&amp;url=http://adp.runmytests.com/job/florida/delivery-driver/28/1007783?utm_source=twitter.com%26utm_medium=social_post%26utm_campaign=CVS_social" target="_blank">Twitter</a></li>
+	                <li><a class="share facebook" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="//adp.runmytests.com/subscribe/refer/" data-share-type="facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3dfacebook.com%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social" target="_blank">Facebook</a></li>
                 	            <li data-expandable="true" data-handle="share-more">
 		            <a href="#" class="share-more" data-more-text="More" data-less-text="Less">More</a>
 		            <ul>
-                            <li class="more-link"><a class="share googleplus" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="https://adp.runmytests.com/subscribe/refer/" data-share-type="googleplus" href="https://plus.google.com/share?url=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3dgoogleplus.com%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social" target="_blank">Google+</a></li>
-                            <li class="more-link"><a class="share tumblr" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="https://adp.runmytests.com/subscribe/refer/" data-share-type="tumblr" href="http://www.tumblr.com/share?v=3&amp;u=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3dtumblr.com%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social&amp;t=Delivery+Driver" target="_blank">Tumblr</a></li>
-                            <li class="more-link"><a class="share renren" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="https://adp.runmytests.com/subscribe/refer/" data-share-type="renren" href="http://share.renren.com/share/buttonshare.do?link=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3drenren.com%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social&amp;title=Delivery+Driver" target="_blank">RenRen</a></li>
-                            <li class="more-link"><a class="share viadeo" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="https://adp.runmytests.com/subscribe/refer/" data-share-type="viadeo" href="http://www.viadeo.com/?&amp;url=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3dviadeo.com%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social&amp;title=Delivery+Driver" target="_blank">Viadeo</a></li>
-                            <li class="more-link"><a class="share weibo" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="https://adp.runmytests.com/subscribe/refer/" data-share-type="weibo" href="http://service.weibo.com/share/share.php?url=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3dweibo.com%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social&amp;appkey=&amp;title=Delivery+Driver" target="_blank">Weibo</a></li>
-                            <li class="more-link"><a class="share xing" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="https://adp.runmytests.com/subscribe/refer/" data-share-type="xing" href="https://www.xing.com/social_plugins/share?h=1;url=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3dxing.com%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social" target="_blank">Xing</a></li>
+                            <li class="more-link"><a class="share googleplus" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="//adp.runmytests.com/subscribe/refer/" data-share-type="googleplus" href="https://plus.google.com/share?url=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3dgoogleplus.com%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social" target="_blank">Google+</a></li>
+                            <li class="more-link"><a class="share tumblr" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="//adp.runmytests.com/subscribe/refer/" data-share-type="tumblr" href="http://www.tumblr.com/share?v=3&amp;u=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3dtumblr.com%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social&amp;t=Delivery+Driver" target="_blank">Tumblr</a></li>
+                            <li class="more-link"><a class="share renren" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="//adp.runmytests.com/subscribe/refer/" data-share-type="renren" href="http://share.renren.com/share/buttonshare.do?link=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3drenren.com%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social&amp;title=Delivery+Driver" target="_blank">RenRen</a></li>
+                            <li class="more-link"><a class="share viadeo" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="//adp.runmytests.com/subscribe/refer/" data-share-type="viadeo" href="http://www.viadeo.com/?&amp;url=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3dviadeo.com%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social&amp;title=Delivery+Driver" target="_blank">Viadeo</a></li>
+                            <li class="more-link"><a class="share weibo" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="//adp.runmytests.com/subscribe/refer/" data-share-type="weibo" href="http://service.weibo.com/share/share.php?url=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3dweibo.com%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social&amp;appkey=&amp;title=Delivery+Driver" target="_blank">Weibo</a></li>
+                            <li class="more-link"><a class="share xing" data-job-id="1007783" data-job-location="1069721" data-job-title="Delivery Driver" data-share-refer-url="//adp.runmytests.com/subscribe/refer/" data-share-type="xing" href="https://www.xing.com/social_plugins/share?h=1;url=http%3a%2f%2fadp.runmytests.com%2fjob%2fflorida%2fdelivery-driver%2f28%2f1007783%3futm_source%3dxing.com%26utm_medium%3dsocial_post%26utm_campaign%3dCVS_social" target="_blank">Xing</a></li>
 		            </ul>
 	            </li>
             </ul>
