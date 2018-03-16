@@ -45,7 +45,7 @@ This templates SASS variables, mixins and functions work with the default SASS a
  4. Add Template SASS to the full theme SASS
      * Add the [AJD template SASS](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/ajd-styles.scss) to the full theme sass and edit it to match your mocks
  5. Create the page in the theme
-     1. Within your new Theme create a new Job Details page. name it "AJD – [current custom theme name]"
+     1. Within your new Theme create a new Advanced Job Details page. name it "AJD – [current custom theme name]"
      2. Add any core or shell level modules you need to match the new page to the existing Default theme. You can compare the Default Theme Job Details page to your new one to see what modules you need to add to which partials and use that the base your new page off of. Note that your new page may not have all of the modules the current Default Job Details page has and that some of the modules may need to be shifted in placement or styled differently within your new theme page.
 6. Create a new Job Details module from the Modules page and name it "AJD – [current custom theme name]"
     * Inside of the newly created Job Details Module you will replace all of the HTML/razor that is currently there with the [AJD template HTML](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/ajd-module.html)
