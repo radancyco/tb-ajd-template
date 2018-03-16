@@ -68,7 +68,7 @@ This templates SASS variables, mixins and functions work with the default SASS a
 5. Search for `REPLACEME` and replace it with `#{$icon-color}`
 6. Then you place that background image css into the following code and of course give it a name 
 ```
-@mixin ico-[you icon name here]($icon-color:#000) {
+@mixin ico-[your icon name here]($icon-color:#000) {
   $icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
   [Your Background image css here]
 }
