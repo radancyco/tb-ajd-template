@@ -54,7 +54,8 @@ This templates SASS variables, mixins and functions work with the default SASS a
 
 ## Visual Examples
 
-* [Skeleton Example](https://tmpworldwide.github.io/tb-ajd-template/examples/skeleton/) This example shows what an AJD would look like if you made one only using the default styles of a Full TB.
+* [Developer - Skeleton Example](https://tmpworldwide.github.io/tb-ajd-template/examples/skeleton/) This example shows what an AJD would look like if you made one only using the default styles of a Full TB, with alerts that remind the developer to update links.
+* [Creative - Skeleton Example](https://tmpworldwide.github.io/tb-ajd-template/examples/skeleton/?no-checks) This example shows what an AJD would look like if you made one only using the default styles of a Full TB, without alerts.
 
 ## Undstanding what you can do and change
 
