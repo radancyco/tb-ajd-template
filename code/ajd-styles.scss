@@ -117,6 +117,9 @@ $qfacts-icon-color: #004E8A; // Blue
 $benefits-icon-color:  #004E8A; // Blue
 $back-to-ajd-nav-color: #fff; // White
 
+// if using the traits circle
+$trait-colors: '#4491c5', '#3e703c', '#7a1224', '#d79400', '#ce1510', '#551a8b'; // The ammount of colors should match the number of traits in your .traits_list
+
 // END AJD Variables
 
 //
@@ -499,7 +502,220 @@ $back-to-ajd-nav-color: #fff; // White
         }
     } // end sub sckills
 } // end graph
-// end sucess profile
+// AJD Trait Cricle
+
+.ajd-traits {
+	text-align: center;
+
+	&__list { // .ajd-traits__list
+		list-style: none;
+		margin: 20px auto;
+		padding: 0;
+		display: inline-block;
+		text-align: left;
+		max-width: 500px;
+		@include flexbox-center;
+		justify-content: flex-start;
+		-webkit-align-items: start;
+		-ms-flex-align: start;
+		align-items: start;
+	}
+
+	&__item { // .ajd-traits__item
+		margin: 0 0 10px 0;
+		position: relative;
+		padding: 0 10px 0 30px;
+		flex: 0 0 calc(100% / 2);
+
+		@include breakpoint($end-small) {
+			flex: 0 0 calc(100% / 3);
+		}
+
+		// color of each dot that matches the fill in the circle
+		@for $i from 1 through length($trait-colors) {
+			 &:nth-child(#{$i})::before {
+				 content: '';
+				 border-radius: 100%;
+				 position: absolute;
+				 display: block;
+				 vertical-align: middle;
+				 background: #{nth($trait-colors, $i)};
+				 width: 20px;
+				 height: 20px;
+				 top: 0;
+				 left: 0;
+			 }
+		}
+
+	}
+	&__circle { // .ajd-traits__circle
+	  width: 75vw;
+	  height: 75vw;
+	  max-width: 300px;
+	  max-height: 300px;
+	  border-radius: 100%;
+	  overflow: hidden;
+	  position: relative;
+	  display: block;
+	  background: transparent;
+	  margin: 20px auto 0 auto;
+
+	  &::before, &::after{
+	    content: '';
+	    display: block;
+	    position: absolute;
+	    border-radius: 100%;
+	    z-index: 10;
+	  }
+
+		// Create the "cut out" in the circle turning it into a donut
+		// increasing these numbers will make the cut out smaller, makin the sections wider.
+	  &::before {
+	    top: 15%;
+	    bottom: 15%;
+	    left: 15%;
+	    right: 15%;
+	    background: #fff;
+	  }
+
+		// Insert picture into cut out
+		// These numbers should be larger or the same size as the ::before numbers so that the pitcure fits within the circle
+	  &::after {
+	    top: 16%;
+	    bottom: 16%;
+	    left: 16%;
+	    right: 16%;
+	    z-index: 11;
+			background: url(https://picsum.photos/300/300?image=1) no-repeat center/cover; //  Replace the URL with your image
+	  }
+	}
+
+	&__cir-section { // .ajd-traits__section
+	    position:absolute;
+	    width:50%;
+	    height:100%;
+	    overflow:hidden;
+			pointer-events: none;
+	    left:50%;
+	    @include prefixed(transform-origin, left center);
+
+	    &.big {
+	      width:100%;
+	      height:100%;
+	      left:0%;
+	      @include prefixed(transform-origin, center);
+	    }
+		}
+
+		&__cir-fill { // .ajd-traits__cir-fill
+				content:"";
+				position:absolute;
+				width:100%;
+				height:100%;
+				left:-100%;
+				pointer-events: all;
+				@include prefixed(transform-origin, right center);
+
+				// Color of each fill
+			  @for $i from 1 through length($trait-colors) {
+		      .ajd-traits__cir-section:nth-of-type(#{$i}) & {
+		        background: #{nth($trait-colors, $i)};
+		      }
+			 }
+
+			.big & {
+					left: 0;
+					width: 50%;
+				}
+		}
+
+		&__cir-text { // .ajd-traits__cir-text
+		  position: absolute;
+		  text-align: center;
+		  left:50%;
+		  top: 50%;
+		  transform: translate(-50%,-50%);
+		  z-index: 12;
+		  margin: 0;
+			font-size: 18px;
+			font-weight: bold;
+		}
+
+		&__tooltip { // .ajd-traits__tooltip
+			pointer-events: none;
+			position: fixed;
+			font-size: 18px;
+			text-align: center;
+			background: white;
+			padding: 6px 15px;
+			z-index: 555;
+			line-height: 18px;
+			margin: 0 auto;
+			color: #21669e;
+			border-radius: 5px;
+			box-shadow: 0 0 1px 1px #ddd;
+			transform: translate(-50%,-50%);
+			display: none;
+			&.active {
+			  display: block;
+			}
+		  
+		  
+			&:after {
+			  content: '';
+			  position: absolute;
+			  left: 50%;
+			  top: 100%;
+			  width: 0;
+			  height: 0;
+			  margin-left: -10px;
+			  border-left: 10px solid transparent;
+			  border-right: 10px solid transparent;
+			  border-top: 10px solid white;
+			}
+			&:before {
+				content: '';
+				position: absolute;
+				left: calc(50% - 7px);
+				top: calc(100% - 8px);
+				width: 14px;
+				height: 14px;
+				box-shadow: 2px 2px 1px 0px #ddd;
+				transform: rotate(45deg);
+			  }
+		  }
+		  
+} // end .ajd-traits
+
+// animation for both traits circle and list
+@keyframes trait-fade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.js { // if JS is on
+	.ajd-traits__cir-section, .ajd-traits__item {
+		opacity: 0; // visually hide the circle sections and list items
+	}
+
+	.active { // if you want to have this animate only on initial scroll change .active to .actived-once
+
+		.ajd-traits__cir-section, .ajd-traits__item {
+       // Per ammount of colors in the $trait-colors variable animate in succession
+		   @for $i from 1 through length($trait-colors) {
+		     // Delay changes speed of animation, increase number devided by to increase the speed
+		     $delay: $i / 4;
+		      &:nth-of-type(#{$i}) {
+		        animation: trait-fade 1s #{$delay}s forwards;
+		      }
+		    }
+		}
+
+	}
+} // end // animation for both traits circle and list
+
+
+// end likely items to be in sucess profile
 
 
 // Quote
