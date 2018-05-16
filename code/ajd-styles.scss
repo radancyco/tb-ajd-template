@@ -99,6 +99,16 @@ img {
     }
 }
 
+// Add prefixes to what you need
+@mixin prefixed($property, $value) {
+    -webkit-#{$property}: $value;
+    -khtml-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -ms-#{$property}: $value;
+    -o-#{$property}: $value;
+    #{$property}: $value;
+  }
+
 // END Addtional SASS you may need to add to your theme
 
 //
