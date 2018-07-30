@@ -108,7 +108,7 @@ img {
     -o-#{$property}: $value;
     #{$property}: $value;
   }
-
+  
 // END Addtional SASS you may need to add to your theme
 
 //
@@ -568,7 +568,9 @@ $trait-colors: '#4491c5', '#3e703c', '#7a1224', '#d79400', '#ce1510', '#551a8b';
 	  position: relative;
 	  display: block;
 	  background: transparent;
-	  margin: 20px auto 0 auto;
+      margin: 20px auto 0 auto;
+	  -webkit-backface-visibility: hidden; // Safari fix
+	  -webkit-transform: translate3d(0, 0, 0); // Safari fix
 
 	  &::before, &::after{
 	    content: '';
