@@ -1,0 +1,416 @@
+// =================================================================
+// Reset Styles
+// =================================================================
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, button, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, input, ins, kbd, label, legend, li, main, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, section, select, small, span, strike, strong, sub, summary, sup, table, tbody, td, textarea, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+// HTML5 display-role reset for older browsers
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section {
+	display: block;
+}
+
+
+body {
+	line-height: 1;
+}
+
+
+ol, ul {
+    margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:after, blockquote:before, q:after, q:before {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+a[role="button"],
+input[type='submit'],
+input[type='button'],
+input[type='reset'],
+button {
+    border: none;
+	border-radius: 0;
+	background: none;
+	cursor: pointer;
+	padding: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	-webkit-border-radius: 0;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+
+	&:focus,
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+p {
+	margin: 16px 0;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@mixin breakpoint($width){
+    @media screen and (min-width: $width){
+        @content;
+    }
+}
+
+// =================================================================
+// Functions
+// =================================================================
+
+
+// changes svg color to one compatible with data uri format
+@function svg-color-replace($string, $search: '#', $replace: '%23') {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + svg-color-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+
+// ===============================================
+// Mixins
+// ===============================================
+@mixin background-square($custom-color: #000) {
+	$icon-color: svg-color-replace("#{$custom-color}"); //this function changes the color to svg compatible format
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192.23 192.23'%3E%3Cpath fill='#{$icon-color}' d='M48.294 144.176v-95.85h95.871v95.85H48.294z'/%3E%3C/svg%3E");
+}
+
+@mixin background-circle($custom-color: #000) {
+	$icon-color: svg-color-replace("#{$custom-color}"); //this function changes the color to svg compatible format
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5 5'%3E %3Ccircle fill='#{$icon-color}' cx='2.5' cy='2.5' r='1.25'/%3E %3C/svg%3E");
+}
+
+@mixin icon-arrow($custom-color: #000, $background-color: #2a4f81) {
+	$icon-color: svg-color-replace("#{$custom-color}"); //this function changes the color to svg compatible format
+	background: $background-color url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 219.03 375.053'%3E%3Cpath fill='#{$icon-color}' d='M154.404 188.141c-2.13-1.744-3.383-2.604-4.438-3.66C104.262 138.783 58.56 93.083 12.9 47.341 1.368 35.788 2.139 18.604 14.492 8.378 23.138 1.221 35.855.604 45.211 7.031c2.146 1.475 4.109 3.271 5.958 5.118a362640.394 362640.394 0 0 1 155.664 155.67c12.799 12.806 12.784 27.635-.069 40.494-52.14 52.163-104.306 104.297-156.449 156.457-8.083 8.085-17.623 11.053-28.426 7.018-10.222-3.818-16.149-11.576-17.028-22.616-.654-8.223 2.515-15.078 8.328-20.869 16.826-16.764 33.585-33.594 50.375-50.394 29.163-29.179 58.325-58.357 87.51-87.515.698-.696 1.655-1.134 3.33-2.253z'/%3E%3C/svg%3E");
+}
+
+// ===============================================
+// Extends
+// ===============================================
+
+%branch {
+	height: 3px;
+	background-size: 5px 5px;
+	background-position: left center;
+	@include background-square;
+}
+
+
+%centered-verticle {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+
+
+
+body {
+	font-family: arial;
+}
+h1 {
+	text-align: center;
+	font-size: 30px;
+}
+p {
+	text-align: center;
+}
+
+.career-path {
+	margin: 50px auto;
+	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	max-width: 800px;
+	width: 100%;
+
+	&__heading {
+		max-width: 95%;
+		margin: 16px auto;
+		background-color: #fff;
+		padding-top: 30px;
+		padding-bottom: 8px;
+		position: relative;
+		display: block;
+
+		&:before {
+			content: '';
+			width: 20px;
+			height: 20px;
+			display: block;
+			@include icon-arrow(#fff);
+			background-size: 40%;
+			background-position: center;
+			background-repeat: no-repeat;
+			transform: translateX(-50%) rotate(90deg);
+			border-radius: 50%;
+			position: absolute;
+			left: 50%;
+			top: 5px;
+		}
+	}
+
+	&__row {
+		width: 100%;
+	}
+
+	&__link {
+		color: #000;	
+	}
+}
+
+.begin-path {
+	&.tree-leaf__twigs:before,
+	.career-path__heading:before {
+		display: none;
+	}
+
+	.career-path__heading {
+		padding: 8px 0;
+	}
+}
+
+.end-path {
+	&.tree-leaf__twigs:after,
+	.career-path__heading:after {
+		display: none;
+	}
+}
+
+.hide-border {
+	opacity: 0;
+}
+
+
+// =============================
+// Branches and Leaves layouts
+// =============================
+
+
+// TREE BRANCHES ONLY !!!!!!!
+.tree-branch {
+	&__one {
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		width: calc(100% * (2/3));
+		@extend %branch;
+	}
+
+	&__two {
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		width: calc(100% * (2/3));
+
+		> * {
+			width: 50%;
+			@extend %branch;
+		}
+	}
+
+	&__three {
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		width: calc(100% * (2/3));
+
+		> * {
+			width: calc(100% / 3);
+			@extend %branch;
+		}
+	}
+
+	&__four {
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		width: calc(100% * (2/3));
+
+		>* {
+			width: 25%;
+			@extend %branch;
+		}
+	}
+
+	&__five {
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		width: calc(100% * (2/3));
+
+		> * {
+			width: 20%;
+			@extend %branch;
+		}
+	}
+
+	&__six {
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		width: calc(100% * (2/3));
+
+		> * {
+			width: calc(100% / 6);
+			@extend %branch;
+		}
+	}
+
+	&__seven {
+		display: flex;
+		margin: 0 auto;
+		width: calc(100% * (2/3));
+
+		> * {
+			width: calc(100% / 7);
+		}
+	}
+
+	&__ten {
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		width: calc(100% * (2/3));
+
+		> * {
+			width: 10%;
+			@extend %branch;
+		}
+	}
+}
+
+.custom-size {
+	width: 80%;
+}
+
+
+// Tree LEAVES!!!!
+.tree-leaf {
+	&__twigs {
+		position: relative;
+		min-height: 57px;
+
+		&:after,
+		&:before {
+			content: '';
+			display: block;
+			@extend %branch;
+			width: 3px;
+			height: 51%;
+			@extend %centered-verticle;
+			z-index: -1;
+		}
+
+		&:before {
+			top: -3px;
+			background-position: center top;
+		}
+
+		&:after {
+			bottom: 0px;
+			background-position: center bottom;
+		}
+	}
+
+	&__one {
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+
+		> * {
+			width: 100%;
+		}
+	}
+
+	&__two {
+		display: flex;
+		flex-wrap: wrap;
+		width: calc(100% * (2/3));
+		margin: 0 auto;
+
+		> * {
+			width: 50%;
+		}
+	}
+
+	&__three {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+
+		> * {
+			width: calc(100% / 3);
+		}
+	}
+
+	&__four {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+
+		> * {
+			width: 25%;
+		}
+	}
+
+	&__five {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		margin: 0 auto;
+
+		> * {
+			width: 20%;
+		}
+	}
+}
+
+
+
+
+
+.wai {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
