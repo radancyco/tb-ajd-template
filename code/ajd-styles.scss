@@ -115,8 +115,10 @@ img {
 // AJD icons import
 //
 
-@import '../../3461/shared/scss/ajd-icons'; // required
+@import '../examples/skeleton/system-needed/company/3461/shared/scss/ajd-icons'; // required
+// if using on  site ../../3461/shared/scss/ajd-icons
 // If working locally you will need a local version of this file which you can download from https://tbcdn.talentbrew.com/company/3461/shared/scss/_ajd-icons.scss
+// If compiling on Github use '../examples/skeleton/system-needed/company/3461/shared/scss/ajd-icons'
 
 
 //
@@ -156,7 +158,7 @@ $trait-colors: '#4491c5', '#3e703c', '#7a1224', '#d79400', '#ce1510', '#551a8b';
 
 .back-to-ajd-nav__a {
     background: #666 no-repeat center center/25px;
-		@include back-to-nav-arrow($back-to-ajd-nav-color);
+	@include back-to-nav-arrow($back-to-ajd-nav-color);
     border-radius: 50%;
     bottom: -1em;
     display: block;
@@ -512,223 +514,399 @@ $trait-colors: '#4491c5', '#3e703c', '#7a1224', '#d79400', '#ce1510', '#551a8b';
         }
     } // end sub sckills
 } // end graph
-// AJD Trait Cricle
 
-.ajd-traits {
-	text-align: center;
+// AJD Trait Circle using Custom Imports Script
 
-	&__list { // .ajd-traits__list
-		list-style: none;
-		margin: 20px auto;
-		padding: 0;
-		display: inline-block;
-		text-align: left;
-		max-width: 500px;
-		@include flexbox-center;
-		justify-content: flex-start;
-		-webkit-align-items: start;
-		-ms-flex-align: start;
-		align-items: start;
-	}
-
-	&__item { // .ajd-traits__item
-		margin: 0 0 10px 0;
-		position: relative;
-		padding: 0 10px 0 30px;
-		flex: 0 0 calc(100% / 2);
-
-		@include breakpoint($end-small) {
-			flex: 0 0 calc(100% / 3);
-		}
-
-		// color of each dot that matches the fill in the circle
-		@for $i from 1 through length($trait-colors) {
-			 &:nth-child(#{$i})::before {
-				 content: '';
-				 border-radius: 100%;
-				 position: absolute;
-				 display: block;
-				 vertical-align: middle;
-				 background: #{nth($trait-colors, $i)};
-				 width: 20px;
-				 height: 20px;
-				 top: 0;
-				 left: 0;
-			 }
-		}
-
-	}
-	&__circle { // .ajd-traits__circle
-	  width: 75vw;
-	  height: 75vw;
-	  max-width: 300px;
-	  max-height: 300px;
-	  border-radius: 100%;
-	  overflow: hidden;
-	  position: relative;
-	  display: block;
-	  background: transparent;
-      margin: 20px auto 0 auto;
-	  -webkit-backface-visibility: hidden; // Safari fix
-	  -webkit-transform: translate3d(0, 0, 0); // Safari fix
-
-	  &::before, &::after{
-	    content: '';
-	    display: block;
-	    position: absolute;
-	    border-radius: 100%;
-	    z-index: 10;
-	  }
-
-		// Create the "cut out" in the circle turning it into a donut
-		// increasing these numbers will make the cut out smaller, makin the sections wider.
-	  &::before {
-	    top: 15%;
-	    bottom: 15%;
-	    left: 15%;
-	    right: 15%;
-	    background: #fff;
-	  }
-
-		// Insert picture into cut out
-		// These numbers should be larger or the same size as the ::before numbers so that the pitcure fits within the circle
-	  &::after {
-	    top: 16%;
-	    bottom: 16%;
-	    left: 16%;
-	    right: 16%;
-	    z-index: 11;
-			background: url(https://picsum.photos/300/300?image=1) no-repeat center/cover; //  Replace the URL with your image
-	  }
-	}
-
-	&__cir-section { // .ajd-traits__section
-	    position:absolute;
-	    width:50%;
-	    height:100%;
-	    overflow:hidden;
-			pointer-events: none;
-	    left:50%;
-	    @include prefixed(transform-origin, left center);
-
-	    &.big {
-	      width:100%;
-	      height:100%;
-	      left:0%;
-	      @include prefixed(transform-origin, center);
-	    }
-		}
-
-		&__cir-fill { // .ajd-traits__cir-fill
-				content:"";
-				position:absolute;
-				width:100%;
-				height:100%;
-				left:-100%;
-				pointer-events: all;
-				@include prefixed(transform-origin, right center);
-
-				// Color of each fill
-			  @for $i from 1 through length($trait-colors) {
-		      .ajd-traits__cir-section:nth-of-type(#{$i}) & {
-		        background: #{nth($trait-colors, $i)};
-		      }
-			 }
-
-			.big & {
-					left: 0;
-					width: 50%;
-				}
-		}
-
-		&__cir-text { // .ajd-traits__cir-text
-		  position: absolute;
-		  text-align: center;
-		  left:50%;
-		  top: 50%;
-		  transform: translate(-50%,-50%);
-		  z-index: 12;
-		  margin: 0;
-			font-size: 18px;
-			font-weight: bold;
-		}
-
-		&__tooltip { // .ajd-traits__tooltip
-			pointer-events: none;
-			position: fixed;
-			font-size: 18px;
-			text-align: center;
-			background: white;
-			padding: 6px 15px;
-			z-index: 555;
-			line-height: 18px;
-			margin: 0 auto;
-			color: #21669e;
-			border-radius: 5px;
-			box-shadow: 0 0 1px 1px #ddd;
-			transform: translate(-50%,-50%);
-			display: none;
-			&.active {
-			  display: block;
-			}
-		  
-		  
-			&:after {
-			  content: '';
-			  position: absolute;
-			  left: 50%;
-			  top: 100%;
-			  width: 0;
-			  height: 0;
-			  margin-left: -10px;
-			  border-left: 10px solid transparent;
-			  border-right: 10px solid transparent;
-			  border-top: 10px solid white;
-			}
-			&:before {
-				content: '';
-				position: absolute;
-				left: calc(50% - 7px);
-				top: calc(100% - 8px);
-				width: 14px;
-				height: 14px;
-				box-shadow: 2px 2px 1px 0px #ddd;
-				transform: rotate(45deg);
-			  }
-		  }
-		  
-} // end .ajd-traits
-
-// animation for both traits circle and list
-@keyframes trait-fade {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
+.trait-circle__graph {
+    max-width: 300px;
+    margin: 20px auto;
 }
 
-.js { // if JS is on
-	.ajd-traits__cir-section, .ajd-traits__item {
-		opacity: 0; // visually hide the circle sections and list items
+.trait-circle__legend {
+    list-style: none;
+    margin: 20px auto;
+    padding: 0;
+    display: inline-block;
+    text-align: left;
+    max-width: 500px;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: flex-start;
+    -webkit-align-items: start;
+    -ms-flex-align: start;
+    align-items: start;
+}
+
+.trait-circle__item {
+margin: 0 0 10px 0;
+position: relative;
+padding: 0 10px 0 30px;
+flex: 0 0 calc(100% / 2);
+    @include breakpoint($end-small) {
+        flex: 0 0 calc(100% / 3);
+    }
+}
+
+.trait-circle__legend .js-ci-pie-chart__data-icon {
+    position: absolute;
+    margin: 0 0 0 -30px;
+}
+
+.ci-pie-chart__center-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+// End Trait Circle
+
+
+// end likely items to be in success profile
+
+
+//
+// Culture Points
+//
+
+.ajd-culture-points {
+    background: #ccc; // replace or edit with your styles
+    padding: 30px;
+    @include clearfix;
+
+    &__item { // .ajd-culture-points__item
+
+        margin: 0 0 10px 17px; // Margin left added to make sure bullet appears correctly
+
+        @include breakpoint($end-small) {
+            width: calc(50% - 17px); // Needs to match the margin left of the items
+            float: left;
+        }
+    }
+}
+
+//
+// Career Path
+//
+
+.ajd-career-path {
+    &__intro {
+        text-align: center;
+    }
+}
+
+%branch {
+	height: 3px;
+	background-size: 5px 5px;
+	background-position: left center;
+	@include background-square(#000); // Change color of dots
+}
+
+
+%centered-verticle {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.career-path {
+	margin: 50px auto;
+	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	max-width: 800px;
+	width: 100%;
+	list-style: none;
+
+	&__heading {
+		max-width: 95%;
+		margin: 16px auto;
+		background-color: #fff;
+		padding-top: 30px;
+		padding-bottom: 8px;
+		position: relative;
+		display: block;
+
+		&:before {
+			content: '';
+			width: 20px;
+			height: 20px;
+			display: block;
+			@include icon-arrow(#fff, #035A8F); //First color is for the arrow second color is for the background of the arrow
+			background-size: 40%;
+			background-position: center;
+			background-repeat: no-repeat;
+			transform: translateX(-50%) rotate(90deg);
+			border-radius: 50%;
+			position: absolute;
+			left: 50%;
+			top: 5px;
+		}
 	}
 
-	.active { // if you want to have this animate only on initial scroll change .active to .actived-once
+	&__row {
+		width: 100%;
+	}
 
-		.ajd-traits__cir-section, .ajd-traits__item {
-       // Per ammount of colors in the $trait-colors variable animate in succession
-		   @for $i from 1 through length($trait-colors) {
-		     // Delay changes speed of animation, increase number devided by to increase the speed
-		     $delay: $i / 4;
-		      &:nth-of-type(#{$i}) {
-		        animation: trait-fade 1s #{$delay}s forwards;
-		      }
-		    }
+	&__link {
+		color: #000;	
+	}
+}
+
+.begin-path {
+	&.tree-leaf__twigs:before,
+	.career-path__heading:before {
+		display: none;
+	}
+
+	.career-path__heading {
+		padding: 8px 0;
+	}
+}
+
+.end-path {
+	&.tree-leaf__twigs:after,
+	.career-path__heading:after {
+		display: none;
+	}
+}
+
+.hide-border {
+	opacity: 0;
+}
+
+
+// =============================
+// Branches and Leaves layouts
+// =============================
+
+
+// TREE BRANCHES ONLY !!!!!!!
+.tree-branch {
+	&__one {
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		width: calc(100% * (2/3));
+    
+    > * {
+		width: 100%;
+		@extend %branch;
+		}
+	}
+
+	&__two {
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		width: calc(100% * (2/3));
+
+		> * {
+			width: 50%;
+			@extend %branch;
+		}
+	}
+
+	&__three {
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		width: calc(100% * (2/3));
+
+		> * {
+			width: calc(100% / 3);
+			@extend %branch;
+		}
+	}
+
+	&__four {
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		width: calc(100% * (2/3));
+
+		>* {
+			width: 25%;
+			@extend %branch;
+		}
+	}
+
+	&__five {
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		width: calc(100% * (2/3));
+
+		> * {
+			width: 20%;
+			@extend %branch;
+		}
+	}
+
+	&__six {
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		width: calc(100% * (2/3));
+
+		> * {
+			width: calc(100% / 6);
+			@extend %branch;
+		}
+	}
+
+	&__seven {
+		display: flex;
+		margin: 0 auto;
+		width: calc(100% * (2/3));
+
+		> * {
+			width: calc(100% / 7);
+		}
+	}
+
+	&__ten {
+		display: flex;
+		justify-content: center;
+		margin: 0 auto;
+		width: calc(100% * (2/3));
+
+		> * {
+			width: 10%;
+			@extend %branch;
+		}
+	}
+}
+
+
+
+// Tree LEAVES!!!!
+.tree-leaf {
+	&__twigs {
+		position: relative;
+		min-height: 57px;
+
+		&:after,
+		&:before {
+			content: '';
+			display: block;
+			@extend %branch;
+			width: 3px;
+			height: 52.5%;
+			@extend %centered-verticle;
+			z-index: -1;
 		}
 
+		&:before {
+			top: -4px;
+			background-position: center top;
+		}
+
+		&:after {
+			bottom: 0px;
+			background-position: center bottom;
+		}
 	}
-} // end // animation for both traits circle and list
+
+	&__one {
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+
+		> * {
+			width: 100%;
+		}
+	}
+
+	&__two {
+		display: flex;
+		flex-wrap: wrap;
+		width: calc(100% * (2/3));
+		margin: 0 auto;
+
+		> * {
+			width: 50%;
+		}
+	}
+
+	&__three {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+
+		> * {
+			width: calc(100% / 3);
+		}
+	}
+
+	&__four {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+
+		> * {
+			width: 25%;
+		}
+	}
+
+	&__five {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		margin: 0 auto;
+
+		> * {
+			width: 20%;
+		}
+	}
+}
 
 
-// end likely items to be in sucess profile
+// Animate Career Path
 
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+.js .career-path__row {
+	opacity:0;
+}
+.js .enhance-element.active {
+
+	.career-path__row {
+		// Per ammount of rows
+		@for $i from 1 through 20 {
+			// Delay changes speed of animation, increase number divide by to increase the speed
+			$delay: $i / 5;
+			&:nth-of-type(#{$i}) {
+				animation: fadein .5s #{$delay}s forwards;
+			}
+		}
+	}
+
+}
+
+// End Career Path
 
 // Quote
 .ajd_quote {

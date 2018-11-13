@@ -1,0 +1,76 @@
+$social-layout: horizontal;
+$social: sprite-map("client/social/*.png");
+@import "client/social/*.png";
+
+.social-media {
+	background: $grey_dk;
+	line-height: 0;
+	overflow: hidden;
+	padding: 5px 15px;
+	text-align: center;
+	@include breakpoint($end_small) {
+		padding: 5px 30px;
+		text-align: right;
+	}
+	h2 {
+		color: #fff;
+		font-size: 1em;
+		font-weight: normal;
+		line-height: 1em;
+		margin: 0 0 5px 0;
+		@include breakpoint($end_small) {
+			display: inline-block;
+			font-size: .92em;
+			margin: 0 2px 0 0;
+			text-align: right;
+		}
+	}
+	ul {
+		@include breakpoint($end_small) {
+			display: inline-block;
+		}
+		li {
+			display: inline-block;
+			margin: 0 3px;
+			@include breakpoint($end_small) {
+				margin: 0 1px;
+			}
+		}
+		a {
+			border: 2px solid $grey_dk;
+			border-radius: 5px;
+			display: block;
+			height: 32px;
+			overflow: hidden;
+			text-align: left;
+			text-indent: -9999em;
+			width: 32px;
+			-webkit-backface-visibility: hidden;
+			&:focus {
+				border-color: #fff;
+			}
+			@include breakpoint($end_small) {
+				@extend %borderbox;
+				border: 0;
+				border-radius: 3px;
+				padding: 1px;
+				height: 24px;
+				width: 24px;
+				&:focus {
+					border: 1px solid #fff;
+					padding: 0;
+				}
+			}
+			@for $i from 1 through length(sprite-names($social)) {
+				$name: nth(sprite-names($social), $i);
+				&.social-#{$name} {
+					@include social-sprite($name);
+					@include breakpoint($end_small) {
+						background-position: (100% / (length(sprite-names($social)) - 1))*($i - 1) 0;
+						background-size: auto 100%;
+					}
+				}
+			}
+		}
+	}
+}

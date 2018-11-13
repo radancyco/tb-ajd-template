@@ -1,0 +1,47 @@
+.link-list {
+	list-style: none;
+	text-align: center;
+	&:after {
+		clear: both;
+		content: "";
+		display: block;
+	}
+	> li {
+		display: inline-block;
+		vertical-align: top;
+		> a {
+			border-radius: 3px;
+			padding: 5px 10px;
+			&:not(.expandable-parent) {
+				&:hover, &:focus {
+					background: darken($grey_lt, 10%);
+					text-decoration: none;
+				}
+			}
+			&.expandable-parent {
+				cursor: default;
+				text-decoration: none;
+			}
+			.js & {
+				&.expandable-parent {
+					&:before {
+						top: .3em;
+					}
+				}
+				&:hover, &:focus {
+					background: darken($grey_lt, 10%);
+					cursor: pointer;
+					text-decoration: none;
+				}
+			}
+		}
+		&[data-expandable] ul a {
+			font-size: .92em;
+			padding: 2px 15px;
+			text-align: left;
+		}
+	}
+	a {
+		display: block;
+	}
+}

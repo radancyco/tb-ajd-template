@@ -1,0 +1,108 @@
+.job-map {
+	.js & {
+		.job-map-canvas {
+			height: 300px;
+			margin: 0;
+			position: relative;
+			width: 95%;
+		}
+	}
+	.job-map-error {
+		background: $primary;
+		border-radius: 5px;
+		bottom: 40px;
+		box-shadow: 1px 1px 3px 0 rgba(0,0,0,.5);
+		box-sizing: border-box;
+		color: #fff;
+		left: 5%;
+		margin: 0;
+		padding: 5px 10px;
+		text-align: center;
+		width: 90%;
+	}
+	.gm-style-iw {
+		line-height: 1.25em;
+		div {
+			overflow: visible !important;
+		}
+		h1 {
+			margin: 0 auto .5em;
+		}
+		.job-map-info {
+			margin: 0;
+		}
+	}
+	.no-js-map {
+		display: block;
+		img {
+			display: block;
+		}
+	}
+	.job-map-location-toggle {
+		border-bottom: 1px solid $primary;
+		padding-bottom: 1em;
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		li {
+			margin-bottom: .5em;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		a {
+			background: darken($primary, 10%);
+			border-radius: 3px;
+			box-shadow: none;
+			display: block;
+			color: darken($primary-contrast, 15%);
+			line-height: 1.25em;
+			padding: 5px 10px;
+			text-decoration: none;
+			@include transition(box-shadow 100ms ease-in-out); 
+			&:hover, &:focus, &.job-map-active {
+				background: $primary;
+				box-shadow: 3px 3px 0 0 darken($primary, 10%);
+				color: $primary-contrast;
+			}
+		}
+	}
+	.job-map-active {
+		font-weight: bold;
+	}
+	.job-map-directions {
+		form {
+			@extend %display-flex;
+			@include flex-property(align-items, flex-start);
+			@include flex-property(flex-flow, column wrap);
+		}
+		p {
+			width: 100%;
+		}
+		label, input:not([type="submit"]), select {
+			display: block;
+			width: 100%;
+		}
+		input:not([type="submit"]), select {
+			border: 1px solid #999;
+			border-radius: 2px;
+			box-sizing: border-box;
+			padding: 2px;
+			&:focus {
+				border-color: #666;
+			}
+		}
+	}
+	.job-apply {
+		&.top, &.bottom {
+			float: none;
+			margin: 0;
+			padding: 0;
+		}
+	}
+}
+.job-map-wrap [aria-hidden="true"]{
+	display:block
+}

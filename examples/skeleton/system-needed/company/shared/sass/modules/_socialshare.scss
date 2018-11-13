@@ -1,0 +1,190 @@
+$share-layout: horizontal;
+$share: sprite-map("client/share/*.png");
+@import "client/share/*.png";
+$share-blue-layout: horizontal;
+$share-blue: sprite-map("client/share-blue/*.png");
+@import "client/share-blue/*.png";
+
+.social-share {
+	background: $grey_lt;
+	overflow: hidden;
+	margin: 2em 0;
+	@include breakpoint($mid_small) {
+		margin: 2em -15px;
+	}
+	@include breakpoint($end_small) {
+		border-radius: 5px;
+		float: right;
+		margin: 2em 0 0;
+		right: 15px;
+		top: 0;
+		width: 17%;
+		@include transition(width 50ms linear);
+		&.share-open {
+			box-shadow: -2px 2px 10px 0 rgba(0,0,0,.5);
+			padding-bottom: 3em;
+			position: absolute;
+			.share-more {
+				@extend %borderbox;
+				bottom: 5px;
+				position: absolute;
+				width: 94%;
+			}
+			#share-close {
+				display: block;
+			}
+		}
+	}
+	h3 {
+		@extend %expandable-smallscreen;
+		word-wrap: break-word;
+		@include breakpoint ($end_small) {
+			padding: 5px 15px;
+		}
+		.js & {
+			border: none;
+			cursor: default;
+			&:before {
+				display: none;
+			}
+			&:hover, &:focus {
+				border: none;
+			}
+		}
+	}
+	> ul {
+		list-style: none;
+		margin: 5px;
+		@include breakpoint($end_small) {
+			margin: 5px;
+		}
+	}
+	>ul, .expandable ul {
+		text-align: center;
+	}
+	li:not([data-expandable="true"]) {
+		@extend %borderbox;
+		display: inline-block;
+		max-width: 100px;
+		width: 24%;
+		@include breakpoint($end_small) {
+			float: left;
+			max-width: none;
+			width: 50%;
+		}
+	}
+	[data-expandable="true"] {
+		clear: both;
+		text-align: left;
+		ul {
+			list-style: none;
+			margin: 0;
+			.js & {
+				display: none;
+			}
+		}
+		.share-more {
+			display: none;
+			padding: 5px;
+			text-align: center;
+			&:hover, &:focus {
+				color: $primary;
+				text-decoration: none;
+			}
+			&:before {
+				border: 0;
+				content: "[+] ";
+				display: inline-block;
+				float: none;
+				font: 1.167em monospace;
+				height: auto;
+				margin-right: 3px;
+				position: static;
+				width: auto;
+				@include transform(translateY(-.05em))
+			}
+			&.expandable-child-open:before {
+				content: "[-]";
+			}
+			.js & {
+				display: block;
+			}
+		}
+	}
+	&.share-open [data-expandable="true"] {
+		@include breakpoint($end_small) {
+			clear: none;
+		}
+	}
+	a {
+		@extend %borderbox;
+		border-radius: 3px;
+		&:hover, &:focus {
+			background: darken($grey_lt, 10%);
+		}
+	}
+	a:not(.share-more) {
+		display: inline-block;
+		height: 52px;
+		line-height: 5em;
+		overflow: hidden;
+		padding: 10px;
+		text-align: left;
+		text-decoration: none;
+		text-indent: -9999em;
+		width: 100%;
+		&:before {
+			content: "";
+			display: block;
+			height: 32px;
+			margin: auto;
+			width: 32px;
+			-webkit-backface-visibility: hidden;
+		}
+		@for $i from 1 through length(sprite-names($share)) {
+			$name: nth(sprite-names($share), $i);
+			&.#{$name} {
+				&:before {
+					@include share-sprite($name);
+					background-position: (100% / (length(sprite-names($share)) - 1))*($i - 1) 0;
+					background-size: auto 100%;
+				}
+				&:hover:before, &:focus:before {
+					@include share-blue-sprite($name);
+					background-position: (100% / (length(sprite-names($share)) - 1))*($i - 1) 0;
+					background-size: auto 100%;
+				}
+			}
+		}
+	}
+	#share-close {
+		background: none;
+		display: none;
+		height: auto;
+		line-height: 0;
+		padding: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: auto;
+		&:before {
+			display: none;
+		}
+		&:after {
+			color: #fff;
+			content: "[-]";
+			display: block;
+			font: 1.5em monospace;
+			padding: .125em;
+			text-align: center;
+			text-indent: 0;
+			width: 100%;
+		}
+		&:hover, &:focus {
+			&:after {
+				color: lighten($primary, 10%);
+			}
+		}
+	}
+
+}

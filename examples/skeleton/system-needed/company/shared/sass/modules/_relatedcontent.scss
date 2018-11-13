@@ -1,0 +1,18 @@
+.related-content {
+	li:after {
+		clear: both;
+		content: "";
+		display: block;
+	}
+}
+.related-content-img-wrap {
+	float: left;
+	margin-right: 1em;
+	width: 100px;
+	img {
+		width: 100%;
+	}
+}
+.related-content-link-wrap {
+	float: left;
+}

@@ -232,7 +232,11 @@ p {
 		justify-content: center;
 		margin: 0 auto;
 		width: calc(100% * (2/3));
+    
+    > * {
+		width: 100%;
 		@extend %branch;
+		}
 	}
 
 	&__two {

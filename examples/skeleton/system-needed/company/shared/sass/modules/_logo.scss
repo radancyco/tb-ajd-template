@@ -1,0 +1,17 @@
+.logo {
+	display: inline-block;
+	line-height: 0;
+	margin-bottom: .5em;
+	img {
+		display: inline-block;
+		max-width: 300px;
+		width: 100%;
+		-webkit-backface-visibility: hidden;
+	}
+	&.logo-left {
+		float: left;
+	}
+	&.logo-right {
+		float: right;
+	}
+}

@@ -1,0 +1,14 @@
+.total-jobs-available {
+	background: rgba($primary, 0.15);
+	border-radius: 5px;
+	color: $primary;
+	display: inline-block;
+	font-size: .92em;
+	margin: 0 15px;
+	padding: 0 10px;
+	position: relative;
+	top: -.75rem;
+	@include breakpoint ($end_small) {
+		margin: 0;
+	}
+}

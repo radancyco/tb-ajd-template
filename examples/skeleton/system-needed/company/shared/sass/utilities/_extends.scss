@@ -1,0 +1,18 @@
+%borderbox {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+%wai {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	text-indent: -9999em;
+	z-index: -1;
+}
+
+%display-flex {
+	display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+}

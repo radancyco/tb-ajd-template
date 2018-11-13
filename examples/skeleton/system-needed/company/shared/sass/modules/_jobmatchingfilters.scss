@@ -1,0 +1,140 @@
+#job-matching-filters {
+	display: none;
+	outline: none;
+	fieldset {
+		border: 0;
+		margin: 0;
+		padding: 0;
+		&[data-enabled="false"] {
+			display: none;
+		}
+	}
+	legend {
+		display: block;
+		padding: 0;
+		width: 100%;
+	}
+	> div {
+		.js & {
+			display: none;
+		}
+	}
+	.expandable-parent a {
+		display: block;
+		&:after {
+			content: "[+]";
+			display: inline-block;
+			float: right;
+		}
+		&.expandable-child-open:after {
+			content: "[-]";
+		}
+	}
+	.js & {
+		display: block;
+	}
+}
+
+.job-matching-filter-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li {
+		margin-bottom: .125em;
+		position: relative;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	label {
+		display: block;
+		line-height: 1.25em;
+		padding: 3px 25px 3px 5px;
+		position: relative;
+		z-index: 1;
+	}
+	input[type="checkbox"] {
+		right: 5px;
+		position: absolute;
+		top: .375em;
+		z-index: 2;
+		&:checked + label {
+			background: $primary;
+			color: #fff;
+		}
+		&:focus:checked + label, &:hover:checked + label {
+			background: lighten($primary, 8%);
+		}
+	}
+	.job-matching-user-location {
+		label {
+			margin-left: 2.5em;
+		}
+		.job-matching-filter-remove {
+			background: #fff;
+			border: 0;
+			bottom: 0;
+			left: 0;
+			overflow: hidden;
+			position: absolute;
+			text-indent: -9999em;
+			top: 0;
+			width: 2em;
+			z-index: 2;
+			&:before {
+				color: $primary;
+				content: "[x]";
+				height: 100%;
+				left: 0;
+				line-height: 1.375em;
+				text-align: center;
+				text-indent: 0;
+				position: absolute;
+				top: 0;
+				width: 100%;
+			}
+			&:hover, &:focus {
+				&:before {
+					color: #000;
+				}
+			}
+		}
+	}
+}
+
+.job-matching-location {
+	border-top: 1px dashed #999;
+	display: none;
+	margin-top: .5em;
+	padding: .5em 5px 0;
+	.js & {
+		display: block;
+	}
+	label, input {
+		display: block;
+	}
+	input {
+		border: 1px solid #ccc;
+		border-radius: 2px;
+		box-sizing: border-box;
+		margin-right: 5px;
+		padding: 3px;
+		width: 100%;
+		&:focus {
+			border-color: #999;
+		}
+	}
+	button {
+		@include flex-property(flex, 1 0 auto);
+	}
+	> div {
+		@extend %display-flex;
+		@include flex-property(flex-flow, row nowrap);
+	}
+}
+
+.job-matching-controls {
+	.js & {
+		display: none;
+	}
+}

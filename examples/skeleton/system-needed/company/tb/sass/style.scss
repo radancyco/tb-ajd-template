@@ -1,0 +1,1362 @@
+/* avast, matey, acquire ye compass */
+@import "compass/css3", "compass/support", "../../shared/sass/utilities/functions", "../../shared/sass/utilities/mixins", "../../shared/sass/utilities/extends", "../../shared/sass/utilities/normalize.v4.2";
+
+/* =================================================================
+variables
+================================================================= */
+$mid-small: 550px;
+$end-small: 800px;
+$max-width: 1000px;
+
+$primary: #035A8F;
+$primary-contrast: #fff;
+$accent: #ccc;
+$text: #333;
+$alert: #c00;
+
+/* =================================================================
+extends
+================================================================= */
+%max-content-width {
+	@extend %borderbox;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $max-width;
+	padding: 0 10px;
+}
+
+%buttonbase {
+	border: 0;
+	border-radius: 4px;
+	@extend %borderbox;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	line-height: 1.25em;
+	min-height: 1.75em;
+	padding: 3px 10px;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: -1px -1px 0 rgba(0,0,0, .2), 1px 1px 0 rgba(255,255,255,.05);
+	vertical-align: middle;
+}
+*[aria-hidden="true"]{
+	display: none;
+}
+
+.hide {
+    display: none !important;
+}
+/* =================================================================
+default module styles
+================================================================= */
+@import "../../../company/shared/sass/modules/form", "../../../company/shared/sass/modules/jobmatchingfilters", "../../../company/shared/sass/modules/jobmatchingresults", "../../../company/shared/sass/modules/joblocationmap", "../../../company/shared/sass/modules/relatedcontent";
+
+/* =================================================================
+base layout
+================================================================= */
+body {
+	color: $text;
+	font: 1em/150% Arial, Helvetica, sans-serif;
+	font: 1rem/150% Arial, Helvetica, sans-serif;
+	margin: 0;
+	overflow-x: hidden;
+	padding: 0;
+	@include breakpoint($mid-small) {
+		font-size: .875rem;
+	}
+}
+
+#page {
+	margin: 0;
+	padding: 0;
+}
+
+main {
+	@extend %max-content-width;
+	@extend %borderbox;
+	overflow-x: hidden;
+	width: 100%;
+	&:after {
+		clear: both;
+		content: "";
+		display: block;
+	}
+	@include breakpoint($end-small) {
+		overflow-x: visible;
+		position: relative;
+	}
+	#search &, #job &, #job-match & {
+		> section, > div {
+			@include breakpoint($end-small) {
+				float: left;
+				width: 67%;
+			}
+		}
+	}
+}
+
+aside {
+	#search &, #job &, #job-match & {
+		@include breakpoint($end-small) {
+			float: right;
+			width: 30%;
+		}
+	}
+}
+
+h1, h2, h3 {
+	color: $primary;
+	margin: 1rem 0;
+}
+
+h1 {
+	font-size: 1.4em;
+}
+
+h2 {
+	font-size: 1.25em;
+}
+
+h3 {
+	font-size: 1.08em;
+}
+
+a {
+	color: $primary;
+	text-decoration: none;
+	&:hover, &:focus {
+		color: $text;
+		text-decoration: underline;
+	}
+}
+
+p {
+	margin: 0 0 1em;
+}
+
+ul {
+	margin-left: 1em;
+}
+
+.logo {
+	display: inline-block;
+	margin-bottom: .5em;
+	img {
+		display: inline-block;
+		max-width: 300px;
+		width: 100%;
+		-webkit-backface-visibility: hidden;
+	}
+	&.logo-left {
+		float: left;
+	}
+	&.logo-right {
+		float: right;
+	}
+}
+
+// A11y: Skip Navigation
+
+a.access-link {
+background-color: #555;
+color: #fff;
+left: -999em;
+padding: 10px;
+position: absolute;
+text-decoration: none;
+top: 0;
+z-index: 100;
+
+    &:focus {
+    left: 0;
+    }
+}
+
+
+/* =================================================================
+header
+================================================================= */
+header {
+	> div {
+		@extend %max-content-width;
+	}
+}
+
+/* =================================================================
+site selector
+================================================================= */
+.site-selector {
+    position: relative;
+    z-index: 100;
+    h2 {
+        cursor: pointer;
+        margin: 0;
+        padding: 10px 0;
+    }
+    ul {
+        margin: 0;
+        list-style: none;
+        display: none;
+        position: absolute;
+        width: 100%;
+        background: #fff;
+        li {
+            &:not(:last-child) {
+                 margin-bottom: 3px;
+            }
+            a {
+                display: block;
+            }
+        }
+    }
+}
+
+/* =================================================================
+search form
+================================================================= */
+.search-form {
+	clear: both;
+	p {
+		margin: 0 1em .7em 0;
+		@include breakpoint($end-small) {
+		    -webkit-flex: auto;
+            flex: auto;
+		}
+	}
+    fieldset {
+	    border: 0;
+        -webkit-padding-end: 1em;
+        -webkit-padding-start: 0;
+
+        legend {
+            padding: 0;
+        }
+	}
+	label {
+		display: block;
+		&[for^="search-radius-type"] {
+		    display: inline;
+	    }
+	}
+	input, select {
+		@extend %borderbox;
+		border: 1px solid $accent;
+		border-radius: 2px;
+		width: 100%;
+
+		&[type="radio"] {
+		    width: auto;
+		    &:not(:first-of-type) {
+		        margin-left: .5em;
+		    }
+		}
+		&[type="search"] {
+		    box-sizing: border-box;
+		}
+	}
+	input {
+		padding: 3px;
+	}
+    &[data-use-location-pin="true"] {
+        input {
+	        &.location-pin {
+	            display: none;
+	        }
+	    }
+        &.location-pin-active {
+            input {
+                &.search-location {
+        	        width: 90%;
+        	        float: left;
+        	        border-right: none;
+        	        border-radius: 2px 0 0 2px;
+        	    }
+                &.location-pin {
+        	        display: inline-block;
+    	            width: 10%;
+                    border-radius: 0 2px 2px 0;
+                    background-color: transparent;
+                    background: url("../../../img/client/location-pin.png") no-repeat scroll 50% 50% transparent;
+                    border-left: none;
+                    text-indent: -9999em;
+        	    }
+            }
+        }
+    }
+	select {
+		padding: 2px;
+	}
+	button {
+	    @include breakpoint($end-small) {
+    	    position: relative;
+    	    top: 50%;
+            transform: translateY(-50%);
+	    }
+	}
+    .search-location-error{
+	color: #c00;
+	font-size: 0.92em;
+	width: 100%;
+	}
+	.search-form-fields {
+		.js & {
+			display: none;
+			@include breakpoint($end-small) {
+				display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+				@include flex-property(flex-flow, row wrap);
+				@include flex-property(justify-content, space-between);
+				@include flex-property(align-items, flex-end);
+			}
+		}
+	}
+	.search-toggle {
+		display: none;
+		.js & {
+			display: block;
+			@include breakpoint($end-small) {
+				display: none;
+			}
+		}
+	}
+}
+
+/* =================================================================
+advanced search form
+================================================================= */
+.advanced-search-form {
+	clear: both;
+        p{
+            margin: 0 0 1em 0;
+            @include breakpoint($end-small) {
+            margin: 0 .5em 1em 0;
+            float: left;
+            width: 14%;
+
+                    &:nth-child(1) {
+                    width: 18%;
+                    margin-right: 1em;
+                }
+            }
+        }
+	label {
+		display: block;
+	}
+	input, select {
+		@extend %borderbox;
+		border: 1px solid $accent;
+		border-radius: 2px;
+		width: 100%;
+	}
+	input {
+		padding: 3px;
+	}
+	button {
+	    margin: 0 .4em 1em 0;
+	}
+	select {
+		padding: 2px;
+	}
+	section {
+	    margin: 0 0 1em 0;
+	    @include breakpoint($end-small) {
+	        width: 18%;
+	        margin: 0 .5em 1em 0;
+	    }
+    	ul {
+    	    list-style: none;
+    	    height: 100px;
+    	    overflow-y: scroll;
+    	    margin: 0;
+
+    	    li {
+        		input[type="checkbox"] {
+        			clear: right;
+        			float: right;
+        			width: inherit;
+        			&:checked + label {
+        				background: $primary;
+        				color: #fff;
+        			}
+        			&:focus:checked + label, &:hover:checked + label {
+        				background: lighten($primary, 8%);
+        			}
+        		}
+    	        label {
+                    cursor: pointer;
+    	        }
+    	    }
+	    }
+	}
+	.advanced-search-form-fields {
+		.js & {
+			display: none;
+			@include breakpoint($end-small) {
+				display: -ms-flex;
+				display: -webkit-flex;
+				display: flex;
+                flex-wrap: wrap;
+				@include flex-property(align-items, flex-end);
+			}
+		}
+	}
+	.advanced-search-toggle {
+		display: none;
+		.js & {
+			display: block;
+			@include breakpoint($end-small) {
+				display: none;
+			}
+		}
+	}
+}
+
+/* mindreader autocomplete search box ======================================================= */
+.mindreader-status {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	text-indent: -9999em;
+}
+.mindreader-results {
+	background: #fff;
+	border-radius: 0 0 3px 3px;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,.3);
+	color: #000;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	text-align: left;
+	z-index: 9999;
+	&:empty {
+		display: none;
+	}
+	li {
+		margin: 0;
+	}
+	a {
+		color: #000;
+		display: block;
+		padding: 2px 5px;
+		text-decoration: none;
+		text-transform: capitalize;
+		&:hover, &:focus, &.active {
+			background: rgba($primary, .1);
+		}
+	}
+}
+
+/* =================================================================
+search results - result list
+================================================================= */
+#search-results-list {
+	> ul {
+		list-style: none;
+		margin: 0;
+		h2 {
+			margin: 0;
+		}
+		a {
+			display: block;
+			padding: .5em 0;
+		}
+	}
+}
+
+#applied-filters .filter-button {
+	&:after {
+		content: "[x]";
+		display: inline-block;
+		margin-left: 5px;
+	}
+	&.keyword-filter span {
+	    &:before {
+	        content: open-quote;
+	    }
+	    &:after {
+	        content: close-quote;
+	    }
+	}
+}
+
+/* =================================================================
+search results - pagination
+================================================================= */
+.pagination-current-label b {
+	@extend %wai;
+}
+
+.pagination-all {
+	display: none;
+	.js & {
+		display: block;
+	}
+}
+
+/* =================================================================
+search results - search filters
+================================================================= */
+#search-filters {
+	background: #fff;
+	#refined-search {
+        label {
+            display: block;
+        }
+        .keyword-tag-error {
+            color: #c00;
+            font-size: 0.92em;
+            width: 100%;
+        }
+    }
+	#filter-distance {
+		label {
+			display: block;
+		}
+		select {
+			@extend %borderbox;
+			border: 1px solid $accent;
+			border-radius: 3px;
+			display: block;
+			padding: 2px;
+			width: 100%;
+			&:hover, &:focus {
+				border-color: $text;
+			}
+		}
+	}
+	section[data-expandable="true"] {
+		.js & {
+			.expandable-parent {
+				&:after {
+					content: "[+]";
+					display: inline-block;
+					float: right;
+				}
+				&.expandable-child-open:after {
+					content: "[-]";
+				}
+			}
+		}
+	}
+	section[data-expandable="false"] {
+		.js & {
+			> a {
+				&:after {
+					display: none;
+				}
+			}
+			.search-filter-list {
+				display: block;
+			}
+		}
+	}
+	.search-filter-list {
+		@extend %borderbox;
+		list-style: none;
+		margin: 0;
+		overflow-x: hidden;
+		overflow-y: auto;
+        ul {
+            margin-left: 2em;
+        }
+		@include breakpoint($end-small) {
+			max-height: 200px;
+		}
+		label {
+			@extend %borderbox;
+			cursor: pointer;
+			display: block;
+			b {
+				font-weight: normal;
+				&:not(.filter) {
+					&:before {
+						content: "(";
+					}
+					&:after {
+						content: ")";
+					}
+				}
+			}
+		}
+		input[type="checkbox"] {
+			clear: right;
+			float: right;
+			&:checked + label {
+				background: $primary;
+				color: #fff;
+			}
+			&:focus:checked + label, &:hover:checked + label {
+				background: lighten($primary, 8%);
+			}
+		}
+
+		.js & {
+			display: none;
+			&.expandable-childlist-open {
+				display: block;
+			}
+		}
+	}
+	#search-filter-apply {
+		@include breakpoint($end-small) {
+			display: none;
+		}
+	}
+}
+
+#search-filter-controls {
+	text-align: center;
+	@include breakpoint($end-small) {
+		text-align: right;
+	}
+}
+
+@include filter-slide-out(800px, 0, search-filters);
+
+#filter-close-toggle {
+	background: none repeat scroll 0 0 #fff;
+	border: 0 none;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+	box-sizing: border-box;
+	display: block;
+	height: 3em;
+	left: 0;
+	padding: 5px 10px;
+	position: absolute;
+	text-align: left;
+	top: 0;
+	width: 100%;
+	&.open {
+		position: fixed;
+	}
+	@include breakpoint($end-small) {
+		display: none;
+	}
+}
+
+#filter-slideout-toggle {
+	@include breakpoint($end-small) {
+		display: none;
+	}
+}
+
+/* =================================================================
+job custom facet module
+================================================================= */
+.job-custom-facet {
+    ul {
+        a:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+/* =================================================================
+job details - style overrides for ATS description
+================================================================= */
+.job-info {
+	display: block;
+	b {
+		&:after {
+			content: ":";
+		}
+	}
+}
+.ats-description {
+	margin-top: 1em;
+	* {
+		color: #000 !important;
+		font: inherit 1rem Arial, Helvetica, sans-serif !important;
+		line-height: 1.4em !important;
+		&:not(br):empty {
+			display: none;
+		}
+	}
+	h2 {
+		font-size: 1.08em;
+		margin: 0 0 .5em 0;
+	}
+	p, div, span, font {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 1em !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		text-indent: 0 !important;
+	}
+	p, div {
+		margin-bottom: 1em;
+	}
+	ul, ol {
+		list-style-position: outside;
+		margin: 0 0 1em 2em !important;
+	}
+}
+
+
+.job-apply {
+	clear: both;
+	display: block;
+	font-size: 1.1em;
+	margin: 1em 0;
+	padding: 5px 10px;
+	@include breakpoint($mid_small) {
+		float: right;
+		line-height: 1.4em;
+		min-width: 6em;
+		&.top {
+			margin: 0 0 1em 1em;
+		}
+	}
+}
+
+.job-description{
+    #save-job{
+        float: right;
+        background-image: url("../../../img/client/star-icon-gray.png");
+        background-repeat: no-repeat;
+        background-position: right;
+        background-color: transparent;
+        height: 25px;
+        border: none;
+        text-align: right;
+        padding-right: 35px;
+        opacity: .9;
+        margin-bottom: 1em;
+        &:hover, &:focus {
+            opacity: 1;
+            outline: none;
+        }
+    }
+    .saved{
+        background-image: url("../../../img/client/star-icon.png") !important;
+    }
+}
+
+/* =================================================================
+language redirection
+================================================================= */
+.language-redirection {
+    position: relative;
+    a{
+        &.close-module {
+    		@include close-button(#035A8F, #035A8F, 3px);
+    		height: 1.75em;
+    	}
+    	&:hover {
+    	    cursor: pointer;
+    	}
+    }
+}
+
+/* =================================================================
+maintenance page
+================================================================= */
+.maintenance-image, .maintenance-message {
+    text-align: center;
+    padding: 2em 10px 0;
+    img {
+        max-width: 100%;
+    }
+    @include breakpoint($end_small) {
+        display: table-cell;
+        vertical-align: middle;
+    }
+}
+
+// /* =================================================================
+// social share - need to update icon references to match shared resources
+// ================================================================= */
+// .social-share {
+//     ul {
+//         list-style: none;
+//         margin: 0;
+//     }
+//
+//     li:not(.expandable) {
+//         display: inline-block;
+//     }
+//
+//     .expandable ul {
+//         .js & {
+//             display: none;
+//         }
+//     }
+//
+//     a:not(.share-more) {
+//         display: block;
+//         height: 32px;
+//         overflow: hidden;
+//         text-align: left;
+//         text-indent: -9999em;
+//         width: 32px;
+//
+//         &:hover, &:focus {
+//             box-shadow: 1px 1px 2px 0 rgba(0,0,0,.5);
+//         }
+//     }
+//
+//     #social-share-fields {
+//         p {
+//             label {
+//                 display: block;
+//             }
+//         }
+//     }
+// }
+//
+// .social-sprite, .social-share a.apnacircle:not(.share-more), .social-share a.email:not(.share-more), .social-share a.facebook:not(.share-more), .social-share a.googleplus:not(.share-more), .social-share a.linkedin:not(.share-more), .social-share a.pinterest:not(.share-more), .social-share a.tumblr:not(.share-more), .social-share a.twitter:not(.share-more), .social-share a.viadeo:not(.share-more), .social-share a.xing:not(.share-more), .social-share a.youtube:not(.share-more) {
+//     background: url("../../shared/img/social.png") no-repeat
+// }
+//
+// .social-share a:not(.share-more).apnacircle {
+//     background-position: 0 0
+// }
+//
+// .social-share a:not(.share-more).email {
+//     background-position: -32px 0
+// }
+//
+// .social-share a:not(.share-more).facebook {
+//     background-position: -64px 0
+// }
+//
+// .social-share a:not(.share-more).googleplus {
+//     background-position: -96px 0
+// }
+//
+// .social-share a:not(.share-more).linkedin {
+//     background-position: -128px 0
+// }
+//
+// .social-share a:not(.share-more).pinterest {
+//     background-position: -160px 0
+// }
+//
+// .social-share a:not(.share-more).tumblr {
+//     background-position: -192px 0
+// }
+//
+// .social-share a:not(.share-more).twitter {
+//     background-position: -224px 0
+// }
+//
+// .social-share a:not(.share-more).viadeo {
+//     background-position: -256px 0
+// }
+//
+// .social-share a:not(.share-more).xing {
+//     background-position: -288px 0
+// }
+//
+// .social-share a:not(.share-more).youtube {
+//     background-position: -320px 0
+// }
+//
+// .social-share a.renren:not(.share-more) {
+//     background: url("../../shared/img/social/renren.png") no-repeat
+// }
+//
+// .social-share a.weibo:not(.share-more) {
+//     background: url("../../shared/img/social/weibo.png") no-repeat
+// }
+//
+// /* =================================================================
+// social media - need to update icon references to match media resources
+// ================================================================= */
+// .social-media {
+//     ul {
+//         list-style: none;
+//         margin: 0;
+//     }
+//
+//     li {
+//         display: inline-block;
+//     }
+//
+//     a {
+//         display: block;
+//         height: 32px;
+//         overflow: hidden;
+//         text-align: left;
+//         text-indent: -9999em;
+//         width: 32px;
+//
+//         &:hover, &:focus {
+//             box-shadow: 1px 1px 2px 0 rgba(0,0,0,.5);
+//         }
+//     }
+// }
+//
+// .social-media-sprite, .social-media-facebook, .social-media-glassdoor, .social-media-googleplus, .social-media-instagram, .social-media-linkedin, .social-media-pinterest, .social-media-rss, .social-media-tumblr, .social-media-twitter, .social-media-viadeo, .social-media-xing, .social-media-youtube {
+//     background-image: url("../../../img/core/social-media.png");
+//     background-repeat: no-repeat
+// }
+//
+// .social-media-facebook {
+//     background-position: 0 0
+// }
+//
+// .social-media-glassdoor {
+//     background-position: 0 -32px
+// }
+//
+// .social-media-googleplus {
+//     background-position: 0 -64px
+// }
+//
+// .social-media-instagram {
+//     background-position: 0 -96px
+// }
+//
+// .social-media-linkedin {
+//     background-position: 0 -128px
+// }
+//
+// .social-media-pinterest {
+//     background-position: 0 -160px
+// }
+//
+// .social-media-rss {
+//     background-position: 0 -192px
+// }
+//
+// .social-media-tumblr {
+//     background-position: 0 -224px
+// }
+//
+// .social-media-twitter {
+//     background-position: 0 -256px
+// }
+//
+// .social-media-viadeo {
+//     background-position: 0 -288px
+// }
+//
+// .social-media-xing {
+//     background-position: 0 -320px
+// }
+//
+// .social-media-youtube {
+//     background-position: 0 -352px;
+// }
+
+
+
+
+/// Social Override
+
+
+
+
+//
+// Social Icon Mixins
+//
+
+@mixin icon-bg-linkedin($icon-color:#fff, $icon-bg:#0077B5) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cg%3E %3Cg class='icon-background' fill='#{$icon-bg}'%3E %3Cpath d='M38.99 32.337v-.105c-.021.035-.051.071-.069.105h.069z'/%3E %3Cpath d='M0 0v72h72V0H0zm22.395 59.816H11.712V27.677h10.682v32.139zm-5.341-36.525h-.071c-3.583 0-5.906-2.469-5.906-5.554 0-3.154 2.391-5.553 6.047-5.553 3.657 0 5.904 2.399 5.974 5.553-.001 3.085-2.318 5.554-6.044 5.554zm43.87 36.525H50.238V42.621c0-4.318-1.545-7.266-5.411-7.266-2.954 0-4.709 1.985-5.482 3.908-.28.687-.354 1.642-.354 2.604v17.949H28.304s.143-29.124 0-32.139H38.99v4.554c1.42-2.185 3.954-5.309 9.631-5.309 7.031 0 12.303 4.592 12.303 14.463v18.431z'/%3E %3C/g%3E %3Cpath class='icon-color' d='M11.712 27.677h10.682v32.139H11.712zM38.99 59.816V41.867c0-.963.074-1.918.354-2.604.773-1.923 2.528-3.908 5.482-3.908 3.866 0 5.411 2.948 5.411 7.266v17.195h10.686v-18.43c0-9.871-5.271-14.463-12.303-14.463-5.677 0-8.211 3.124-9.631 5.309v.105h-.069c.019-.035.049-.07.069-.105v-4.554H28.304c.143 3.015 0 32.139 0 32.139H38.99zM16.983 23.291h.071c3.727 0 6.043-2.469 6.043-5.554-.07-3.154-2.317-5.553-5.974-5.553-3.656 0-6.047 2.399-6.047 5.553.001 3.085 2.323 5.554 5.907 5.554z' fill='#{$icon-color}'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+@mixin icon-bg-twitter($icon-color:#fff, $icon-bg:#1DA1F2) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cg%3E %3Cpath class='icon-background' d='M0 0v72h72V0H0zm55.82 25.834c.019.439.029.88.029 1.323 0 13.514-10.287 29.096-29.097 29.096-5.775 0-11.151-1.692-15.676-4.594.8.094 1.614.143 2.44.143 4.791 0 9.2-1.635 12.7-4.378-4.475-.082-8.252-3.038-9.553-7.103.625.12 1.266.185 1.924.185.933 0 1.836-.126 2.694-.358-4.678-.94-8.204-5.073-8.204-10.028 0-.043 0-.086.001-.129 1.378.766 2.955 1.226 4.631 1.279-2.744-1.834-4.549-4.964-4.549-8.512 0-1.875.504-3.631 1.385-5.142 5.044 6.188 12.579 10.259 21.078 10.686-.174-.749-.265-1.529-.265-2.331 0-5.647 4.579-10.226 10.226-10.226 2.942 0 5.6 1.242 7.465 3.229 2.33-.458 4.519-1.31 6.494-2.481-.764 2.388-2.385 4.392-4.496 5.658 2.068-.248 4.039-.797 5.873-1.611-1.368 2.052-3.102 3.853-5.1 5.294z' fill='#{$icon-bg}'/%3E %3Cpath class='icon-color' d='M59.545 16.494c-1.975 1.172-4.164 2.023-6.493 2.481-1.866-1.987-4.522-3.229-7.465-3.229-5.647 0-10.227 4.579-10.227 10.226 0 .802.091 1.582.266 2.331-8.5-.427-16.035-4.498-21.079-10.686-.88 1.511-1.385 3.267-1.385 5.142 0 3.548 1.805 6.678 4.549 8.512-1.676-.053-3.253-.513-4.631-1.279-.001.043-.001.086-.001.129 0 4.955 3.525 9.087 8.204 10.028-.858.232-1.762.358-2.694.358-.659 0-1.3-.064-1.924-.185 1.301 4.064 5.078 7.021 9.553 7.103-3.5 2.743-7.909 4.378-12.7 4.378-.826 0-1.64-.049-2.44-.143 4.525 2.901 9.901 4.594 15.676 4.594 18.811 0 29.097-15.582 29.097-29.096 0-.443-.01-.884-.029-1.323 1.998-1.441 3.732-3.243 5.103-5.293-1.834.813-3.805 1.363-5.874 1.611 2.11-1.267 3.731-3.271 4.494-5.659z' fill='#{$icon-color}'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+@mixin icon-bg-facebook($icon-color:#fff, $icon-bg:#3D5A98) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cg%3E %3Cpath class='icon-background' d='M0 0v72h38.345V44.188h-9.374V32.834h9.374V23.3c0-6.935 5.621-12.557 12.556-12.557H60.7v10.21h-7.012c-2.203 0-3.99 1.786-3.99 3.99v7.892h10.826l-1.496 11.354h-9.33V72H72V0H0z' fill='#{$icon-bg}'/%3E %3Cpath class='icon-color' d='M59.027 44.188l1.496-11.354H49.697v-7.892c0-2.204 1.787-3.99 3.99-3.99h7.012v-10.21H50.9c-6.935 0-12.556 5.622-12.556 12.557v9.535H28.97v11.353h9.374V72h11.353V44.188h9.33z' fill='#{$icon-color}'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+@mixin icon-bg-googleplus($icon-color:#fff, $icon-bg:#DD4B39) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cg%3E %3Cpath class='icon-background' d='M0 0v72h72V0H0zm41.973 39.029c-1.231 8.088-7.261 12.725-15.068 12.725-8.773 0-15.886-7.113-15.886-15.886 0-8.771 7.112-15.884 15.886-15.884 4.244 0 7.963 1.514 10.67 4.143l-4.56 4.559c-1.544-1.555-3.657-2.384-6.11-2.384-5.164 0-9.352 4.403-9.352 9.566 0 5.167 4.188 9.443 9.352 9.443 4.328 0 7.606-2.093 8.552-6.281h-8.552v-6.38h15.029c.181 1.028.272 2.104.272 3.218 0 1.105-.08 2.157-.233 3.161zm19.077-1.978h-5.566v5.564H51.53v-5.564h-5.565v-3.956h5.565v-5.566h3.954v5.566h5.566v3.956z' fill='#{$icon-bg}'/%3E %3Cpath class='icon-color' d='M26.904 26.302c2.453 0 4.566.829 6.11 2.384l4.56-4.559c-2.707-2.629-6.426-4.143-10.67-4.143-8.773 0-15.886 7.113-15.886 15.884 0 8.773 7.112 15.886 15.886 15.886 7.808 0 13.837-4.637 15.068-12.725.153-1.004.233-2.056.233-3.162 0-1.115-.092-2.19-.272-3.218H26.904v6.38h8.552c-.945 4.188-4.224 6.281-8.552 6.281-5.164 0-9.352-4.276-9.352-9.443.001-5.162 4.188-9.565 9.352-9.565zm24.625 1.226v5.567h-5.565v3.956h5.565v5.564h3.954v-5.564h5.567v-3.956h-5.567v-5.567' fill='#{$icon-color}'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+@mixin icon-bg-tumblr($icon-color:#fff, $icon-bg:#35465C) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cg%3E %3Cpath class='icon-background' d='M0 0v72h72V0H0zm49.507 56.221c-1.562 1.668-5.181 2.8-8.422 2.854h-.355c-10.887 0-13.251-8.005-13.251-12.677V33.417h-4.29c-.496 0-.898-.403-.898-.899v-6.13c0-.646.407-1.223 1.017-1.439 5.59-1.969 7.343-6.846 7.602-10.554.07-.991.59-1.471 1.449-1.471h6.393c.496 0 .899.403.899.899v10.382h7.482c.497 0 .899.401.9.896v7.367c0 .497-.403.899-.9.898h-7.517V45.37c0 3.015 1.985 3.847 3.213 3.847 1.177-.028 2.335-.388 2.916-.62.432-.174.811-.288 1.149-.203.315.079.522.303.663.711l1.983 5.793c.161.465.3.967-.033 1.323z' fill='#{$icon-bg}'/%3E %3Cpath class='icon-color' d='M49.507 56.221c-1.562 1.668-5.181 2.8-8.422 2.854h-.355c-10.887 0-13.251-8.005-13.251-12.677V33.417h-4.29c-.496 0-.898-.403-.898-.899v-6.13c0-.646.407-1.223 1.017-1.439 5.59-1.969 7.343-6.846 7.602-10.554.07-.991.59-1.471 1.449-1.471h6.393c.496 0 .899.403.899.899v10.382h7.482c.497 0 .899.401.9.896v7.367c0 .497-.403.899-.9.898h-7.517V45.37c0 3.015 1.985 3.847 3.213 3.847 1.177-.028 2.335-.388 2.916-.62.432-.174.811-.288 1.149-.203.315.079.522.303.663.711l1.983 5.793c.161.465.3.967-.033 1.323z' fill='#{$icon-color}'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+@mixin icon-bg-renren($icon-color:#fff, $icon-bg:#01579B) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cg%3E %3Cpath class='icon-background' d='M0 0v72h72V0H0zm49.696 60.139c-6.67-4.109-10.485-8.975-14.177-15.685-3.689 6.709-7.547 11.575-14.174 15.685-3.146-1.971-5.871-4.613-7.968-7.717 16.944-10.4 17.068-24.072 17.068-41.057 1.679-.335 3.355-.503 5.074-.503 1.68 0 3.356.167 5.033.503 0 16.985.126 30.657 17.068 41.057-2.055 3.103-4.78 5.746-7.924 7.717z' fill='#{$icon-bg}'/%3E %3Cpath class='icon-color' d='M40.553 11.365c-1.677-.335-3.354-.503-5.033-.503-1.719 0-3.396.167-5.074.503 0 16.985-.124 30.657-17.067 41.057 2.097 3.104 4.822 5.746 7.968 7.717 6.627-4.109 10.484-8.976 14.174-15.685 3.691 6.71 7.507 11.575 14.177 15.685 3.144-1.971 5.869-4.613 7.925-7.717-16.944-10.4-17.07-24.072-17.07-41.057z' fill='#{$icon-color}'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+@mixin icon-bg-viadeo($icon-color:#fff, $icon-bg:#F07355) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cpath fill='#{$icon-bg}' class='icon-background' d='M0 0v72h72V0H0zm34.562 7.292c.113-.102.248.125.358.218 1.864 1.582 3.267 3.525 4.403 5.67 1.465 2.762 2.374 5.706 2.851 8.79.086.558.169 1.116.247 1.674.017.117.003.237.003.355-.025.004-.051.009-.075.013-.275-.709-.555-1.417-.825-2.128-1.87-4.916-4.178-9.621-6.813-14.168-.078-.133-.278-.308-.149-.424zm18.092 38.174c-.112 3.784-1.134 7.293-3.145 10.497-2.197 3.501-5.066 6.279-8.865 8.015-1.518.693-3.11 1.145-4.756 1.416-1.439.238-2.89.342-4.344.319-3.621-.058-7.039-.889-10.165-2.776-1.913-1.154-3.541-2.638-4.977-4.34-2.045-2.425-3.525-5.148-4.348-8.221-.667-2.49-.841-5.021-.653-7.585.273-3.728 1.434-7.15 3.546-10.233 2.349-3.428 5.34-6.108 9.219-7.708 1.655-.682 3.383-1.089 5.162-1.3 1.251-.148 2.504-.179 3.758-.121 1.966.091 3.892.431 5.766 1.047.253.083.332.163.2.44-.622 1.302-1.107 2.65-1.324 4.086-.084.554-.11.564-.665.354-1.92-.729-3.919-.97-5.947-.851-3.262.192-6.169 1.337-8.668 3.469-2.821 2.406-4.742 5.365-5.531 9.017-.379 1.76-.473 3.537-.316 5.329.329 3.755 1.779 7.026 4.337 9.779 2.073 2.231 4.645 3.63 7.619 4.295.428.096.813.081 1.224-.103 2.913-1.296 5.135-3.379 6.885-6.003 1.846-2.766 3.037-5.815 3.905-9.007.543-1.998.955-4.023 1.254-6.069.216-1.48.37-2.969.494-4.461.225-2.684.273-5.371.251-8.061-.006-.664-.098-1.326-.024-1.996.371.798.637 1.629.89 2.462.646 2.131 1.123 4.298 1.348 6.519.107 1.063.191 2.125.186 3.192-.023 5.016-1.287 9.696-3.811 14.036-2.158 3.711-4.962 6.84-8.394 9.413-.149.111-.295.229-.489.379.604.082 1.152.02 1.691-.053 1.835-.244 3.596-.744 5.234-1.621 3.315-1.777 5.616-4.459 7.042-7.921 1.008-2.446 1.365-4.994 1.191-7.618-.108-1.641-.429-3.245-1.041-4.782-.173-.436-.166-.438.279-.562 1.392-.386 2.727-.913 3.987-1.62.418-.235.42-.225.591.213 1.099 2.813 1.494 5.731 1.404 8.735zm7.856-19.981c-.959 2.299-2.351 4.329-4.511 5.676-2.479 1.546-5.042 1.522-7.609.167-.851-.45-1.602-1.038-2.311-1.682-.313-.284-.306-.33.049-.536 1.496-.872 2.96-1.793 4.368-2.803 1.855-1.33 3.646-2.734 5.162-4.457.921-1.047 1.746-2.157 2.152-3.52.05-.167.129-.33.101-.538-.14.089-.183.23-.251.344-1.694 2.813-3.866 5.17-6.641 6.948-1.957 1.254-4.079 2.121-6.327 2.695-.251.064-.295-.095-.367-.227-.518-.938-.882-1.932-1.074-2.985-.414-2.274.072-4.336 1.479-6.174.882-1.151 2.067-1.899 3.355-2.509 1.204-.571 2.485-.91 3.755-1.298 2.92-.892 5.007-2.815 6.489-5.44.124-.221.246-.443.4-.72.674 1.007 1.168 2.044 1.597 3.115.674 1.684 1.136 3.425 1.311 5.229.289 2.987.034 5.928-1.127 8.715z'/%3E %3Cg fill-rule='evenodd' clip-rule='evenodd' fill='#{$icon-color}' class='icon-color'%3E %3Cpath d='M42.546 24.696c.371.798.637 1.629.89 2.462.646 2.131 1.123 4.298 1.348 6.519.107 1.063.191 2.125.186 3.192-.023 5.016-1.287 9.696-3.811 14.036-2.158 3.711-4.962 6.84-8.394 9.413-.149.111-.295.229-.489.379.604.082 1.152.02 1.691-.053 1.835-.244 3.596-.744 5.234-1.621 3.315-1.777 5.616-4.459 7.042-7.921 1.008-2.446 1.365-4.994 1.191-7.618-.108-1.641-.429-3.245-1.041-4.782-.173-.436-.166-.438.279-.562 1.392-.386 2.727-.913 3.987-1.62.418-.235.42-.225.591.213 1.098 2.81 1.493 5.728 1.403 8.731-.112 3.784-1.134 7.293-3.145 10.497-2.197 3.501-5.066 6.279-8.865 8.015-1.518.693-3.11 1.145-4.756 1.416-1.439.238-2.89.342-4.344.319-3.621-.058-7.039-.889-10.165-2.776-1.913-1.154-3.541-2.638-4.977-4.34-2.045-2.425-3.525-5.148-4.348-8.221-.667-2.49-.841-5.021-.653-7.585.273-3.728 1.434-7.15 3.546-10.233 2.349-3.428 5.34-6.108 9.219-7.708 1.655-.682 3.383-1.089 5.162-1.3 1.251-.148 2.504-.179 3.758-.121 1.966.091 3.892.431 5.766 1.047.253.083.332.163.2.44-.622 1.302-1.107 2.65-1.324 4.086-.084.554-.11.564-.665.354-1.92-.729-3.919-.97-5.947-.851-3.262.192-6.169 1.337-8.668 3.469-2.821 2.406-4.742 5.365-5.531 9.017-.379 1.76-.473 3.537-.316 5.329.329 3.755 1.779 7.026 4.337 9.779 2.073 2.231 4.645 3.63 7.619 4.295.428.096.813.081 1.224-.103 2.913-1.296 5.135-3.379 6.885-6.003 1.846-2.766 3.037-5.815 3.905-9.007.543-1.998.955-4.023 1.254-6.069.216-1.48.37-2.969.494-4.461.225-2.684.273-5.371.251-8.061-.005-.66-.096-1.322-.023-1.992z'/%3E %3Cpath d='M58.729 8.426c.674 1.007 1.168 2.044 1.597 3.115.674 1.684 1.136 3.425 1.311 5.229.289 2.987.034 5.928-1.127 8.715-.959 2.299-2.351 4.329-4.511 5.676-2.479 1.546-5.042 1.522-7.609.167-.851-.45-1.602-1.038-2.311-1.682-.313-.284-.306-.33.049-.536 1.496-.872 2.96-1.793 4.368-2.803 1.855-1.33 3.646-2.734 5.162-4.457.921-1.047 1.746-2.157 2.152-3.52.05-.167.129-.33.101-.538-.14.089-.183.23-.251.344-1.694 2.813-3.866 5.17-6.641 6.948-1.957 1.254-4.079 2.121-6.327 2.695-.251.064-.295-.095-.367-.227-.518-.938-.882-1.932-1.074-2.985-.414-2.274.072-4.336 1.479-6.174.882-1.151 2.067-1.899 3.355-2.509 1.204-.571 2.485-.91 3.755-1.298 2.92-.892 5.007-2.815 6.489-5.44.124-.221.246-.443.4-.72zM42.349 24.012c-.275-.709-.555-1.417-.825-2.128-1.87-4.916-4.178-9.621-6.813-14.168-.077-.132-.277-.307-.148-.423.112-.103.247.124.357.217 1.864 1.582 3.267 3.525 4.403 5.67 1.465 2.762 2.374 5.706 2.851 8.79.086.558.169 1.116.247 1.674.017.117.003.237.003.355-.026.004-.051.009-.075.013z'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+@mixin icon-bg-xing($icon-color:#fff, $icon-bg:#00605E) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cg%3E %3Cpath class='icon-background' d='M0 0v72h72V0H0zm11.783 46.058l8.741-14.43L14.1 19.622h11.48l6.426 12.006-8.742 14.43H11.783zm42.309 15.484h-12.08L30.32 41.74l17.8-31.282h12.097L42.416 41.74l11.676 19.802z' fill='#{$icon-bg}'/%3E %3Cpath class='icon-color' d='M25.58 19.622H14.101l6.423 12.006-8.741 14.43h11.481l8.742-14.43m16.114-21.17h12.097L42.416 41.74l11.676 19.802h-12.08L30.32 41.74' fill='#{$icon-color}'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+@mixin icon-bg-youtube($icon-color:#fff, $icon-bg:#CD201F) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cg%3E %3Cg class='icon-background' fill='#{$icon-bg}'%3E %3Cpath d='M43.869 35.846L30.47 29.055c-.358-.181-.781.079-.781.479v13.18c0 .396.413.656.769.486l13.399-6.391c.403-.19.411-.762.012-.963z'/%3E %3Cpath d='M0 0v72h72V0H0zm60.916 43.273c0 5.621-4.556 10.178-10.176 10.178H22.093c-5.621 0-10.177-4.557-10.177-10.178v-14.32c0-5.621 4.556-10.177 10.177-10.177H50.74c5.62 0 10.176 4.556 10.176 10.177v14.32z'/%3E %3C/g%3E %3Cpath class='icon-color' d='M22.093 53.451H50.74c5.62 0 10.176-4.557 10.176-10.178v-14.32c0-5.621-4.556-10.177-10.176-10.177H22.093c-5.621 0-10.177 4.556-10.177 10.177v14.32c.001 5.622 4.557 10.178 10.177 10.178zm7.596-23.916c0-.401.423-.661.781-.479l13.399 6.791c.398.202.391.773-.012.965l-13.399 6.391c-.356.17-.769-.09-.769-.486V29.535z' fill='#{$icon-color}'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+@mixin icon-bg-instagram($icon-color:#fff, $icon-bg:#E1306C) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cg fill='#{$icon-bg}' class='icon-background'%3E %3Cpath d='M36.083 28.944c-4.459-.05-8.112 3.567-8.222 7.944-.115 4.554 3.432 8.444 8.189 8.442 4.667-.001 8.079-3.676 8.202-7.897.144-4.913-3.796-8.529-8.169-8.489z'/%3E %3Cpath d='M56.145 27.846c-.059-1.312-.14-2.623-.456-3.903-.641-2.607-2.086-4.587-4.54-5.775-1.502-.727-3.111-1.001-4.75-1.083-2.326-.118-4.656-.17-6.987-.162-3.546.012-7.092-.037-10.638.065-1.8.051-3.607.022-5.381.39-3.542.733-5.906 2.763-6.893 6.302-.528 1.891-.524 3.837-.583 5.771-.11 3.571-.078 7.144-.041 10.715.032 2.991-.069 5.988.331 8.967.213 1.579.69 3.07 1.64 4.371 1.584 2.173 3.83 3.162 6.417 3.508 1.704.228 3.421.268 5.135.281 4.737.038 9.474.061 14.211-.013 1.576-.025 3.153-.083 4.712-.346 1.519-.254 2.947-.737 4.203-1.666 2.26-1.671 3.16-4.041 3.468-6.718.129-1.107.126-2.223.174-3.336.116-2.744.042-5.488.077-7.501-.045-3.777.037-6.823-.099-9.867zm-19.77 21.953c-6.885.186-13.186-5.346-12.985-13.14.17-6.591 5.617-12.188 12.662-12.209 7.014-.021 12.665 5.671 12.68 12.738-.051 6.982-5.67 12.43-12.357 12.611zm12.903-22.873c-1.733.001-3.033-1.293-3.038-3.022-.005-1.567 1.365-2.913 2.969-2.917 1.657-.004 2.972 1.33 2.973 3.021.002 1.588-1.322 2.917-2.904 2.918z'/%3E %3Cpath d='M0-.021v72h72v-72H0zm60.644 45.594c-.065 2.011-.142 4.021-.659 5.986-.976 3.697-3.07 6.527-6.458 8.344-1.6.856-3.331 1.314-5.129 1.553-2.179.287-4.37.292-6.56.317-2.858.033-5.715.048-8.573.022-2.467-.021-4.936-.008-7.401-.136-2.579-.132-5.097-.562-7.391-1.82-3.409-1.87-5.478-4.771-6.403-8.52-.398-1.611-.532-3.259-.584-4.906-.168-5.313-.097-10.627-.069-15.941.007-1.588.062-3.182.208-4.766.263-2.83 1.021-5.495 2.774-7.793 1.973-2.587 4.594-4.141 7.756-4.827 1.831-.396 3.687-.478 5.552-.532 5.012-.145 10.024-.05 15.036-.057 1.865-.002 3.733.057 5.584.298 3.938.513 7.267 2.125 9.629 5.436 1.26 1.762 1.974 3.745 2.32 5.864.45 2.754.384 5.541.436 8.319.028 1.516.005 3.032.005 4.549.03 2.871.022 5.741-.073 8.61z'/%3E %3C/g%3E %3Cg fill='#{$icon-color}' class='icon-color'%3E %3Cpath d='M60.716 36.964c.031 2.87.023 5.74-.072 8.609-.065 2.011-.142 4.021-.659 5.986-.976 3.697-3.07 6.527-6.458 8.344-1.6.856-3.331 1.314-5.129 1.553-2.179.287-4.37.292-6.56.317-2.858.033-5.715.048-8.573.022-2.467-.021-4.936-.008-7.401-.136-2.579-.132-5.097-.562-7.391-1.82-3.409-1.87-5.478-4.771-6.403-8.52-.398-1.611-.532-3.259-.584-4.906-.168-5.313-.097-10.627-.069-15.941.007-1.588.062-3.182.208-4.766.263-2.83 1.021-5.495 2.774-7.793 1.973-2.587 4.594-4.141 7.756-4.827 1.831-.396 3.687-.478 5.552-.532 5.012-.145 10.024-.05 15.036-.057 1.865-.002 3.733.057 5.584.298 3.938.513 7.267 2.125 9.629 5.436 1.26 1.762 1.974 3.745 2.32 5.864.45 2.754.384 5.541.436 8.319.027 1.517.004 3.033.004 4.55zm-4.472.749c-.045-3.777.037-6.823-.1-9.867-.059-1.312-.14-2.623-.456-3.903-.641-2.607-2.086-4.587-4.54-5.775-1.502-.727-3.111-1.001-4.75-1.083-2.326-.118-4.656-.17-6.987-.162-3.546.012-7.092-.037-10.638.065-1.8.051-3.607.022-5.381.39-3.542.733-5.906 2.763-6.893 6.302-.528 1.891-.524 3.837-.583 5.771-.11 3.571-.078 7.144-.041 10.715.032 2.991-.069 5.988.331 8.967.213 1.579.69 3.07 1.64 4.371 1.584 2.173 3.83 3.162 6.417 3.508 1.704.228 3.421.268 5.135.281 4.737.038 9.474.061 14.211-.013 1.576-.025 3.153-.083 4.712-.346 1.519-.254 2.947-.737 4.203-1.666 2.26-1.671 3.16-4.041 3.468-6.718.129-1.107.126-2.223.174-3.336.117-2.744.043-5.488.078-7.501z'/%3E %3Cpath d='M48.731 37.188c-.051 6.981-5.67 12.43-12.357 12.61-6.885.186-13.186-5.346-12.985-13.14.17-6.591 5.617-12.188 12.662-12.209 7.014-.02 12.666 5.672 12.68 12.739zm-12.648-8.244c-4.459-.05-8.112 3.567-8.222 7.944-.115 4.554 3.432 8.444 8.189 8.442 4.667-.001 8.079-3.676 8.202-7.897.144-4.913-3.796-8.529-8.169-8.489zM52.182 24.008c.002 1.588-1.321 2.917-2.903 2.918-1.733.001-3.033-1.293-3.038-3.022-.005-1.567 1.365-2.913 2.969-2.917 1.656-.004 2.971 1.33 2.972 3.021z'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+@mixin icon-bg-pinterest($icon-color:#fff, $icon-bg:#BD081C) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 71.873'%3E  %3Cg%3E %3Cpath class='icon-background' d='M0 0v71.874h72V0H0zm51.946 47.381c-3.082 3.979-7.463 6.17-12.332 6.17-2.584 0-5.238-1.072-6.887-2.661-.541 2.131-1.422 5.598-1.674 6.516-.311 1.127-3.364 11.104-6.779 10.186-3.04-.816-1.204-11.061-.898-12.357.527-2.222 3.307-14.004 3.775-15.985-.284-.678-.911-2.444-.911-4.805 0-4.814 2.908-8.585 6.621-8.585 2.922 0 4.885 2.146 4.885 5.339 0 1.867-.723 4.207-1.486 6.685-.42 1.356-.854 2.76-1.172 4.104-.281 1.19-.051 2.334.649 3.218.74.936 1.913 1.473 3.22 1.473 3.021 0 4.988-2.323 6.107-4.273 1.609-2.806 2.496-6.618 2.496-10.734 0-6.522-4.428-10.574-11.557-10.574-8.985 0-13.833 6.919-13.833 13.43 0 2.193.561 3.875 1.764 5.299.661.779.905 1.317.603 2.435-.142.566-.467 1.87-.607 2.399-.241.922-.937 1.496-1.815 1.496-.275 0-.557-.058-.835-.172-4.162-1.696-6.647-6.257-6.647-12.198 0-4.732 2.039-9.509 5.595-13.106 2.885-2.92 8.107-6.4 16.598-6.4 5.559 0 10.643 1.942 14.316 5.47 3.457 3.32 5.441 7.872 5.441 12.491 0 5.901-1.646 11.279-4.637 15.139z' fill='#{$icon-bg}'/%3E %3Cpath class='icon-color' d='M51.142 19.746c-3.674-3.527-8.758-5.47-14.316-5.47-8.49 0-13.712 3.48-16.598 6.4-3.556 3.597-5.595 8.375-5.595 13.106 0 5.941 2.485 10.502 6.647 12.198.279.114.56.172.835.172.878 0 1.574-.574 1.815-1.496.141-.529.466-1.833.607-2.399.303-1.117.059-1.655-.603-2.435-1.204-1.424-1.764-3.106-1.764-5.299 0-6.51 4.848-13.43 13.833-13.43 7.129 0 11.557 4.052 11.557 10.574 0 4.116-.887 7.928-2.496 10.734-1.119 1.95-3.086 4.273-6.107 4.273-1.307 0-2.479-.537-3.22-1.473-.7-.884-.931-2.027-.649-3.218.318-1.344.752-2.747 1.172-4.104.764-2.478 1.486-4.817 1.486-6.685 0-3.193-1.963-5.339-4.885-5.339-3.713 0-6.621 3.771-6.621 8.585 0 2.36.627 4.127.911 4.805-.468 1.981-3.248 13.764-3.775 15.985-.305 1.297-2.141 11.541.898 12.357 3.416.918 6.469-9.059 6.779-10.186.252-.918 1.133-4.385 1.674-6.516 1.648 1.589 4.303 2.661 6.887 2.661 4.869 0 9.25-2.19 12.332-6.17 2.99-3.859 4.637-9.238 4.637-15.144 0-4.614-1.984-9.166-5.441-12.486z' fill='#{$icon-color}'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+@mixin icon-bg-glassdoor($icon-color:#fff, $icon-bg:#0CAA41) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cpath class='icon-background' fill='#{$icon-bg}' d='M0 0v72h72V0H0zm20.471 20.371c0-3.449 2.799-6.248 6.249-6.248h18.731c3.45 0 6.249 2.799 6.249 6.248H26.72v25.645c0 .128-.1.227-.227.227h-5.796c-.127 0-.226-.099-.226-.227V20.371zm31.242 31.215c0 3.449-2.799 6.249-6.249 6.249H26.733c-3.45 0-6.249-2.8-6.249-6.249h24.98V25.941c0-.127.1-.226.227-.226h5.796c.127 0 .226.099.226.226v25.645z'/%3E %3Cpath class='icon-color' fill='#{$icon-color}' d='M45.451 14.123c3.45 0 6.249 2.799 6.249 6.248H26.72v25.645c0 .128-.1.227-.227.227h-5.796c-.127 0-.226-.099-.226-.227V20.371c0-3.449 2.799-6.248 6.249-6.248h18.731zm0 37.463H20.485c0 3.449 2.799 6.249 6.249 6.249h18.731c3.45 0 6.249-2.8 6.249-6.249V25.941c0-.127-.099-.226-.226-.226h-5.796c-.127 0-.227.099-.227.226v25.645h-.014z'/%3E %3C/svg%3E");
+}
+
+@mixin icon-bg-rss($icon-color:#fff, $icon-bg:#F26522) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cg%3E %3Cpath class='icon-background' d='M0 0v72h72V0H0zm18 60c-3.313 0-6-2.687-6-6s2.687-6 6-6 6 2.687 6 6-2.687 6-6 6zm16.242 0C34.23 47.722 24.278 37.77 12 37.758v-9C29.247 28.775 43.225 42.753 43.242 60h-9zM51 60c-.023-21.527-17.473-38.977-39-39v-9c26.496.029 47.971 21.504 48 48h-9z' fill='#{$icon-bg}'/%3E %3Cg class='icon-color' fill='#{$icon-color}'%3E %3Cpath d='M12 37.758C24.278 37.77 34.23 47.722 34.242 60h9C43.225 42.753 29.247 28.775 12 28.758v9z'/%3E %3Ccircle cx='18' cy='54' r='6'/%3E %3Cpath d='M51 60h9c-.029-26.496-21.504-47.971-48-48v9c21.527.023 38.977 17.473 39 39z'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E");
+}
+
+@mixin icon-bg-weibo($icon-color:#fff, $icon-bg:#E6162D) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cg%3E %3Cg class='icon-background' fill='#{$icon-bg}'%3E %3Cpath d='M43.608 37.022c-1.455-1.346-3.351-2.337-5.688-2.973-2.335-.637-4.832-.828-7.486-.573-4.054.418-7.414 1.704-10.078 3.859-2.663 2.155-3.868 4.559-3.613 7.214.164 1.745.973 3.292 2.428 4.638 1.454 1.345 3.35 2.336 5.687 2.973 2.336.637 4.832.827 7.486.573 4.054-.419 7.414-1.705 10.078-3.86s3.867-4.56 3.613-7.215c-.164-1.744-.972-3.291-2.427-4.636zm-6.082 9.001c-.819 1.854-2.254 3.217-4.31 4.09-2.054.874-4.091.982-6.108.328-1.946-.619-3.287-1.769-4.023-3.45s-.677-3.388.178-5.113c.854-1.692 2.232-2.954 4.132-3.792 1.9-.836 3.814-1.008 5.741-.519 2.018.529 3.458 1.614 4.322 3.26.864 1.646.886 3.376.068 5.196z'/%3E %3Cpath d='M32.398 41.877c-.255-.091-.514-.087-.777.014-.264.1-.459.268-.586.505-.31.563-.191.973.354 1.228.254.09.519.086.791-.015.272-.1.473-.268.601-.504.145-.236.177-.478.095-.723-.082-.246-.242-.414-.478-.505zm-3.109 1.282c-.618-.254-1.282-.263-1.991-.026s-1.255.653-1.636 1.254c-.4.618-.518 1.241-.354 1.868.164.627.555 1.086 1.172 1.377.618.291 1.296.314 2.032.068.737-.245 1.305-.678 1.705-1.296.382-.618.482-1.245.3-1.881-.182-.636-.592-1.091-1.228-1.364z'/%3E %3Cpath d='M0 0v72h72V0H0zm53.426 45.572c-.673 1.301-1.664 2.546-2.973 3.737s-2.841 2.26-4.596 3.204c-1.754.946-3.809 1.7-6.164 2.264-2.354.564-4.813.846-7.377.846s-5.064-.305-7.5-.913c-2.437-.609-4.623-1.456-6.559-2.538-1.937-1.08-3.496-2.453-4.678-4.118-1.182-1.663-1.772-3.477-1.772-5.44 0-2.092.632-4.318 1.895-6.682 1.264-2.365 3.06-4.71 5.387-7.038 3.073-3.072 6.177-5.217 9.313-6.436 3.137-1.22 5.377-1.155 6.723.19 1.182 1.164 1.364 3.063.545 5.7-.072.254-.082.436-.027.545.055.11.146.173.273.191s.259.015.396-.014c.137-.027.259-.059.367-.096l.165-.055c2.527-1.073 4.762-1.609 6.709-1.609 1.945 0 3.336.556 4.173 1.664.817 1.146.817 2.764 0 4.855-.036.235-.077.418-.122.545-.047.127-.006.241.122.341.127.101.236.168.327.204.092.037.246.092.464.163 1.036.329 1.974.756 2.81 1.283.837.527 1.564 1.268 2.182 2.224.619.955.928 2.015.928 3.177-.001 1.238-.337 2.506-1.011 3.806zm-3.408-18.669c-.801-.872-1.772-1.19-2.918-.954-.438.09-.846.018-1.229-.218-.381-.237-.607-.573-.681-1.01-.091-.437-.019-.842.217-1.214.237-.372.573-.604 1.011-.695 1.09-.236 2.172-.186 3.244.149 1.073.337 1.992.934 2.756 1.787.764.854 1.258 1.842 1.485 2.959.228 1.118.169 2.188-.177 3.206-.146.417-.414.726-.805.926s-.795.236-1.213.108c-.419-.145-.728-.412-.928-.803-.2-.392-.238-.797-.109-1.214.364-1.144.147-2.154-.653-3.027zm10.037 6.055c-.164.491-.473.854-.928 1.092-.455.236-.928.272-1.418.109-.492-.164-.855-.473-1.091-.928-.237-.455-.282-.928-.137-1.418.509-1.491.6-3.055.272-4.691s-1.055-3.073-2.182-4.31c-1.129-1.255-2.474-2.123-4.037-2.604-1.564-.482-3.137-.559-4.719-.232-.51.109-.982.023-1.418-.259-.438-.282-.709-.677-.818-1.187-.109-.509-.023-.977.259-1.405.282-.428.677-.694 1.187-.804 2.237-.474 4.455-.368 6.654.313 2.201.683 4.092 1.905 5.674 3.669 1.582 1.745 2.605 3.769 3.069 6.068.464 2.302.342 4.496-.367 6.587z'/%3E %3C/g%3E %3Cg class='icon-color' fill='#{$icon-color}'%3E %3Cpath d='M51.326 36.367c-.836-.527-1.773-.954-2.81-1.283-.218-.071-.372-.126-.464-.163-.091-.036-.2-.104-.327-.204-.128-.1-.169-.214-.122-.341.045-.127.086-.31.122-.545.817-2.092.817-3.71 0-4.855-.837-1.108-2.228-1.664-4.173-1.664-1.947 0-4.183.536-6.709 1.609l-.165.055c-.108.037-.23.068-.367.096-.136.028-.269.032-.396.014s-.218-.081-.273-.191c-.054-.109-.045-.291.027-.545.819-2.637.637-4.536-.545-5.7-1.346-1.346-3.586-1.41-6.723-.19-3.136 1.219-6.24 3.363-9.313 6.436-2.328 2.328-4.123 4.673-5.387 7.038-1.263 2.363-1.895 4.59-1.895 6.682 0 1.964.591 3.777 1.772 5.44 1.182 1.665 2.741 3.038 4.678 4.118 1.936 1.082 4.123 1.929 6.559 2.538 2.437.608 4.937.913 7.5.913s5.023-.281 7.377-.846c2.355-.563 4.41-1.317 6.164-2.264 1.755-.944 3.287-2.013 4.596-3.204s2.3-2.437 2.973-3.737c.674-1.3 1.01-2.568 1.01-3.805 0-1.162-.309-2.222-.928-3.177-.616-.957-1.344-1.697-2.181-2.225zm-8.904 12.506c-2.664 2.155-6.023 3.441-10.078 3.86-2.655.254-5.15.063-7.486-.573-2.337-.637-4.233-1.628-5.687-2.973-1.455-1.346-2.264-2.893-2.428-4.638-.255-2.655.95-5.059 3.613-7.214 2.664-2.155 6.023-3.441 10.078-3.859 2.655-.255 5.151-.063 7.486.573 2.337.636 4.232 1.627 5.688 2.973 1.454 1.345 2.263 2.892 2.427 4.636.254 2.655-.949 5.06-3.613 7.215z'/%3E %3Cpath d='M33.135 37.567c-1.927-.489-3.841-.317-5.741.519-1.9.838-3.277 2.1-4.132 3.792-.855 1.726-.914 3.432-.178 5.113s2.077 2.831 4.023 3.45c2.018.654 4.055.546 6.108-.328 2.056-.873 3.491-2.236 4.31-4.09.817-1.82.796-3.551-.069-5.196-.862-1.645-2.303-2.73-4.321-3.26zm-2.919 8.837c-.4.618-.968 1.051-1.705 1.296-.736.246-1.414.223-2.032-.068-.618-.291-1.008-.75-1.172-1.377-.164-.627-.046-1.25.354-1.868.381-.601.927-1.018 1.636-1.254s1.373-.228 1.991.026c.636.272 1.046.728 1.228 1.364.182.636.082 1.263-.3 1.881zm2.565-3.3c-.127.236-.328.404-.601.504-.272.101-.537.104-.791.015-.545-.255-.664-.664-.354-1.228.127-.237.322-.405.586-.505.263-.101.522-.104.777-.014.236.091.396.259.478.505.082.246.05.487-.095.723zm18-11.958c.2.391.509.658.928.803.418.128.822.092 1.213-.108s.659-.509.805-.926c.346-1.019.404-2.088.177-3.206-.228-1.117-.722-2.104-1.485-2.959-.764-.854-1.683-1.45-2.756-1.787-1.072-.335-2.154-.386-3.244-.149-.438.091-.773.323-1.011.695-.235.372-.308.777-.217 1.214.073.437.3.772.681 1.01.383.235.791.308 1.229.218 1.146-.236 2.117.082 2.918.954.801.873 1.018 1.883.654 3.028-.13.416-.092.821.108 1.213z'/%3E %3Cpath d='M60.423 26.372c-.464-2.3-1.487-4.323-3.069-6.068-1.582-1.764-3.473-2.986-5.674-3.669-2.199-.682-4.417-.787-6.654-.313-.51.109-.904.376-1.187.804-.282.429-.368.896-.259 1.405.109.51.381.904.818 1.187.436.282.908.368 1.418.259 1.582-.326 3.154-.25 4.719.232 1.563.481 2.908 1.35 4.037 2.604 1.127 1.236 1.854 2.673 2.182 4.31s.236 3.2-.272 4.691c-.146.49-.101.963.137 1.418.235.455.599.764 1.091.928.49.163.963.127 1.418-.109.455-.237.764-.601.928-1.092.708-2.092.83-4.286.367-6.587z'/%3E %3C/g%3E %3C/g%3E %3C/svg%3E");
+}
+
+@mixin icon-bg-email($icon-color:#fff, $icon-bg:#6D6E70) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cg%3E %3Cg class='icon-background' fill='#{$icon-bg}'%3E %3Cpath d='M13.955 21.458v27.306l13.654-13.652m9.17 7.613c-.431.43-1.127.43-1.559 0l-6.053-6.054-14.761 14.761h43.188L42.832 36.671l-6.053 6.054z'/%3E %3Cpath d='M55.817 20.568H16.183L36 40.385m22.045 8.379V21.458L44.391 35.112'/%3E %3Cpath d='M0 0v72h72V0H0zm60.25 52.535c0 .609-.494 1.102-1.102 1.102H12.852c-.61 0-1.102-.492-1.102-1.102V19.466c0-.61.492-1.102 1.102-1.102h46.296c.607 0 1.102.492 1.102 1.102v33.069z'/%3E %3C/g%3E %3Cpath class='icon-color' d='M12.852 53.637h46.296c.607 0 1.102-.492 1.102-1.102V19.466c0-.61-.494-1.102-1.102-1.102H12.852c-.61 0-1.102.492-1.102 1.102v33.069c0 .61.492 1.102 1.102 1.102zm1.554-2.205l14.761-14.761 6.053 6.054c.431.43 1.127.43 1.559 0l6.053-6.054 14.762 14.761H14.406zm43.639-2.668L44.391 35.112l13.654-13.655v27.307zm-2.228-28.196L36 40.385 16.183 20.568h39.634zm-41.862.89l13.654 13.655-13.654 13.651V21.458z' fill='#{$icon-color}'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+@mixin icon-bg-share-more($icon-color:#fff, $icon-bg:#A6A8AB) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cg%3E %3Cpath class='icon-background' d='M0 0v72h72V0H0zm47.131 57.501c-4.617 0-8.359-3.742-8.359-8.361.014-.327.047-.653.098-.98l-10.008-6.005c-3.2 2.939-8.118 2.939-11.317 0-3.399-3.125-3.623-8.411-.497-11.813 3.124-3.4 8.413-3.621 11.814-.5l10.008-6.004c-.051-.322-.084-.649-.098-.976-.016-2.436 1.039-4.75 2.883-6.341 3.477-3.003 8.729-2.618 11.734.86 3 3.479 2.615 8.732-.863 11.734-3.477 3.003-8.73 2.615-11.732-.86l-9.474 5.684c.381 1.348.381 2.772 0 4.119l9.474 5.688c1.572-1.876 3.891-2.963 6.338-2.968 4.619 0 8.361 3.742 8.361 8.361s-3.743 8.362-8.362 8.362z' fill='#{$icon-bg}'/%3E %3Cpath class='icon-color' d='M47.131 40.778c-2.447.005-4.766 1.092-6.338 2.968l-9.474-5.688c.381-1.347.381-2.771 0-4.119l9.474-5.684c3.002 3.476 8.256 3.863 11.732.86 3.479-3.002 3.863-8.256.863-11.734-3.006-3.479-8.258-3.863-11.734-.86-1.844 1.591-2.898 3.905-2.883 6.341.014.326.047.653.098.976l-10.008 6.004c-3.401-3.121-8.69-2.9-11.814.5-3.126 3.401-2.902 8.688.497 11.813 3.199 2.939 8.117 2.939 11.317 0l10.008 6.005c-.051.327-.084.653-.098.98 0 4.619 3.742 8.361 8.359 8.361 4.619 0 8.361-3.742 8.361-8.361s-3.741-8.362-8.36-8.362z' fill='#{$icon-color}'/%3E %3C/g%3E %3C/svg%3E");
+}
+
+@mixin icon-bg-plus($icon-color:#A6A8AB, $icon-bg:transparent) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cpath class='icon-background' fill='#{$icon-bg}' d='M0 0v72h72V0H0zm60.402 35.999v7.75l-15.856-.033.014 15.978H28.856l.018-15.833-15.86-.011V28.147l15.86-.023-.018-15.817H44.56l-.014 15.817 15.856.023v7.852z'/%3E %3Cpath class='icon-color' fill='#{$icon-color}' d='M39.353 12.306h5.207l-.015 15.818 15.857.023v15.602l-15.857-.033.015 15.978H28.856l.019-15.833-15.861-.011V28.147l15.861-.023-.019-15.818z'/%3E%3C/svg%3E");
+}
+
+@mixin icon-bg-minus($icon-color:#A6A8AB, $icon-bg:transparent) {
+
+	$icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
+	$icon-bg: svg-color-replace("#{$icon-bg}"); //this function changes the color to svg compatible format
+
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E  %3Cpath class='icon-background' fill='#{$icon-bg}' d='M0 0v72h72V0H0zm60.402 35.999v7.75l-15.856-.033.014.041H28.856l.018.104-15.86-.011V28.147l15.86-.023-.726-.04h15.704l.694.04 15.856.023v7.852z'/%3E %3Cpath class='icon-color' fill='#{$icon-color}' d='M38.645 28.083h5.207l.693.041 15.857.023v15.602l-15.857-.033.015.041H28.856l.019.104-15.861-.011V28.147l15.861-.023-.727-.041z'/%3E %3C/svg%3E");
+}
+
+// Function needed to encode the hash when using hex colors
+
+@function svg-color-replace($string, $search: '#', $replace: '%23') {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + svg-color-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+    @return $string;
+}
+
+// End Social Icon Mixins
+
+// Colors for Social Media and Social Share
+// You can use any color format you want here
+// false will allow each icon to use its own brand colors
+$social-share-icon-color: #fff;
+$social-share-icon-background: #cab388; // Replace with colors from mock
+
+$social-media-icon-color: #fff;
+$social-media-icon-background: green; // Replace with colors from mock
+
+// Uncomment this below to see customization of icons color which should be purple border circle
+
+// $social-share-icon-color: rgba(128,0,128,1);
+// $social-share-icon-background: transparent;
+// $social-media-icon-color: rgba(128,0,128,1);
+// $social-media-icon-background: transparent;
+//
+// .social-media a, #social-share a {
+//   border-radius: 36px !important;
+//   background-size: 80% !important;
+//   background-color: transparent !important;
+// 	border: 1px solid rgba(128,0,128,1);
+//   &.social-media-facebook, &.facebook {
+//     background-position: 0px 2px !important;
+//   }
+// 	&.share-more {
+// 			border: none;
+// 	}
+// }
+
+
+
+//
+// Social Share and Social Media Styles
+//
+
+// Share styles
+.social-media, #social-share {
+
+	ul {
+			list-style: none;
+			margin: 0;
+	}
+
+	li {
+			display: inline-block;
+	}
+
+  a {
+    display: block;
+    width: 32px;
+    height: 32px;
+    text-indent: -999em;
+		overflow: hidden;
+		text-align: left;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+	}
+
+} // End shared Social Share and Social Media Styles
+
+// Social media styles
+.social-media {
+  a {
+    &.social-media-linkedin {
+        @include icon-bg-linkedin();
+    }
+    &.social-media-twitter{
+			@include icon-bg-twitter();
+    }
+    &.social-media-facebook {
+			@include icon-bg-facebook();
+	  }
+    &.social-media-googleplus {
+			@include icon-bg-googleplus();
+    }
+    &.social-media-tumblr {
+			@include icon-bg-tumblr();
+    }
+    &.social-media-renren {
+			@include icon-bg-renren();
+    }
+    &.social-media-viadeo {
+			@include icon-bg-viadeo();
+	  }
+    &.social-media-xing {
+			@include icon-bg-xing();
+    }
+    &.social-media-youtube {
+			@include icon-bg-youtube();
+    }
+    &.social-media-instagram {
+			@include icon-bg-instagram();
+    }
+    &.social-media-pinterest {
+			@include icon-bg-pinterest();
+    }
+    &.social-media-glassdoor {
+			@include icon-bg-glassdoor();
+    }
+    &.social-media-rss {
+			@include icon-bg-rss();
+    }
+
+  } // End of anchor tag for social media
+
+} // End Social Media Styles
+
+// Social share styles
+#social-share {
+	 a {
+    &.linkedin {
+        @include icon-bg-linkedin();
+    }
+    &.twitter {
+			@include icon-bg-twitter();
+    }
+    &.facebook {
+			@include icon-bg-facebook();
+	  }
+    &.googleplus {
+			@include icon-bg-googleplus();
+    }
+    &.tumblr {
+			@include icon-bg-tumblr();
+    }
+    &.renren {
+			@include icon-bg-renren();
+    }
+    &.viadeo {
+			@include icon-bg-viadeo();
+	  }
+    &.xing {
+			@include icon-bg-xing();
+    }
+    &.weibo {
+			@include icon-bg-weibo();
+    }
+    &.email {
+			@include icon-bg-email();
+    }
+
+  } // End of anchor tag for social share
+
+	// Functionality for social share
+
+	.share-more-li {
+		display: none;
+	}
+
+	.js & {
+
+		.share-more-li {
+			display: inline-block;
+		}
+
+		a.share-more {
+			@include icon-bg-plus();
+			&:hover, &:focus {
+				@include icon-bg-plus(#fff, rgba(166,168,171,1));
+			}
+    }
+
+		.share-open a.share-more {
+			@include icon-bg-minus();
+			&:hover, &:focus {
+				@include icon-bg-minus(#fff, rgba(166,168,171,1));
+			}
+		}
+
+		.social-share:not(.share-open) {
+			.more-link {
+				display: none;
+			}
+		}
+
+	}  // end .js &
+
+} // End Social Share
+
+// End Social Share and Social Media Styles
+
+
+
+/// styles for skelton
+
+aside { // remove
+	width: 100% !important;
+	> section {
+		width: 50%;
+		float: left;
+
+		h3 {
+			text-align: left !important;
+		}
+	}
+}
+
+.ajd {
+	width: 100% !important;
+}
+
+.ajd_success-profile {
+	h2.remove-this-element {
+		margin: 100px 0 50px 0;
+		text-align: center;
+	}
+}
+
+.ajd-traits:nth-of-type(3) {
+  .ajd-traits__circle::after {
+    background: transparent;
+  }
+}
+
+.banner {
+	display: block;
+	position: relative;
+	&__img-frame {
+		height: 16vw;
+		max-height: 200px;
+		background-size: cover;
+		background-position: center;
+		background-image: url(https://via.placeholder.com/1200x200.png?text=Banner+Image);
+	}
+}
+
+/// end styles for skelton
+
+
+
+//////
+//
+// Advanced Job Details (AJD) Template
+//
+// Documentation and intructions https://github.com/tmpworldwide/AJD-Template
+//
+//////
+
+@import "../../../../../../code/ajd-styles.scss";
+
+// TODO:
+// If compiling on GitHub do not forget to change AJD icons import back to the correct path
+
+// END  Advanced Job Details (AJD) Template
+

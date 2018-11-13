@@ -1,0 +1,113 @@
+@mixin filter($params...) {
+	-webkit-filter: $params;
+	filter: $params;
+}
+
+@mixin breakpoint($break) {
+	@media screen and (min-width:$break) {
+		@content;
+	}
+}
+
+@mixin linear-gradient($fallback, $direction, $colorstops...) {
+	background: linear-gradient($direction, $colorstops...);
+	background-color: $fallback;
+}
+
+/* ==================================================
+keyframes animation builder -> adds -webkit prefix
+================================================== */
+@mixin private-keyframes ($animation_name) {
+	@-webkit-keyframes $animation_name {
+		@content;
+	}
+	@keyframes $animation_name {
+		@content;
+	}
+}
+/* ==================================================
+animation property builder -> adds -webkit prefix
+================================================== */
+@mixin private-animation($params) {
+	animation: $params;
+    -webkit-animation: $params;
+}
+
+@include private-keyframes(fade-in-out) {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@include private-keyframes(loading-background) {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 100% 0;
+	}
+}
+
+@mixin placeholder($color) {
+	&::-webkit-input-placeholder {
+	   color: $color;  
+	}
+	&::-moz-placeholder {
+	   color: $color;  
+	}
+	&:-ms-input-placeholder {
+	   color: $color;  
+	} 
+}
+
+@mixin flex-property($property, $value) {
+	-ms-#{$property}: $value;
+	-webkit-#{$property}: $value;
+	#{$property}: $value;
+}
+
+
+/* ==================================================
+for use with core filter panel slideout js
+both $breakpoint and $animation need to include the unit (px or em for breakpoint, ms or s for animation)
+================================================== */
+@mixin filter-slide-out($breakpoint, $animation, $filtersId) {
+	.filters-open {
+		bottom: 0;
+		left: 0;
+		overflow: hidden;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 1;
+	}
+	##{$filtersId} {
+		bottom: 0;
+		left: 100%;
+		overflow-x: hidden;
+		overflow-y: auto;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 10;
+		@if $animation > 0 {
+			@include transition(left #{$animation} ease);
+		}
+		&.open {
+			left: 0;
+			position: absolute;
+		}
+		@include breakpoint($breakpoint) {
+			position: static;
+			@if $animation > 0 {
+				@include transition(none);
+			}
+			&.open {
+				position: static;
+			}
+		}
+	}
+}

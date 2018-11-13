@@ -1,0 +1,9 @@
+.tagline {
+	clear: both;
+	display: block;
+	font-size: 12px;
+	font-size: rem(12);
+	margin: 0;
+	word-wrap: break-word;
+	@include align-styles(tagline);
+}

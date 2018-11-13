@@ -1,0 +1,263 @@
+#search-form {
+	background: $grey_dk;
+	margin: 0 -15px -20px;
+	padding: 0 15px;
+	@include breakpoint($mid_small) {
+		margin-top: 1em;
+	}
+	&:after {
+		clear: both;
+		content: "";
+		display: block;
+	}
+	> div {
+		margin: 0 auto;
+		&:after {
+			clear: both;
+			content: "";
+			display: block;
+		}
+		@include breakpoint($mid_small) {
+			position: relative;
+			padding-bottom: .75em;
+		}
+		@include breakpoint($end_small) {
+			max-width: 700px;
+			padding: .75em 0;
+		}
+		.js & {
+			display: none;
+			@include breakpoint($end_small) {
+				display: block;
+			}
+		}
+	}
+	label {
+		@extend .wai;
+	}
+	$mid-searchfield-width: 30%;
+	$end-searchfield-width: 35%;
+	$searchfield-margin: 2%;
+	p {
+		color: #fff;
+		margin-bottom: .25em;
+		@include breakpoint($mid_small) {
+			float: left;
+			margin: 0 $searchfield-margin 0 0;
+			width: $mid-searchfield-width;
+		}
+		@include breakpoint($end-small) {
+			width: $end-searchfield-width;
+		}
+	}
+	
+	input[type="search"], input[type="text"], select {
+		@extend %borderbox;
+		border: 0;
+		border-radius: 3px;
+		box-shadow: inset 1px 1px 3px 0 rgba(0,0,0,.4);
+		color: $grey_dk;
+		display: block;
+		font-size: 16px;
+		margin-bottom: .5em;
+		min-height: 1.5em;
+		@include breakpoint($mid_small) {
+			display: inline-block;
+			font-size: .875rem;
+			margin: 0;
+		}
+		&:focus {
+			box-shadow: inset 0px 1px 3px 0 rgba($primary, .9);
+			outline: none;
+		}
+		&[disabled="disabled"] {
+			color: #aaa;
+			opacity: .5;
+		}
+	}
+	
+	input[type="search"], input[type="text"] {
+		padding: 4px 5px;
+		width: 100%;
+	}
+	
+	select {
+		float: left;
+		padding: 3px;
+		width: 75%;
+		@include breakpoint($mid_small) {
+			display: block;
+			float: left;
+			margin: 0 $searchfield-margin 0 0;
+			width: (100 - (($mid-searchfield-width*2) + ($searchfield-margin*3)))*.6;
+		}
+		@include breakpoint($end_small) {
+			width: (100 - (($end-searchfield-width*2) + ($searchfield-margin*3)))*.7;
+		}
+	}
+	
+	button {
+		@include linear-gradient($primary_dk, to bottom, $primary_lt, $primary_dk);
+		@extend %borderbox;
+		border-radius: 3px;
+		float: right;
+		overflow: hidden;
+		margin-bottom: .5em;
+		position: relative;
+		text-indent: -9999em;
+		width: 22%;
+		&:hover, &:focus {
+			@include linear-gradient(lighten($primary_dk, 20%), to bottom, lighten($primary_lt, 10%), lighten($primary_dk, 10%));
+		}
+		@include breakpoint($mid_small) {
+			min-height: 1.8em;
+			margin: 0;
+			width: (100 - (($mid-searchfield-width*2) + ($searchfield-margin*3)))*.4;
+		}
+		@include breakpoint($end_small) {
+			width: (100 - (($end-searchfield-width*2) + ($searchfield-margin*3)))*.3;
+		}
+		/* create magnifying glass with pseudo-elements */
+		&:before, &:after {
+			@extend %borderbox;
+			content: "";
+			display: block;
+			left: 50%;
+			position: absolute;
+		}
+		&:before {
+			border: .125rem solid #fff;
+			border-radius: 100%;
+			height: .85em;
+			margin-left: -.55em;
+			width: .85em;
+			top: .325em;
+		}
+		&:after {
+			border-left: .125rem solid #fff;
+			bottom: .325em;
+			height: .5em;
+			margin-left: .25em;
+			width: 0;
+			@include transform(rotate(-45deg));
+		}
+		&:active {
+			&:before, &:after {
+				border-color: #f0f0f0;
+			}
+		}
+		
+	}
+	@include breakpoint($mid_small) {
+		text-align: center;
+	}
+}
+
+#search-toggle {
+	@extend %borderbox;
+	color: #fff;
+	display: block;
+	font-size: 1.2rem;
+	line-height: 1.25em;
+	min-height: 1.75em;
+	padding: 10px 30px 10px 0;
+	position: relative;
+	text-align: right;
+	/* create magnifying glass with pseudo-elements */
+	&:before, &:after {
+		@extend %borderbox;
+		content: "";
+		display: block;
+		right: 5px;
+		position: absolute;
+	}
+	&:before {
+		border: .125rem solid #fff;
+		border-radius: 100%;
+		height: .75em;
+		width: .75em;
+		top: .6em;
+	}
+	&:after {
+		border-left: .125rem solid #fff;
+		bottom: .65em;
+		height: .5em;
+		margin-right: -.125em;
+		width: 0;
+		@include transform(rotate(-45deg));
+	}
+	&:hover, &:focus {
+		text-decoration: none;
+		&:before, &:after {
+			border-color: lighten($primary, 10%);
+		}
+	}
+	@include breakpoint($end_small) {
+		display: none;
+	}
+}
+
+/* =================================================================
+mindreader autocomplete search box
+================================================================= */
+*[data-mind-reader="true"] {
+	position: relative;
+	input {
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		margin: 0;
+		-webkit-appearance: none;
+		&::-webkit-search-decoration, &::-webkit-search-cancel-button {
+			-webkit-appearance: none;
+		}
+		&:focus {
+			border: 1px solid #666;
+			outline: 0;
+		}
+		&.mind-reader-results-open {
+			border-radius: 3px 3px 0 0;
+		}
+	}
+	.mind-reader-status {
+		display: block;
+		overflow: hidden;
+		position: absolute;
+		text-indent: -9999em;
+	}
+	.mind-reader-results {
+		background: #fff;
+		border-radius: 0 0 3px 3px;
+		box-shadow: 0 2px 2px 0 rgba(0,0,0,.3);
+		color: #000;
+		list-style: none;
+		margin: -10px 0 0;
+		padding: 0;
+		position: absolute;
+		text-align: left;
+		width: 100%;
+		z-index: 9999;
+		@include breakpoint($mid_small) {
+			margin: -2px 0 0;
+		}
+		&:empty {
+			display: none;
+		}
+		li {
+			margin: 0;
+		}
+		a {
+			color: #000;
+			font-size: 1em;
+			display: block;
+			line-height: 1.25em;
+			padding: 5px;
+			text-decoration: none;
+			text-transform: capitalize;
+			&:hover, &:focus, &.active {
+				background: rgba($primary, .1);
+			}
+		}
+	}
+}
