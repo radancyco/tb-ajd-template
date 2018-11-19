@@ -245,10 +245,8 @@ $('.ajd_navigation__a').click(function(e) {
 
           if ( !$element.hasClass('active') ) {
 
-           if ( $element.hasClass('js-ajd-script-animate-chart') ) {
-
+            if ( $element.hasClass('js-ajd-script-animate-chart') ) {
               var chart = $element.find('.js-ci-pie-chart__graph');
-
               chart[0].dispatchEvent(ciAnimateGraph);
             }
 
@@ -257,32 +255,30 @@ $('.ajd_navigation__a').click(function(e) {
           if ( !$element.hasClass('actived-once') ) {
 
             if ( $element.hasClass('js-ajd-script-animate-once-chart') ) {
- 
-               var chart = $element.find('.js-ci-pie-chart__graph');
- 
-               chart[0].dispatchEvent(ciAnimateGraph);
-             }
- 
-           }
-
-            // Add active state to elements with the class of .enhance-element
-            if ( $element.hasClass('enhance-element') ) {
-              $element.addClass($stateName);
+              var chart = $element.find('.js-ci-pie-chart__graph');
+              chart[0].dispatchEvent(ciAnimateGraph);
             }
 
-            // Add active state to inpage navigation links
-            $('.ajd_navigation__a').each(function() {
+          }
 
-                  if ( $(this).attr('href').indexOf(elementId) != -1 ) {
-                      $(this).parent('li').addClass('active');
-                  }
+          // Add active state to elements with the class of .enhance-element
+          if ( $element.hasClass('enhance-element') ) {
+              $element.addClass($stateName);
+          }
 
-                  // If slingular-highlighting class is present then break .each loop
-                  if ( $('.ajd_navigation').hasClass('singular-highlighting') && $(this).parent('li').hasClass('active') ) {
-                    return false;
-                  }
+          // Add active state to inpage navigation links
+          $('.ajd_navigation__a').each(function() {
 
-            });
+            if ( $(this).attr('href').indexOf(elementId) != -1 ) {
+              $(this).parent('li').addClass('active');
+            }
+
+            // If slingular-highlighting class is present then break .each loop
+            if ( $('.ajd_navigation').hasClass('singular-highlighting') && $(this).parent('li').hasClass('active') ) {
+              return false;
+            }
+
+          });
 
 
 
