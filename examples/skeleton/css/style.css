@@ -3154,6 +3154,11 @@ img {
   padding: 10px 20px;
 }
 
+.js .ajd_rewards__li {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
 @media screen and (min-width: 550px) {
   .ajd_rewards__li {
     width: 50%;
@@ -3169,6 +3174,7 @@ img {
 .ajd_rewards__li.actived-once {
   -webkit-animation: popin 1s forwards;
   animation: popin 1s forwards;
+  opacity: 1;
 }
 
 .ajd_rewards__ico {

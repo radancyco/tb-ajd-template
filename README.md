@@ -47,7 +47,7 @@ This templates SASS variables, mixins and functions work with the default SASS a
     1. Copy all the HTML and Razor from the Default "Full" Theme to this new theme
     2. Make sure the SASS and JavaScript that are assigned to the new theme matches the "Full" Theme
     4. Add `<script src="https://clientfiles.tmpwebeng.com/tmp/tb-assets/ajd/jquery-scrolltofixed-min.js"></script>` then `<script src="https://clientfiles.tmpwebeng.com/tmp/tb-assets/ajd/ajd-scripts-min.js"></script>` under `@Html.Partial("_ThemeJavascript")` (Both files are needed and work together to add functionality to the AJD. The first script is for the sticky header and the second has the JS calling the first and has other AJD functions )
-    5. Add `<script id="js-custom-imports" src="https://services1.tmpwebeng.com/custom-imports/custom-imports.js?scripts=charts,video></script>` under `@Html.Partial("_ThemeJavascript")` (This file is the Decoupled Scripts file, we will slowly be moving all AJD features to this file.)
+    5. Add `<script id="js-custom-imports" src="https://services1.tmpwebeng.com/custom-imports/custom-imports.js?scripts=charts,video"></script>` under `@Html.Partial("_ThemeJavascript")` (This file is the Decoupled Scripts file, we will slowly be moving all AJD features to this file.)
 3. Add Template SASS to the full theme SASS
     * Add the [AJD template SASS](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/ajd-styles.scss) to the full theme sass and edit it to match your mocks
 4. Create the page in the theme
@@ -123,7 +123,7 @@ Ideally, AJD sections should use Padding to offset where the sticky nav will sto
     <span class="wai">Video, content is the same information as what is on the page</span>
 </a>
 ```
-    * If you want to do you own styles you can remove `ci-video-btn`
+* If you want to do you own styles you can remove the class `ci-video-btn`
 3. To test to make sure everything is working load the page with `?playvideo=ajdvideo` added to the end of URL in the browser
 
 ## Instructions for creating an additional AJD after one already exists on a site

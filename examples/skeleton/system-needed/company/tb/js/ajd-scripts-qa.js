@@ -244,7 +244,9 @@ $('.ajd_navigation__a').click(function(e) {
 
             if ( $element.hasClass('js-ajd-script-animate-chart') ) {
               var chart = $element.find('.js-ci-pie-chart__graph');
-              chart[0].dispatchEvent(ciAnimateGraph);
+              if( typeof ciAnimateGraph == "object" ) {
+                chart[0].dispatchEvent(ciAnimateGraph);
+              }
             }
 
           }
@@ -253,7 +255,9 @@ $('.ajd_navigation__a').click(function(e) {
 
             if ( $element.hasClass('js-ajd-script-animate-once-chart') ) {
               var chart = $element.find('.js-ci-pie-chart__graph');
-              chart[0].dispatchEvent(ciAnimateGraph);
+              if( typeof ciAnimateGraph == "object" ) {
+                chart[0].dispatchEvent(ciAnimateGraph);
+              }
             }
 
           }

@@ -115,10 +115,12 @@ img {
 // AJD icons import
 //
 
-@import '../examples/skeleton/system-needed/company/3461/shared/scss/ajd-icons'; // required
-// if using on  site ../../3461/shared/scss/ajd-icons
+@import '../../3461/shared/scss/ajd-icons'; // required
+// if compiling on  site
+//  @import '../../3461/shared/scss/ajd-icons';  
 // If working locally you will need a local version of this file which you can download from https://tbcdn.talentbrew.com/company/3461/shared/scss/_ajd-icons.scss
-// If compiling on Github use '../examples/skeleton/system-needed/company/3461/shared/scss/ajd-icons'
+// If compiling on Github use 
+// @import '../examples/skeleton/system-needed/company/3461/shared/scss/ajd-icons'
 
 
 //
@@ -918,10 +920,15 @@ flex: 0 0 calc(100% / 2);
         text-align: center;
         margin: 0;
         padding: 0;
+        .js & {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
         .active & {
             // If you want to only active once change "active" to just "actived-once"
             -webkit-animation: popin 1s forwards;
             animation: popin 1s forwards;
+            opacity: 1;
         }
     }
 
@@ -1054,6 +1061,10 @@ flex: 0 0 calc(100% / 2);
     &__li { // .ajd_rewards__li
         @include flexbox-auto;
         padding: 10px 20px;
+        .js & {
+        opacity: 0;
+        transition: opacity 1s ease;
+        }
         @include breakpoint($mid-small) {
           // breaks to two columns
             width: 50%;
@@ -1066,6 +1077,7 @@ flex: 0 0 calc(100% / 2);
             // If you want to active this ever time you change "actived-once" to just "active"
             -webkit-animation: popin 1s forwards;
             animation: popin 1s forwards;
+            opacity: 1;
         }
     }
 
