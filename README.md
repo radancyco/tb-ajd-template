@@ -29,7 +29,7 @@ AJD Template is meant to be a skeleton version of HTML and SASS to speed up Deve
 
 * HTML5: Used for the structure and layout
 * SCSS: Used for styling
-* ASP.net Razor: used to link dynamic content from system 
+* ASP.net Razor: used to link dynamic content from system
 * BEM: Is a class naming structure of Block__Element--Modifier it helps you to achieve reusable components and code and it makes CSS specificity very flat and low reducing the need for `!important` declarations.
 * jQuery: Used for animations and different functionality. There is an AJD script and a Custom Imports Script being used
 
@@ -41,7 +41,7 @@ This templates SASS variables, mixins and functions work with the default SASS a
 
 ## Instructions for creating the first AJD on a site
 
-1. Begin by **creating a new Theme** inside the current TB site. 
+1. Begin by **creating a new Theme** inside the current TB site.
     * Name this theme [custom theme name (Normally category and or location or Job title)]
 2. Edit the new theme HTML and Razor
     1. Copy all the HTML and Razor from the Default "Full" Theme to this new theme
@@ -60,8 +60,8 @@ This templates SASS variables, mixins and functions work with the default SASS a
 
 ## Visual Examples
 
-* [Developer - Skeleton Example](https://tmpworldwide.github.io/tb-ajd-template/examples/skeleton/) This example shows what an AJD would look like if you made one only using the default styles of a Full TB, with alerts that remind the developer to update links.
-* [Creative - Skeleton Example](https://tmpworldwide.github.io/tb-ajd-template/examples/skeleton/?no-checks) This example shows what an AJD would look like if you made one only using the default styles of a Full TB, without alerts.
+* [Developer - Skeleton Example](https://tmpworldwide.dev/tb-ajd-template/examples/skeleton/) This example shows what an AJD would look like if you made one only using the default styles of a Full TB, with alerts that remind the developer to update links.
+* [Creative - Skeleton Example](https://tmpworldwide.dev/tb-ajd-template/examples/skeleton/?no-checks) This example shows what an AJD would look like if you made one only using the default styles of a Full TB, without alerts.
 
 ## Understanding what you can do and change
 
@@ -72,7 +72,7 @@ This templates SASS variables, mixins and functions work with the default SASS a
 3. Change the stroke color to `REPLACEME`
 4. Encode SVG for background image http://codepen.io/jakob-e/pen/doMoML
 5. Search for `REPLACEME` and replace it with `#{$icon-color}`
-6. Then you place that background image css into the following code and of course give it a name 
+6. Then you place that background image css into the following code and of course give it a name
 ```
 @mixin ico-[your icon name here]($icon-color:#000) {
     $icon-color: svg-color-replace("#{$icon-color}"); //this function changes the color to svg compatible format
@@ -111,7 +111,7 @@ Ideally, AJD sections should use Padding to offset where the sticky nav will sto
 3. Click on the reviews tab
 4. use the URL in the browser, for example TMP's is https://www.glassdoor.com/Reviews/TMP-Worldwide-Reviews-E247764.htm
 5. Find the anchor tag for glassdoor and replace `#REPLACEME` with the url
-6. Copy the numbers in the URL that trail the E, for example TNP's is 247764 
+6. Copy the numbers in the URL that trail the E, for example TNP's is 247764
 7. Find the Glassdoor background image in the CSS and replace the `01` after the `?e=` with the copied numbers
 
 ### Adding a video to the banner
