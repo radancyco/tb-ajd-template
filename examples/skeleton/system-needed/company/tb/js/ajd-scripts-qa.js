@@ -1,5 +1,5 @@
 // Advanced Job Details (AJD) Template version 1.0
-// Last Updated 11/07/2018
+// Last Updated 11/20/2018
 //
 
 
@@ -138,7 +138,9 @@ $('.ajd_navigation__a').click(function(e) {
 
     // If client already has a sticky nav you will need to account for that and offset the scroll
     if ( $('.js-ajd-also-sticky').exists() ) {
-      alsosticky = $('.js-ajd-also-sticky').outerHeight();
+      $('.js-ajd-also-sticky').each(function(){
+        alsosticky += $(this).outerHeight();
+      });
     }
 
     // If the section has and offset
