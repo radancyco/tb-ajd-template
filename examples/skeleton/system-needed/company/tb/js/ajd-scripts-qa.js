@@ -207,7 +207,7 @@ $('.ajd_navigation__a').click(function(e) {
     // If client already has a sticky nav you will need to account for that and offset the scroll
     if ( $('.js-ajd-also-sticky').exists() ) {
       $('.js-ajd-also-sticky').each(function(){
-        clientNavHeight = $('.js-ajd-also-sticky').outerHeight();
+        clientNavHeight += $(this).outerHeight();
       });
     }
 
