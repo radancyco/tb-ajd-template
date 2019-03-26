@@ -5,21 +5,22 @@ This is the boilerplate used to create advanced job detail pages on TalentBrew. 
 
 ## Table of Contents
 
-* [Introduction](#introduction)
-* [Technologies used](#technologies-used)
-* [What this template works with](#what-this-template-works-with)
-* [Instructions for creating the first AJD on a site](#instructions-for-creating-the-first-ajd-on-a-site)
-* [Visual Examples](#visual-examples)
-* [Understanding what you can do and change](#understanding-what-you-can-do-and-change)
-    * [Add unique SVG images](#add-unique-svg-images)
-    * [Add or remove sticky functionality](#add-or-remove-sticky-functionality)
-    * [Account for a client nav that is also sticky](#account-for-a-client-nav-that-is-also-sticky)
-    * [Add or remove animations on scroll or change how often animations happen](#add-or-remove-animations-on-scroll-or-change-how-often-animations-happen)
-    * [Make in page navigation highlight only one section at a time](#make-in-page-navigation-highlight-only-one-section-at-a-time)
-    * [Adjusting the scroll to offset when using the in page navigation](#adjusting-the-scroll-to-offset-when-using-the-in-page-navigation)
-    * [Updating Glassdoor to match company](#updating-glassdoor-to-match-company)
-    * [Adding a video to the banner](#adding-a-video-to-the-banner)
-* [Instructions for creating an additional AJD after one already exists on a site](#instructions-for-creating-an-additional-ajd-after-one-already-exists-on-a-site)
+- [Table of Contents](#table-of-contents)
+- [Introduction](#introduction)
+- [Technologies used](#technologies-used)
+- [What this template works with](#what-this-template-works-with)
+- [Instructions for creating the first AJD on a site](#instructions-for-creating-the-first-ajd-on-a-site)
+- [Visual Examples](#visual-examples)
+- [Understanding what you can do and change](#understanding-what-you-can-do-and-change)
+  - [Add unique SVG images](#add-unique-svg-images)
+  - [Add or remove sticky functionality](#add-or-remove-sticky-functionality)
+  - [Account for a client nav that is also sticky](#account-for-a-client-nav-that-is-also-sticky)
+  - [Add or remove animations on scroll or change how often animations happen](#add-or-remove-animations-on-scroll-or-change-how-often-animations-happen)
+  - [Make in page navigation highlight only one section at a time](#make-in-page-navigation-highlight-only-one-section-at-a-time)
+  - [Adjusting the scroll to offset when using the in page navigation](#adjusting-the-scroll-to-offset-when-using-the-in-page-navigation)
+  - [Updating Glassdoor to match company](#updating-glassdoor-to-match-company)
+  - [Adding a video to the banner](#adding-a-video-to-the-banner)
+- [Instructions for creating an additional AJD after one already exists on a site](#instructions-for-creating-an-additional-ajd-after-one-already-exists-on-a-site)
 
 ## Introduction
 
@@ -117,11 +118,57 @@ Ideally, AJD sections should use Padding to offset where the sticky nav will sto
 ### Adding a video to the banner
 1. Make sure that your Custom Imports script has video as a script it is loading
     * It will load in Fancybox script and styles by default, if you are already loading fancybox and want to use your own styles you can turn those off by adding `&no-styles=video&no-dependencies=video` to the script src
-2. Add the following code to your banner
+2. Add the following code to your banner and edit as needed
 ```
-<a data-fancybox="" href="url-to-video.mp4" class="js-ci-video ci-video-btn" data-video-name="ajdvideo">
-    <span class="wai">Video, content is the same information as what is on the page</span>
-</a>
+<a data-fancybox href="#ajd-video" class="js-ci-video ci-video-btn" data-video-name="ajdvideo" data-caption="<button data-fancybox href='#hidden-ajd-video-transcript'>Transcript</button>" aria-label="Now Hiring REPLACEMECategoryName (Video)"></a>
+
+<video id="ajd-video" aria-label="REPLACEMECategoryName" style="display:none;" controls crossorigin="anonymous">
+   <source src="url/ajd-REPLACEMECategoryName.mp4" type="video/mp4">
+   <track label="English" kind="captions" srclang="en" src="url/ajd-REPLACEMECategoryName-caption-en.vtt">
+</video>
+
+<div style="display: none;" id="hidden-ajd-video-transcript">
+   <!-- Transcript (Taken from VTT, formatted into HTML) -->
+
+   <h2>REPLACEMECategoryName</h2>
+
+   <p><strong>Apply Now</strong></p>
+
+   <p>Glassdoor: <strong>3.0</strong></p>
+
+   <ul>
+   <li>Full Time</li>
+   <li>Level: Mid</li>
+   <li>Travel: No</li>
+   </ul>
+
+   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet malesuada libero.</p>
+
+   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet malesuada libero.</p>
+
+   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet malesuada libero.</p>
+
+   <ul>
+   <li>Healthcare</li>
+   <li>TimeOff</li>
+   <li>Freedom</li>
+   <li>Collaboration</li>
+   </ul>
+
+   <h2>Successful Traits of a REPLACEMECategoryName</h2>
+
+   <ul>
+   <li>TechnologicallySavvy</li>
+   <li>Independent</li>
+   <li>Leader</li>
+   <li>Startegic</li>
+   <li>Analytical</li>
+   <li>Innovative</li>
+   </ul>
+
+   <p><strong>Apply Today</strong></p>
+
+</div>
 ```
 * If you want to do you own styles you can remove the class `ci-video-btn`
 3. To test to make sure everything is working load the page with `?playvideo=ajdvideo` added to the end of URL in the browser
