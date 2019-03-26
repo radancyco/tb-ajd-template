@@ -120,14 +120,14 @@ Ideally, AJD sections should use Padding to offset where the sticky nav will sto
     * It will load in Fancybox script and styles by default, if you are already loading fancybox and want to use your own styles you can turn those off by adding `&no-styles=video&no-dependencies=video` to the script src
 2. Add the following code to your banner and edit as needed
 ```
-<a 
-   href="#ajd-video"
+<button 
    class="js-ci-video ci-video-btn"
    data-fancybox=""
+   data-src="#ajd-video"
    data-video-name="ajdvideo" 
    data-caption="<button data-fancybox href='#hidden-ajd-video-transcript'>Transcript</button>"
    aria-label="Now Hiring REPLACEMECategoryName (Video)">
-</a>
+</button>
 
 <video id="ajd-video" aria-label="REPLACEMECategoryName" style="display:none;" controls crossorigin="anonymous">
    <source src="url/ajd-REPLACEMECategoryName.mp4" type="video/mp4">
