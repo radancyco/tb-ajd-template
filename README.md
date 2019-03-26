@@ -126,18 +126,18 @@ Ideally, AJD sections should use Padding to offset where the sticky nav will sto
    data-src="#ajd-video"
    data-video-name="ajdvideo" 
    data-caption="<button data-fancybox href='#hidden-ajd-video-transcript'>Transcript</button>"
-   aria-label="Now Hiring REPLACEMECategoryName (Video)">
+   aria-label="Now Hiring REPLACEMEajdMappingName (Video)">
 </button>
 
-<video id="ajd-video" aria-label="REPLACEMECategoryName" style="display:none;" controls crossorigin="anonymous">
-   <source src="url/ajd-REPLACEMECategoryName.mp4" type="video/mp4">
-   <track label="English" kind="captions" srclang="en" src="url/ajd-REPLACEMECategoryName-caption-en.vtt">
+<video id="ajd-video" aria-label="REPLACEMEajdMappingName" style="display:none;" controls crossorigin="anonymous">
+   <source src="url/ajd-REPLACEMEajdMappingName.mp4" type="video/mp4">
+   <track label="English" kind="captions" srclang="en" src="url/ajd-REPLACEMEajdMappingName-caption-en.vtt">
 </video>
 
 <div style="display: none;" id="hidden-ajd-video-transcript">
    <!-- Transcript (Taken from VTT, formatted into HTML) -->
 
-   <h2>REPLACEMECategoryName</h2>
+   <h2>REPLACEMEajdMappingName</h2>
 
    <p><strong>Apply Now</strong></p>
 
@@ -162,7 +162,7 @@ Ideally, AJD sections should use Padding to offset where the sticky nav will sto
       <li>Collaboration</li>
    </ul>
 
-   <h2>Successful Traits of a REPLACEMECategoryName</h2>
+   <h2>Successful Traits of a REPLACEMEajdMappingName</h2>
 
    <ul>
       <li>TechnologicallySavvy</li>
