@@ -120,7 +120,14 @@ Ideally, AJD sections should use Padding to offset where the sticky nav will sto
     * It will load in Fancybox script and styles by default, if you are already loading fancybox and want to use your own styles you can turn those off by adding `&no-styles=video&no-dependencies=video` to the script src
 2. Add the following code to your banner and edit as needed
 ```
-<a data-fancybox href="#ajd-video" class="js-ci-video ci-video-btn" data-video-name="ajdvideo" data-caption="<button data-fancybox href='#hidden-ajd-video-transcript'>Transcript</button>" aria-label="Now Hiring REPLACEMECategoryName (Video)"></a>
+<a 
+   href="#ajd-video"
+   class="js-ci-video ci-video-btn"
+   data-fancybox=""
+   data-video-name="ajdvideo" 
+   data-caption="<button data-fancybox href='#hidden-ajd-video-transcript'>Transcript</button>"
+   aria-label="Now Hiring REPLACEMECategoryName (Video)">
+</a>
 
 <video id="ajd-video" aria-label="REPLACEMECategoryName" style="display:none;" controls crossorigin="anonymous">
    <source src="url/ajd-REPLACEMECategoryName.mp4" type="video/mp4">
@@ -137,9 +144,9 @@ Ideally, AJD sections should use Padding to offset where the sticky nav will sto
    <p>Glassdoor: <strong>3.0</strong></p>
 
    <ul>
-   <li>Full Time</li>
-   <li>Level: Mid</li>
-   <li>Travel: No</li>
+      <li>Full Time</li>
+      <li>Level: Mid</li>
+      <li>Travel: No</li>
    </ul>
 
    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet malesuada libero.</p>
@@ -149,21 +156,21 @@ Ideally, AJD sections should use Padding to offset where the sticky nav will sto
    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet malesuada libero.</p>
 
    <ul>
-   <li>Healthcare</li>
-   <li>TimeOff</li>
-   <li>Freedom</li>
-   <li>Collaboration</li>
+      <li>Healthcare</li>
+      <li>TimeOff</li>
+      <li>Freedom</li>
+      <li>Collaboration</li>
    </ul>
 
    <h2>Successful Traits of a REPLACEMECategoryName</h2>
 
    <ul>
-   <li>TechnologicallySavvy</li>
-   <li>Independent</li>
-   <li>Leader</li>
-   <li>Startegic</li>
-   <li>Analytical</li>
-   <li>Innovative</li>
+      <li>TechnologicallySavvy</li>
+      <li>Independent</li>
+      <li>Leader</li>
+      <li>Startegic</li>
+      <li>Analytical</li>
+      <li>Innovative</li>
    </ul>
 
    <p><strong>Apply Today</strong></p>
