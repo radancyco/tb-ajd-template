@@ -1,5 +1,5 @@
 
-Last Updated: **11/20/2018**
+Last Updated: **03/26/2018**
 
 This is the boilerplate used to create advanced job detail pages on TalentBrew. Visit the [repository](https://github.com/tmpworldwide/tb-ajd-template) to learn more or [download](https://github.com/tmpworldwide/tb-ajd-template/archive/gh-pages.zip) now.
 
