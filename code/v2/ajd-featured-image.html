@@ -1,0 +1,51 @@
+@using Tmp.TalentBrew.Core
+@using Tmp.TalentBrew.Model
+@model PublishedCustomHTMLModuleModel
+
+@*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
+@*<!--==============================================-->*@
+@{
+    var wai = "";
+
+    @*<!--Filter IDs-->*@
+    var categoryId = Model.Page.CategoryIds;
+    var locationId = Model.Page.LocationIds;
+    var facetId = Model.Page.FacetIds;
+    
+    @*<!--Category Variables - helps identify which ID corresponds to what category-->*@
+    var categoryClientServices = "75632"; 
+    
+    @*<!--Location Variables - helps identify which ID corresponds to what location-->*@
+    var locationUSA = "6252001"; 
+    
+    @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
+    var facetFullTime = "job_type-Full-Time"; 
+    
+    bool showSection = true;
+}
+
+
+@*<!--RAZOR CODE FOR THIS MODULE-->*@
+@*<!--==============================================-->*@
+@{
+    @*<!--Global Variables-->*@
+    var featuredImage = "";
+}
+
+
+@*<!-- Change content based on filters -->*@
+@*<!------------------------------------->*@
+@if(categoryId.Contains(categoryClientServices)) {
+    
+    featuredImage = "https://placehold.it/1000x1500?text=Parallax%20Image";
+
+} else {
+
+    showSection = false;
+
+}
+
+
+@if(showSection && !String.IsNullOrWhiteSpace(featuredImage)){
+    <div class="ajd_section ajd_image enhance-element" style="background-image: url('@featuredImage')"></div>
+}

@@ -1,0 +1,62 @@
+@using Tmp.TalentBrew.Core
+@using Tmp.TalentBrew.Model
+@model PublishedCustomHTMLModuleModel
+
+@*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
+@*<!--==============================================-->*@
+@{
+    var wai = "";
+
+    @*<!--Filter IDs-->*@
+    var categoryId = Model.Page.CategoryIds;
+    var locationId = Model.Page.LocationIds;
+    var facetId = Model.Page.FacetIds;
+    
+    @*<!--Category Variables - helps identify which ID corresponds to what category-->*@
+    var categoryClientServices = "75632"; 
+    
+    @*<!--Location Variables - helps identify which ID corresponds to what location-->*@
+    var locationUSA = "6252001"; 
+    
+    @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
+    var facetFullTime = "job_type-Full-Time"; 
+    
+    bool showSection = true;
+}
+
+
+@*<!--RAZOR CODE FOR THIS MODULE-->*@
+@*<!--==============================================-->*@
+@{
+    @*<!--Global Variables-->*@
+    var sectionHeading = "Quote";
+    var quote = "";
+}
+
+
+@*<!-- Change content based on filters -->*@
+@*<!------------------------------------->*@
+@if(categoryId.Contains(categoryClientServices)) {
+
+    quote = @"
+        <blockquote class="ajd_quote__blockquote">
+            <p class="ajd_quote__text">It's all about being on the pulse of what's new and what's next.</p>
+
+            <cite class="ajd_quote__citation">Kevin Regan, Vice President, Digital Strategy</cite>
+        </blockquote>  
+    ";
+
+} else {
+
+    showSection = false;
+
+}
+
+
+@if(showSection){
+    <section id="" class="ajd_section ajd_quote enhance-element">
+        <h2 class="ajd_section__heading ajd_quote__heading @wai">@Html.Raw(sectionHeading)</h2>
+    
+        @Html.Raw(quote)
+    </section>
+}

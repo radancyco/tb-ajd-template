@@ -1,0 +1,207 @@
+@using Tmp.TalentBrew.Core
+@using Tmp.TalentBrew.Model
+@model PublishedCustomHTMLModuleModel
+
+@*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
+@*<!--==============================================-->*@
+@{
+    var wai = "";
+
+    @*<!--Filter IDs-->*@
+    var categoryId = Model.Page.CategoryIds;
+    var locationId = Model.Page.LocationIds;
+    var facetId = Model.Page.FacetIds;
+    
+    @*<!--Category Variables - helps identify which ID corresponds to what category-->*@
+    var categoryClientServices = "75632"; 
+    
+    @*<!--Location Variables - helps identify which ID corresponds to what location-->*@
+    var locationUSA = "6252001"; 
+    
+    @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
+    var facetFullTime = "job_type-Full-Time"; 
+    
+    bool showSection = true;
+}
+
+
+@*<!--RAZOR CODE FOR THIS MODULE-->*@
+@*<!--==============================================-->*@
+@{
+    @*<!--Global Variables-->*@
+    var sectionHeading = "Career Path";
+    var sectionIntro = "";
+    var careerPath = "";
+}
+
+
+@*<!-- Change content based on filters -->*@
+@*<!------------------------------------->*@
+@if(categoryId.Contains(categoryClientServices)) {
+    sectionIntro = "Intro Text";
+
+    careerPath = @"
+    
+    <svg height='0' width='0' style='display: block;'>
+        <pattern fill='#035A8F' id='border-pattern' x='0' y='0' width='4' height='4' patternUnits='userSpaceOnUse'>
+            <rect x='0' y='0' width='8' height='8'></rect>
+        </pattern>
+    </svg>
+    <svg style='display: none;'>
+        <path id='icon-arrow' fill='#FFFFFF' d='M15 12.1c.1-.2.2-.3.3-.4C19 8 22.7 4.4 26.4.7c.9-.9 2.3-.9 3.2.1.6.7.6 1.7.1 2.5-.1.2-.3.3-.4.5C25 8 20.8 12.1 16.6 16.3c-1 1-2.2 1-3.3 0L.7 3.7C.1 3-.2 2.3.1 1.4.5.6 1.1.1 2 0c.6 0 1.2.2 1.7.7C5 2 6.4 3.4 7.7 4.8l7.1 7.1c.1 0 .1.1.2.2z'></path>
+        <rect id='border' x='0' y='0' fill='url(#border-pattern)' height='100%' width='100%'></rect>
+    </svg>
+
+    <ul class='career-path__grid'>
+        <li class='career-path__row starting-row'>
+            <div class='career-path__title-row width-1'>
+                <div>
+                    
+                    <div class='career-path__title-container'>
+                        <span class='career-path__title'>Job Title 1</span> <span class='wai'> leads to Job Title 2</span>
+                    </div>
+                    <svg width='4px' class='vertical-border bottom'>
+                        <use xlink:href='#border'></use>
+                    </svg>
+                </div>
+            </div>
+        </li>
+        
+        <li class='career-path__row'>
+            <div class='career-path__title-row width-1'>
+                <div>
+                    <svg width='4px' class='vertical-border top'>
+                        <use xlink:href='#border'></use>
+                    </svg>
+                    <div class='career-path__title-container'>
+                        <svg viewBox='0 0 30 17.1' class='career-arrow'>
+                            <use xlink:href='#icon-arrow'></use>
+                        </svg>
+                        <span class='career-path__title'>Job Title 2</span> <span class='wai'> leads to Job Title 3 or Job Title 4</span>
+                    </div>
+                    <svg width='4px' class='vertical-border bottom'>
+                        <use xlink:href='#border'></use>
+                    </svg>
+                </div>
+            </div>
+        </li>
+        
+        <li class='career-path__row'>
+            <div class='career-path__border-row top width-1' style='width: 50%;'>
+                <svg height='4px' width='100%' class='horizontal-border'>
+                    <use xlink:href='#border'></use>
+                </svg>
+            </div>
+            
+            <div class='career-path__title-row width-2'>
+                <div>
+                    <svg width='4px' class='vertical-border top'>
+                        <use xlink:href='#border'></use>
+                    </svg>
+                    <div class='career-path__title-container'>
+                        <svg viewBox='0 0 30 17.1' class='career-arrow'>
+                            <use xlink:href='#icon-arrow'></use>
+                        </svg>
+                        <span class='career-path__title'>Job Title 3</span> <span class='wai '> leads to Job Title 5</span>
+                    </div>
+                    <svg width='4px' class='vertical-border bottom'>
+                        <use xlink:href='#border'></use>
+                    </svg>
+                </div>
+                
+                <div>
+                    <svg width='4px' class='vertical-border top'>
+                        <use xlink:href='#border'></use>
+                    </svg>
+                    <div class='career-path__title-container'>
+                        <svg viewBox='0 0 30 17.1' class='career-arrow'>
+                            <use xlink:href='#icon-arrow'></use>
+                        </svg>
+                        <span class='career-path__title'>Job Title 4</span> <span class='wai '> leads to Job Title 7</span>
+                    </div>
+                    <svg width='4px' class='vertical-border bottom'>
+                        <use xlink:href='#border'></use>
+                    </svg>
+                </div>
+            </div>
+        </li>
+        
+        <li class='career-path__row'>
+            <div class='career-path__title-row width-2'>
+                <div>
+                    <svg width='4px' class='vertical-border top'>
+                        <use xlink:href='#border'></use>
+                    </svg>
+                    <div class='career-path__title-container'>
+                        <svg viewBox='0 0 30 17.1' class='career-arrow'>
+                            <use xlink:href='#icon-arrow'></use>
+                        </svg>
+                        <span class='career-path__title'>Job Title 5</span> <span class='wai '>leads to Job Title 6</span>
+                    </div>
+                    <svg width='4px' class='vertical-border bottom'>
+                        <use xlink:href='#border'></use>
+                    </svg>
+                </div>
+                
+                <div>
+                    <svg width='4px' class='vertical-border top full-height'>
+                        <use xlink:href='#border'></use>
+                    </svg>
+                    
+                </div>
+            </div>
+        </li>
+        
+        <li class='career-path__row'>
+            <div class='career-path__title-row width-2'>
+                <div>
+                    <svg width='4px' class='vertical-border top'>
+                        <use xlink:href='#border'></use>
+                    </svg>
+                    <div class='career-path__title-container'>
+                        <svg viewBox='0 0 30 17.1' class='career-arrow'>
+                            <use xlink:href='#icon-arrow'></use>
+                        </svg>
+                        <span class='career-path__title'>Job Title 6</span> <span class='wai '>ends this path</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <svg width='4px' class='vertical-border top'>
+                        <use xlink:href='#border'></use>
+                    </svg>
+                    <div class='career-path__title-container'>
+                        <svg viewBox='0 0 30 17.1' class='career-arrow'>
+                            <use xlink:href='#icon-arrow'></use>
+                        </svg>
+                        <span class='career-path__title'>Job Title 7</span> <span class='wai '>ends this path</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </li>
+    </ul>
+    
+    ";
+
+
+} else {
+ 
+    showSection = false;
+
+}
+
+
+@if(showSection){
+<section id="anchor-career-path" class="ajd_section career-path"> 
+    <h2 class="career-path__heading @wai">@Html.Raw(sectionHeading)</h2>
+
+    @if(!String.IsNullOrWhiteSpace(sectionIntro)){
+    <p class="career-path__intro">@Html.Raw(sectionIntro)</p>
+    }
+
+    @Html.Raw(careerPath)
+</section>
+}
+
+

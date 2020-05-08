@@ -1,0 +1,202 @@
+@using Tmp.TalentBrew.Core
+@using Tmp.TalentBrew.Model
+@model PublishedCustomHTMLModuleModel
+
+@*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
+@*<!--==============================================-->*@
+@{
+    var wai = "";
+
+    @*<!--Filter IDs-->*@
+    var categoryId = Model.Page.CategoryIds;
+    var locationId = Model.Page.LocationIds;
+    var facetId = Model.Page.FacetIds;
+    
+    @*<!--Category Variables - helps identify which ID corresponds to what category-->*@
+    var categoryClientServices = "75632"; 
+    
+    @*<!--Location Variables - helps identify which ID corresponds to what location-->*@
+    var locationUSA = "6252001"; 
+    
+    @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
+    var facetFullTime = "job_type-Full-Time"; 
+    
+    bool showSection = true;
+}
+
+
+@*<!--RAZOR CODE FOR THIS MODULE-->*@
+@*<!--==============================================-->*@
+@{
+    @*<!--Global Variables-->*@
+    var sectionHeading = "Overview";
+    var sectionIntro = "";
+    
+    @*<!--Global Quick Fact List-->*@
+    var quickFacts = new List<QuickFact>();
+}
+
+
+@*<!--Functions needed to create quick fact object-->*@
+@*<!------------------------------------->*@
+@functions {
+    public class CustomIcon {
+        public string Icon;
+        public string Description;
+        public bool HasLink;
+        public string Link;
+        public string Image;
+
+        // Constructor that builds custom object like glassdoor or indeed
+        public CustomIcon(string icon, string desc, string src) {
+            this.Icon = icon;
+            this.HasLink = false;
+            this.Description = desc;
+            this.Link = string.Empty;
+            this.Image = src;
+        }
+
+        // Constructor that builds custom object glassdoor or indeed with link
+        public CustomIcon(string icon, string desc, string src, string link) {
+            this.Icon = icon;
+            this.HasLink = true;
+            this.Description = desc;
+            this.Link = link;
+            this.Image = src;
+        }
+    }
+    
+    
+    public class QuickFact {
+        public string Icon;
+        public string Description;
+        public bool HasCustomIcon;
+        public CustomIcon CustomIcon;
+        
+        // Constructor builds object that inherits a custom object
+        public QuickFact(CustomIcon customIcon) {
+            this.HasCustomIcon = true;
+            this.CustomIcon = customIcon;
+        }
+
+        // Constructor that builds object with only icon class and description
+        public QuickFact(string icon, string desc) {
+            this.Icon = icon;
+            this.Description = desc;
+            this.HasCustomIcon = false;
+        }
+    }
+
+
+    @*<!--HOW TO CREATE A QUICK FACT OBJECT -->*@
+    @*<!------------------------------------->*@
+    @*<!--
+        Normal Quickfact:
+        
+        quickFacts.Add(new QuickFact("icon_class_name", "description"));
+        
+        
+        How to add GLASSDOOR or INDEED with LINK:
+        
+        quickFacts.Add(
+            new QuickFact(
+                new CustomIcon(
+                    "icon_class_name", 
+                    "description", 
+                    "IMG_URL for img tag"
+                    "#REPLACEME"
+                )
+            )   
+        );
+        
+        
+        How to add GLASSDOOR or INDEED without LINK:
+        
+        quickFacts.Add(
+            new QuickFact(
+                new CustomIcon(
+                    "icon_class_name", 
+                    "description", 
+                    "IMG_URL for img tag"
+                )
+            )   
+        );        
+    -->*@
+}
+
+
+
+@*<!-- Change content based on filters -->*@
+@*<!------------------------------------->*@
+@if(categoryId.Contains(categoryClientServices)) {
+    
+    sectionIntro = "As a Digital Strategist, you’ll develop and lead multi-faceted web-based strategies for some of the most recognized names in the world. You’ll be the face of our software solutions, analytics and digital capabilities &mdash; able to explain the complex in simple ways to your colleagues and clients. And you’ll come up with innovative approaches that change the way companies and candidates connect.";
+    
+    quickFacts.Add(new QuickFact("time", "Full Time"));
+    quickFacts.Add(new QuickFact("level", "Level: Mid (5+ years experience)"));
+    quickFacts.Add(new QuickFact("travel", "Travel: Minimal (if any)"));
+    quickFacts.Add(new QuickFact("salary", "Salary: $63K-$96K"));
+    quickFacts.Add(
+        new QuickFact(
+            new CustomIcon(
+                "glassdoor", 
+                "Glassdoor Reviews and Company Rating", 
+                "https://www.glassdoor.ca/api/widget/horizontalStarRating.htm?e=01", 
+                "#REPLACEME"
+            )
+        )
+    );
+
+} else {
+
+    showSection = false;
+
+}
+
+@if(showSection){
+    <section id="anchor-overview" class="ajd_section ajd_overview">
+        <h2 class="ajd_section__heading ajd_overview__heading @wai">@Html.Raw(sectionHeading)</h2>
+    
+        <div class="max-width-wrapper">
+            @if(!String.IsNullOrWhiteSpace(sectionIntro)){
+            <p class="ajd_overview__about-job">@Html.Raw(sectionIntro)</p>
+            }
+            
+            @if(quickFacts.Count > 0){
+            <ul class="ajd_overview__quick-facts enhance-element">
+                @foreach (var quickFact in quickFacts) {
+                    if(quickFact.HasCustomIcon){
+
+                        <li class="ajd_overview__quick-fact ajd-@{@quickFact.CustomIcon.Icon}">
+                            @if(quickFact.CustomIcon.HasLink){
+                                <a href="@quickFact.CustomIcon.Link" class="ajd-@{@quickFact.CustomIcon.Icon}__link">
+                                    <img class="ajd-@{@quickFact.CustomIcon.Icon}__icon" src="@quickFact.CustomIcon.Image" alt="@Html.Raw(quickFact.CustomIcon.Description)">
+                                </a>
+                                
+                                @*<!--DO NOT DELETE THIS IF STATEMENT-->*@
+                                if(quickFact.CustomIcon.Link.Contains("REPLACEME")){
+                                    <p class="error">URL for @quickFact.CustomIcon.Icon logo needs to be replaced.</p>
+                                }
+                            } else {
+                                <img class="ajd-@{@quickFact.CustomIcon.Icon}__icon" src="@quickFact.CustomIcon.Image" alt="@Html.Raw(quickFact.CustomIcon.Description)">
+                            }
+                            
+                            @*<!--DO NOT DELETE THIS IF STATEMENT-->*@
+                            @if(quickFact.CustomIcon.Image.Contains("e=01")){
+                                <p class="error">Glassdoor logo rating needs to be replaced with client rating. The last two numbers "01" should be updated with the client company number. You can find the company number on the reviews page of the company for example TMP's url is <a href="https://www.glassdoor.com/Reviews/TMP-Worldwide-Reviews-E247764.htm">https://www.glassdoor.com/Reviews/TMP-Worldwide-Reviews-E247764.htm</a> and the company number for TMP is 247764.In addtion to 'horizontalStarRating' you can change this to 'verticalStarRating'</p>
+                            }
+                        </li>
+
+                    } else {
+                        <li class="ajd_overview__quick-fact ajd_overview__quick-fact--@quickFact.Icon">
+                            <i class="ajd_overview__quick-fact-ico ico-@quickFact.Icon"></i>
+                            @Html.Raw(quickFact.Description)
+                        </li>
+                    }
+                }
+            </ul>
+            }
+        </div>
+    </section>
+}
+

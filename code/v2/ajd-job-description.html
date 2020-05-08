@@ -1,0 +1,76 @@
+@using Tmp.TalentBrew.Core
+@using Tmp.TalentBrew.Core.HtmlHelpers
+@using Tmp.TalentBrew.Model
+@model PublishedJobDetailsModuleModel
+
+@*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
+@*<!--==============================================-->*@
+@{
+    var wai = "";
+
+    @*<!--Filter IDs-->*@
+    var categoryId = Model.Page.CategoryIds;
+    var locationId = Model.Page.LocationIds;
+    var facetId = Model.Page.FacetIds;
+    
+    @*<!--Category Variables - helps identify which ID corresponds to what category-->*@
+    var categoryClientServices = "75632"; 
+    
+    @*<!--Location Variables - helps identify which ID corresponds to what location-->*@
+    var locationUSA = "6252001"; 
+    
+    @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
+    var facetFullTime = "job_type-Full-Time"; 
+    
+    bool showSection = true;
+}
+
+
+@*<!--RAZOR CODE FOR THIS MODULE-->*@
+@*<!--==============================================-->*@
+@{
+    var cat = CoreHelper.GetTokenValue(Tmp.TalentBrew.Model.TokenType.Category);
+}
+
+@helper ApplyButton(string position) {
+	var buttonText = Model.PageTypeId == PageType.QuickApply ? Model.QuickApplyButtonText : Model.ApplyButtonText;
+    if(Model.ShowApplyAndQuickApply && Model.PageTypeId == PageType.QuickApply) {
+        <a class="button job-apply @position" @Html.JobDetailIncludeApplyUrlAttributes(Model)>@Model.ApplyButtonText</a> 
+	}
+	
+	<a class="button job-apply @position" @Html.JobDetailsApplyUrlAttributes(Model)>@buttonText</a>
+}
+
+@helper ApplyLaterButton(string position) {
+	<a class="button job-apply job-apply-later @position" @Html.JobDetailsApplyLaterUrlAttributes(Model)>@Model.ApplyLaterText</a>
+}
+
+@if (Model != null) {
+    <section id="anchor-responsibilities" class="ajd_section ajd_job-details job-description" @Html.CustomSelector(Model) @Html.JobDetailsSectionAttributes(Model)>
+        <h2 class="ajd_section__heading ajd_job-details__heading @wai">Responsibilities</h2>
+
+        <div class="ats-description ajd_job-details__ats-description">
+            @if (Model.JobDetailsJobTypeId != JobDetailsIdType.None) {
+                <span class="job-id job-info"><b>@Model.JobDetailsJobLabelId</b> @Model.JobDetailsSelectedId</span>
+            }
+
+            @if (Model.JobDetailsJobDateFormat != JobDateFormat.NoDate) {
+                <span class="job-date job-info"><b>@Model.JobDetailsJobDatePosting</b> @Model.JobDetailsSelectedDate.ToLocalTime().ToString(Model.DisplayJobDateFormat)</span>
+            }
+
+            @Html.Raw(Model.JobDescription)
+        </div>
+
+        @if (Model.JobDetailsAlign != JobDetailsAlignType.Above) {
+            @ApplyButton("bottom")
+        }
+
+        @if (Model.ShowApplyLater && Model.ApplyLaterAlign != JobDetailsAlignType.Above) {
+            @ApplyLaterButton("bottom")
+        }
+
+        @if (Model.CanShowReferrerPage) {
+            <a class="ajd_btn__referred button job-apply job-get-referred" @Html.JobDetailsReferrerUrlAttributes(Model)>@Model.ReferrerPageButtonText</a>
+        }
+    </section>
+}

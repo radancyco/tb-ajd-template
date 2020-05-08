@@ -1,0 +1,152 @@
+@using Tmp.TalentBrew.Core
+@using Tmp.TalentBrew.Model
+@model PublishedCustomHTMLModuleModel
+
+@*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
+@*<!--==============================================-->*@
+@{
+    var wai = "";
+
+    @*<!--Filter IDs-->*@
+    var categoryId = Model.Page.CategoryIds;
+    var locationId = Model.Page.LocationIds;
+    var facetId = Model.Page.FacetIds;
+    
+    @*<!--Category Variables - helps identify which ID corresponds to what category-->*@
+    var categoryClientServices = "75632"; 
+    
+    @*<!--Location Variables - helps identify which ID corresponds to what location-->*@
+    var locationUSA = "6252001"; 
+    
+    @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
+    var facetFullTime = "job_type-Full-Time"; 
+    
+    bool showSection = true;
+}
+
+
+@*<!--RAZOR CODE FOR THIS MODULE-->*@
+@*<!--==============================================-->*@
+@{
+    @*<!--Global Variables-->*@
+    var sectionHeading = "Success Profile";
+    var sectionIntro = "";
+
+    @*<!-- Main Skills-->*@
+    string[,] mainSkillArr = new string[,] {};
+    
+    @*<!-- Sub Skills-->*@
+    string[] subSkillArr = new string[] {};
+}
+
+
+@*<!-- Helper function - converts string to number -->*@
+@*<!------------------------------------->*@
+@functions {
+    public string convertToInt(String value) {
+        String number = "";
+
+        if(value == "zero"){
+            number = "0";
+        } else if(value == "one"){
+            number = "1";
+        } else if(value == "two"){
+            number = "2";
+        } else if(value == "three"){
+            number = "3";
+        } else if(value == "four"){
+            number = "4";
+        } else if(value == "five"){
+            number = "5";
+        } else if(value == "six"){
+            number = "6";
+        } else if(value == "seven"){
+            number = "7";
+        } else if(value == "eight"){
+            number = "8";
+        } else if(value == "nine"){
+            number = "9";
+        } else {
+            number = "10";
+        }
+
+        return number;
+    }
+}
+
+
+
+@*<!-- Change content based on filters -->*@
+@*<!------------------------------------->*@
+@if(categoryId.Contains(categoryClientServices)) {
+    
+    sectionIntro = "What makes a successful Lorem ipsum? Check out the traits we’re looking for and see if you have the right skill level.";
+
+    @*<!--"Label Text", "Percent Number"-->*@
+    mainSkillArr = new string[,] {
+        { "Innovation", "nine" },
+        { "Problem-Solver", "nine" },
+        { "Presenter", "eight" },
+        { "Technologically savvy", "ten" },
+        { "Confident", "six" },
+        { "Independent", "four" }
+    };
+    
+    @*<!--"Label Text"-->*@
+    subSkillArr = new string[] {
+        "Organized",
+        "Analytical",
+        "Goal-oriented",
+        "Quick-thinking",
+        "Motivational",
+        "Team player",
+        "Managerial",
+        "Curious"
+    };
+    
+
+} else {
+
+    showSection = false;
+
+}
+
+
+@if(showSection){
+<section id="anchor-success-profile" class="ajd_section ajd_success-profile">
+    <h2 class="ajd_section__heading ajd_success-profile__heading @wai">@Html.Raw(sectionHeading)</h2>
+    
+    @if(!String.IsNullOrWhiteSpace(sectionIntro)){
+    <p class="ajd_success-profile__intro">@Html.Raw(sectionIntro) <nobr>(1 Beginner – 10 Expert)</nobr></p>
+    }
+    
+    @if(mainSkillArr.GetLength(0) > 0){
+    <div id="skill-graph" class="ajd_graph enhance-element">
+        <ul class="ajd_graph__main-skills">
+            @for (int i = 0; i < mainSkillArr.GetLength(0); i++) {  
+            <li class="ajd_graph__main-skill">
+                <b class="ajd_graph__label">@Html.Raw(mainSkillArr[i,0])</b> 
+                <i class="ajd_graph__percent @Html.Raw(mainSkillArr[i,1])">@convertToInt(mainSkillArr[i,1])</i>
+            </li>
+            }
+        </ul>
+
+        <div class="ajd_graph__scale">
+            <span class="wai">Traits are on a scale of </span>
+            <span class="ajd_graph__smallest">0</span><span class="wai"> to </span>
+            <span class="ajd_graph__largest">10</span>
+        </div>
+
+        @if(subSkillArr.Length > 0){
+        <p class="wai">Addtional Traits</p>
+        
+        <ul class="ajd_graph__sub-skills">
+            @for (int i = 0; i < subSkillArr.Length; i++) {  
+            <li class="ajd_graph__sub-skill">@Html.Raw(subSkillArr[i])</li>
+            }
+        </ul>
+        }
+    </div>
+    }
+</section>
+}

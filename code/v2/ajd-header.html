@@ -1,0 +1,174 @@
+@using Tmp.TalentBrew.Core
+@using Tmp.TalentBrew.Core.HtmlHelpers
+@using Tmp.TalentBrew.Model
+@model PublishedJobDetailsModuleModel
+
+@*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
+@*<!--==============================================-->*@
+@{
+    var wai = "";
+
+    @*<!--Filter IDs-->*@
+    var categoryId = Model.Page.CategoryIds;
+    var locationId = Model.Page.LocationIds;
+    var facetId = Model.Page.FacetIds;
+    
+    @*<!--Category Variables - helps identify which ID corresponds to what category-->*@
+    var categoryClientServices = "75632"; 
+    
+    @*<!--Location Variables - helps identify which ID corresponds to what location-->*@
+    var locationUSA = "6252001"; 
+    
+    @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
+    var facetFullTime = "job_type-Full-Time"; 
+    
+    bool showSection = true;
+}
+
+
+@*<!--RAZOR CODE FOR THIS MODULE-->*@
+@*<!--==============================================-->*@
+@{
+    var cat = CoreHelper.GetTokenValue(Tmp.TalentBrew.Model.TokenType.Category);
+    
+    @*<!-- Navigation links LEAVE EMPTY-->*@
+    string[] navLinkArr = new string[] {};
+}
+
+
+@*<!-- Change content based on filters -->*@
+@*<!------------------------------------->*@
+@if(categoryId.Contains(categoryClientServices)) {
+    
+    @*<!--"Link Text" - this also becomes the anchor link text-->*@
+    @*<!--Make sure your section has the correct ID to anchor to-->*@
+    navLinkArr = new string[] {
+        "Overview",
+        "Success Profile",
+        "Career Path",
+        "Trending",
+        "Rewards",
+        "Responsibilities"
+    };
+
+} else {
+
+    showSection = false;
+
+}
+
+@helper ApplyButton(string position) {
+    var buttonText = Model.PageTypeId == PageType.QuickApply ? Model.QuickApplyButtonText : Model.ApplyButtonText;
+    
+    if(Model.ShowApplyAndQuickApply && Model.PageTypeId == PageType.QuickApply) {
+        <a class="button job-apply @position" @Html.JobDetailIncludeApplyUrlAttributes(Model)>@Model.ApplyButtonText</a> 
+	}
+	
+	<a class="button job-apply @position" @Html.JobDetailsApplyUrlAttributes(Model)>@buttonText</a>
+}
+
+@helper ApplyLaterButton(string position) {
+	<a class="button job-apply job-apply-later @position" @Html.JobDetailsApplyLaterUrlAttributes(Model)>@Model.ApplyLaterText</a>
+}
+
+@if (Model != null) {
+    <section id="ajd-header" class="ajd_header js-ajd-sticky" @Html.CustomSelector(Model) @Html.JobDetailsSectionAttributes(Model)>
+        <div class="max-width-wrapper">
+            <div class="ajd_header__content">
+                <div class="ajd_header__job-heading">
+                    <h1 class="ajd_header__job-title">@Model.JobTitle</h1>
+                    
+                    <p class="ajd_header__location">@Html.JobFormattedLocation(Model.Job.Locations, ";", "[[CITY_NAME]], [[STATE_NAME]]", "[[CITY_NAME]], [[COUNTRY_NAME]]")</p>
+                </div>
+    
+                <div class="ajd_header__job-buttons">
+                    @if (Model.JobDetailsAlign != JobDetailsAlignType.Below) {
+                        @ApplyButton("top")
+                    }
+                    
+                    @if (Model.ShowApplyLater && Model.ApplyLaterAlign != JobDetailsAlignType.Below) {
+                        @ApplyLaterButton("top")
+                    }
+                    
+                    @if (Model.ShowSavedJobsIcon == true)  { 
+                        <button type="button" class="js-save-job-btn" data-job-id="@Model.JobModel.Id.ToString()" data-org-id="@Model.JobModel.OrganizationId.ToString()" data-unsaved-text="@Model.IconLabel" data-saved-text="Saved">@Model.IconLabel</button>
+                    }   
+                </div>
+            </div>
+        </div>
+    
+        @if(showSection){
+        <nav class="ajd_navigation" aria-label="Page">
+            <ul class="ajd_navigation__ul max-width-wrapper">
+            @for (int i = 0; i < navLinkArr.Length; i++) {  
+                <li class="ajd_navigation__li"><a href="#anchor-@Html.Raw(navLinkArr[i].Replace(" ", "-").ToLower())" class="ajd_navigation__a">@Html.Raw(navLinkArr[i])</a></li>
+            }
+            </ul>
+        </nav>
+        }
+    </section>
+
+    
+    using (var context = Html.BeginScriptContext()) {
+        context.AddScriptFile(Url.CdnUrl(Constants.JobDetailsJavascript, "TBCDN"));
+
+        @*<!--THE FOLLOWING SCRIPTS GET ADDED TO THE BOTTOM OF THE PAGE-->*@
+        Html.AddScriptBlock(
+        @<script>
+            // adds a return-to-nav anchor to each section
+            $('.ajd_navigation__a').each(function() {
+                if($($(this).attr('href')).find('.back-to-ajd-nav').length <= 0){
+                    $(this).attr('id', 'nav-'+$(this).attr('href').replace('#', ''));
+                    
+                    // create anchor wrapper
+                    var returnAnchorWrapper = document.createElement('DIV');
+                    returnAnchorWrapper.className += 'back-to-ajd-nav';
+                    
+                    // create anchor
+                    var returnAnchor = document.createElement('A');
+                    returnAnchor.className += 'back-to-ajd-nav__a';
+                    returnAnchor.href = '#' + $(this).attr('id');
+                
+                    // append anchor to anchor wrapper
+                    returnAnchorWrapper.append(returnAnchor);
+
+                    // append wrapper to DOM
+                    $($(this).attr('href')).append(returnAnchorWrapper);
+                }
+            })
+        </script>
+        );
+
+        Html.AddScriptBlock(
+            @<script>
+                //  Change text of saved jobs
+                var saveBtn = $('.js-save-job-btn');
+    
+                if(saveBtn.length) {
+                    function savedText(event){
+                        if(event == 'click'){
+                            //toggle on click
+                            $(saveBtn.find('span')).text(saveBtn.hasClass('saved') ? $('.js-save-job-btn').data().unsavedText : $('.js-save-job-btn').data().savedText);
+                            saveBtn.attr('aria-pressed', saveBtn.hasClass('saved') ? false : true);
+                        } 
+
+                        if(event == 'load'){
+                            //toggle for page load
+                            $(saveBtn.find('span')).text(saveBtn.hasClass('saved') ? $('.js-save-job-btn').data().savedText : $('.js-save-job-btn').data().unsavedText);
+                            saveBtn.attr('aria-pressed', saveBtn.hasClass('saved') ? true : false);
+                        }
+                    }
+                    
+                    addLoadEvent(function(){
+                        savedText('load');
+                    
+                        saveBtn.on('click', function(){
+                            savedText('click');
+                        })
+                    });
+                }
+
+            </script>
+        );
+    }
+}

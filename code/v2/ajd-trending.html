@@ -1,0 +1,98 @@
+@using Tmp.TalentBrew.Core
+@using Tmp.TalentBrew.Model
+@model PublishedCustomHTMLModuleModel
+
+@*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
+@*<!--==============================================-->*@
+@{
+    var wai = "";
+
+    @*<!--Filter IDs-->*@
+    var categoryId = Model.Page.CategoryIds;
+    var locationId = Model.Page.LocationIds;
+    var facetId = Model.Page.FacetIds;
+    
+    @*<!--Category Variables - helps identify which ID corresponds to what category-->*@
+    var categoryClientServices = "75632"; 
+    
+    @*<!--Location Variables - helps identify which ID corresponds to what location-->*@
+    var locationUSA = "6252001"; 
+    
+    @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
+    var facetFullTime = "job_type-Full-Time"; 
+    
+    bool showSection = true;
+}
+
+@*<!--RAZOR CODE FOR THIS MODULE-->*@
+@*<!--==============================================-->*@
+@{
+
+}
+
+@*<!-- Change content based on filters -->*@
+@*<!------------------------------------->*@
+@if(categoryId.Contains(categoryClientServices)) {
+
+    <section id="anchor-trending" class="ajd_section ajd_trending">
+        <h2 class="ajd_section__heading ajd_trending__heading">Trending</h2>
+
+        <ul class="ajd_trending__ul">
+            <li class="ajd_trending__li ajd_trending__li--two-col">
+
+                <a class="ajd_trending__a" href="#">
+                    <img class="ajd_trending__img" src="https://picsum.photos/350/150" alt="Dustin Carper" />
+
+                    <div class="ajd_trending__content">
+                        <h3 class="ajd_trending__content-heading">The inside scoop on digital strategy.</h3>
+
+                        <p class="ajd_trending__text">Check out the metrics for success at TMP, plus an audio interview with Dustin Carper &mdash; as he dives into best practices, job descriptions and more</p>
+
+                        <p class="ajd_trending__btn">Learn More</p>
+                    </div>
+                </a>
+            </li>
+
+            <li class="ajd_trending__li ajd_trending__li--two-col">
+                <a class="ajd_trending__a" href="#">
+                    <img class="ajd_trending__img" src="https://picsum.photos/350/150" alt="Dustin Carper" />
+
+                    <div class="ajd_trending__content">
+                        <p class="ajd_trending__text">Check out the metrics for success at TMP, plus an audio interview with Dustin Carper &mdash; as he dives into best practices, job descriptions and more</p>
+
+                        <p class="ajd_trending__btn">Read More</p>
+                    </div>
+                </a>
+            </li>
+
+            <li class="ajd_trending__li ajd_trending__li--one-col">
+                <a class="ajd_trending__a" href="#">
+                    <img class="ajd_trending__img" src="https://picsum.photos/350/150" alt="Dustin Carper" />
+
+                    <div class="ajd_trending__content">
+                        <h3 class="ajd_trending__content-heading">The inside scoop on digital strategy.</h3>
+
+                        <p class="ajd_trending__text">Check out the metrics for success at TMP, plus an audio interview with Dustin Carper &mdash; as he dives into best practices, job descriptions and more</p>
+
+                        <p class="ajd_trending__btn">Play now</p>
+                    </div>
+                </a>
+            </li>
+
+            <li class="ajd_trending__li ajd_trending__li--one-col">
+                <a class="ajd_trending__a " href="#">
+                    <img class="ajd_trending__img" src="https://picsum.photos/350/150" alt="Dustin Carper" />
+
+                    <div class="ajd_trending__content">
+                        <p class="ajd_trending__btn">Video Name</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+} else {
+
+
+    
+}

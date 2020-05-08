@@ -1,0 +1,118 @@
+@using Tmp.TalentBrew.Core
+@using Tmp.TalentBrew.Model
+@model PublishedCustomHTMLModuleModel
+
+@*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
+@*<!--==============================================-->*@
+@{
+    var wai = "";
+
+    @*<!--Filter IDs-->*@
+    var categoryId = Model.Page.CategoryIds;
+    var locationId = Model.Page.LocationIds;
+    var facetId = Model.Page.FacetIds;
+    
+    @*<!--Category Variables - helps identify which ID corresponds to what category-->*@
+    var categoryClientServices = "75632"; 
+    
+    @*<!--Location Variables - helps identify which ID corresponds to what location-->*@
+    var locationUSA = "6252001"; 
+    
+    @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
+    var facetFullTime = "job_type-Full-Time"; 
+    
+    bool showSection = true;
+}
+
+
+@*<!--RAZOR CODE FOR THIS MODULE-->*@
+@*<!--==============================================-->*@
+@{
+    @*<!--Global Variables-->*@
+    var sectionHeading = "Success Profile";
+    var sectionIntro = "";
+    var traitImg = "";
+    var traitCircleText = "";
+    
+    @*<!-- Trait Bullets LEAVE EMPTY-->*@
+    string[,] traitBulletArr = new string[,] {};
+}
+
+
+@*<!-- Change content based on filters -->*@
+@*<!------------------------------------->*@
+@if(categoryId.Contains(categoryClientServices)) {
+    
+    sectionIntro = "What makes a successful Lorem ipsum? Check out the traits we’re looking for and see if you have the right skill level.";
+    
+    traitImg = "https://picsum.photos/300/300?image=1";
+
+    @*<!--"Label Text", "Color"-->*@
+    traitBulletArr = new string[,] {
+        { "Organized", "#0299ff" },
+        { "Goal-oriented in the business", "#fdda04" },
+        { "Analytical", "#013dae" },
+        { "Quick-thinking", "#010101" },
+        { "Motivational", "#01af55" },
+        { "Team player", "#af027e" }
+    };
+
+} else {
+
+    showSection = false;
+    
+}
+
+
+@if(showSection){
+    <section class="ajd_section ajd_success-profile">
+        <h2 class="ajd_section__heading ajd_success-profile__heading @wai">@Html.Raw(sectionHeading)</h2>
+        
+        @if(!String.IsNullOrWhiteSpace(sectionIntro)){
+        <p class="ajd_success-profile__intro">@Html.Raw(sectionIntro)</p>
+        }
+        
+        @if(traitBulletArr.GetLength(0) > 0){
+        <div class="ci-pie-chart enhance-element js-ajd-script-animate-chart">
+        
+            @*<!--TRAIT CIRCLE-->*@
+            <div class="js-ci-pie-chart__graph trait-circle__graph" data-chart="traitcircle">
+                @if(!String.IsNullOrWhiteSpace(traitCircleText)) {
+                    traitImg = "";
+                    <span class="ci-pie-chart__center-text">@Html.Raw(traitCircleText)</span>
+                }
+            </div>
+            
+            @*<!--TRAIT CIRCLE BULLETS-->*@
+            <ul class="js-ci-pie-chart__legend trait-circle__legend" 
+                data-chart="traitcircle" 
+                data-width="300" 
+                data-height="300" 
+                data-outer-radius="150" 
+                data-inner-radius="100" 
+                data-animate="true" 
+                data-animate-type="fadein"
+                data-animate-duration="600" 
+                data-animate-delay="300" 
+                data-animate-legend="true" 
+                data-stroke="false" 
+                data-stroke-width="4"
+                data-stroke-color="#fff"
+                data-hover-effect="true" 
+                data-icons="true" 
+                data-ratio-padding="true" 
+                data-tooltip="true"
+                @if(!String.IsNullOrWhiteSpace(traitImg)){
+                @Html.Raw("data-center-image='"+traitImg+"' data-center-image-scale='.97'")
+                }
+                >
+                
+                @for (int i = 0; i < traitBulletArr.GetLength(0); i++) {  
+                    <li class="js-ci-pie-chart__data trait-circle__item" data-label="@Html.Raw(traitBulletArr[i,0])" data-value="25" data-color="@Html.Raw(traitBulletArr[i,1])" data-animate-legend-item>@Html.Raw(traitBulletArr[i,0])</li>
+                }
+            </ul>
+        </div>
+        }
+
+    </section>
+}
