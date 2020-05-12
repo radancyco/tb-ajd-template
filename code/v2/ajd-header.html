@@ -127,7 +127,8 @@
                     // create anchor
                     var returnAnchor = document.createElement('A');
                     returnAnchor.className += 'back-to-ajd-nav__a';
-                    returnAnchor.href = '#' + $(this).attr('id');
+                    returnAnchor.href = '#' + this.id;
+                    returnAnchor.textContent = 'Back to navigation (' + this.textContent + ')';
                 
                     // append anchor to anchor wrapper
                     returnAnchorWrapper.append(returnAnchor);
