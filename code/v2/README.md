@@ -9,7 +9,6 @@ Last Updated: **05/14/20**
 - [Creating an AJD (for very first AJD on site)](#creating-an-ajd)
 - [Adding to an existing AJD](#adding-to-an-existing-ajd)
 - [AJD Modules](#ajd-modules)
-- [Visual Examples](#visual-examples)
 
 
 
@@ -106,7 +105,6 @@ Each module has instructions on how to utilize the razor in it. If you come acro
 - [Code for Job Description Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-job-description.html)
 
 
-## Visual Examples
 
 
 
