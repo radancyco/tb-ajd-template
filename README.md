@@ -7,7 +7,7 @@ Last Updated: **05/14/20**
 - [Quick Links](#quick-links)
 - [Introduction](#introduction)
 - [Technologies used](#technologies-used)
-- [What this template works with](#what-this-template-works-with)
+- [What these templates work with](#what-these-templates-work-with)
 - [Understanding what you can do and change](#understanding-what-you-can-do-and-change)
   - [Add unique SVG images](#add-unique-svg-images)
   - [Add or remove sticky functionality](#add-or-remove-sticky-functionality)
@@ -48,7 +48,7 @@ Version two has been created with the goal of dividing the AJD into sections tha
 * jQuery: Used for animations and different functionality. There is an AJD script and a Custom Imports Script being used
 
 
-## What these templates works with
+## What these templates work with
 
 ALL HTML and Razor works in the TB system with the latest features of the TB Job Details page as of 05/14/20
 
@@ -104,8 +104,8 @@ Ideally, AJD sections should use Padding to offset where the sticky nav will sto
 3. Click on the reviews tab
 4. use the URL in the browser, for example TMP's is https://www.glassdoor.com/Reviews/TMP-Worldwide-Reviews-E247764.htm
 5. Find the anchor tag for glassdoor and replace `#REPLACEME` with the url
-6. Copy the numbers in the URL that trail the E, for example TNP's is 247764
-7. Find the Glassdoor background image in the CSS and replace the `01` after the `?e=` with the copied numbers
+6. Copy the numbers in the URL that trail the E, for example TMP's is 247764
+7. Find the AJD Glassdoor image source located in either the CSS as a background image or an HTML img tag and replace the `01` after the `?e=` with the copied numbers
 
 ### Adding a video to the banner
 1. Make sure that your Custom Imports script has video as a script it is loading
