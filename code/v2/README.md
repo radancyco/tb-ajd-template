@@ -90,6 +90,8 @@ These steps should only be followed if the previous AJD uses the latest AJD code
 ## AJD Modules
 Almost all of these should be created as Custom HTML modules. The only exception is the Header and Job Description module - both of these should be created as Job Details modules, this means that each AJD will have two Job Details modules.
 
+IMPORTANT: Make sure to add the appropriate ID that corresponds to the in-page navigation for EACH module.
+
 Each module has instructions on how to utilize the razor in it. If you come across any issues please report them to Brock Barnett or Daniel Chacon as soon as possible.
 
 - [Code for Header Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-header.html)
