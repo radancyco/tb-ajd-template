@@ -117,9 +117,10 @@
         @<script>
             // adds a return-to-nav anchor to each section
             $('.ajd_navigation__a').each(function() {
-                if($($(this).attr('href')).find('.back-to-ajd-nav').length <= 0){
-                    $(this).attr('id', 'nav-'+$(this).attr('href').replace('#', ''));
-                    
+                if($(this.hash).find('.back-to-ajd-nav').length <= 0){
+                    // set ID to nav anchor
+                    this.id = 'nav-' + this.hash.substr(1);
+
                     // create anchor wrapper
                     var returnAnchorWrapper = document.createElement('DIV');
                     returnAnchorWrapper.className += 'back-to-ajd-nav';
@@ -131,45 +132,13 @@
                     returnAnchor.textContent = 'Back to navigation (' + this.textContent + ')';
                 
                     // append anchor to anchor wrapper
-                    returnAnchorWrapper.append(returnAnchor);
+                    returnAnchorWrapper.appendChild(returnAnchor);
 
                     // append wrapper to DOM
-                    $($(this).attr('href')).append(returnAnchorWrapper);
+                    document.getElementById(this.hash.substr(1)).appendChild(returnAnchorWrapper);
                 }
             })
         </script>
-        );
-
-        Html.AddScriptBlock(
-            @<script>
-                //  Change text of saved jobs
-                var saveBtn = $('.js-save-job-btn');
-    
-                if(saveBtn.length) {
-                    function savedText(event){
-                        if(event == 'click'){
-                            //toggle on click
-                            $(saveBtn.find('span')).text(saveBtn.hasClass('saved') ? $('.js-save-job-btn').data().unsavedText : $('.js-save-job-btn').data().savedText);
-                            saveBtn.attr('aria-pressed', saveBtn.hasClass('saved') ? false : true);
-                        } 
-
-                        if(event == 'load'){
-                            //toggle for page load
-                            $(saveBtn.find('span')).text(saveBtn.hasClass('saved') ? $('.js-save-job-btn').data().savedText : $('.js-save-job-btn').data().unsavedText);
-                            saveBtn.attr('aria-pressed', saveBtn.hasClass('saved') ? true : false);
-                        }
-                    }
-                    
-                    addLoadEvent(function(){
-                        savedText('load');
-                    
-                        saveBtn.on('click', function(){
-                            savedText('click');
-                        })
-                    });
-                }
-
-            </script>
         );
     }
 }
