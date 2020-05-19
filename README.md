@@ -4,7 +4,7 @@ Last Updated: **05/14/20**
 # Welcome to the AJD Template!
 
 ## Table of Contents
-- [What's new?](#what's-new)
+- [What's new?](#whats-new)
 - [Which AJD should I use?](#which-ajd-should-i-use)
 - [Quick Links](#quick-links)
 
