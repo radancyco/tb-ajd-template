@@ -37,7 +37,7 @@ The AJD template is meant to be a skeleton version of HTML and SASS. This has be
 * jQuery: Used for animations and different functionality. There is an AJD script and a Custom Imports Script being used
 
 
-## What this template work with
+## What this template works with
 ALL HTML and Razor works in the TB system with the latest features of the TB Job Details page. The SASS variables, mixins and functions work with the default SASS and Compass for TB Full Theme
 
 

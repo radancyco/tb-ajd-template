@@ -33,7 +33,7 @@ This version was created with the goal of making the HTML and SCSS more modular.
 * jQuery: Used for animations and different functionality. There is an AJD script and a Custom Imports Script being used
 
 
-## What this template work with
+## What this template works with
 ALL HTML and Razor works in the TB system with the latest features of the TB Job Details page. The SASS variables, mixins and functions work with the default SASS and Compass for TB Full Theme
 
 
@@ -136,6 +136,7 @@ Each module has instructions on how to utilize the razor in it. If you come acro
 - [Code for Featured Image / Parallax Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-featured-image.html)
 - [Code for Benefits / Rewards Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-rewards.html)
 - [Code for Job Description Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-job-description.html)
+
 
 
 
