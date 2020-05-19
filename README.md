@@ -10,7 +10,7 @@ Last Updated: **05/14/20**
 
 
 ## What's new
-A new version of the AJD has been created. This version was created with the goal of making the HTML and SCSS more modular. Decoupling the JS is still on our road map but as of right now we are rolling out the HTML and SCSS changes.
+A new version of the AJD has been created. The new version was created with the goal of making the HTML and SCSS more modular. Decoupling the JS is still on our roadmap but as of right now we are rolling out the HTML and SCSS changes.
 
 
 ## Which AJD should I use

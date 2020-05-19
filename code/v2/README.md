@@ -7,7 +7,7 @@ Last Updated: **05/14/20**
 - [Overview](#overview)
 - [Introduction](#introduction)
 - [Technologies used](#technologies-used)
-- [What this templatew works with](#what-this-template-works-with)
+- [What this template works with](#what-this-template-works-with)
 - [Things to know before you start](#things-to-know-before-you-start)
   - [How to find Category ID](#how-to-find-category-id)
   - [How to find Location ID](#how-to-find-location-id)
@@ -18,13 +18,11 @@ Last Updated: **05/14/20**
 
 
 ## Overview
-This repository contains the version 2 template used to create advanced job detail pages on TalentBrew.
+This folder contains the version 2 template used to create Advanced Job Detail pages on TalentBrew.
 
 
 ## Introduction
-The AJD template is meant to be a skeleton version of HTML and SASS. This has been done to speed up the development of AJDs. 
-
-Version two has been created with the goal of dividing the AJD into sections that can be add or removed with ease.
+This version was created with the goal of making the HTML and SCSS more modular. Decoupling the JS is still on our roadmap but as of right now we are rolling out the HTML and SCSS changes.
 
 
 ## Technologies used
@@ -36,9 +34,7 @@ Version two has been created with the goal of dividing the AJD into sections tha
 
 
 ## What this template work with
-ALL HTML and Razor works in the TB system with the latest features of the TB Job Details page as of 05/14/20
-
-This templates SASS variables, mixins and functions work with the default SASS and Compass for TB Full Theme as of 05/14/20
+ALL HTML and Razor works in the TB system with the latest features of the TB Job Details page. The SASS variables, mixins and functions work with the default SASS and Compass for TB Full Theme
 
 
 
