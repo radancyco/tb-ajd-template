@@ -14,7 +14,7 @@ A new version of the AJD has been created. This version was created with the goa
 
 
 ## Which AJD should I use
-Thats a great question! The answer is relatively simple. If you are building an AJD on a site that has never had one, use the (code for version 2)[https://github.com/tmpworldwide/tb-ajd-template/tree/gh-pages/code/v2]. If an AJD already exists then build any additional AJD's the same way the first AJD was built, it most likely was done with (code from version 1)[https://github.com/tmpworldwide/tb-ajd-template/tree/gh-pages/code/v1].
+Thats a great question! The answer is relatively simple. If you are building an AJD on a site that has never had one, use the [code for version 2](https://github.com/tmpworldwide/tb-ajd-template/tree/doc-branch/code/v2). If an AJD already exists then build any additional AJD's the same way the first AJD was built, it most likely was done with [code from version 1](https://github.com/tmpworldwide/tb-ajd-template/tree/doc-branch/code/v1)
 
 
 ## Quick Links
