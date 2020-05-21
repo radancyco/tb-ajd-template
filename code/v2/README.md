@@ -103,7 +103,7 @@ IMPORTANT: ONLY CREATE ONE AJD PAGE AND ONE AJD THEME. DO NOT CREATE MULTIPLE AJ
         1. `<script src="https://clientfiles.tmpwebeng.com/tmp/tb-assets/ajd/jquery-scrolltofixed-min.js"></script>`
         2. `<script src="https://clientfiles.tmpwebeng.com/tmp/tb-assets/ajd/ajd-scripts-min.js"></script>`
         3. `<script id="js-custom-imports" src="https://services1.tmpwebeng.com/custom-imports/custom-imports.js?scripts=charts,video"></script>`
-3. Add [AJD SASS](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/styles/ajd-styles.scss) to full theme SASS
+3. Add [AJD SASS](https://github.com/tmpworldwide/tb-ajd-template/blob/doc-branch/code/v2/styles/ajd-styles.scss) to full theme SASS
 4. Map all filters to Theme level
 5. Create page for theme - only create ONE AJD page
     * Do no map any filters on the page level
@@ -134,17 +134,17 @@ IMPORTANT: Make sure to add the appropriate ID that corresponds to the in-page n
 
 Each module has instructions on how to utilize the razor in it. If you come across any issues please report them to Brock Barnett or Daniel Chacon as soon as possible.
 
-- [Code for Header Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-header.html)
-- [Code for Overview Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-overview.html)
-- [Code for Success Profile (Graph) Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-success-profile-graph.html)
-- [Code for Success Profile (Trait Circle) Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-success-profile-trait-circle.html)
-- [Code for Culture Points Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-culture-points.html)
-- [Code for Career Path Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-career-path.html)
-- [Code for Quote Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-quote.html)
-- [Code for Trending Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-trending.html)
-- [Code for Featured Image / Parallax Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-featured-image.html)
-- [Code for Benefits / Rewards Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-rewards.html)
-- [Code for Job Description Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-job-description.html)
+- [Code for Header Module](https://github.com/tmpworldwide/tb-ajd-template/blob/doc-branch/code/v2/html/ajd-header.html)
+- [Code for Overview Module](https://github.com/tmpworldwide/tb-ajd-template/blob/doc-branch/code/v2/html/ajd-overview.html)
+- [Code for Success Profile (Graph) Module](https://github.com/tmpworldwide/tb-ajd-template/blob/doc-branch/code/v2/html/ajd-success-profile-graph.html)
+- [Code for Success Profile (Trait Circle) Module](https://github.com/tmpworldwide/tb-ajd-template/blob/doc-branch/code/v2/html/ajd-success-profile-trait-circle.html)
+- [Code for Culture Points Module](https://github.com/tmpworldwide/tb-ajd-template/blob/doc-branch/code/v2/html/ajd-culture-points.html)
+- [Code for Career Path Module](https://github.com/tmpworldwide/tb-ajd-template/blob/doc-branch/code/v2/html/ajd-career-path.html)
+- [Code for Quote Module](https://github.com/tmpworldwide/tb-ajd-template/blob/doc-branch/code/v2/html/ajd-quote.html)
+- [Code for Trending Module](https://github.com/tmpworldwide/tb-ajd-template/blob/doc-branch/code/v2/html/ajd-trending.html)
+- [Code for Featured Image / Parallax Module](https://github.com/tmpworldwide/tb-ajd-template/blob/doc-branch/code/v2/html/ajd-featured-image.html)
+- [Code for Benefits / Rewards Module](https://github.com/tmpworldwide/tb-ajd-template/blob/doc-branch/code/v2/html/ajd-rewards.html)
+- [Code for Job Description Module](https://github.com/tmpworldwide/tb-ajd-template/blob/doc-branch/code/v2/html/ajd-job-description.html)
 
 
 
@@ -195,7 +195,7 @@ Ideally, AJD sections should use Padding to offset where the sticky nav will sto
 2. Then click on the company name in the results list
 3. Click on the reviews tab
 4. use the URL in the browser, for example TMP's is https://www.glassdoor.com/Reviews/TMP-Worldwide-Reviews-E247764.htm
-5. Go to the code for the [Overview Module](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/html/ajd-overview.html) and follow the instructions on how to add the glassdoor icon
+5. Go to the code for the [Overview Module](https://github.com/tmpworldwide/tb-ajd-template/blob/doc-branch/code/v2/html/ajd-overview.html) and follow the instructions on how to add the glassdoor icon
 
 
 ### Adding a video to the banner
