@@ -18,8 +18,8 @@ Thats a great question! The answer is relatively simple. If you are building an 
 
 
 ## Quick Links
-* [Version 1 AJD code.](https://github.com/tmpworldwide/tb-ajd-template/tree/gh-pages/code/v1)
-* [Version 2 AJD code.](https://github.com/tmpworldwide/tb-ajd-template/tree/gh-pages/code/v2)
+* [Version 1 AJD code.](https://github.com/tmpworldwide/tb-ajd-template/tree/doc-branch/code/v1)
+* [Version 2 AJD code.](https://github.com/tmpworldwide/tb-ajd-template/tree/doc-branch/code/v2)
 * [Download entire repository.](https://github.com/dchacon1/tb-ajd-template/archive/gh-pages.zip)
 
 
