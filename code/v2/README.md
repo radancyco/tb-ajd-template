@@ -1,5 +1,5 @@
 # Advanced Job Details (Version 2)
-
+[Other versions](https://github.com/tmpworldwide/tb-ajd-template/tree/doc-branch)
 
 ## Table of Contents
 - [Overview](#overview)
