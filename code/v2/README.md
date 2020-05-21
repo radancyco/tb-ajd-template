@@ -1,5 +1,3 @@
-Last Updated: **05/14/20**
-
 # Advanced Job Details (Version 2)
 
 

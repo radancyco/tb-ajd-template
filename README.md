@@ -1,6 +1,3 @@
-Last Updated: **05/14/20**
-
-
 # Welcome to the AJD Template!
 
 ## Table of Contents
