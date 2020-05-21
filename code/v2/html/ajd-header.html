@@ -117,7 +117,7 @@
         @<script>
             // adds a return-to-nav anchor to each section
             $('.ajd_navigation__a').each(function() {
-                if($(this.hash).find('.back-to-ajd-nav').length <= 0){
+                if($(this.hash).length && $(this.hash).find('.back-to-ajd-nav').length <= 0){
                     // set ID to nav anchor
                     this.id = 'nav-' + this.hash.substr(1);
 
