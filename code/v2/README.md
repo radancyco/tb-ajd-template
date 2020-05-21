@@ -90,6 +90,7 @@ The facet ID for example 2 is job_type-Full-Time
 
 ## Creating an AJD
 Only follow these instructions if the site you are working on does not currently have any AJDs.
+IMPORTANT: ONLY CREATE ONE AJD PAGE AND ONE AJD THEME. DO NOT CREATE MULTIPLE AJD PAGES
 
 1. **Create a new Theme** inside the current TB site and do the following:
     * Name this theme "AJD Theme"
@@ -104,7 +105,7 @@ Only follow these instructions if the site you are working on does not currently
         3. `<script id="js-custom-imports" src="https://services1.tmpwebeng.com/custom-imports/custom-imports.js?scripts=charts,video"></script>`
 3. Add [AJD SASS](https://github.com/tmpworldwide/tb-ajd-template/blob/gh-pages/code/v2/styles/ajd-styles.scss) to full theme SASS
 4. Map all filters to Theme level
-5. Create page for theme
+5. Create page for theme - only create ONE AJD page
     * Do no map any filters on the page level
     * Name the page "AJD"
     * If any modules on the current JD page exist on the design add those modules to this new AJD page
