@@ -5,8 +5,6 @@
 @*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
 @*<!--==============================================-->*@
 @{
-    var wai = "";
-
     @*<!--Filter IDs-->*@
     var categoryId = Model.Page.CategoryIds;
     var locationId = Model.Page.LocationIds;
@@ -20,15 +18,8 @@
     
     @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
     var facetFullTime = "job_type-Full-Time"; 
-    
-    bool showSection = true;
 }
 
-@*<!--RAZOR CODE FOR THIS MODULE-->*@
-@*<!--==============================================-->*@
-@{
-
-}
 
 @*<!-- Change content based on filters -->*@
 @*<!------------------------------------->*@

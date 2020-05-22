@@ -5,8 +5,6 @@
 @*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
 @*<!--==============================================-->*@
 @{
-    var wai = "";
-
     @*<!--Filter IDs-->*@
     var categoryId = Model.Page.CategoryIds;
     var locationId = Model.Page.LocationIds;
@@ -20,14 +18,15 @@
     
     @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
     var facetFullTime = "job_type-Full-Time"; 
-    
-    bool showSection = true;
 }
 
 
 @*<!--RAZOR CODE FOR THIS MODULE-->*@
 @*<!--==============================================-->*@
 @{
+    @*<!--Set to false to hide entire module-->*@
+    bool showSection = true;
+
     @*<!--Global Variables-->*@
     var sectionHeading = "Success Profile";
     var sectionIntro = "";
@@ -74,6 +73,35 @@
     }
 }
 
+@*<!--
+    HOW TO ADD MAIN SKILLS
+    -------------------------------------
+    
+    mainSkillArr = new string[,] {
+        { "Label_Text", "Percent_Number" },
+        { "Label_Text", "Percent_Number" },
+        { "Label_Text", "Percent_Number" },
+        { "Label_Text", "Percent_Number" },
+        { "Label_Text", "Percent_Number" },
+        { "Label_Text", "Percent_Number" }
+    };
+
+
+    HOW TO ADD SUB SKILLS
+    -------------------------------------
+
+    subSkillArr = new string[] {
+        "Label_Text",
+        "Label_Text",
+        "Label_Text",
+        "Label_Text",
+        "Label_Text",
+        "Label_Text",
+        "Label_Text",
+        "Label_Text"
+    };
+-->*@
+
 
 
 @*<!-- Change content based on filters -->*@
@@ -82,7 +110,6 @@
     
     sectionIntro = "What makes a successful Lorem ipsum? Check out the traits we’re looking for and see if you have the right skill level.";
 
-    @*<!--"Label Text", "Percent Number"-->*@
     mainSkillArr = new string[,] {
         { "Innovation", "nine" },
         { "Problem-Solver", "nine" },
@@ -92,7 +119,6 @@
         { "Independent", "four" }
     };
     
-    @*<!--"Label Text"-->*@
     subSkillArr = new string[] {
         "Organized",
         "Analytical",
@@ -114,7 +140,7 @@
 
 @if(showSection){
 <section id="anchor-success-profile" class="ajd_section ajd_success-profile">
-    <h2 class="ajd_section__heading ajd_success-profile__heading @wai">@Html.Raw(sectionHeading)</h2>
+    <h2 class="ajd_section__heading ajd_success-profile__heading">@Html.Raw(sectionHeading)</h2>
     
     @if(!String.IsNullOrWhiteSpace(sectionIntro)){
     <p class="ajd_success-profile__intro">@Html.Raw(sectionIntro) <nobr>(1 Beginner – 10 Expert)</nobr></p>

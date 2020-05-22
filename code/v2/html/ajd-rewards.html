@@ -5,8 +5,6 @@
 @*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
 @*<!--==============================================-->*@
 @{
-    var wai = "";
-
     @*<!--Filter IDs-->*@
     var categoryId = Model.Page.CategoryIds;
     var locationId = Model.Page.LocationIds;
@@ -26,16 +24,56 @@
 @*<!--RAZOR CODE FOR THIS MODULE-->*@
 @*<!--==============================================-->*@
 @{
+    @*<!--Set to false to hide entire module-->*@
+    bool showSection = true;
+
     @*<!--Global Variables-->*@
     var sectionHeading = "Rewards";
     var sectionIntro = "";
     
     @*<!--Global Icon List-->*@
     var icons = new List<Reward>();
+}
+
+
+@*<!--TEMPLATE FOR REWARD ICON LIST-->*@
+@*<!------------------------------------->*@
+@functions {
+    public class Reward {
+        public string Icon;
+        public string Title;
+        public string Description;
+        
+
+        // Constructor that builds object without description
+        public Reward(string icon, string title) {
+            this.Icon = icon;
+            this.Title = title;
+        }
     
-    @*<!--
+        // Constructor that builds object with description
+        public Reward(string icon, string title, string desc) {
+            this.Icon = icon;
+            this.Title = title;
+            this.Description = desc;
+        }
+    }
+}
+
+
+
+@*<!--
+
+    HOW TO CREATE A REWARD OBJECT 
+    ------------------------------------
+
+    icons.Add( new Reward("icon_name", "reward_heading", "reward_description") );
+
+    
     LIST OF ALL AVAILABLE REWARDS ICONS.
-    take the name of each icon you need and insert that name into the Icon List Array below.
+    ------------------------------------
+
+    Take the name of each icon you need and insert that name into the Icon List Array below.
     These will result in a class you can use in SASS. If you make a custom icon please
     add it to this list. To see what each icon looks like you can go here:
     https://tmpworldwide.dev/tb-ajd-template/examples/skeleton/?no-checks
@@ -91,42 +129,6 @@
     vision
     wallet
     wellness-programs
-    
-    -->*@
-
-    bool showSection = true;
-}
-
-
-@*<!--TEMPLATE FOR REWARD ICON LIST-->*@
-@*<!------------------------------------->*@
-@functions {
-    public class Reward {
-        public string Icon;
-        public string Title;
-        public string Description;
-        
-
-        // Constructor that builds object without description
-        public Reward(string icon, string title) {
-            this.Icon = icon;
-            this.Title = title;
-        }
-    
-        // Constructor that builds object with description
-        public Reward(string icon, string title, string desc) {
-            this.Icon = icon;
-            this.Title = title;
-            this.Description = desc;
-        }
-    }
-}
-
-
-@*<!--HOW TO CREATE A REWARD OBJECT -->*@
-@*<!------------------------------------->*@
-@*<!--
-    icons.Add( new Reward("icon_name", "reward_heading", "reward_description) );
 -->*@
 
 
@@ -153,7 +155,7 @@
 
 @if(showSection){
     <section id="anchor-rewards" class="ajd_section ajd_rewards">
-        <h2 class="ajd_section__heading ajd_rewards__heading @wai">@Html.Raw(sectionHeading)</h2>
+        <h2 class="ajd_section__heading ajd_rewards__heading">@Html.Raw(sectionHeading)</h2>
         
         @if(!String.IsNullOrWhiteSpace(sectionIntro)){
         <p class="ajd_section__intro">@Html.Raw(sectionIntro)</p>

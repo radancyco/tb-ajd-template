@@ -5,8 +5,6 @@
 @*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
 @*<!--==============================================-->*@
 @{
-    var wai = "";
-
     @*<!--Filter IDs-->*@
     var categoryId = Model.Page.CategoryIds;
     var locationId = Model.Page.LocationIds;
@@ -20,19 +18,55 @@
     
     @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
     var facetFullTime = "job_type-Full-Time"; 
-    
-    bool showSection = true;
 }
 
 
 @*<!--RAZOR CODE FOR THIS MODULE-->*@
 @*<!--==============================================-->*@
 @{
+    @*<!--Set to false to hide entire module-->*@
+    bool showSection = true;
+
     @*<!--Global Variables-->*@
     var sectionHeading = "Career Path";
     var sectionIntro = "";
     var careerPath = "";
 }
+
+
+@*<!--
+
+    HOW TO ADD A NEW CAREER PATH
+    -------------------------------------
+    
+    The DPM should be providing you either with a the HTML and SASS, or a JSON file.
+    Here are the following scenarios:
+
+    Scenario 1:
+    If they provide you with the HTML and SASS you can simply paste the HTMl inside
+    the careerPath and paste the SASS inside the sass file. Here is how the careerPath
+    variable should look:
+
+    careerPath = @"
+        <HTML GOES HERE, MAKE SURE TO REPLACE ALL DOUBLE QUOTES WITH SINGLE QUOTES>
+    ";
+
+    Scenario 2:
+    If the DPM provides you with a JSON file for the career path then you can take that file and 
+    upload it to the career path generator located here: https://codepen.io/Vash007/full/KKweobw
+    Once uploaded you will then click the button "Export code as text files" to receive the HTML
+    and SASS. Once you receive the HTML and SASS you then can follow the steps in scenario 1.
+
+
+    Senario 3:
+    If the DPM only gives you a PSD to work off of then you can build the career path using the 
+    Career Path Generator located here: https://codepen.io/Vash007/full/KKweobw
+    Once completed then click the button "Export code as text files" to receive the HTML
+    and SASS. Once you receive the HTML and SASS you then can follow the steps in scenario 1.
+
+ 
+-->*@
+
 
 
 @*<!-- Change content based on filters -->*@
@@ -194,7 +228,7 @@
 
 @if(showSection){
 <section id="anchor-career-path" class="ajd_section career-path"> 
-    <h2 class="career-path__heading @wai">@Html.Raw(sectionHeading)</h2>
+    <h2 class="career-path__heading">@Html.Raw(sectionHeading)</h2>
 
     @if(!String.IsNullOrWhiteSpace(sectionIntro)){
     <p class="career-path__intro">@Html.Raw(sectionIntro)</p>

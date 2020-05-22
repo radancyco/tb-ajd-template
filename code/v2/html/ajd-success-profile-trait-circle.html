@@ -5,8 +5,6 @@
 @*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
 @*<!--==============================================-->*@
 @{
-    var wai = "";
-
     @*<!--Filter IDs-->*@
     var categoryId = Model.Page.CategoryIds;
     var locationId = Model.Page.LocationIds;
@@ -20,14 +18,15 @@
     
     @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
     var facetFullTime = "job_type-Full-Time"; 
-    
-    bool showSection = true;
 }
 
 
 @*<!--RAZOR CODE FOR THIS MODULE-->*@
 @*<!--==============================================-->*@
 @{
+    @*<!--Set to false to hide entire module-->*@
+    bool showSection = true;
+
     @*<!--Global Variables-->*@
     var sectionHeading = "Success Profile";
     var sectionIntro = "";
@@ -38,16 +37,32 @@
     string[,] traitBulletArr = new string[,] {};
 }
 
+@*<!--
+
+    HOW TO ADD TRAITS TO TRAIT CIRCLE
+    -------------------------------------
+    
+
+    traitBulletArr = new string[,] {
+        { "Label_Text", "HexColor" },
+        { "Label_Text", "HexColor" },
+        { "Label_Text", "HexColor" },
+        { "Label_Text", "HexColor" },
+        { "Label_Text", "HexColor" },
+        { "Label_Text", "HexColor" },
+    };
+
+-->*@
+
 
 @*<!-- Change content based on filters -->*@
 @*<!------------------------------------->*@
 @if(categoryId.Contains(categoryClientServices)) {
     
     sectionIntro = "What makes a successful Lorem ipsum? Check out the traits we’re looking for and see if you have the right skill level.";
-    
     traitImg = "https://picsum.photos/300/300?image=1";
 
-    @*<!--"Label Text", "Color"-->*@
+    @*<!--"Label_Text", "HexColor"-->*@
     traitBulletArr = new string[,] {
         { "Organized", "#0299ff" },
         { "Goal-oriented in the business", "#fdda04" },
@@ -65,8 +80,8 @@
 
 
 @if(showSection){
-    <section class="ajd_section ajd_success-profile">
-        <h2 class="ajd_section__heading ajd_success-profile__heading @wai">@Html.Raw(sectionHeading)</h2>
+    <section id="anchor-success-profile" class="ajd_section ajd_success-profile">
+        <h2 class="ajd_section__heading ajd_success-profile__heading">@Html.Raw(sectionHeading)</h2>
         
         @if(!String.IsNullOrWhiteSpace(sectionIntro)){
         <p class="ajd_success-profile__intro">@Html.Raw(sectionIntro)</p>

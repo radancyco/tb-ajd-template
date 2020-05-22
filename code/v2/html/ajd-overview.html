@@ -5,8 +5,6 @@
 @*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
 @*<!--==============================================-->*@
 @{
-    var wai = "";
-
     @*<!--Filter IDs-->*@
     var categoryId = Model.Page.CategoryIds;
     var locationId = Model.Page.LocationIds;
@@ -21,13 +19,17 @@
     @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
     var facetFullTime = "job_type-Full-Time"; 
     
-    bool showSection = true;
+
 }
 
 
 @*<!--RAZOR CODE FOR THIS MODULE-->*@
 @*<!--==============================================-->*@
 @{
+
+    @*<!--Set to false to hide entire module-->*@
+    bool showSection = true;
+
     @*<!--Global Variables-->*@
     var sectionHeading = "Overview";
     var sectionIntro = "";
@@ -88,15 +90,18 @@
     }
 }
 
-@*<!--HOW TO CREATE A QUICK FACT OBJECT -->*@
-@*<!------------------------------------->*@
+
 @*<!--
-    Normal Quickfact:
+
+    HOW TO CREATE A QUICK FACT OBJECT
+    -------------------------------------
     
     quickFacts.Add(new QuickFact("icon_class_name", "description"));
     
-    
-    How to add GLASSDOOR or INDEED with LINK:
+
+
+    How to add GLASSDOOR or INDEED with LINK
+    -------------------------------------
     
     quickFacts.Add(
         new QuickFact(
@@ -109,8 +114,9 @@
         )   
     );
     
-    
+
     How to add GLASSDOOR or INDEED without LINK:
+    -------------------------------------
     
     quickFacts.Add(
         new QuickFact(
@@ -120,7 +126,8 @@
                 "IMG_URL for img tag"
             )
         )   
-    );        
+    );    
+
 -->*@
 
 @*<!-- Change content based on filters -->*@
@@ -152,7 +159,7 @@
 
 @if(showSection){
     <section id="anchor-overview" class="ajd_section ajd_overview">
-        <h2 class="ajd_section__heading ajd_overview__heading @wai">@Html.Raw(sectionHeading)</h2>
+        <h2 class="ajd_section__heading ajd_overview__heading">@Html.Raw(sectionHeading)</h2>
     
         <div class="max-width-wrapper">
             @if(!String.IsNullOrWhiteSpace(sectionIntro)){
