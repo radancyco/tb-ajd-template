@@ -78,13 +78,13 @@ Example 1:
 ```
 <input type="checkbox" id="job_level-filter-0" class="filter-checkbox" data-facet-type="5" data-id="Regular" data-count="321" data-display="Regular" data-field-name="job_level">
 ```
-The facet ID for example 1 is job_level-Regular
+Once all whitespace is replaced with a hyphen the the facet ID for example 1 becomes job_level-Regular
 
 Example 2:
 ```
 <input type="checkbox" id="job_type-filter-0" class="filter-checkbox" data-facet-type="5" data-id="Full Time" data-count="13" data-display="Full Time" data-field-name="job_type">
 ```
-The facet ID for example 2 is job_type-Full-Time
+Once all whitespace is replaced with a hyphen the facet ID for example 2 becomes job_type-Full-Time
 
 
 
