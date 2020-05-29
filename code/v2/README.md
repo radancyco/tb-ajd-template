@@ -95,10 +95,10 @@ IMPORTANT: ONLY CREATE ONE AJD PAGE AND ONE AJD THEME. DO NOT CREATE MULTIPLE AJ
 1. **Create a new Theme** inside the current TB site and do the following:
     * Name this theme "AJD Theme"
 2. Edit the new theme HTML and Razor
-    * Copy all the HTML and Razor from the Default "Full" Theme to this new theme - make sure to also
+    * Copy all the HTML and Razor from the Default "Full" Theme to this new theme
     * Add the modules from the full theme to this new theme
     * Make sure the SASS and JavaScript that are assigned to the new theme matches the "Full" Theme
-    * Add the following code to the `<html>` tag: `data-theme-name="@pageModel.ThemePage.SiteTheme.Name" data-category-id="@pageModel.CategoryIds" data-location-id="@pageModel.LocationIds" data-facet-id="@pageModel.FacetIds"`. This code will help with debugging.
+    * Add the following attributes to the `<html>` tag on the theme level: `data-theme-name="@pageModel.ThemePage.SiteTheme.Name" data-category-id="@pageModel.CategoryIds" data-location-id="@pageModel.LocationIds" data-facet-id="@pageModel.FacetIds"`. This code will help with debugging.
     * Add the following scripts below `@Html.Partial("_ThemeJavascript")` in this order
         1. `<script src="https://clientfiles.tmpwebeng.com/tmp/tb-assets/ajd/jquery-scrolltofixed-min.js"></script>`
         2. `<script src="https://clientfiles.tmpwebeng.com/tmp/tb-assets/ajd/ajd-scripts-min.js"></script>`
@@ -106,29 +106,29 @@ IMPORTANT: ONLY CREATE ONE AJD PAGE AND ONE AJD THEME. DO NOT CREATE MULTIPLE AJ
 3. Add [AJD SASS](https://github.com/tmpworldwide/tb-ajd-template/blob/doc-branch/code/v2/styles/ajd-styles.scss) to full theme SASS
 4. Map all filters to Theme level
 5. Create page for theme - only create ONE AJD page
-    * Do no map any filters on the page level
+    * Do not map any filters on the page level
     * Name the page "AJD"
     * If any modules on the current JD page exist on the design add those modules to this new AJD page
-6. Create AJD modules and add to page
+6. Create [AJD modules](#ajd-modules) and add to page
     * Make sure to find the IDs for the filters you mapped to the theme level
     * Once you have found all the necessary filter IDs **add them to EACH module** you create for the AJD.
-    * Once IDs are added to each module don't forget to update your if statements within each module.
+    * Once IDs are added to each module don't forget to **update your if-statements** within each module.
     * Each module has its own set of unique instructions on how to implement. You can view the list of modules [here](#ajd-modules)
 
 
 
 ## Adding to an existing AJD
-These steps should only be followed if the previous AJD uses the latest AJD code.
+These steps should only be followed if the previous AJD uses the layout format as the version 2 AJD.
 
 1. Map new filters to the AJD Theme Level
 2. Find the IDs for the filters you mapped to the theme level and add them to all the modules
-3. Update if statements to change out content based on new filters
-    * If the new AJD has a module that the previous AJD doesn't have you can always create a new module. Once you do that you can make it so the module only appears when the correct filter is applied.
+3. Update if-statements to change out content based on new filters
+    * If the new AJD has a module that the existing AJDs do not have you will still need to create a new module. Once you do that you can make it so the new module only appears when the correct filter is applied.
 
 
 
 ## AJD Modules
-Almost all of these should be created as Custom HTML modules. The only exception is the Header and Job Description module - both of these should be created as Job Details modules, this means that each AJD will have two Job Details modules.
+Almost all of these should be created as Custom HTML modules. **The only exception is the Header and Job Description module** - both of these should be created as Job Details modules, this means that each AJD will have TWO Job Details modules.
 
 IMPORTANT: Make sure to add the appropriate ID that corresponds to the in-page navigation for EACH module.
 
