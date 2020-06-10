@@ -60,14 +60,14 @@
     var buttonText = Model.PageTypeId == PageType.QuickApply ? Model.QuickApplyButtonText : Model.ApplyButtonText;
     
     if(Model.ShowApplyAndQuickApply && Model.PageTypeId == PageType.QuickApply) {
-        <a class="button job-apply @position" @Html.JobDetailIncludeApplyUrlAttributes(Model)>@Model.ApplyButtonText</a> 
+        <a class="ajd_btn__apply button job-apply @position" @Html.JobDetailIncludeApplyUrlAttributes(Model)>@Model.ApplyButtonText</a> 
 	}
 	
-	<a class="button job-apply @position" @Html.JobDetailsApplyUrlAttributes(Model)>@buttonText</a>
+	<a class="ajd_btn__apply button job-apply @position" @Html.JobDetailsApplyUrlAttributes(Model)>@buttonText</a>
 }
 
 @helper ApplyLaterButton(string position) {
-	<a class="button job-apply job-apply-later @position" @Html.JobDetailsApplyLaterUrlAttributes(Model)>@Model.ApplyLaterText</a>
+	<a class="ajd_btn__apply button job-apply job-apply-later @position" @Html.JobDetailsApplyLaterUrlAttributes(Model)>@Model.ApplyLaterText</a>
 }
 
 @if (Model != null) {
@@ -90,7 +90,7 @@
                     }
                     
                     @if (Model.ShowSavedJobsIcon == true)  { 
-                        <button type="button" class="js-save-job-btn" data-job-id="@Model.JobModel.Id.ToString()" data-org-id="@Model.JobModel.OrganizationId.ToString()" data-unsaved-text="@Model.IconLabel" data-saved-text="Saved">@Model.IconLabel</button>
+                        <button class="js-save-job-btn ajd_btn__save" data-job-id="@Model.JobModel.Id.ToString()" data-org-id="@Model.JobModel.OrganizationId.ToString()">@Model.IconLabel</button>
                     }   
                 </div>
             </div>
