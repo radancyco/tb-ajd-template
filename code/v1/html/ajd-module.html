@@ -19,703 +19,703 @@
 
 @if (Model != null) {
     <section class="ajd" @Html.CustomSelector(Model) @Html.JobDetailsSectionAttributes(Model)>
-			<div id="ajd-header" class="ajd_header make-sticky">
-			    <div class="max-width-wrapper">
-			        <div class="ajd_header__content">
-			            <div class="ajd_header__job-heading">
-			                <h1 class="ajd_header__job-title">@Model.Job.Title</h1>
-							
-			                <p class="ajd_header__location">@Html.JobFormattedLocation(Model.Job.Locations, ",", "[[CITY_NAME]], [[STATE_NAME]]", "[[CITY_NAME]], [[COUNTRY_NAME]]")</p>
-			            </div>
+		<div id="ajd-header" class="ajd_header make-sticky">
+			<div class="max-width-wrapper">
+				<div class="ajd_header__content">
+					<div class="ajd_header__job-heading">
+						<h1 class="ajd_header__job-title">@Model.Job.Title</h1>
 						
-			            <div class="ajd_header__job-buttons">
-			                @if (Model.ShowSavedJobsIcon == true) { 
-				                <button type="button" class="js-save-job-btn ajd_btn__save" data-job-id="@Model.JobModel.Id.ToString()" data-org-id="@Model.JobModel.OrganizationId.ToString()">@Model.IconLabel</button>
-			                }
-			                @if (Model.JobDetailsAlign != JobDetailsAlignType.Below) {
-				                @ApplyButton("top")
-			                }
-			                @if (Model.ShowApplyLater && Model.ApplyLaterAlign != JobDetailsAlignType.Below) {
-				                @ApplyLaterButton("top")
-			                }
-			            </div>
-			        </div>
-			    </div>
-				
-			    <nav class="ajd_navigation" aria-label="In-page">
-			        <ul class="ajd_navigation__ul max-width-wrapper">
-			            <li id="ajd-anchor-overview" class="ajd_navigation__li"><a href="#anchor-overview" class="ajd_navigation__a">Overview</a></li>
-			            <li id="ajd-anchor-success" class="ajd_navigation__li"><a href="#anchor-success" class="ajd_navigation__a">Success Profile</a></li>
-			            <li id="ajd-anchor-path" class="ajd_navigation__li"><a href="#anchor-path" class="ajd_navigation__a">Career Path</a></li>
-			            <li id="ajd-anchor-trending" class="ajd_navigation__li"><a href="#anchor-trending" class="ajd_navigation__a">Trending</a></li>
-			            <li id="ajd-anchor-rewards" class="ajd_navigation__li"><a href="#anchor-rewards" class="ajd_navigation__a">Rewards</a></li>
-			            <li id="ajd-anchor-responsibilties" class="ajd_navigation__li"><a href="#anchor-responsibilties" class="ajd_navigation__a">Responsibilities</a></li>
-			            <li id="ajd-anchor-map" class="ajd_navigation__li"><a href="#anchor-map" class="ajd_navigation__a">Map</a></li>
-			        </ul>
-			    </nav>
-			    <!--/.ajd_navigation-->
+						<p class="ajd_header__location">@Html.JobFormattedLocation(Model.Job.Locations, ",", "[[CITY_NAME]], [[STATE_NAME]]", "[[CITY_NAME]], [[COUNTRY_NAME]]")</p>
+					</div>
+					
+					<div class="ajd_header__job-buttons">
+						@if (Model.ShowSavedJobsIcon == true) { 
+							<button class="js-save-job-btn ajd_btn__save" data-job-id="@Model.JobModel.Id.ToString()" data-org-id="@Model.JobModel.OrganizationId.ToString()">@Model.IconLabel</button>
+						}
+						@if (Model.JobDetailsAlign != JobDetailsAlignType.Below) {
+							@ApplyButton("top")
+						}
+						@if (Model.ShowApplyLater && Model.ApplyLaterAlign != JobDetailsAlignType.Below) {
+							@ApplyLaterButton("top")
+						}
+					</div>
+				</div>
 			</div>
-			<!--/.ajd_header-->
+			
+			<nav class="ajd_navigation" aria-label="In-page">
+				<ul class="ajd_navigation__ul max-width-wrapper">
+					<li id="ajd-anchor-overview" class="ajd_navigation__li"><a href="#anchor-overview" class="ajd_navigation__a">Overview</a></li>
+					<li id="ajd-anchor-success" class="ajd_navigation__li"><a href="#anchor-success" class="ajd_navigation__a">Success Profile</a></li>
+					<li id="ajd-anchor-path" class="ajd_navigation__li"><a href="#anchor-path" class="ajd_navigation__a">Career Path</a></li>
+					<li id="ajd-anchor-trending" class="ajd_navigation__li"><a href="#anchor-trending" class="ajd_navigation__a">Trending</a></li>
+					<li id="ajd-anchor-rewards" class="ajd_navigation__li"><a href="#anchor-rewards" class="ajd_navigation__a">Rewards</a></li>
+					<li id="ajd-anchor-responsibilties" class="ajd_navigation__li"><a href="#anchor-responsibilties" class="ajd_navigation__a">Responsibilities</a></li>
+					<li id="ajd-anchor-map" class="ajd_navigation__li"><a href="#anchor-map" class="ajd_navigation__a">Map</a></li>
+				</ul>
+			</nav>
+			<!--/.ajd_navigation-->
+		</div>
+		<!--/.ajd_header-->
 
 
-			@*<!-- AJD Overview -->*@
-			<section id="anchor-overview" class="ajd_section ajd_overview">
-			    <h2 class="ajd_section__heading ajd_overview__heading">Overview</h2>
+		@*<!-- AJD Overview -->*@
+		<section id="anchor-overview" class="ajd_section ajd_overview">
+			<h2 class="ajd_section__heading ajd_overview__heading">Overview</h2>
+			
+			<div class="max-width-wrapper">
+				<p class="ajd_overview__about-job">As a Digital Strategist, you’ll develop and lead multi-faceted web-based strategies for some of the most recognized names in the world. You’ll be the face of our software solutions, analytics and digital capabilities &mdash; able to explain the complex in simple ways to your colleagues and clients. And you’ll come up with innovative approaches that change the way companies and candidates connect.</p>
 				
-			    <div class="max-width-wrapper">
-			        <p class="ajd_overview__about-job">As a Digital Strategist, you’ll develop and lead multi-faceted web-based strategies for some of the most recognized names in the world. You’ll be the face of our software solutions, analytics and digital capabilities &mdash; able to explain the complex in simple ways to your colleagues and clients. And you’ll come up with innovative approaches that change the way companies and candidates connect.</p>
+				<ul class="ajd_overview__quick-facts enhance-element">
+					<li class="ajd_overview__quick-fact ajd_overview__quick-fact--time"><i class="ajd_overview__quick-fact-ico ico-time"></i>Full Time</li>
+					<li class="ajd_overview__quick-fact ajd_overview__quick-fact--level"><i class="ajd_overview__quick-fact-ico ico-level"></i>Level: Mid (5+ years experience)</li>
+					<li class="ajd_overview__quick-fact ajd_overview__quick-fact--travel"><i class="ajd_overview__quick-fact-ico ico-travel"></i>Travel: Minimal (if any)</li>
+					<li class="ajd_overview__quick-fact ajd_overview__quick-fact--salary"><i class="ajd_overview__quick-fact-ico ico-salary"></i>Salary: $63K-$96K</li>
+					<li class="ajd_overview__quick-fact ajd_overview__quick-fact--glassdoor">
+						<a href="#REPLACEME" class="ajd-glassdoor__link">
+							<span  class="ajd-glassdoor__text">Glassdoor Reviews and Company Rating</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			
+			<p class="back-to-ajd-nav"><a class="back-to-ajd-nav__a" href="#ajd-anchor-overview">Back to Job Navigation (Overview)</a></p>
+		</section>
+			
+
+
+		<section id="anchor-success" class="ajd_section ajd_success-profile">
+			<h2 class="ajd_section__heading ajd_success-profile__heading">Success Profile</h2>
+			
+			<p class="ajd_success-profile__intro">
+				What makes a successful Lorem ipsum? Check out the traits we’re looking for and see if you have the right skill level. 
+				<nobr>(1 Beginner – 10 Expert)</nobr>
+			</p>
+			
+			<div id="skill-graph" class="ajd_graph enhance-element">
+				<ul class="ajd_graph__main-skills">
+					<li class="ajd_graph__main-skill"><b class="ajd_graph__label">Innovation</b> <i class="ajd_graph__percent nine">9</i></li>
+					<li class="ajd_graph__main-skill"><b class="ajd_graph__label">Problem-Solver</b> <i class="ajd_graph__percent nine">9</i></li>
+					<li class="ajd_graph__main-skill"><b class="ajd_graph__label">Presenter</b> <i class="ajd_graph__percent eight">8</i></li>
+					<li class="ajd_graph__main-skill"><b class="ajd_graph__label">Technologically savvy</b> <i class="ajd_graph__percent ten">10</i></li>
+					<li class="ajd_graph__main-skill"><b class="ajd_graph__label">Confident</b> <i class="ajd_graph__percent six">6</i></li>
+					<li class="ajd_graph__main-skill"><b class="ajd_graph__label">Independent</b> <i class="ajd_graph__percent four">4</i></li>
+				</ul>
+				
+				<div class="ajd_graph__scale"><span class="wai">Traits are on a scale of </span><span class="ajd_graph__smallest">0</span><span class="wai"> to </span><span class="ajd_graph__largest">10</span></div>
+				
+				<p class="wai">Addtional Traits</p>
+				
+				<ul class="ajd_graph__sub-skills">
+					<li class="ajd_graph__sub-skill">Organized</li>
+					<li class="ajd_graph__sub-skill">Analytical</li>
+					<li class="ajd_graph__sub-skill">Goal-oriented</li>
+					<li class="ajd_graph__sub-skill">Quick-thinking</li>
+					<li class="ajd_graph__sub-skill">Motivational</li>
+					<li class="ajd_graph__sub-skill">Team player</li>
+					<li class="ajd_graph__sub-skill">Managerial</li>
+					<li class="ajd_graph__sub-skill">Curious</li>
+				</ul>
+			</div>
+			
+			<h2 class="remove-this-element">Alternative option, instead of the bar graph, if client does not provide values per trait or skill above then this Traits Circle can be used. Please note that the circle is not a graph, and all pieces are always equal.</h2>
+			
+			<h2 class="ajd_section__heading ajd_success-profile__heading">Success Profile</h2>
+			
+			<p class="ajd_success-profile__intro">
+				What makes a successful Lorem ipsum? Check out the traits we’re looking for and see if you have the right skill level. 
+				<nobr>(1 Beginner – 10 Expert)</nobr>
+			</p>
+			
+			<!--start pie chart-->
+			<div class="ci-pie-chart enhance-element js-ajd-script-animate-chart">
+				<!-- If you want to animate the chart only once change class to js-ajd-script-animate-once-chart-->
+				<div class="js-ci-pie-chart__graph trait-circle__graph" data-chart="traitcircle"></div>
+				
+				<ul class="js-ci-pie-chart__legend trait-circle__legend" 
+					data-chart="traitcircle" 
+					data-width="300" 
+					data-height="300" 
+					data-outer-radius="150"
+					data-inner-radius="100" 
+					data-animate="true" 
+					data-animate-type="fadein" 
+					data-animate-duration="600"
+					data-animate-delay="300"
+					data-animate-legend="true"
+					data-stroke="false" 
+					data-stroke-width="4" 
+					data-stroke-color="#fff" 
+					data-center-image="https://picsum.photos/300/300?image=1" 
+					data-center-image-scale=".97"
+					data-hover-effect="true" 
+					data-icons="true" 
+					data-ratio-padding="true"
+					data-tooltip="true">
 					
-			        <ul class="ajd_overview__quick-facts enhance-element">
-			            <li class="ajd_overview__quick-fact ajd_overview__quick-fact--time"><i class="ajd_overview__quick-fact-ico ico-time"></i>Full Time</li>
-			            <li class="ajd_overview__quick-fact ajd_overview__quick-fact--level"><i class="ajd_overview__quick-fact-ico ico-level"></i>Level: Mid (5+ years experience)</li>
-			            <li class="ajd_overview__quick-fact ajd_overview__quick-fact--travel"><i class="ajd_overview__quick-fact-ico ico-travel"></i>Travel: Minimal (if any)</li>
-			            <li class="ajd_overview__quick-fact ajd_overview__quick-fact--salary"><i class="ajd_overview__quick-fact-ico ico-salary"></i>Salary: $63K-$96K</li>
-			            <li class="ajd_overview__quick-fact ajd_overview__quick-fact--glassdoor">
-			                <a href="#REPLACEME" class="ajd-glassdoor__link">
-			                <span  class="ajd-glassdoor__text">Glassdoor Reviews and Company Rating</span>
-			                </a>
-			            </li>
-			        </ul>
-			    </div>
-				
-			    <p class="back-to-ajd-nav"><a class="back-to-ajd-nav__a" href="#ajd-anchor-overview">Back to Job Navigation (Overview)</a></p>
-			</section>
-				
-
-
-			<section id="anchor-success" class="ajd_section ajd_success-profile">
-		    <h2 class="ajd_section__heading ajd_success-profile__heading">Success Profile</h2>
+					<li class="js-ci-pie-chart__data trait-circle__item" data-label="Organized" data-value="25" data-color="#0299ff" data-animate-legend-item>Organized</li>
+					<li class="js-ci-pie-chart__data trait-circle__item" data-label="Goal-oriented in the business" data-value="25" data-color="#fdda04" data-animate-legend-item>Goal-oriented in the business</li>
+					<li class="js-ci-pie-chart__data trait-circle__item" data-label="Analytical" data-value="25" data-color="#013dae" data-animate-legend-item>Analytical</li>
+					<li class="js-ci-pie-chart__data trait-circle__item" data-label="Quick-thinking" data-value="25" data-color="#010101" data-animate-legend-item>Quick-thinking</li>
+					<li class="js-ci-pie-chart__data trait-circle__item" data-label="Motivational" data-value="25" data-color="#01af55" data-animate-legend-item>Motivational</li>
+					<li class="js-ci-pie-chart__data trait-circle__item" data-label="Team player" data-value="25" data-color="#af027e" data-animate-legend-item>Team player</li>
+				</ul>
+			</div>
+			<!--end pie chart-->
 			
-		    <p class="ajd_success-profile__intro">
-		        What makes a successful Lorem ipsum? Check out the traits we’re looking for and see if you have the right skill level. 
-		        <nobr>(1 Beginner – 10 Expert)</nobr>
-		    </p>
+			<h2 class="remove-this-element">Example of text instead of picture and only animating once and having a white border around each slice</h2>
 			
-		    <div id="skill-graph" class="ajd_graph enhance-element">
-		        <ul class="ajd_graph__main-skills">
-		            <li class="ajd_graph__main-skill"><b class="ajd_graph__label">Innovation</b> <i class="ajd_graph__percent nine">9</i></li>
-		            <li class="ajd_graph__main-skill"><b class="ajd_graph__label">Problem-Solver</b> <i class="ajd_graph__percent nine">9</i></li>
-		            <li class="ajd_graph__main-skill"><b class="ajd_graph__label">Presenter</b> <i class="ajd_graph__percent eight">8</i></li>
-		            <li class="ajd_graph__main-skill"><b class="ajd_graph__label">Technologically savvy</b> <i class="ajd_graph__percent ten">10</i></li>
-		            <li class="ajd_graph__main-skill"><b class="ajd_graph__label">Confident</b> <i class="ajd_graph__percent six">6</i></li>
-		            <li class="ajd_graph__main-skill"><b class="ajd_graph__label">Independent</b> <i class="ajd_graph__percent four">4</i></li>
-		        </ul>
+			<!--start pie chart-->
+			<div class="ci-pie-chart enhance-element js-ajd-script-animate-once-chart">
+				<div class="js-ci-pie-chart__graph trait-circle__graph" data-chart="traitcircle2">
+					<span class="ci-pie-chart__center-text">Traits</span>
+				</div>
 				
-		        <div class="ajd_graph__scale"><span class="wai">Traits are on a scale of </span><span class="ajd_graph__smallest">0</span><span class="wai"> to </span><span class="ajd_graph__largest">10</span></div>
-				
-		        <p class="wai">Addtional Traits</p>
-				
-		        <ul class="ajd_graph__sub-skills">
-		            <li class="ajd_graph__sub-skill">Organized</li>
-		            <li class="ajd_graph__sub-skill">Analytical</li>
-		            <li class="ajd_graph__sub-skill">Goal-oriented</li>
-		            <li class="ajd_graph__sub-skill">Quick-thinking</li>
-		            <li class="ajd_graph__sub-skill">Motivational</li>
-		            <li class="ajd_graph__sub-skill">Team player</li>
-		            <li class="ajd_graph__sub-skill">Managerial</li>
-		            <li class="ajd_graph__sub-skill">Curious</li>
-		        </ul>
-		    </div>
-			
-		    <h2 class="remove-this-element">Alternative option, instead of the bar graph, if client does not provide values per trait or skill above then this Traits Circle can be used. Please note that the circle is not a graph, and all pieces are always equal.</h2>
-			
-		    <h2 class="ajd_section__heading ajd_success-profile__heading">Success Profile</h2>
-			
-		    <p class="ajd_success-profile__intro">
-		        What makes a successful Lorem ipsum? Check out the traits we’re looking for and see if you have the right skill level. 
-		        <nobr>(1 Beginner – 10 Expert)</nobr>
-		    </p>
-			
-		    <!--start pie chart-->
-		    <div class="ci-pie-chart enhance-element js-ajd-script-animate-chart">
-		        <!-- If you want to animate the chart only once change class to js-ajd-script-animate-once-chart-->
-		        <div class="js-ci-pie-chart__graph trait-circle__graph" data-chart="traitcircle"></div>
-				
-		        <ul class="js-ci-pie-chart__legend trait-circle__legend" 
-		            data-chart="traitcircle" 
-		            data-width="300" 
-		            data-height="300" 
-		            data-outer-radius="150"
-		            data-inner-radius="100" 
-		            data-animate="true" 
-		            data-animate-type="fadein" 
-		            data-animate-duration="600"
-		            data-animate-delay="300"
-		            data-animate-legend="true"
-		            data-stroke="false" 
-		            data-stroke-width="4" 
-		            data-stroke-color="#fff" 
-		            data-center-image="https://picsum.photos/300/300?image=1" 
-		            data-center-image-scale=".97"
-		            data-hover-effect="true" 
-		            data-icons="true" 
-		            data-ratio-padding="true"
-		            data-tooltip="true">
+				<ul class="js-ci-pie-chart__legend trait-circle__legend" 
+					data-chart="traitcircle2" 
+					data-width="300" 
+					data-height="300" 
+					data-outer-radius="150"
+					data-inner-radius="100" 
+					data-animate="true" 
+					data-animate-type="fadein" 
+					data-animate-duration="600"
+					data-animate-delay="300"
+					data-animate-legend="true"
+					data-stroke="true" 
+					data-stroke-width="4" 
+					data-stroke-color="#fff" 
+					data-hover-effect="true" 
+					data-icons="true" 
+					data-ratio-padding="true"
+					data-tooltip="true">
 					
-		            <li class="js-ci-pie-chart__data trait-circle__item" data-label="Organized" data-value="25" data-color="#0299ff" data-animate-legend-item>Organized</li>
-		            <li class="js-ci-pie-chart__data trait-circle__item" data-label="Goal-oriented in the business" data-value="25" data-color="#fdda04" data-animate-legend-item>Goal-oriented in the business</li>
-		            <li class="js-ci-pie-chart__data trait-circle__item" data-label="Analytical" data-value="25" data-color="#013dae" data-animate-legend-item>Analytical</li>
-		            <li class="js-ci-pie-chart__data trait-circle__item" data-label="Quick-thinking" data-value="25" data-color="#010101" data-animate-legend-item>Quick-thinking</li>
-		            <li class="js-ci-pie-chart__data trait-circle__item" data-label="Motivational" data-value="25" data-color="#01af55" data-animate-legend-item>Motivational</li>
-		            <li class="js-ci-pie-chart__data trait-circle__item" data-label="Team player" data-value="25" data-color="#af027e" data-animate-legend-item>Team player</li>
-		        </ul>
-		    </div>
-		    <!--end pie chart-->
+					<li class="js-ci-pie-chart__data trait-circle__item" data-label="Analytical" data-value="25" data-color="#4491c5" data-animate-legend-item>Analytical</li>
+					<li class="js-ci-pie-chart__data trait-circle__item" data-label="Courageous" data-value="25" data-color="#3e703c" data-animate-legend-item>Courageous</li>
+					<li class="js-ci-pie-chart__data trait-circle__item" data-label="Entrepreneurial" data-value="25" data-color="#7a1224" data-animate-legend-item>Entrepreneurial</li>
+					<li class="js-ci-pie-chart__data trait-circle__item" data-label="Leadership" data-value="25" data-color="#d79400" data-animate-legend-item>Leadership</li>
+					<li class="js-ci-pie-chart__data trait-circle__item" data-label="Trustworthy" data-value="25" data-color="#ce1510" data-animate-legend-item>Trustworthy</li>
+					<li class="js-ci-pie-chart__data trait-circle__item" data-label="Helpful" data-value="25" data-color="#551a8b" data-animate-legend-item>Helpful</li>
+				</ul>
+			</div>
+			<!--end pie chart-->
 			
-		    <h2 class="remove-this-element">Example of text instead of picture and only animating once and having a white border around each slice</h2>
+			<p class="back-to-ajd-nav"><a class="back-to-ajd-nav__a" href="#ajd-anchor-success">Back to Job Navigation (Success)</a></p>
+		</section>
+
+
+
+		@*<!-- AJD Culture Points -->*@
+		<section class="ajd_section ajd-culture-points">
+			<h2 class="ajd_section__heading ajd-culture-points__heading">Culture</h2>
+
+			<ul class="ajd-culture-point__list">
+				<li class="ajd-culture-points__item">Respect, Collaboration, and commitment to driving innovation and candidate experiences</li>
+				<li class="ajd-culture-points__item">Innovation services and products</li>
+				<li class="ajd-culture-points__item">Impactful work, client exposure and industry recognition</li>
+				<li class="ajd-culture-points__item">Skill development that positively impacts your career and opportunities to drive your own path</li>
+			</ul>
+		</section>
+
+
+
+		
+		@*<!-- AJD Career Path -->*@
+		<section id="anchor-path" class="ajd_section ajd-career-path">
+			<h2 class="ajd_section__heading ajd-career-path__heading">Career Path</h2>
 			
-		    <!--start pie chart-->
-		    <div class="ci-pie-chart enhance-element js-ajd-script-animate-once-chart">
-		        <div class="js-ci-pie-chart__graph trait-circle__graph" data-chart="traitcircle2">
-		            <span class="ci-pie-chart__center-text">Traits</span>
-		        </div>
-				
-		        <ul class="js-ci-pie-chart__legend trait-circle__legend" 
-		            data-chart="traitcircle2" 
-		            data-width="300" 
-		            data-height="300" 
-		            data-outer-radius="150"
-		            data-inner-radius="100" 
-		            data-animate="true" 
-		            data-animate-type="fadein" 
-		            data-animate-duration="600"
-		            data-animate-delay="300"
-		            data-animate-legend="true"
-		            data-stroke="true" 
-		            data-stroke-width="4" 
-		            data-stroke-color="#fff" 
-		            data-hover-effect="true" 
-		            data-icons="true" 
-		            data-ratio-padding="true"
-		            data-tooltip="true">
-					
-		            <li class="js-ci-pie-chart__data trait-circle__item" data-label="Analytical" data-value="25" data-color="#4491c5" data-animate-legend-item>Analytical</li>
-		            <li class="js-ci-pie-chart__data trait-circle__item" data-label="Courageous" data-value="25" data-color="#3e703c" data-animate-legend-item>Courageous</li>
-		            <li class="js-ci-pie-chart__data trait-circle__item" data-label="Entrepreneurial" data-value="25" data-color="#7a1224" data-animate-legend-item>Entrepreneurial</li>
-		            <li class="js-ci-pie-chart__data trait-circle__item" data-label="Leadership" data-value="25" data-color="#d79400" data-animate-legend-item>Leadership</li>
-		            <li class="js-ci-pie-chart__data trait-circle__item" data-label="Trustworthy" data-value="25" data-color="#ce1510" data-animate-legend-item>Trustworthy</li>
-		            <li class="js-ci-pie-chart__data trait-circle__item" data-label="Helpful" data-value="25" data-color="#551a8b" data-animate-legend-item>Helpful</li>
-		        </ul>
-		    </div>
-		    <!--end pie chart-->
+			<p class="ajd-career-path__intro">We offer many career paths to support your immediate and future success.</p>
 			
-		    <p class="back-to-ajd-nav"><a class="back-to-ajd-nav__a" href="#ajd-anchor-success">Back to Job Navigation (Success)</a></p>
-		  </section>
-
-
-
-			@*<!-- AJD Culture Points -->*@
-      <section class="ajd_section ajd-culture-points">
-        <h2 class="ajd_section__heading ajd-culture-points__heading">Culture</h2>
-
-        <ul class="ajd-culture-point__list">
-          <li class="ajd-culture-points__item">Respect, Collaboration, and commitment to driving innovation and candidate experiences</li>
-          <li class="ajd-culture-points__item">Innovation services and products</li>
-          <li class="ajd-culture-points__item">Impactful work, client exposure and industry recognition</li>
-          <li class="ajd-culture-points__item">Skill development that positively impacts your career and opportunities to drive your own path</li>
-        </ul>
-      </section>
-
-
-
+			<ul class="career-path enhance-element">
+				<li class="career-path__row">
+					<div class="tree-leaf__one">
+						<div class="tree-leaf__twigs begin-path">
+							<span class="career-path__heading">Job Title One<span class="wai"> leads to Job Title Two.</span></span>
+						</div>
+					</div>
+				</li>
+				
+				<li class="career-path__row">
+					<div class="tree-branch__one">
+						<div class="hide-border"></div>
+					</div>
+					<div class="tree-leaf__one">
+						<div class="tree-leaf__twigs">
+							<span class="career-path__heading">Job Title Two<span class="wai"> branches to Job Title Three or Job Title Four</span></span>
+						</div>
+					</div>
+				</li>
+				
+				<li class="career-path__row">
+					<div class="tree-branch__two">
+						<div></div>
+					</div>
+					<div class="tree-leaf__two">
+						<div class="tree-leaf__twigs">
+							<span class="career-path__heading">Job Title Three<span class="wai"> leads to Job Title Five.</span></span>
+						</div>
+						<div class="tree-leaf__twigs">
+							<span class="career-path__heading">Job Title Four<span class="wai"> leads to Job Title Eight.</span></span>
+						</div>
+					</div>
+				</li>
+				
+				<li class="career-path__row">
+					<div class="tree-branch__one">
+						<div class="hide-border"></div>
+					</div>
+					<div class="tree-leaf__two">
+						<div class="tree-leaf__twigs">
+							<span class="career-path__heading">Job Title Five<span class="wai"> leads to Job Title Seven.</span></span>
+						</div>
+						<div class="tree-leaf__twigs "></div>
+					</div>
+				</li>
+				
+				<li class="career-path__row">
+					<div class="tree-branch__one">
+						<div class="hide-border"></div>
+					</div>
+					<div class="tree-leaf__two">
+						<div class="tree-leaf__twigs end-path">
+							<span class="career-path__heading">Job Title Seven<span class="wai"> ends this branch.</span></span>
+						</div>
+						<div class="tree-leaf__twigs end-path">
+							<span class="career-path__heading">Job Title Eight<span class="wai"> ends this branch.</span></span>
+						</div>
+					</div>
+				</li>
+			</ul>
 			
-			@*<!-- AJD Career Path -->*@
-			<section id="anchor-path" class="ajd_section ajd-career-path">
-			    <h2 class="ajd_section__heading ajd-career-path__heading">Career Path</h2>
-				
-			    <p class="ajd-career-path__intro">We offer many career paths to support your immediate and future success.</p>
-				
-			    <ul class="career-path enhance-element">
-			        <li class="career-path__row">
-			            <div class="tree-leaf__one">
-			                <div class="tree-leaf__twigs begin-path">
-			                    <span class="career-path__heading">Job Title One<span class="wai"> leads to Job Title Two.</span></span>
-			                </div>
-			            </div>
-			        </li>
-					
-			        <li class="career-path__row">
-			            <div class="tree-branch__one">
-			                <div class="hide-border"></div>
-			            </div>
-			            <div class="tree-leaf__one">
-			                <div class="tree-leaf__twigs">
-			                    <span class="career-path__heading">Job Title Two<span class="wai"> branches to Job Title Three or Job Title Four</span></span>
-			                </div>
-			            </div>
-			        </li>
-					
-			        <li class="career-path__row">
-			            <div class="tree-branch__two">
-			                <div></div>
-			            </div>
-			            <div class="tree-leaf__two">
-			                <div class="tree-leaf__twigs">
-			                    <span class="career-path__heading">Job Title Three<span class="wai"> leads to Job Title Five.</span></span>
-			                </div>
-			                <div class="tree-leaf__twigs">
-			                    <span class="career-path__heading">Job Title Four<span class="wai"> leads to Job Title Eight.</span></span>
-			                </div>
-			            </div>
-			        </li>
-					
-			        <li class="career-path__row">
-			            <div class="tree-branch__one">
-			                <div class="hide-border"></div>
-			            </div>
-			            <div class="tree-leaf__two">
-			                <div class="tree-leaf__twigs">
-			                    <span class="career-path__heading">Job Title Five<span class="wai"> leads to Job Title Seven.</span></span>
-			                </div>
-			                <div class="tree-leaf__twigs "></div>
-			            </div>
-			        </li>
-					
-			        <li class="career-path__row">
-			            <div class="tree-branch__one">
-			                <div class="hide-border"></div>
-			            </div>
-			            <div class="tree-leaf__two">
-			                <div class="tree-leaf__twigs end-path">
-			                    <span class="career-path__heading">Job Title Seven<span class="wai"> ends this branch.</span></span>
-			                </div>
-			                <div class="tree-leaf__twigs end-path">
-			                    <span class="career-path__heading">Job Title Eight<span class="wai"> ends this branch.</span></span>
-			                </div>
-			            </div>
-			        </li>
-			    </ul>
-				
-			    <p class="back-to-ajd-nav"><a class="back-to-ajd-nav__a" href="#ajd-anchor-path">Back to Job Navigation (Career Path)</a></p>
-			</section>
+			<p class="back-to-ajd-nav"><a class="back-to-ajd-nav__a" href="#ajd-anchor-path">Back to Job Navigation (Career Path)</a></p>
+		</section>
 
 
 
+		
+		@*<!-- AJD Quote -->*@
+		<section class="ajd_section ajd_quote enhance-element">
+			<h2 class="wai">Quote</h2>
+
+			<blockquote class="ajd_quote__blockquote">
+				<p class="ajd_quote__text">It's all about being on the pulse of what's new and what's next.</p>
+
+				<cite class="ajd_quote__citation">Kevin Regan, Vice President, Digital Strategy</cite>
+			</blockquote>
+		</section>
+
+
+
+
+		@*<!-- AJD Trending -->*@
+		<section id="anchor-trending" class="ajd_section ajd_trending">
+			<h2 class="ajd_section__heading ajd_trending__heading">Trending</h2>
 			
-			@*<!-- AJD Quote -->*@
-			<section class="ajd_section ajd_quote enhance-element">
-				<h2 class="wai">Quote</h2>
-
-				<blockquote class="ajd_quote__blockquote">
-					<p class="ajd_quote__text">It's all about being on the pulse of what's new and what's next.</p>
-
-					<cite class="ajd_quote__citation">Kevin Regan, Vice President, Digital Strategy</cite>
-				</blockquote>
-			</section>
-
-
-
-
-			@*<!-- AJD Trending -->*@
-			<section id="anchor-trending" class="ajd_section ajd_trending">
-			    <h2 class="ajd_section__heading ajd_trending__heading">Trending</h2>
-				
-			    <ul class="ajd_trending__ul">
-			        <li class="ajd_trending__li ajd_trending__li--two-col">
-			            <a class="ajd_trending__a" href="#REPLACEME">
-			                <img class="ajd_trending__img" src="@Html.SecureAssetUrl("v1_0/img/workinghere/career/ajd-profile-dustin-carper.jpg")" alt="Dustin Carper"/>
+			<ul class="ajd_trending__ul">
+				<li class="ajd_trending__li ajd_trending__li--two-col">
+					<a class="ajd_trending__a" href="#REPLACEME">
+						<img class="ajd_trending__img" src="@Html.SecureAssetUrl("v1_0/img/workinghere/career/ajd-profile-dustin-carper.jpg")" alt="Dustin Carper"/>
+						
+						<div class="ajd_trending__content">
+							<h3 class="ajd_trending__content-heading">The inside scoop on digital strategy.</h3>
 							
-			                <div class="ajd_trending__content">
-			                    <h3 class="ajd_trending__content-heading">The inside scoop on digital strategy.</h3>
-								
-			                    <p class="ajd_trending__text">Check out the metrics for success at TMP, plus an audio interview with Dustin Carper &mdash; as he dives into best practices, job descriptions and more</p>
-			                    <p class="ajd_trending__btn">Learn More</p>
-			                </div>
-			            </a>
-			        </li>
-					
-			        <li class="ajd_trending__li ajd_trending__li--two-col">
-			            <a class="ajd_trending__a" href="#REPLACEME">
-			                <img class="ajd_trending__img" src="@Html.SecureAssetUrl("v1_0/img/workinghere/career/ajd-profile-dustin-carper.jpg")" alt="Dustin Carper"/>
-							
-			                <div class="ajd_trending__content">
-			                    <p class="ajd_trending__text">Check out the metrics for success at TMP, plus an audio interview with Dustin Carper &mdash; as he dives into best practices, job descriptions and more</p>
-			                    <p class="ajd_trending__btn">Read More</p>
-			                </div>
-			            </a>
-			        </li>
-					
-			        <li class="ajd_trending__li ajd_trending__li--one-col">
-			            <a class="ajd_trending__a" href="#REPLACEME">
-			                <img class="ajd_trending__img" src="@Html.SecureAssetUrl("v1_0/img/workinghere/career/ajd-profile-dustin-carper.jpg")" alt="Dustin Carper"/>
-							
-			                <div class="ajd_trending__content">
-			                    <h3 class="ajd_trending__content-heading">The inside scoop on digital strategy.</h3>
-								
-			                    <p class="ajd_trending__text">Check out the metrics for success at TMP, plus an audio interview with Dustin Carper &mdash; as he dives into best practices, job descriptions and more</p>
-			                    <p class="ajd_trending__btn">Play now</p>
-			                </div>
-			            </a>
-			        </li>
-					
-			        <li class="ajd_trending__li ajd_trending__li--one-col">
-			            <a class="ajd_trending__a " href="#REPLACEME">
-			                <img class="ajd_trending__img" src="@Html.SecureAssetUrl("v1_0/img/workinghere/career/ajd-profile-dustin-carper.jpg")" alt="Dustin Carper"/>
-							
-			                <div class="ajd_trending__content">
-			                    <p class="ajd_trending__btn">Video Name</p>
-			                </div>
-			            </a>
-			        </li>
-			    </ul>
+							<p class="ajd_trending__text">Check out the metrics for success at TMP, plus an audio interview with Dustin Carper &mdash; as he dives into best practices, job descriptions and more</p>
+							<p class="ajd_trending__btn">Learn More</p>
+						</div>
+					</a>
+				</li>
 				
-			    <p class="back-to-ajd-nav"><a class="back-to-ajd-nav__a" href="#ajd-anchor-trending">Back to Job Navigation (Trending)</a></p>
-			</section>
-
-
-
-
-			@*<!-- Featured Image -->*@
-      <div class="ajd_image enhance-element" style="background-image: url('https://placehold.it/1000x1500?text=Parallax%20Image');"></div>
-
-
-
-
-			@*<!-- AJD Rewards / Benefits -->*@
-			<section id="anchor-rewards" class="ajd_section ajd_rewards">
-			    <h2 class="ajd_section__heading ajd_rewards__heading">Rewards</h2>
+				<li class="ajd_trending__li ajd_trending__li--two-col">
+					<a class="ajd_trending__a" href="#REPLACEME">
+						<img class="ajd_trending__img" src="@Html.SecureAssetUrl("v1_0/img/workinghere/career/ajd-profile-dustin-carper.jpg")" alt="Dustin Carper"/>
+						
+						<div class="ajd_trending__content">
+							<p class="ajd_trending__text">Check out the metrics for success at TMP, plus an audio interview with Dustin Carper &mdash; as he dives into best practices, job descriptions and more</p>
+							<p class="ajd_trending__btn">Read More</p>
+						</div>
+					</a>
+				</li>
 				
-			    <ul class="ajd_rewards__ul">
-			        <li class="ajd_rewards__li ajd_rewards__li--401k enhance-element">
-			            <i class="ajd_rewards__ico ico-401k"></i>
-			            <h3 class="ajd_rewards__title">401k</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--adoption-cost-benefit enhance-element">
-			            <i class="ajd_rewards__ico ico-adoption-cost-benefit"></i>
-			            <h3 class="ajd_rewards__title">Adoption Cost Benefit</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--amenities enhance-element">
-			            <i class="ajd_rewards__ico ico-amenities"></i>
-			            <h3 class="ajd_rewards__title">Amenities</h3>
-			            <p class="ajd_rewards__description">Quisque tincidunt ante vel ante dignissim interdum. Fusce lacinia ultricies efficitur. Phasellus tempor quis tellus vitae malesuada. Maecenas interdum mauris sit amet orci tempor, non feugiat turpis finibus.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--awards enhance-element">
-			            <i class="ajd_rewards__ico ico-awards"></i>
-			            <h3 class="ajd_rewards__title">Awards</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--balance enhance-element">
-			            <i class="ajd_rewards__ico ico-balance"></i>
-			            <h3 class="ajd_rewards__title">Balance</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--bar-graph enhance-element">
-			            <i class="ajd_rewards__ico ico-bars-no-arrow"></i>
-			            <h3 class="ajd_rewards__title">Bar Graph no arrow</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--bar-graph enhance-element">
-			            <i class="ajd_rewards__ico ico-bars-curved-arrow"></i>
-			            <h3 class="ajd_rewards__title">Bar Graph with curved arrow</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--bar-graph enhance-element">
-			            <i class="ajd_rewards__ico ico-bars-straight-arrow"></i>
-			            <h3 class="ajd_rewards__title">Bar Graph with straight arrow</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--cafeteria enhance-element">
-			            <i class="ajd_rewards__ico ico-cafeteria"></i>
-			            <h3 class="ajd_rewards__title">Cafeteria</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--child-care-subsidy enhance-element">
-			            <i class="ajd_rewards__ico ico-child-care-subsidy"></i>
-			            <h3 class="ajd_rewards__title">Child Care Subsidy</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--collaboration enhance-element">
-			            <i class="ajd_rewards__ico ico-collaboration"></i>
-			            <h3 class="ajd_rewards__title">Collaboration</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--company-store enhance-element">
-			            <i class="ajd_rewards__ico ico-company-store"></i>
-			            <h3 class="ajd_rewards__title">Company Store</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--collaboration enhance-element">
-			            <i class="ajd_rewards__ico ico-collaboration"></i>
-			            <h3 class="ajd_rewards__title">Collaboration</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--compensation enhance-element">
-			            <i class="ajd_rewards__ico ico-compensation"></i>
-			            <h3 class="ajd_rewards__title">Compensation</h3>
-			            <p class="ajd_rewards__description">Quisque tincidunt ante vel ante dignissim interdum. Fusce lacinia ultricies efficitur. Phasellus tempor quis tellus vitae malesuada. Maecenas interdum mauris sit amet orci tempor, non feugiat turpis finibus.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--continuing-education enhance-element">
-			            <i class="ajd_rewards__ico ico-continuing-education"></i>
-			            <h3 class="ajd_rewards__title">Continuing Education</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--dental enhance-element">
-			            <i class="ajd_rewards__ico ico-dental"></i>
-			            <h3 class="ajd_rewards__title">Dental</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--dependent-care-fsa enhance-element">
-			            <i class="ajd_rewards__ico ico-dependent-care-fsa"></i>
-			            <h3 class="ajd_rewards__title">Dependent Care FSA</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--flex-time enhance-element">
-			            <i class="ajd_rewards__ico ico-flex-time "></i>
-			            <h3 class="ajd_rewards__title">Flex Time</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--freedom enhance-element">
-			            <i class="ajd_rewards__ico ico-freedom"></i>
-			            <h3 class="ajd_rewards__title">Freedom</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--gavel enhance-element">
-			            <i class="ajd_rewards__ico ico-gavel"></i>
-			            <h3 class="ajd_rewards__title">Gavel</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--hands-on-heart enhance-element">
-			            <i class="ajd_rewards__ico ico-hands-on-heart"></i>
-			            <h3 class="ajd_rewards__title">Hands on Heart</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--healthcare-fsa enhance-element">
-			            <i class="ajd_rewards__ico ico-healthcare-fsa"></i>
-			            <h3 class="ajd_rewards__title">Healthcare FSA</h3>
-			            <p class="ajd_rewards__description">Quisque tincidunt ante vel ante dignissim interdum. Fusce lacinia ultricies efficitur. Phasellus tempor quis tellus vitae malesuada. Maecenas interdum mauris sit amet orci tempor, non feugiat turpis finibus.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--healthcare enhance-element">
-			            <i class="ajd_rewards__ico ico-healthcare"></i>
-			            <h3 class="ajd_rewards__title">Healthcare</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--international-travel enhance-element">
-			            <i class="ajd_rewards__ico ico-international-travel"></i>
-			            <h3 class="ajd_rewards__title">International Travel</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--k9 enhance-element">
-			            <i class="ajd_rewards__ico ico-k9"></i>
-			            <h3 class="ajd_rewards__title">k9 Dog</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--life-and-disability-insurance enhance-element">
-			            <i class="ajd_rewards__ico ico-life-and-disability-insurance"></i>
-			            <h3 class="ajd_rewards__title">Life and Disability Insurance</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--location enhance-element">
-			            <i class="ajd_rewards__ico ico-location"></i>
-			            <h3 class="ajd_rewards__title">Location</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--mac-monitor enhance-element">
-			            <i class="ajd_rewards__ico ico-mac-monitor"></i>
-			            <h3 class="ajd_rewards__title">Mac Monitor</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--managment enhance-element">
-			            <i class="ajd_rewards__ico ico-managment"></i>
-			            <h3 class="ajd_rewards__title">Managment</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--maternity-and-paternity-leave enhance-element">
-			            <i class="ajd_rewards__ico ico-maternity-and-paternity-leave"></i>
-			            <h3 class="ajd_rewards__title">Maternity and Paternity Leave</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--medical enhance-element">
-			            <i class="ajd_rewards__ico ico-medical"></i>
-			            <h3 class="ajd_rewards__title">Medical</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--moneybag enhance-element">
-			            <i class="ajd_rewards__ico ico-moneybag"></i>
-			            <h3 class="ajd_rewards__title">Money Bag</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--no-smoking enhance-element">
-			            <i class="ajd_rewards__ico ico-no-smoking"></i>
-			            <h3 class="ajd_rewards__title">No Smoking</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--nursing-mother-rooms enhance-element">
-			            <i class="ajd_rewards__ico ico-nursing-mother-rooms"></i>
-			            <h3 class="ajd_rewards__title">Nursing Mother Rooms</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--onsite-child-care enhance-element">
-			            <i class="ajd_rewards__ico ico-onsite-child-care"></i>
-			            <h3 class="ajd_rewards__title">Onsite Child Care</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--onsite-gym enhance-element">
-			            <i class="ajd_rewards__ico ico-onsite-gym"></i>
-			            <h3 class="ajd_rewards__title">Onsite Gym</h3>
-			            <p class="ajd_rewards__description">Quisque tincidunt ante vel ante dignissim interdum. Fusce lacinia ultricies efficitur. Phasellus tempor quis tellus vitae malesuada. Maecenas interdum mauris sit amet orci tempor, non feugiat turpis finibus.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--onsite-post-office enhance-element">
-			            <i class="ajd_rewards__ico ico-onsite-post-office"></i>
-			            <h3 class="ajd_rewards__title">Onsite Post Office</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--onsite-salon enhance-element">
-			            <i class="ajd_rewards__ico ico-onsite-salon"></i>
-			            <h3 class="ajd_rewards__title">Onsite Salon</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--paid-vacation-time enhance-element">
-			            <i class="ajd_rewards__ico ico-paid-vacation-time"></i>
-			            <h3 class="ajd_rewards__title">Paid Vacation Time</h3>
-			            <p class="ajd_rewards__description">Quisque tincidunt ante vel ante dignissim interdum. Fusce lacinia ultricies efficitur. Phasellus tempor quis tellus vitae malesuada. Maecenas interdum mauris sit amet orci tempor, non feugiat turpis finibus.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--price-tag enhance-element">
-			            <i class="ajd_rewards__ico ico-price-tag"></i>
-			            <h3 class="ajd_rewards__title">Price Tag</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--pto enhance-element">
-			            <i class="ajd_rewards__ico ico-pto"></i>
-			            <h3 class="ajd_rewards__title">PTO</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--raised-hands enhance-element">
-			            <i class="ajd_rewards__ico ico-raised-hands"></i>
-			            <h3 class="ajd_rewards__title">Raised Hands</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--relocation-reimbursement enhance-element">
-			            <i class="ajd_rewards__ico ico-relocation-reimbursement"></i>
-			            <h3 class="ajd_rewards__title">Relocation Reimbursement</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--star enhance-element">
-			            <i class="ajd_rewards__ico ico-star"></i>
-			            <h3 class="ajd_rewards__title">Star</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit Pellentesque suscipit elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--suitcase enhance-element">
-			            <i class="ajd_rewards__ico ico-suitcase"></i>
-			            <h3 class="ajd_rewards__title">Suitcase</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit Pellentesque suscipit elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--team-outings enhance-element">
-			            <i class="ajd_rewards__ico ico-team-outings"></i>
-			            <h3 class="ajd_rewards__title">Team Outings</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--tutition-reimbursment enhance-element">
-			            <i class="ajd_rewards__ico ico-tutition-reimbursment"></i>
-			            <h3 class="ajd_rewards__title">Tutition Reimbursment</h3>
-			            <p class="ajd_rewards__description">Quisque tincidunt ante vel ante dignissim interdum. Fusce lacinia ultricies efficitur. Phasellus tempor quis tellus vitae malesuada. Maecenas interdum mauris sit amet orci tempor, non feugiat turpis finibus.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--variety enhance-element">
-			            <i class="ajd_rewards__ico ico-variety"></i>
-			            <h3 class="ajd_rewards__title">Variety</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--vision enhance-element">
-			            <i class="ajd_rewards__ico ico-vision"></i>
-			            <h3 class="ajd_rewards__title">Vision</h3>
-			            <p class="ajd_rewards__title">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--wallet enhance-element">
-			            <i class="ajd_rewards__ico ico-wallet"></i>
-			            <h3 class="ajd_rewards__title">Wallet</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
-			        </li>
-					
-			        <li class="ajd_rewards__li ajd_rewards__li--wellness-programs enhance-element">
-			            <i class="ajd_rewards__ico ico-wellness-programs"></i>
-			            <h3 class="ajd_rewards__title">Wellness Programs</h3>
-			            <p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
-			        </li>
-			    </ul>
+				<li class="ajd_trending__li ajd_trending__li--one-col">
+					<a class="ajd_trending__a" href="#REPLACEME">
+						<img class="ajd_trending__img" src="@Html.SecureAssetUrl("v1_0/img/workinghere/career/ajd-profile-dustin-carper.jpg")" alt="Dustin Carper"/>
+						
+						<div class="ajd_trending__content">
+							<h3 class="ajd_trending__content-heading">The inside scoop on digital strategy.</h3>
+							
+							<p class="ajd_trending__text">Check out the metrics for success at TMP, plus an audio interview with Dustin Carper &mdash; as he dives into best practices, job descriptions and more</p>
+							<p class="ajd_trending__btn">Play now</p>
+						</div>
+					</a>
+				</li>
 				
-			    <p class="back-to-ajd-nav"><a class="back-to-ajd-nav__a" href="#ajd-anchor-rewards">Back to Job Navigation (Rewards)</a></p>
-			</section>
+				<li class="ajd_trending__li ajd_trending__li--one-col">
+					<a class="ajd_trending__a " href="#REPLACEME">
+						<img class="ajd_trending__img" src="@Html.SecureAssetUrl("v1_0/img/workinghere/career/ajd-profile-dustin-carper.jpg")" alt="Dustin Carper"/>
+						
+						<div class="ajd_trending__content">
+							<p class="ajd_trending__btn">Video Name</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+			
+			<p class="back-to-ajd-nav"><a class="back-to-ajd-nav__a" href="#ajd-anchor-trending">Back to Job Navigation (Trending)</a></p>
+		</section>
 
 
 
 
-			@*<!-- Job Description -->*@
-      <section id="anchor-responsibilties" class="ajd_section ajd_job-details job-description" @Html.CustomSelector(Model) @Html.JobDetailsSectionAttributes(Model)>
-          <h2 class="ajd_section__heading ajd_job-details__heading">Responsibilities</h2>
+		@*<!-- Featured Image -->*@
+		<div class="ajd_image enhance-element" style="background-image: url('https://placehold.it/1000x1500?text=Parallax%20Image');"></div>
 
-          <div class="ats-description ajd_job-details__ats-description">
-              @if (Model.JobDetailsJobTypeId != JobDetailsIdType.None) { 
-                <span class="job-id job-info"><b>@Model.JobDetailsJobLabelId</b> @Model.JobDetailsSelectedId</span> 
-              }
-              @if (Model.JobDetailsJobDateFormat != JobDateFormat.NoDate) { 
-                <span class="job-date job-info"><b>@Model.JobDetailsJobDatePosting</b> Model.JobDetailsSelectedDate.ToLocalTime().ToString(Model.DisplayJobDateFormat)</span> 
-              }
 
-              @Html.Raw(Model.JobDescription)
-          </div>
 
-          @if (Model.JobDetailsAlign != JobDetailsAlignType.Above) {
-            @ApplyButton("bottom")
-          }
 
-          @if (Model.ShowApplyLater && Model.ApplyLaterAlign != JobDetailsAlignType.Above) {
-            @ApplyLaterButton("bottom")
-          }
+		@*<!-- AJD Rewards / Benefits -->*@
+		<section id="anchor-rewards" class="ajd_section ajd_rewards">
+			<h2 class="ajd_section__heading ajd_rewards__heading">Rewards</h2>
+			
+			<ul class="ajd_rewards__ul">
+				<li class="ajd_rewards__li ajd_rewards__li--401k enhance-element">
+					<i class="ajd_rewards__ico ico-401k"></i>
+					<h3 class="ajd_rewards__title">401k</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--adoption-cost-benefit enhance-element">
+					<i class="ajd_rewards__ico ico-adoption-cost-benefit"></i>
+					<h3 class="ajd_rewards__title">Adoption Cost Benefit</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--amenities enhance-element">
+					<i class="ajd_rewards__ico ico-amenities"></i>
+					<h3 class="ajd_rewards__title">Amenities</h3>
+					<p class="ajd_rewards__description">Quisque tincidunt ante vel ante dignissim interdum. Fusce lacinia ultricies efficitur. Phasellus tempor quis tellus vitae malesuada. Maecenas interdum mauris sit amet orci tempor, non feugiat turpis finibus.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--awards enhance-element">
+					<i class="ajd_rewards__ico ico-awards"></i>
+					<h3 class="ajd_rewards__title">Awards</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--balance enhance-element">
+					<i class="ajd_rewards__ico ico-balance"></i>
+					<h3 class="ajd_rewards__title">Balance</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--bar-graph enhance-element">
+					<i class="ajd_rewards__ico ico-bars-no-arrow"></i>
+					<h3 class="ajd_rewards__title">Bar Graph no arrow</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--bar-graph enhance-element">
+					<i class="ajd_rewards__ico ico-bars-curved-arrow"></i>
+					<h3 class="ajd_rewards__title">Bar Graph with curved arrow</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--bar-graph enhance-element">
+					<i class="ajd_rewards__ico ico-bars-straight-arrow"></i>
+					<h3 class="ajd_rewards__title">Bar Graph with straight arrow</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--cafeteria enhance-element">
+					<i class="ajd_rewards__ico ico-cafeteria"></i>
+					<h3 class="ajd_rewards__title">Cafeteria</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--child-care-subsidy enhance-element">
+					<i class="ajd_rewards__ico ico-child-care-subsidy"></i>
+					<h3 class="ajd_rewards__title">Child Care Subsidy</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--collaboration enhance-element">
+					<i class="ajd_rewards__ico ico-collaboration"></i>
+					<h3 class="ajd_rewards__title">Collaboration</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--company-store enhance-element">
+					<i class="ajd_rewards__ico ico-company-store"></i>
+					<h3 class="ajd_rewards__title">Company Store</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--collaboration enhance-element">
+					<i class="ajd_rewards__ico ico-collaboration"></i>
+					<h3 class="ajd_rewards__title">Collaboration</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--compensation enhance-element">
+					<i class="ajd_rewards__ico ico-compensation"></i>
+					<h3 class="ajd_rewards__title">Compensation</h3>
+					<p class="ajd_rewards__description">Quisque tincidunt ante vel ante dignissim interdum. Fusce lacinia ultricies efficitur. Phasellus tempor quis tellus vitae malesuada. Maecenas interdum mauris sit amet orci tempor, non feugiat turpis finibus.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--continuing-education enhance-element">
+					<i class="ajd_rewards__ico ico-continuing-education"></i>
+					<h3 class="ajd_rewards__title">Continuing Education</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--dental enhance-element">
+					<i class="ajd_rewards__ico ico-dental"></i>
+					<h3 class="ajd_rewards__title">Dental</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--dependent-care-fsa enhance-element">
+					<i class="ajd_rewards__ico ico-dependent-care-fsa"></i>
+					<h3 class="ajd_rewards__title">Dependent Care FSA</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--flex-time enhance-element">
+					<i class="ajd_rewards__ico ico-flex-time "></i>
+					<h3 class="ajd_rewards__title">Flex Time</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--freedom enhance-element">
+					<i class="ajd_rewards__ico ico-freedom"></i>
+					<h3 class="ajd_rewards__title">Freedom</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--gavel enhance-element">
+					<i class="ajd_rewards__ico ico-gavel"></i>
+					<h3 class="ajd_rewards__title">Gavel</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--hands-on-heart enhance-element">
+					<i class="ajd_rewards__ico ico-hands-on-heart"></i>
+					<h3 class="ajd_rewards__title">Hands on Heart</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--healthcare-fsa enhance-element">
+					<i class="ajd_rewards__ico ico-healthcare-fsa"></i>
+					<h3 class="ajd_rewards__title">Healthcare FSA</h3>
+					<p class="ajd_rewards__description">Quisque tincidunt ante vel ante dignissim interdum. Fusce lacinia ultricies efficitur. Phasellus tempor quis tellus vitae malesuada. Maecenas interdum mauris sit amet orci tempor, non feugiat turpis finibus.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--healthcare enhance-element">
+					<i class="ajd_rewards__ico ico-healthcare"></i>
+					<h3 class="ajd_rewards__title">Healthcare</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--international-travel enhance-element">
+					<i class="ajd_rewards__ico ico-international-travel"></i>
+					<h3 class="ajd_rewards__title">International Travel</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--k9 enhance-element">
+					<i class="ajd_rewards__ico ico-k9"></i>
+					<h3 class="ajd_rewards__title">k9 Dog</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--life-and-disability-insurance enhance-element">
+					<i class="ajd_rewards__ico ico-life-and-disability-insurance"></i>
+					<h3 class="ajd_rewards__title">Life and Disability Insurance</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--location enhance-element">
+					<i class="ajd_rewards__ico ico-location"></i>
+					<h3 class="ajd_rewards__title">Location</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--mac-monitor enhance-element">
+					<i class="ajd_rewards__ico ico-mac-monitor"></i>
+					<h3 class="ajd_rewards__title">Mac Monitor</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--managment enhance-element">
+					<i class="ajd_rewards__ico ico-managment"></i>
+					<h3 class="ajd_rewards__title">Managment</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--maternity-and-paternity-leave enhance-element">
+					<i class="ajd_rewards__ico ico-maternity-and-paternity-leave"></i>
+					<h3 class="ajd_rewards__title">Maternity and Paternity Leave</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--medical enhance-element">
+					<i class="ajd_rewards__ico ico-medical"></i>
+					<h3 class="ajd_rewards__title">Medical</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--moneybag enhance-element">
+					<i class="ajd_rewards__ico ico-moneybag"></i>
+					<h3 class="ajd_rewards__title">Money Bag</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--no-smoking enhance-element">
+					<i class="ajd_rewards__ico ico-no-smoking"></i>
+					<h3 class="ajd_rewards__title">No Smoking</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--nursing-mother-rooms enhance-element">
+					<i class="ajd_rewards__ico ico-nursing-mother-rooms"></i>
+					<h3 class="ajd_rewards__title">Nursing Mother Rooms</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--onsite-child-care enhance-element">
+					<i class="ajd_rewards__ico ico-onsite-child-care"></i>
+					<h3 class="ajd_rewards__title">Onsite Child Care</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--onsite-gym enhance-element">
+					<i class="ajd_rewards__ico ico-onsite-gym"></i>
+					<h3 class="ajd_rewards__title">Onsite Gym</h3>
+					<p class="ajd_rewards__description">Quisque tincidunt ante vel ante dignissim interdum. Fusce lacinia ultricies efficitur. Phasellus tempor quis tellus vitae malesuada. Maecenas interdum mauris sit amet orci tempor, non feugiat turpis finibus.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--onsite-post-office enhance-element">
+					<i class="ajd_rewards__ico ico-onsite-post-office"></i>
+					<h3 class="ajd_rewards__title">Onsite Post Office</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--onsite-salon enhance-element">
+					<i class="ajd_rewards__ico ico-onsite-salon"></i>
+					<h3 class="ajd_rewards__title">Onsite Salon</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--paid-vacation-time enhance-element">
+					<i class="ajd_rewards__ico ico-paid-vacation-time"></i>
+					<h3 class="ajd_rewards__title">Paid Vacation Time</h3>
+					<p class="ajd_rewards__description">Quisque tincidunt ante vel ante dignissim interdum. Fusce lacinia ultricies efficitur. Phasellus tempor quis tellus vitae malesuada. Maecenas interdum mauris sit amet orci tempor, non feugiat turpis finibus.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--price-tag enhance-element">
+					<i class="ajd_rewards__ico ico-price-tag"></i>
+					<h3 class="ajd_rewards__title">Price Tag</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--pto enhance-element">
+					<i class="ajd_rewards__ico ico-pto"></i>
+					<h3 class="ajd_rewards__title">PTO</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--raised-hands enhance-element">
+					<i class="ajd_rewards__ico ico-raised-hands"></i>
+					<h3 class="ajd_rewards__title">Raised Hands</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--relocation-reimbursement enhance-element">
+					<i class="ajd_rewards__ico ico-relocation-reimbursement"></i>
+					<h3 class="ajd_rewards__title">Relocation Reimbursement</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--star enhance-element">
+					<i class="ajd_rewards__ico ico-star"></i>
+					<h3 class="ajd_rewards__title">Star</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit Pellentesque suscipit elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--suitcase enhance-element">
+					<i class="ajd_rewards__ico ico-suitcase"></i>
+					<h3 class="ajd_rewards__title">Suitcase</h3>
+					<p class="ajd_rewards__description">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit Pellentesque suscipit elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--team-outings enhance-element">
+					<i class="ajd_rewards__ico ico-team-outings"></i>
+					<h3 class="ajd_rewards__title">Team Outings</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--tutition-reimbursment enhance-element">
+					<i class="ajd_rewards__ico ico-tutition-reimbursment"></i>
+					<h3 class="ajd_rewards__title">Tutition Reimbursment</h3>
+					<p class="ajd_rewards__description">Quisque tincidunt ante vel ante dignissim interdum. Fusce lacinia ultricies efficitur. Phasellus tempor quis tellus vitae malesuada. Maecenas interdum mauris sit amet orci tempor, non feugiat turpis finibus.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--variety enhance-element">
+					<i class="ajd_rewards__ico ico-variety"></i>
+					<h3 class="ajd_rewards__title">Variety</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--vision enhance-element">
+					<i class="ajd_rewards__ico ico-vision"></i>
+					<h3 class="ajd_rewards__title">Vision</h3>
+					<p class="ajd_rewards__title">Lorem ipsum dolor amet, consectetur adipiscing elit. Pellentesque suscipit elit.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--wallet enhance-element">
+					<i class="ajd_rewards__ico ico-wallet"></i>
+					<h3 class="ajd_rewards__title">Wallet</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
+				</li>
+				
+				<li class="ajd_rewards__li ajd_rewards__li--wellness-programs enhance-element">
+					<i class="ajd_rewards__ico ico-wellness-programs"></i>
+					<h3 class="ajd_rewards__title">Wellness Programs</h3>
+					<p class="ajd_rewards__description">Lorem ipsum, consectetur adipiscing elit. Pellentesque suscipit mauris elit suscipit elit mauris.</p>
+				</li>
+			</ul>
+			
+			<p class="back-to-ajd-nav"><a class="back-to-ajd-nav__a" href="#ajd-anchor-rewards">Back to Job Navigation (Rewards)</a></p>
+		</section>
 
-          @if (Model.CanShowReferrerPage) {
-            <a class="ajd_btn__referred button job-apply job-get-referred" @Html.JobDetailsReferrerUrlAttributes(Model)>@Model.ReferrerPageButtonText</a>
-          }
-      </section>
+
+
+
+		@*<!-- Job Description -->*@
+		<section id="anchor-responsibilties" class="ajd_section ajd_job-details job-description" @Html.CustomSelector(Model) @Html.JobDetailsSectionAttributes(Model)>
+			<h2 class="ajd_section__heading ajd_job-details__heading">Responsibilities</h2>
+
+			<div class="ats-description ajd_job-details__ats-description">
+				@if (Model.JobDetailsJobTypeId != JobDetailsIdType.None) { 
+					<span class="job-id job-info"><b>@Model.JobDetailsJobLabelId</b> @Model.JobDetailsSelectedId</span> 
+				}
+				@if (Model.JobDetailsJobDateFormat != JobDateFormat.NoDate) { 
+					<span class="job-date job-info"><b>@Model.JobDetailsJobDatePosting</b> Model.JobDetailsSelectedDate.ToLocalTime().ToString(Model.DisplayJobDateFormat)</span> 
+				}
+
+				@Html.Raw(Model.JobDescription)
+			</div>
+
+			@if (Model.JobDetailsAlign != JobDetailsAlignType.Above) {
+				@ApplyButton("bottom")
+			}
+
+			@if (Model.ShowApplyLater && Model.ApplyLaterAlign != JobDetailsAlignType.Above) {
+				@ApplyLaterButton("bottom")
+			}
+
+			@if (Model.CanShowReferrerPage) {
+				<a class="ajd_btn__referred button job-apply job-get-referred" @Html.JobDetailsReferrerUrlAttributes(Model)>@Model.ReferrerPageButtonText</a>
+			}
+		</section>
     </section>
 
     using (var context = Html.BeginScriptContext()) {
