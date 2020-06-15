@@ -19,6 +19,8 @@
 
 @if (Model != null) {
     <section class="ajd" @Html.CustomSelector(Model) @Html.JobDetailsSectionAttributes(Model)>
+
+		@*<!-- AJD Header and Sticky nav -->*@
 		<div id="ajd-header" class="ajd_header make-sticky">
 			<div class="max-width-wrapper">
 				<div class="ajd_header__content">
@@ -42,6 +44,8 @@
 				</div>
 			</div>
 			
+
+			@*<!-- AJD In-page Navigation -->*@
 			<nav class="ajd_navigation" aria-label="In-page">
 				<ul class="ajd_navigation__ul max-width-wrapper">
 					<li id="ajd-anchor-overview" class="ajd_navigation__li"><a href="#anchor-overview" class="ajd_navigation__a">Overview</a></li>
@@ -53,9 +57,9 @@
 					<li id="ajd-anchor-map" class="ajd_navigation__li"><a href="#anchor-map" class="ajd_navigation__a">Map</a></li>
 				</ul>
 			</nav>
-			<!--/.ajd_navigation-->
 		</div>
-		<!--/.ajd_header-->
+
+
 
 
 		@*<!-- AJD Overview -->*@
@@ -83,6 +87,8 @@
 			
 
 
+
+		@*<!-- AJD Success Profile -->*@
 		<section id="anchor-success" class="ajd_section ajd_success-profile">
 			<h2 class="ajd_section__heading ajd_success-profile__heading">Success Profile</h2>
 			
@@ -204,6 +210,7 @@
 
 
 
+
 		@*<!-- AJD Culture Points -->*@
 		<section class="ajd_section ajd-culture-points">
 			<h2 class="ajd_section__heading ajd-culture-points__heading">Culture</h2>
@@ -220,6 +227,8 @@
 
 		
 		@*<!-- AJD Career Path -->*@
+		@<!-- IF A CAREER PATH MODULE HAS NOT BEEN CREATED YET WE SUGGEST YOU FOLLOW THE STEPS TO CREATE A CAREER PATH IN 
+		THE AJD VERSION 2 INSTRUCTIONS, You can also go here to create a career path https://tmpworldwide.dev/tb-career-path-generator/ -->*@
 		<section id="anchor-path" class="ajd_section ajd-career-path">
 			<h2 class="ajd_section__heading ajd-career-path__heading">Career Path</h2>
 			
@@ -697,6 +706,7 @@
 				@if (Model.JobDetailsJobTypeId != JobDetailsIdType.None) { 
 					<span class="job-id job-info"><b>@Model.JobDetailsJobLabelId</b> @Model.JobDetailsSelectedId</span> 
 				}
+				
 				@if (Model.JobDetailsJobDateFormat != JobDateFormat.NoDate) { 
 					<span class="job-date job-info"><b>@Model.JobDetailsJobDatePosting</b> Model.JobDetailsSelectedDate.ToLocalTime().ToString(Model.DisplayJobDateFormat)</span> 
 				}
