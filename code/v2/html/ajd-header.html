@@ -100,7 +100,7 @@
         <nav class="ajd_navigation" aria-label="Page">
             <ul class="ajd_navigation__ul max-width-wrapper">
             @for (int i = 0; i < navLinkArr.Length; i++) {  
-                <li class="ajd_navigation__li"><a href="#anchor-@Html.Raw(navLinkArr[i].Replace(" ", "-").ToLower())" class="ajd_navigation__a">@Html.Raw(navLinkArr[i])</a></li>
+                <li class="ajd_navigation__li"><a href="#anchor-@Html.Raw(navLinkArr[i].Replace("&", "").Replace(" ", "-").Replace("--", "-").ToLower())" class="ajd_navigation__a">@Html.Raw(navLinkArr[i])</a></li>
             }
             </ul>
         </nav>
@@ -116,6 +116,8 @@
         @<script>
             // adds a return-to-nav anchor to each section
             $('.ajd_navigation__a').each(function() {
+
+                // hash MUST match ID of anchor section
                 if($(this.hash).length && $(this.hash).find('.back-to-ajd-nav').length <= 0){
                     // set ID to nav anchor
                     this.id = 'nav-' + this.hash.substr(1);
