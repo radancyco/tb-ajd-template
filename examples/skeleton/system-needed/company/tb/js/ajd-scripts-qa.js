@@ -85,7 +85,7 @@ function isIE() {
 
 
 // In page navigation
-$('.ajd_navigation__a').click(function(e) {
+$('.ajd_navigation__a').on('click', function(e) {
     e.preventDefault();
 
     // Set variable for section selected
@@ -166,7 +166,7 @@ $('.ajd_navigation__a').click(function(e) {
 /* ========================================================================
     video lazy loading
     ========================================================================= */
-    $('.video-wrapper img').click(function() {
+    $('.video-wrapper img').on('click', function() {
         var video = '<iframe src="'+ $(this).attr('data-video') +'"></iframe>';
         $(this).replaceWith(video);
     });
