@@ -146,6 +146,14 @@ $benefits-icon-color:  #004E8A; // Blue
 	@include ico-401k($benefits-icon-color);
 }
 
+.ico-401k-euro {
+	@include ico-401k-euro($benefits-icon-color);
+}
+
+.ico-401k-pound {
+	@include ico-401k-pound($benefits-icon-color);
+}
+
 .ico-awards {
 	@include ico-awards($benefits-icon-color);
 }
@@ -194,6 +202,14 @@ $benefits-icon-color:  #004E8A; // Blue
 	@include ico-compensation($benefits-icon-color);
 }
 
+.ico-compensation-euro {
+	@include ico-compensation-euro($benefits-icon-color);
+}
+
+.ico-compensation-pound {
+	@include ico-compensation-pound($benefits-icon-color);
+}
+
 .ico-continuing-education {
 	@include ico-continuing-education($benefits-icon-color);
 }
@@ -204,6 +220,22 @@ $benefits-icon-color:  #004E8A; // Blue
 
 .ico-dependent-care-fsa {
 	@include ico-dependent-care-fsa($benefits-icon-color);
+}
+
+.ico-dollar {
+	@include ico-dollar($benefits-icon-color);
+}
+
+.ico-dollar-thin {
+	@include ico-dollar-thin($benefits-icon-color);
+}
+
+.ico-euro {
+	@include ico-euro($benefits-icon-color);
+}
+
+.ico-euro-thin {
+	@include ico-euro-thin($benefits-icon-color);
 }
 
 .ico-flex-time {
@@ -266,6 +298,14 @@ $benefits-icon-color:  #004E8A; // Blue
 	@include ico-moneybag($benefits-icon-color);
 }
 
+.ico-moneybag-euro {
+	@include ico-moneybag-euro($benefits-icon-color);
+}
+
+.ico-moneybag-pound {
+	@include ico-moneybag-pound($benefits-icon-color);
+}
+
 .ico-no-smoking {
 	@include ico-no-smoking($benefits-icon-color);
 }
@@ -294,8 +334,24 @@ $benefits-icon-color:  #004E8A; // Blue
 	@include ico-paid-vacation-time($benefits-icon-color);
 }
 
+.ico-pound {
+	@include ico-pound($benefits-icon-color);
+}
+
+.ico-pound-thin {
+	@include ico-pound-thin($benefits-icon-color);
+}
+
 .ico-price-tag {
 	@include ico-price-tag($benefits-icon-color);
+}
+
+.ico-price-tag-euro {
+	@include ico-price-tag-euro($benefits-icon-color);
+}
+
+.ico-price-tag-pound {
+	@include ico-price-tag-pound($benefits-icon-color);
 }
 
 .ico-pto {
@@ -324,6 +380,14 @@ $benefits-icon-color:  #004E8A; // Blue
 
 .ico-tutition-reimbursment {
 	@include ico-tutition-reimbursment($benefits-icon-color);
+}
+
+.ico-tutition-reimbursment-euro {
+	@include ico-tutition-reimbursment-euro($benefits-icon-color);
+}
+
+.ico-tutition-reimbursment-pound {
+	@include ico-tutition-reimbursment-pound($benefits-icon-color);
 }
 
 .ico-variety {
