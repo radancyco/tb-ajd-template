@@ -2,7 +2,7 @@
 //
 // Advanced Job Details (AJD) Template
 //
-// Documentation and intructions https://github.com/tmpworldwide/AJD-Template
+// Documentation and intructions https://github.com/radancyco/tb-ajd-template
 //
 // =================================================================
 
@@ -509,7 +509,7 @@ img {
         text-indent: -999em;
         width: 50px;
         z-index: 10;
-        
+
         &:focus {
             background-color: rgba(102, 102, 102, 0.7);
             bottom: 1em;
@@ -626,7 +626,7 @@ img {
         // not scrolled down the page. When you scroll the in page navigation will
         // be hidden in order to save screen space
         display: none;
-        
+
         @media screen and (min-width: 500px) and (min-height: 600px) {
             // These numbers must stay to match the script
             display: block;
@@ -638,7 +638,7 @@ img {
         text-align: center;
         width: 100%;
         padding: 10px; // adjust this to .ajd_header__content
-        
+
         @include breakpoint($mid-small) {
             // flexbox postions the links evenly and allows them to be
             // centered if they need to break to the next line
@@ -659,12 +659,12 @@ img {
     &__a { // .ajd_navigation__a
         color: #035A8F;
         text-decoration: none;
-        
+
         &:hover, &:focus {
             color: #333;
             text-decoration: underline;
         }
-        
+
         .active & {
             @media screen and (min-width: 500px) and (min-height: 600px) {
                 // These numbers must stay to match the script
@@ -696,19 +696,19 @@ img {
         @include flexbox-center;
         @include flexbox-auto;
     }
-    
+
     &__quick-fact { // .ajd_overview__quick-fact
         // Each quickfact inside of the the overview
         @include flexbox;
         @include flexbox-center;
         @include flexbox-auto;
         margin-bottom: 10px;
-        
+
         &:not(:last-child) {
             margin-right: 10px;
         }
     }
-    
+
     &__quick-fact-ico { //.ajd_overview__quick-fact-ico
         // Quick Fact icons
         width: 40px;
@@ -735,11 +735,11 @@ img {
 	&__link { // .ajd-glassdoor__link
 		display: block;
 	}
-	
+
 	.error {
 	    background-color: red;
 	    color: #fff;
-	    
+
 	    * {
 	        color: inherit;
 	    }
@@ -777,12 +777,12 @@ img {
 .ajd_graph {
     margin: auto;
     max-width: $default-size * .5; // replace or edit with your styles
-    
+
     &__main-skils { // .ajd_graph__main-skills
         // main ul for graph
         @extend %list-reset;
     }
-    
+
     &__main-skill { // .ajd_graph__main-skill
         // each li for graph
         position: relative;
@@ -856,11 +856,11 @@ img {
     &__scale { // .ajd_graph__scale
       // container for the 0 to 10 scale at the bottom of the graph
     }
-    
+
     &__smallest { // .ajd_graph__smallest
       // Noramlly 0
     }
-    
+
     &__largest { // .ajd_graph__largest
       // Normally 10
       float: right;
@@ -874,7 +874,7 @@ img {
         @include flexbox;
         @include flexbox-center;
     }
-    
+
     &__sub-skill { // .ajd_graph__sub-skill
         // each subskill li
         @include flexbox-auto;
@@ -882,7 +882,7 @@ img {
         margin-top: 15px;
         background: grey; // replace or edit with your styles
         color: white; // replace or edit with your styles
-        
+
         &:not(:last-child) {
             margin-right: 10px;
         }
@@ -944,7 +944,7 @@ img {
     position: relative;
     padding: 0 10px 0 30px;
     flex: 0 0 calc(100% / 2);
-    
+
     @include breakpoint($end-small) {
         flex: 0 0 calc(100% / 3);
     }
@@ -1000,36 +1000,36 @@ img {
     margin-bottom: 25px;
     font-family: inherit;
     background-color: #FFFFFF;
-    
+
     @include breakpoint(800px) {
         padding: 50px 0;
         margin: 0;
     }
-    
+
     >* {
         margin-left: auto;
         margin-right: auto;
         max-width: 800px;
     }
-    
+
     * {
         box-sizing: border-box;
         font-family: inherit;
-        
+
         &:last-child {
             margin-bottom: 0;
         }
     }
-    
+
     &__heading {
         font-size: 36px;
         margin-bottom: 1em;
     }
-    
+
     &__intro {
         margin-bottom: 1em;
     }
-    
+
     &__grid {
         display: flex;
         justify-content: space-between;
@@ -1037,7 +1037,7 @@ img {
         padding: 0;
         padding-top: 4px;
     }
-    
+
     // primary row that contains all secondary rows
     &__row {
         width: 100%;
@@ -1045,7 +1045,7 @@ img {
         position: relative;
         margin-top: -4px;
     }
-    
+
     .starting-row {
         .career-path__title-container {
             margin-top: 0;
@@ -1054,7 +1054,7 @@ img {
             min-height: 0;
         }
     }
-    
+
     // secondary row that contains only border segments
     &__border-row {
         display: flex;
@@ -1071,7 +1071,7 @@ img {
             bottom: 0;
         }
     }
-    
+
     // secondary row that contains only job title columns
     &__title-row {
         display: flex;
@@ -1143,7 +1143,7 @@ img {
     .hide-border {
         visibility: hidden;
     }
-    
+
     // Column widths
     // so far there are 16 different widths
     @for $i from 1 through 16 {
@@ -1151,7 +1151,7 @@ img {
             width: calc(100% / #{$i})
         }
     }
-    
+
     .REMOVE_CLASS {
         width: auto;
         height: auto;
@@ -1181,12 +1181,12 @@ img {
         text-align: center;
         margin: 0;
         padding: 0;
-        
+
         .js & {
             opacity: 0;
             transition: opacity 1s ease;
         }
-        
+
         .active & {
             // If you want to only active once change "active" to just "actived-once"
             -webkit-animation: popin 1s forwards;
@@ -1200,20 +1200,20 @@ img {
         position: relative;
         display: inline-block;
         line-height: 150%;
-        
+
         &:after, &:before {
             // quotation marks
             position: absolute;
             opacity: 0.3;
             font-size: 100px; // replace or edit with your styles
         }
-        
+
         &:before {
             // left quotation
             content: "\201C" !important;
             margin: 15px 0 0 -40px; // replace or edit with your styles
         }
-        
+
         &:after {
             // right quotation
             content: "\201D" !important;
@@ -1250,12 +1250,12 @@ img {
 
 	&__li { // ..ajd_trending__li
         @include clearfix;
-        
+
         @include breakpoint($end-small) {
             // break to two columns
             width: 48%;
             float: left;
-            
+
             &:nth-child(odd) {
                 margin-right: 2%;
                 clear: left;
@@ -1272,7 +1272,7 @@ img {
         max-width: 100%;
         margin: auto;
         display: block;
-        
+
         .ajd_trending__li--two-col & {
             // Special styles to create the image next to the content
             @include breakpoint($mid-small) {
@@ -1284,7 +1284,7 @@ img {
 
 	&__content { // .ajd_trending__content
         // wrapper next to the image
-        
+
         .ajd_trending__li--two-col & {
             // Special styles to create the image next to the content
             @include breakpoint($mid-small) {
@@ -1356,22 +1356,22 @@ img {
     &__li { // .ajd_rewards__li
         @include flexbox-auto;
         padding: 10px 20px;
-        
+
         @include breakpoint($mid-small) {
             // breaks to two columns
             width: 50%;
         }
-        
+
         @include breakpoint($end-small) {
             // breaks to three columns
             width: 33.33%;
         }
-        
+
         .js & {
             opacity: 0;
             transition: opacity 1s ease;
         }
-        
+
         &.actived-once {
             // If you want to active this ever time you change "actived-once" to just "active"
             -webkit-animation: popin 1s forwards;

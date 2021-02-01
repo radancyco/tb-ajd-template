@@ -108,7 +108,7 @@ img {
     -o-#{$property}: $value;
     #{$property}: $value;
   }
-  
+
 // END Addtional SASS you may need to add to your theme
 
 //
@@ -117,9 +117,9 @@ img {
 
 @import '../../3461/shared/scss/ajd-icons'; // required
 // if compiling on  site
-//  @import '../../3461/shared/scss/ajd-icons';  
+//  @import '../../3461/shared/scss/ajd-icons';
 // If working locally you will need a local version of this file which you can download from https://tbcdn.talentbrew.com/company/3461/shared/scss/_ajd-icons.scss
-// If compiling on Github use 
+// If compiling on Github use
 // @import '../examples/skeleton/system-needed/company/3461/shared/scss/ajd-icons'
 
 
@@ -666,7 +666,7 @@ flex: 0 0 calc(100% / 2);
 	}
 
 	&__link {
-		color: #000;	
+		color: #000;
 	}
 }
 
@@ -705,7 +705,7 @@ flex: 0 0 calc(100% / 2);
 		justify-content: center;
 		margin: 0 auto;
 		width: calc(100% * (2/3));
-    
+
     > * {
 		width: 100%;
 		@extend %branch;
@@ -1096,7 +1096,7 @@ flex: 0 0 calc(100% / 2);
 // Benefits/Rewards icons
 
 // You may wish to deleteor comment out any icons you are not using to save space in the compiled css
-// If yo9u need to make a custom icon you can follow the directions found here: https://github.com/tmpworldwide/tb-ajd-template#add-unique-svg-images
+// If yo9u need to make a custom icon you can follow the directions found here: https://github.com/radancyco/tb-ajd-template#add-unique-svg-images
 
 .ico-401k {
 	@include ico-401k($benefits-icon-color);
