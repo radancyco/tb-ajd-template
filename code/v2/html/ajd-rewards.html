@@ -9,15 +9,15 @@
     var categoryId = Model.Page.CategoryIds;
     var locationId = Model.Page.LocationIds;
     var facetId = Model.Page.FacetIds;
-    
+
     @*<!--Category Variables - helps identify which ID corresponds to what category-->*@
-    var categoryClientServices = "75632"; 
-    
+    var categoryClientServices = "75632";
+
     @*<!--Location Variables - helps identify which ID corresponds to what location-->*@
-    var locationUSA = "6252001"; 
-    
+    var locationUSA = "6252001";
+
     @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
-    var facetFullTime = "job_type-Full-Time"; 
+    var facetFullTime = "job_type-Full-Time";
 }
 
 
@@ -30,7 +30,7 @@
     @*<!--Global Variables-->*@
     var sectionHeading = "Rewards";
     var sectionIntro = "";
-    
+
     @*<!--Global Icon List-->*@
     var icons = new List<Reward>();
 }
@@ -43,14 +43,14 @@
         public string Icon;
         public string Title;
         public string Description;
-        
+
 
         // Constructor that builds object without description
         public Reward(string icon, string title) {
             this.Icon = icon;
             this.Title = title;
         }
-    
+
         // Constructor that builds object with description
         public Reward(string icon, string title, string desc) {
             this.Icon = icon;
@@ -64,20 +64,20 @@
 
 @*<!--
 
-    HOW TO CREATE A REWARD OBJECT 
+    HOW TO CREATE A REWARD OBJECT
     ------------------------------------
 
     icons.Add( new Reward("icon_name", "reward_heading", "reward_description") );
 
-    
+
     LIST OF ALL AVAILABLE REWARDS ICONS.
     ------------------------------------
 
     Take the name of each icon you need and insert that name into the Icon List Array below.
     These will result in a class you can use in SASS. If you make a custom icon please
     add it to this list. To see what each icon looks like you can go here:
-    https://tmpworldwide.dev/tb-ajd-template/examples/skeleton/?no-checks
-    
+    https://radancy.dev/tb-ajd-template/examples/skeleton/?no-checks
+
     401k
     401k-euro
     401k-pound
@@ -103,7 +103,7 @@
     dollar-thin
     euro
     euro-thin
-    flex-time 
+    flex-time
     freedom
     gavel
     hands-on-heart
@@ -154,7 +154,7 @@
 @if(categoryId.Contains(categoryClientServices)) {
 
     sectionIntro = "Learn about our rewards.";
-    
+
     icons.Add( new Reward("401k", "Reward1","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.") );
     icons.Add( new Reward("adoption-cost-benefit", "Reward2","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.") );
     icons.Add( new Reward("amenities", "Reward3", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque suscipit mauris elit.") );
@@ -172,21 +172,21 @@
 @if(showSection){
     <section id="anchor-rewards" class="ajd_section ajd_rewards">
         <h2 class="ajd_section__heading ajd_rewards__heading">@Html.Raw(sectionHeading)</h2>
-        
+
         @if(!String.IsNullOrWhiteSpace(sectionIntro)){
         <p class="ajd_section__intro">@Html.Raw(sectionIntro)</p>
         }
-        
+
         @if(icons.Count > 0){
         <ul class="ajd_rewards__ul">
             @foreach (var icon in icons) {
             <li class="ajd_rewards__li ajd_rewards__li--@icon.Icon.Replace(" ", "-").ToLower() enhance-element">
                 <i class="ajd_rewards__ico ico-@icon.Icon.Replace(" ", "-").ToLower()"></i>
-    
+
                 @if(!String.IsNullOrWhiteSpace(icon.Title)) {
                 <h3 class="ajd_rewards__title">@Html.Raw(icon.Title)</h3>
                 }
-                
+
                 @if(!String.IsNullOrWhiteSpace(icon.Description)) {
                 <p class="ajd_rewards__description">@Html.Raw(icon.Description)</p>
                 }
@@ -195,5 +195,5 @@
         </ul>
         }
 
-    </section> 
+    </section>
 }

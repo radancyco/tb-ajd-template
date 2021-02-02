@@ -61,8 +61,8 @@ ALL HTML and Razor works in the TB system with the latest features of the TB Job
 
 
 ## Visual Examples
-* [Developer - Skeleton Example](https://tmpworldwide.dev/tb-ajd-template/examples/skeleton/) This example shows what an AJD would look like if you made one only using the default styles of a Full TB, with alerts that remind the developer to update links.
-* [Creative - Skeleton Example](https://tmpworldwide.dev/tb-ajd-template/examples/skeleton/?no-checks) This example shows what an AJD would look like if you made one only using the default styles of a Full TB, without alerts.
+* [Developer - Skeleton Example](https://radancy.dev/tb-ajd-template/examples/skeleton/) This example shows what an AJD would look like if you made one only using the default styles of a Full TB, with alerts that remind the developer to update links.
+* [Creative - Skeleton Example](https://radancy.dev/tb-ajd-template/examples/skeleton/?no-checks) This example shows what an AJD would look like if you made one only using the default styles of a Full TB, without alerts.
 
 
 ## Instructions for creating an additional AJD after one already exists on a site

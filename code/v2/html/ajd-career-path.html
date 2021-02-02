@@ -9,15 +9,15 @@
     var categoryId = Model.Page.CategoryIds;
     var locationId = Model.Page.LocationIds;
     var facetId = Model.Page.FacetIds;
-    
+
     @*<!--Category Variables - helps identify which ID corresponds to what category-->*@
-    var categoryClientServices = "75632"; 
-    
+    var categoryClientServices = "75632";
+
     @*<!--Location Variables - helps identify which ID corresponds to what location-->*@
-    var locationUSA = "6252001"; 
-    
+    var locationUSA = "6252001";
+
     @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
-    var facetFullTime = "job_type-Full-Time"; 
+    var facetFullTime = "job_type-Full-Time";
 }
 
 
@@ -38,7 +38,7 @@
 
     HOW TO ADD A NEW CAREER PATH
     -------------------------------------
-    
+
     The DPM should be providing you either with a the HTML and SASS, or a JSON file.
     Here are the following scenarios:
 
@@ -52,19 +52,19 @@
     ";
 
     Scenario 2:
-    If the DPM provides you with a JSON file for the career path then you can take that file and 
-    upload it to the career path generator located here: https://tmpworldwide.dev/tb-career-path-generator/
+    If the DPM provides you with a JSON file for the career path then you can take that file and
+    upload it to the career path generator located here: https://radancy.dev/career-path-generator/
     Once uploaded you will then click the button "Export code as text files" to receive the HTML
     and SASS. Once you receive the HTML and SASS you then can follow the steps in scenario 1.
 
 
     Senario 3:
-    If the DPM only gives you a PSD to work off of then you can build the career path using the 
-    Career Path Generator located here: https://tmpworldwide.dev/tb-career-path-generator/
+    If the DPM only gives you a PSD to work off of then you can build the career path using the
+    Career Path Generator located here: https://radancy.dev/career-path-generator/
     Once completed then click the button "Export code as text files" to receive the HTML
     and SASS. Once you receive the HTML and SASS you then can follow the steps in scenario 1.
 
- 
+
 -->*@
 
 
@@ -75,7 +75,7 @@
     sectionIntro = "Intro Text";
 
     careerPath = @"
-    
+
     <svg height='0' width='0' style='display: block;'>
         <pattern fill='#035A8F' id='border-pattern' x='0' y='0' width='4' height='4' patternUnits='userSpaceOnUse'>
             <rect x='0' y='0' width='8' height='8'></rect>
@@ -90,7 +90,7 @@
         <li class='career-path__row starting-row'>
             <div class='career-path__title-row width-1'>
                 <div>
-                    
+
                     <div class='career-path__title-container'>
                         <span class='career-path__title'>Job Title 1</span> <span class='wai'> leads to Job Title 2</span>
                     </div>
@@ -100,7 +100,7 @@
                 </div>
             </div>
         </li>
-        
+
         <li class='career-path__row'>
             <div class='career-path__title-row width-1'>
                 <div>
@@ -119,14 +119,14 @@
                 </div>
             </div>
         </li>
-        
+
         <li class='career-path__row'>
             <div class='career-path__border-row top width-1' style='width: 50%;'>
                 <svg height='4px' width='100%' class='horizontal-border'>
                     <use xlink:href='#border'></use>
                 </svg>
             </div>
-            
+
             <div class='career-path__title-row width-2'>
                 <div>
                     <svg width='4px' class='vertical-border top'>
@@ -142,7 +142,7 @@
                         <use xlink:href='#border'></use>
                     </svg>
                 </div>
-                
+
                 <div>
                     <svg width='4px' class='vertical-border top'>
                         <use xlink:href='#border'></use>
@@ -159,7 +159,7 @@
                 </div>
             </div>
         </li>
-        
+
         <li class='career-path__row'>
             <div class='career-path__title-row width-2'>
                 <div>
@@ -176,16 +176,16 @@
                         <use xlink:href='#border'></use>
                     </svg>
                 </div>
-                
+
                 <div>
                     <svg width='4px' class='vertical-border top full-height'>
                         <use xlink:href='#border'></use>
                     </svg>
-                    
+
                 </div>
             </div>
         </li>
-        
+
         <li class='career-path__row'>
             <div class='career-path__title-row width-2'>
                 <div>
@@ -199,7 +199,7 @@
                         <span class='career-path__title'>Job Title 6</span> <span class='wai '>ends this path</span>
                     </div>
                 </div>
-                
+
                 <div>
                     <svg width='4px' class='vertical-border top'>
                         <use xlink:href='#border'></use>
@@ -210,24 +210,24 @@
                         </svg>
                         <span class='career-path__title'>Job Title 7</span> <span class='wai '>ends this path</span>
                     </div>
-                    
+
                 </div>
             </div>
         </li>
     </ul>
-    
+
     ";
 
 
 } else {
- 
+
     showSection = false;
 
 }
 
 
 @if(showSection){
-<section id="anchor-career-path" class="ajd_section career-path enhance-element"> 
+<section id="anchor-career-path" class="ajd_section career-path enhance-element">
     <h2 class="career-path__heading">@Html.Raw(sectionHeading)</h2>
 
     @if(!String.IsNullOrWhiteSpace(sectionIntro)){
@@ -237,5 +237,3 @@
     @Html.Raw(careerPath)
 </section>
 }
-
-
