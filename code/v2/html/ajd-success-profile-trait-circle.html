@@ -16,13 +16,25 @@
 @*<!--RAZOR CODE FOR THIS MODULE-->*@
 @*<!--==============================================-->*@
 @{
+
+    @*<!--Page Model-->*@
+    var jobPage = Model.Page as PublishedJobModel;
+
+    @*<!--Feed Data-->*@
+    var jobTitle = "";
+
+    if(jobPage != null)
+    {
+       jobTitle = @jobPage.Job.Title;
+    }
+
     @*<!--Set to false to hide entire module-->*@
     bool showSection = true;
 
     @*<!--Global Variables-->*@
     var sectionHeading = "Success Profile";
     var sectionIntro = "";
-    var dynamicJobTitleIntro = "What makes a successful " + @jobTitle + "? Check out the traits we’re looking for and see if you have the right skill level."
+    var dynamicJobTitleIntro = "What makes a successful " + jobTitle + "? Check out the traits we’re looking for and see if you have the right skill level.";
     var traitImg = "";
     var traitCircleText = "";
 

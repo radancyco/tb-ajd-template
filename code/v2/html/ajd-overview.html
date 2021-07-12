@@ -16,18 +16,6 @@
 @*<!--RAZOR CODE FOR THIS MODULE-->*@
 @*<!--==============================================-->*@
 @{
-
-    @*<!--Set to false to hide entire module-->*@
-    bool showSection = true;
-
-    @*<!--Global Variables-->*@
-    var sectionHeading = "Overview";
-    var sectionIntro = "";
-    
-    @*<!--Global Quick Fact List-->*@
-    var quickFacts = new List<QuickFact>();
-
-    
     @*<!--Page Model-->*@
     var jobPage = Model.Page as PublishedJobModel;
     
@@ -41,6 +29,17 @@
         jobLevel = jobPage.Job.JobLevel;
 
     }
+
+    @*<!--Set to false to hide entire module-->*@
+    bool showSection = true;
+
+    @*<!--Global Variables-->*@
+    var sectionHeading = "Overview";
+    var sectionIntro = "";
+    
+    @*<!--Global Quick Fact List-->*@
+    var quickFacts = new List<QuickFact>();
+
 
 }
 
