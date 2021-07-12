@@ -31,7 +31,7 @@
     bool showSection = true;
     
     @*<!-- Navigation links LEAVE EMPTY-->*@
-    string[] navLinkArr = new string[] {};
+    string[,] navLinkArr = new string[,] {};
 }
 
 
@@ -39,16 +39,18 @@
 @*<!------------------------------------->*@
 @if(categoryId.Contains(categoryClientServices)) {
     
-    @*<!--"Link Text" - this also becomes the anchor link text-->*@
+    @*<!--"Link Text" , "Section ID"-->*@
     @*<!--Make sure your section has the correct ID to anchor to-->*@
-    navLinkArr = new string[] {
-        "Overview",
-        "Success Profile",
-        "Career Path",
-        "Trending",
-        "Rewards",
-        "Responsibilities"
+    navLinkArr  = new string[,] {
+        { "Overview", "anchor-overview" },
+        { "Success Profile", "anchor-success-profile" },
+        { "Career Path", "anchor-career-path" },
+        { "Trending", "anchor-trending" },
+        { "Rewards", "anchor-rewards" },
+        { "Responsibilities", "anchor-responsibilities" }
     };
+
+    
 
 } else {
 
@@ -99,9 +101,11 @@
         @if(showSection){
         <nav class="ajd_navigation" aria-label="Page">
             <ul class="ajd_navigation__ul max-width-wrapper">
-            @for (int i = 0; i < navLinkArr.Length; i++) {  
-                <li class="ajd_navigation__li"><a href="#anchor-@Html.Raw(navLinkArr[i].Replace("&", "").Replace(" ", "-").Replace("--", "-").ToLower())" class="ajd_navigation__a">@Html.Raw(navLinkArr[i])</a></li>
-            }
+                @if (navLinkArr.GetLength(0) > 0 ){
+                    for (int i = 0; i < navLinkArr.GetLength(0); i++) {
+                        <li class="ajd_navigation__li"><a href="#@Html.Raw(navLinkArr[i,1].Replace("&", "").Replace(" ", "-").Replace("--", "-").ToLower())" class="ajd_navigation__a">@Html.Raw(navLinkArr[i,0])</a></li>
+                    }
+                }
             </ul>
         </nav>
         }
