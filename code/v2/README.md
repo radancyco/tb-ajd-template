@@ -2,26 +2,27 @@
 [Other versions](https://github.com/radancyco/tb-ajd-template/tree/main)
 
 ## Table of Contents
-- [Overview](#overview)
-- [Introduction](#introduction)
-- [Technologies used](#technologies-used)
-- [What this template works with](#what-this-template-works-with)
-- [Things to know before you start](#things-to-know-before-you-start)
-  - [How to find Category ID](#how-to-find-category-id)
-  - [How to find Location ID](#how-to-find-location-id)
-  - [How to find Facet ID](#how-to-find-facet-id)
-- [Creating an AJD (for very first AJD on site)](#creating-an-ajd)
-- [Adding to an existing AJD](#adding-to-an-existing-ajd)
-- [AJD Modules](#ajd-modules)
-- [Understanding what you can do and change](#understanding-what-you-can-do-and-change)
-  - [Add unique SVG images](#add-unique-svg-images)
-  - [Add or remove sticky functionality](#add-or-remove-sticky-functionality)
-  - [Account for a client nav that is also sticky](#account-for-a-client-nav-that-is-also-sticky)
-  - [Add or remove animations on scroll or change how often animations happen](#add-or-remove-animations-on-scroll-or-change-how-often-animations-happen)
-  - [Make in page navigation highlight only one section at a time](#make-in-page-navigation-highlight-only-one-section-at-a-time)
-  - [Adjusting the scroll to offset when using the in page navigation](#adjusting-the-scroll-to-offset-when-using-the-in-page-navigation)
-  - [Updating Glassdoor to match company](#updating-glassdoor-to-match-company)
-  - [Adding a video to the banner](#adding-a-video-to-the-banner)
+- [Advanced Job Details (Version 2)](#advanced-job-details-version-2)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Introduction](#introduction)
+  - [Technologies used](#technologies-used)
+  - [What this template works with](#what-this-template-works-with)
+  - [Things to know before you start](#things-to-know-before-you-start)
+    - [What is the preferred way to map AJDs?](#what-is-the-preferred-way-to-map-ajds)
+    - [How find Category ID, Location ID and Facet ID and then create variables for each](#how-find-category-id-location-id-and-facet-id-and-then-create-variables-for-each)
+  - [Creating an AJD](#creating-an-ajd)
+  - [Adding to an existing AJD](#adding-to-an-existing-ajd)
+  - [AJD Modules](#ajd-modules)
+  - [Understanding what you can do and change](#understanding-what-you-can-do-and-change)
+    - [Add unique SVG images](#add-unique-svg-images)
+    - [Add or remove sticky functionality](#add-or-remove-sticky-functionality)
+    - [Account for a client nav that is also sticky](#account-for-a-client-nav-that-is-also-sticky)
+    - [Add or remove animations on scroll or change how often animations happen](#add-or-remove-animations-on-scroll-or-change-how-often-animations-happen)
+    - [Make in page navigation highlight only one section at a time](#make-in-page-navigation-highlight-only-one-section-at-a-time)
+    - [Adjusting the scroll to offset when using the in page navigation](#adjusting-the-scroll-to-offset-when-using-the-in-page-navigation)
+    - [Updating Glassdoor to match company](#updating-glassdoor-to-match-company)
+    - [Adding a video to the banner](#adding-a-video-to-the-banner)
 
 
 ## Overview
@@ -48,43 +49,15 @@ ALL HTML and Razor works in the TB system with the latest features of the TB Job
 ## Things to know before you start
 Before you start creating your theme or any modules it is important to note that we are using razor inside each module to change content based on category, location, or facets.
 
-This means that **a portion of every AJD module will need to share the same exact razor.** In each module the razor code has been divided into sections for what is unique to that module vs what should be included on every module.
+Determining which AJD is using what mappings is determined at **the page level you will creative ajd types** In each module the AJD Type viewbag will be pulled in.
+
+### What is the preferred way to map AJDs?
+The preferred way is to have the feed team setup a custom field called "AJD" and at the theme level we map to each value inside that facet. (Note: Never map based on the facet and ALL values because this could result in many pages not displaying any content if no AJD content is setup for that value.) 
 
 
-
-### How to find Category ID
-While there are many ways to do this, an easy way is to go the search results page and inspect the category you want in the search filters. The id will be the value of the `data-id` attribute.
-
-Example:
-```
-<input type="checkbox" id="category-filter-0" class="filter-checkbox" data-facet-type="1" data-id="75907" data-count="1" data-display="Accounting Clerk" data-field-name="">
-```
-
-
-### How to find Location ID
-A simple way to do this is to type the location you need into the search form. Once you have done this DO NOT CLICK SEARCH, but rather, inspect the input field and look for the `data-lp` attribute. The value of the `data-lp` attribute is the ID of you location you typed.
-
-You can also watch the <a href="https://tbcdn.talentbrew.com/company/1554/francis_testing/location_id.mp4" target="_blank">video demonstration</a> on how to find the location ID.
-
-
-
-### How to find Facet ID
-Finding the facet ID is very similar to finding category ID but there are a couple of additional steps.
-1. Go the search results page and find the `data-id` attribute from facet that you inspect in the search filters.
-2. On that same element find the `data-field-name` attribute.
-3. The facet ID will be a concatenation of both of the above values with a hypen in between. Any white space will also need to be replaced with hyphens.
-
-Example 1:
-```
-<input type="checkbox" id="job_level-filter-0" class="filter-checkbox" data-facet-type="5" data-id="Regular" data-count="321" data-display="Regular" data-field-name="job_level">
-```
-Once all whitespace is replaced with a hyphen the the facet ID for example 1 becomes job_level-Regular
-
-Example 2:
-```
-<input type="checkbox" id="job_type-filter-0" class="filter-checkbox" data-facet-type="5" data-id="Full Time" data-count="13" data-display="Full Time" data-field-name="job_type">
-```
-Once all whitespace is replaced with a hyphen the facet ID for example 2 becomes job_type-Full-Time
+### How find Category ID, Location ID and Facet ID and then create variables for each
+Simply go to your AJD theme that has the mappings then open your console log and paste of the of example snippets into your console log.
+https://codedrive.io/#/snippets/171
 
 
 
@@ -108,11 +81,12 @@ IMPORTANT: ONLY CREATE ONE AJD PAGE AND ONE AJD THEME. DO NOT CREATE MULTIPLE AJ
 5. Create page for theme - only create ONE AJD page
     * Do not map any filters on the page level
     * Name the page "AJD"
+    * [AJD Page HTML](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/html/ajd-page-level.html)
     * If any modules on the current JD page exist on the design add those modules to this new AJD page
 6. Create [AJD modules](#ajd-modules) and add to page
     * Make sure to find the IDs for the filters you mapped to the theme level
-    * Once you have found all the necessary filter IDs **add them to EACH module** you create for the AJD.
-    * Once IDs are added to each module don't forget to **update your if-statements** within each module.
+    * Once you have found all the necessary filter IDs **create ajd types** on the page level.
+    * Once IDs are added to the page for each ajd type don't forget to **update your if-statements** within each module.
     * Each module has its own set of unique instructions on how to implement. You can view the list of modules [here](#ajd-modules)
 
 
@@ -121,8 +95,8 @@ IMPORTANT: ONLY CREATE ONE AJD PAGE AND ONE AJD THEME. DO NOT CREATE MULTIPLE AJ
 These steps should only be followed if the previous AJD uses the layout format as the version 2 AJD.
 
 1. Map new filters to the AJD Theme Level
-2. Find the IDs for the filters you mapped to the theme level and add them to all the modules
-3. Update if-statements to change out content based on new filters
+2. Find the IDs for the filters you mapped to the theme level and add them to to the page level as ajd types
+3. Update if-statements to change out content based on new ajd types
     * If the new AJD has a module that the existing AJDs do not have you will still need to create a new module. Once you do that you can make it so the new module only appears when the correct filter is applied.
 
 

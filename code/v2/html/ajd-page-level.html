@@ -1,0 +1,61 @@
+@model PublishedJobModel
+@{
+    ViewBag.Title = Model.PageTitle;
+    ViewBag.MetaDescription = Model.PageDescription;
+    ViewBag.BodyId = "advanced-job";    
+    ViewBag.ajdType = "default";
+    
+    @*<!--
+
+        How find Category ID, Location ID and Facet ID and then create variables for each
+        -------------------------------------
+
+        Simply go to your AJD theme that has the mappings then open your console log and paste of the of example snippets into your console log.
+        https://codedrive.io/#/snippets/171
+
+    -->*@
+
+    
+    @*<!--Filter IDs-->*@
+    var categoryId = Model.CategoryIds;
+    var locationId = Model.LocationIds;
+    var facetId = Model.FacetIds;
+    
+    
+    @*<!--Category Variables - helps identify which ID corresponds to what category-->*@
+    var categoryExample = "000000";
+
+    @*<!--Location Variables - helps identify which ID corresponds to what location-->*@
+    var locationUSA = "6252001"; 
+    
+    @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
+    var facetAJDAccountServices = "custom_fields.AJD-Account-Services";
+
+}
+
+
+
+
+@*<!--Types of AJDs-->*@
+
+@if ( facetId.Contains(facetAJDAccountServices) ) {
+    ViewBag.ajdType = "ajdAccountServices";
+}
+
+
+
+@*<!--Page Partials-->*@
+@Html.Partial("_Main")
+@Html.Partial("_PagePartial1")
+@Html.Partial("_PagePartial2")
+@Html.Partial("_Aside")
+@Html.Partial("_PagePartial3")
+@Html.Partial("_PagePartial4")
+
+
+
+@*<!--End Scripts-->*@
+@section EndScripts {
+    <input id="ajdType" type="hidden" name="ajdType"  value="@ViewBag.ajdType">
+}
+

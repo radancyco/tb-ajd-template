@@ -5,34 +5,11 @@
 @*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
 @*<!--==============================================-->*@
 @{
-
-    @*<!--Filter IDs-->*@
-    var categoryId = Model.Page.CategoryIds;
-    var locationId = Model.Page.LocationIds;
-    var facetId = Model.Page.FacetIds;
+    @*<!--This pulls in the ajdType that was mapped on the page level of the AJD-->*@
+    var ajdType = Html.ViewContext.ParentActionViewContext.ViewBag.ajdType == null ? "" : Html.ViewContext.ParentActionViewContext.ViewBag.ajdType.ToString();
     
-    @*<!--Category Variables - helps identify which ID corresponds to what category-->*@
-    var categoryClientServices = "75632"; 
-    
-    @*<!--Location Variables - helps identify which ID corresponds to what location-->*@
-    var locationUSA = "6252001"; 
-    
-    @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
-    var facetFullTime = "job_type-Full-Time"; 
-    
-    @*<!--Page Model-->*@
-    var jobPage = Model.Page as PublishedJobModel;
-    
-    @*<!--Feed Data-->*@
-    var jobTitle = "";
-    var jobLevel = "";
-
-    if(jobPage != null)
-    {
-        jobTitle = jobPage.Job.Title;
-        jobLevel = jobPage.Job.JobLevel;
-
-    }
+    @*<!--This pulls in the page name if you need to reuse this module on a content page -->*@
+    var pageName = (Model != null && Model.Page != null && Model.Page.ThemePage != null && !String.IsNullOrEmpty(Model.Page.ThemePage.Name)) ? Html.Tokenize((string)Model.Page.ThemePage.Name) : "";
 }
 
 
@@ -49,6 +26,22 @@
     
     @*<!--Global Quick Fact List-->*@
     var quickFacts = new List<QuickFact>();
+
+    
+    @*<!--Page Model-->*@
+    var jobPage = Model.Page as PublishedJobModel;
+    
+    @*<!--Feed Data-->*@
+    var jobTitle = "";
+    var jobLevel = "";
+
+    if(jobPage != null)
+    {
+        jobTitle = jobPage.Job.Title;
+        jobLevel = jobPage.Job.JobLevel;
+
+    }
+
 }
 
 
@@ -151,7 +144,7 @@
 
 @*<!-- Change content based on filters -->*@
 @*<!------------------------------------->*@
-@if(categoryId.Contains(categoryClientServices)) {
+@if( ajdType == "ajdAccountServices" ) {
     
     sectionIntro = "As a " + @jobTitle + ", you’ll develop and lead multi-faceted web-based strategies for some of the most recognized names in the world. You’ll be the face of our software solutions, analytics and digital capabilities &mdash; able to explain the complex in simple ways to your colleagues and clients. And you’ll come up with innovative approaches that change the way companies and candidates connect.";
     

@@ -5,19 +5,11 @@
 @*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
 @*<!--==============================================-->*@
 @{
-    @*<!--Filter IDs-->*@
-    var categoryId = Model.Page.CategoryIds;
-    var locationId = Model.Page.LocationIds;
-    var facetId = Model.Page.FacetIds;
-
-    @*<!--Category Variables - helps identify which ID corresponds to what category-->*@
-    var categoryClientServices = "75632";
-
-    @*<!--Location Variables - helps identify which ID corresponds to what location-->*@
-    var locationUSA = "6252001";
-
-    @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
-    var facetFullTime = "job_type-Full-Time";
+    @*<!--This pulls in the ajdType that was mapped on the page level of the AJD-->*@
+    var ajdType = Html.ViewContext.ParentActionViewContext.ViewBag.ajdType == null ? "" : Html.ViewContext.ParentActionViewContext.ViewBag.ajdType.ToString();
+    
+    @*<!--This pulls in the page name if you need to reuse this module on a content page -->*@
+    var pageName = (Model != null && Model.Page != null && Model.Page.ThemePage != null && !String.IsNullOrEmpty(Model.Page.ThemePage.Name)) ? Html.Tokenize((string)Model.Page.ThemePage.Name) : "";
 }
 
 
@@ -151,7 +143,7 @@
 
 @*<!-- Change content based on filters -->*@
 @*<!------------------------------------->*@
-@if(categoryId.Contains(categoryClientServices)) {
+@if( ajdType == "ajdAccountServices" ) {
 
     sectionIntro = "Learn about our rewards.";
 
