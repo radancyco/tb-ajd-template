@@ -22,15 +22,17 @@
     
     @*<!--Page Model-->*@
     var jobPage = Model.Page as PublishedJobModel;
-
+    
     @*<!--Feed Data-->*@
     var jobTitle = "";
+    var jobLevel = "";
 
     if(jobPage != null)
     {
-       jobTitle = @jobPage.Job.Title;
-    }
+        jobTitle = jobPage.Job.Title;
+        jobLevel = jobPage.Job.JobLevel;
 
+    }
 }
 
 
@@ -108,7 +110,13 @@
     -------------------------------------
     
     quickFacts.Add(new QuickFact("icon_class_name", "description"));
+
+    How to pass job feed data into a Quickfact to make it dynamic
+    (Note: First need to go to the "Feed Data" section of this modules code and make the variable and pull in the data to that variable.)
+    -------------------------------------
     
+    quickFacts.Add(new QuickFact("level", "Level: " + jobLevel));
+
 
 
     How to add GLASSDOOR or INDEED with LINK
@@ -148,7 +156,7 @@
     sectionIntro = "As a " + @jobTitle + ", you’ll develop and lead multi-faceted web-based strategies for some of the most recognized names in the world. You’ll be the face of our software solutions, analytics and digital capabilities &mdash; able to explain the complex in simple ways to your colleagues and clients. And you’ll come up with innovative approaches that change the way companies and candidates connect.";
     
     quickFacts.Add(new QuickFact("time", "Full Time"));
-    quickFacts.Add(new QuickFact("level", "Level: Mid (5+ years experience)"));
+    quickFacts.Add(new QuickFact("level", "Level: " + jobLevel));
     quickFacts.Add(new QuickFact("travel", "Travel: Minimal (if any)"));
     quickFacts.Add(new QuickFact("salary", "Salary: $63K-$96K"));
     quickFacts.Add(
