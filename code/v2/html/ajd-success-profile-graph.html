@@ -18,6 +18,17 @@
     
     @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
     var facetFullTime = "job_type-Full-Time"; 
+
+    @*<!--Page Model-->*@
+    var jobPage = Model.Page as PublishedJobModel;
+
+    @*<!--Feed Data-->*@
+    var jobTitle = "";
+
+    if(jobPage != null)
+    {
+       jobTitle = @jobPage.Job.Title;
+    }
 }
 
 
@@ -30,6 +41,7 @@
     @*<!--Global Variables-->*@
     var sectionHeading = "Success Profile";
     var sectionIntro = "";
+    var dynamicJobTitleIntro = "What makes a successful " + @jobTitle + "? Check out the traits we’re looking for and see if you have the right skill level."
 
     @*<!-- Main Skills-->*@
     string[,] mainSkillArr = new string[,] {};
@@ -102,13 +114,11 @@
     };
 -->*@
 
-
-
 @*<!-- Change content based on filters -->*@
 @*<!------------------------------------->*@
 @if(categoryId.Contains(categoryClientServices)) {
     
-    sectionIntro = "What makes a successful Lorem ipsum? Check out the traits we’re looking for and see if you have the right skill level.";
+    sectionIntro = dynamicJobTitleIntro;
 
     mainSkillArr = new string[,] {
         { "Innovation", "nine" },

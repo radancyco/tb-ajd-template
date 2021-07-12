@@ -5,6 +5,7 @@
 @*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
 @*<!--==============================================-->*@
 @{
+
     @*<!--Filter IDs-->*@
     var categoryId = Model.Page.CategoryIds;
     var locationId = Model.Page.LocationIds;
@@ -19,6 +20,16 @@
     @*<!--Facet Variables - helps identify which ID corresponds to what facet-->*@
     var facetFullTime = "job_type-Full-Time"; 
     
+    @*<!--Page Model-->*@
+    var jobPage = Model.Page as PublishedJobModel;
+
+    @*<!--Feed Data-->*@
+    var jobTitle = "";
+
+    if(jobPage != null)
+    {
+       jobTitle = @jobPage.Job.Title;
+    }
 
 }
 
@@ -134,7 +145,7 @@
 @*<!------------------------------------->*@
 @if(categoryId.Contains(categoryClientServices)) {
     
-    sectionIntro = "As a Digital Strategist, you’ll develop and lead multi-faceted web-based strategies for some of the most recognized names in the world. You’ll be the face of our software solutions, analytics and digital capabilities &mdash; able to explain the complex in simple ways to your colleagues and clients. And you’ll come up with innovative approaches that change the way companies and candidates connect.";
+    sectionIntro = "As a " + @jobTitle + ", you’ll develop and lead multi-faceted web-based strategies for some of the most recognized names in the world. You’ll be the face of our software solutions, analytics and digital capabilities &mdash; able to explain the complex in simple ways to your colleagues and clients. And you’ll come up with innovative approaches that change the way companies and candidates connect.";
     
     quickFacts.Add(new QuickFact("time", "Full Time"));
     quickFacts.Add(new QuickFact("level", "Level: Mid (5+ years experience)"));
