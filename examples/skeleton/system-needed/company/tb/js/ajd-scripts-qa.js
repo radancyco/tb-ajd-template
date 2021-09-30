@@ -86,8 +86,12 @@ function isIE() {
 
 // In page navigation
 $('.ajd_navigation__a').on('click', function(e) {
-    e.preventDefault();
+  
 
+    e.preventDefault();
+    if (typeof inPageNavHelper.removeListeners == 'function') {
+      inPageNavHelper.removeListeners();
+    } 
     // Set variable for section selected
     var href = $(this).attr('href');
     href = href.replace('#', '');
