@@ -133,6 +133,9 @@
 
                     // append wrapper to DOM
                     document.getElementById(this.hash.substr(1)).appendChild(returnAnchorWrapper);
+                } else {
+                    // removing navigation link if the anchor section doesn't exist
+                    $(this).parent().remove()
                 }
             })
         </script>
