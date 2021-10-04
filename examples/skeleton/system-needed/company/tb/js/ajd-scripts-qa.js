@@ -1,5 +1,9 @@
+///////////////////////
+// QA FILE DROPPED SUPPORT ON P4 NOW MOVED TO https://tmpworldwide.github.io/tb-ajd-template/examples/skeleton/system-needed/company/tb/js/ajd-scripts-qa.js
+//////////////////////
+
 // Advanced Job Details (AJD) Template version 1.0
-// Last Updated 03/18/2019
+// Last Updated 10/04/2021
 //
 
 
@@ -63,7 +67,6 @@ function isIE() {
 }
 
 
-
 (function() { // On Document ready
 
 
@@ -86,12 +89,8 @@ function isIE() {
 
 // In page navigation
 $('.ajd_navigation__a').on('click', function(e) {
-  
-
     e.preventDefault();
-    if (typeof inPageNavHelper.removeListeners == 'function') {
-      inPageNavHelper.removeListeners();
-    } 
+
     // Set variable for section selected
     var href = $(this).attr('href');
     href = href.replace('#', '');
@@ -234,7 +233,6 @@ $('.ajd_navigation__a').on('click', function(e) {
     $('.ajd_navigation__li').removeClass('active');
 
 
-
     $.each($animateElement, function() {
 
         var $element = $(this);
@@ -242,7 +240,6 @@ $('.ajd_navigation__a').on('click', function(e) {
         var elementTopPosition = ( $element.offset().top );
         var elementBottomPosition = (elementTopPosition + elementHeight);
         var elementId = $element.attr('id');
-
 
         // Check to see if current container within viewport
 
@@ -270,29 +267,24 @@ $('.ajd_navigation__a').on('click', function(e) {
 
           }
 
-          // Add active state to elements with the class of .enhance-element
-          if ( $element.hasClass('enhance-element') ) {
+            // Add active state to elements with the class of .enhance-element
+            if ( $element.hasClass('enhance-element') ) {
               $element.addClass($stateName);
-          }
-
-          // Add active state to inpage navigation links
-          $('.ajd_navigation__a').each(function() {
-
-            if ( $(this).attr('href').indexOf(elementId) != -1 ) {
-              $(this).parent('li').addClass('active');
             }
 
-            // If slingular-highlighting class is present then break .each loop
-            if ( $('.ajd_navigation').hasClass('singular-highlighting') && $(this).parent('li').hasClass('active') ) {
-              return false;
-            }
+            // Add active state to inpage navigation links
+            $('.ajd_navigation__a').each(function() {
 
-          });
+                  if ( $(this).attr('href').indexOf(elementId) != -1 ) {
+                      $(this).parent('li').addClass('active');
+                  }
 
+                  // If slingular-highlighting class is present then break .each loop
+                  if ( $('.ajd_navigation').hasClass('singular-highlighting') && $(this).parent('li').hasClass('active') ) {
+                    return false;
+                  }
 
-
-
-
+            });
 
 
         } else {
@@ -302,12 +294,7 @@ $('.ajd_navigation__a').on('click', function(e) {
         }
 
 
-
-
-
     });
-
-
 
 
   }  // End: Check Scroll Position
