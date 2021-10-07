@@ -87,7 +87,7 @@ function isIE() {
 // In page navigation
 $('.ajd_navigation__a').on('click', function(e) {
     e.preventDefault();
-    if (typeof inPageNavHelper.removeListeners == 'function') {
+    if (typeof inPageNavHelper === 'function') {
       inPageNavHelper.removeListeners();
     } 
     // Set variable for section selected
