@@ -12,7 +12,7 @@ exclude: [
 destination: _httpdocs
 git-url: https://radancy.dev
 highlighter: rouge
-lang: en-US
+lang: en
 markdown: kramdown
 name: Pattern Library
 owner-name: Michael Spellacy
