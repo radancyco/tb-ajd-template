@@ -158,6 +158,10 @@ $benefits-icon-color:  #004E8A; // Blue
 	@include ico-amenities($benefits-icon-color);
 }
 
+.ico-attract-salary {
+	@include ico-attract-salary($benefits-icon-color);
+}
+
 .ico-balance {
 	@include ico-balance($benefits-icon-color);
 }
@@ -172,6 +176,10 @@ $benefits-icon-color:  #004E8A; // Blue
 
 .ico-bars-straight-arrow {
 	@include ico-bars-straight-arrow($benefits-icon-color);
+}
+
+.ico-bonus-scheme {
+	@include ico-bonus-scheme($benefits-icon-color);
 }
 
 .ico-cafeteria {
@@ -206,6 +214,10 @@ $benefits-icon-color:  #004E8A; // Blue
 	@include ico-dependent-care-fsa($benefits-icon-color);
 }
 
+.ico-extra-pay {
+	@include ico-extra-pay($benefits-icon-color);
+}
+
 .ico-flex-time {
 	@include ico-flex-time($benefits-icon-color);
 }
@@ -228,6 +240,10 @@ $benefits-icon-color:  #004E8A; // Blue
 
 .ico-healthcare {
 	@include ico-healthcare($benefits-icon-color);
+}
+
+.ico-holiday-pay {
+	@include ico-holiday-pay($benefits-icon-color);
 }
 
 .ico-international-travel {
@@ -262,6 +278,10 @@ $benefits-icon-color:  #004E8A; // Blue
 	@include ico-medical($benefits-icon-color);
 }
 
+.ico-mentoring {
+	@include ico-mentoring($benefits-icon-color);
+}
+
 .ico-moneybag {
 	@include ico-moneybag($benefits-icon-color);
 }
@@ -294,6 +314,18 @@ $benefits-icon-color:  #004E8A; // Blue
 	@include ico-paid-vacation-time($benefits-icon-color);
 }
 
+.ico-parking {
+	@include ico-parking($benefits-icon-color);
+}
+
+.ico-permanent-employment {
+	@include ico-permanent-employment($benefits-icon-color);
+}
+
+.ico-piggy-bank {
+	@include ico-piggy-bank($benefits-icon-color);
+}
+
 .ico-price-tag {
 	@include ico-price-tag($benefits-icon-color);
 }
@@ -322,6 +354,10 @@ $benefits-icon-color:  #004E8A; // Blue
 	@include ico-team-outings($benefits-icon-color);
 }
 
+.ico-transportation-reimbursement {
+	@include ico-transportation-reimbursement($benefits-icon-color);
+}
+
 .ico-tutition-reimbursment {
 	@include ico-tutition-reimbursment($benefits-icon-color);
 }
@@ -340,6 +376,10 @@ $benefits-icon-color:  #004E8A; // Blue
 
 .ico-wellness-programs {
 	@include ico-wellness-programs($benefits-icon-color);
+}
+
+.ico-work-from-home {
+	@include ico-work-from-home($benefits-icon-color);
 }
 
 
