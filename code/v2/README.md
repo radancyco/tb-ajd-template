@@ -77,10 +77,10 @@ IMPORTANT: ONLY CREATE ONE AJD PAGE AND ONE AJD THEME. DO NOT CREATE MULTIPLE AJ
         2. `<script src="https://clientfiles.tmpwebeng.com/tmp/tb-assets/ajd/ajd-scripts-min.js"></script>`
         3. `<script id="js-custom-imports" src="https://services1.tmpwebeng.com/custom-imports/custom-imports.js?scripts=charts,video"></script>`
 3. Add [AJD SASS](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/styles/ajd-styles.scss) to full theme SASS
-4. Map all filters to Theme level
-5. Create page for theme - only create ONE AJD page
-    * Do not map any filters on the page level
-    * Name the page "AJD"
+4. Do NOT map any filters to the Theme Level.
+5. Create page for theme - only create ONE AJD page per design.
+    * Map Filter at the Page Level.
+    * Name the page "AJD Design (number)"
     * [AJD Page HTML](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/html/ajd-page-level.html)
     * If any modules on the current JD page exist on the design add those modules to this new AJD page
 6. Create [AJD modules](#ajd-modules) and add to page
