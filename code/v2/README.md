@@ -94,8 +94,8 @@ IMPORTANT: ONLY CREATE ONE AJD PAGE AND ONE AJD THEME. DO NOT CREATE MULTIPLE AJ
 ## Adding to an existing AJD
 These steps should only be followed if the previous AJD uses the layout format as the version 2 AJD.
 
-1. Map new filters to the AJD Theme Level
-2. Find the IDs for the filters you mapped to the theme level and add them to to the page level as ajd types
+1. Map new filters to the AJD Page Level
+2. Find the IDs for the filters you mapped to the page level and add them to to the page level as ajd types
 3. Update if-statements to change out content based on new ajd types
     * If the new AJD has a module that the existing AJDs do not have you will still need to create a new module. Once you do that you can make it so the new module only appears when the correct filter is applied.
 
