@@ -52,18 +52,18 @@ Before you start creating your theme or any modules it is important to note that
 Determining which AJD is using what mappings is determined at **the page level you will creative ajd types** In each module the AJD Type viewbag will be pulled in.
 
 ### What is the preferred way to map AJDs?
-The preferred way is to have the feed team setup a custom field called "AJD" and at the theme level we map to each value inside that facet. (Note: Never map based on the facet and ALL values because this could result in many pages not displaying any content if no AJD content is setup for that value.) 
+The preferred way is to have the feed team setup a custom field called "AJD" and at the page level we map to each value inside that facet. (Note: Never map based on the facet and ALL values because this could result in many pages not displaying any content if no AJD content is setup for that value.) 
 
 
 ### How find Category ID, Location ID and Facet ID and then create variables for each
-Simply go to your AJD theme that has the mappings then open your console log and paste of the of example snippets into your console log.
+Simply go to your AJD page that has the mappings then open your console log and paste of the of example snippets into your console log.
 https://codedrive.io/#/snippets/171
 
 
 
 ## Creating an AJD
 Only follow these instructions if the site you are working on does not currently have any AJDs.
-IMPORTANT: ONLY CREATE ONE AJD PAGE AND ONE AJD THEME. DO NOT CREATE MULTIPLE AJD PAGES
+IMPORTANT: ONLY CREATE ONE AJD THEME. CREATE A NEW AJD PAGE ONLY IF THE DESIGN DIFFERS FROM THE PREVIOUS AJD.
 
 1. **Create a new Theme** inside the current TB site and do the following:
     * Name this theme "AJD Theme"
@@ -84,7 +84,7 @@ IMPORTANT: ONLY CREATE ONE AJD PAGE AND ONE AJD THEME. DO NOT CREATE MULTIPLE AJ
     * [AJD Page HTML](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/html/ajd-page-level.html)
     * If any modules on the current JD page exist on the design add those modules to this new AJD page
 6. Create [AJD modules](#ajd-modules) and add to page
-    * Make sure to find the IDs for the filters you mapped to the theme level
+    * Make sure to find the IDs for the filters you mapped to the page level
     * Once you have found all the necessary filter IDs **create ajd types** on the page level.
     * Once IDs are added to the page for each ajd type don't forget to **update your if-statements** within each module.
     * Each module has its own set of unique instructions on how to implement. You can view the list of modules [here](#ajd-modules)
