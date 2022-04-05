@@ -108,8 +108,6 @@ IMPORTANT: Make sure to add the appropriate ID that corresponds to the in-page n
 
 Each module has instructions on how to utilize the razor in it. If you come across any issues please report them to Brock Barnett or Daniel Chacon as soon as possible.
 
-- [FOR GST](https://tbadmin.talentbrew.com/layoutmanagement/designlayoutitem/0)
-
 - [Code for Header Module](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/html/ajd-header.html)
 - [Code for Overview Module](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/html/ajd-overview.html)
 - [Code for Success Profile (Graph) Module](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/html/ajd-success-profile-graph.html)
@@ -122,6 +120,7 @@ Each module has instructions on how to utilize the razor in it. If you come acro
 - [Code for Benefits / Rewards Module](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/html/ajd-rewards.html)
 - [Code for Job Description Module](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/html/ajd-job-description.html)
 
+- [NOTE: If you are working in GST find your layout code here instead](https://tbadmin.talentbrew.com/layoutmanagement/designlayoutitem/0)
 
 
 ## Understanding what you can do and change
