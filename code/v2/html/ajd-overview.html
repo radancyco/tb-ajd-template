@@ -2,24 +2,24 @@
 @using Tmp.TalentBrew.Model
 @model PublishedCustomHTMLModuleModel
 
-@*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
-@*<!--==============================================-->*@
+@* RAZOR CODE FOR ALL AJD MODULES *@
+@* ============================================== *@
 @{
-    @*<!--This pulls in the ajdType that was mapped on the page level of the AJD-->*@
+    @* This pulls in the ajdType that was mapped on the page level of the AJD *@
     var ajdType = Html.ViewContext.ParentActionViewContext.ViewBag.ajdType == null ? "" : Html.ViewContext.ParentActionViewContext.ViewBag.ajdType.ToString();
     
-    @*<!--This pulls in the page name if you need to reuse this module on a content page -->*@
+    @* This pulls in the page name if you need to reuse this module on a content page  *@
     var pageName = (Model != null && Model.Page != null && Model.Page.ThemePage != null && !String.IsNullOrEmpty(Model.Page.ThemePage.Name)) ? Html.Tokenize((string)Model.Page.ThemePage.Name) : "";
 }
 
 
-@*<!--RAZOR CODE FOR THIS MODULE-->*@
-@*<!--==============================================-->*@
+@* RAZOR CODE FOR THIS MODULE *@
+@* ============================================== *@
 @{
-    @*<!--Page Model-->*@
+    @* Page Model *@
     var jobPage = Model.Page as PublishedJobModel;
     
-    @*<!--Feed Data-->*@
+    @* Feed Data *@
     var jobTitle = "";
     var jobLevel = "";
 
@@ -30,22 +30,22 @@
 
     }
 
-    @*<!--Set to false to hide entire module-->*@
+    @* Set to false to hide entire module *@
     bool showSection = true;
 
-    @*<!--Global Variables-->*@
+    @* Global Variables *@
     var sectionHeading = "Overview";
     var sectionIntro = "";
     
-    @*<!--Global Quick Fact List-->*@
+    @* Global Quick Fact List *@
     var quickFacts = new List<QuickFact>();
 
 
 }
 
 
-@*<!--Functions needed to create quick fact object-->*@
-@*<!------------------------------------->*@
+@* Functions needed to create quick fact object *@
+@* --------------------------------- *@
 @functions {
     public class CustomIcon {
         public string Icon;
@@ -96,7 +96,7 @@
 }
 
 
-@*<!--
+@* 
 
     HOW TO CREATE A QUICK FACT OBJECT
     -------------------------------------
@@ -139,10 +139,10 @@
         )   
     );    
 
--->*@
+*@
 
-@*<!-- Change content based on filters -->*@
-@*<!------------------------------------->*@
+@*  Change content based on filters  *@
+@* --------------------------------- *@
 @if( ajdType == "ajdAccountServices" ) {
     
     sectionIntro = "As a " + @jobTitle + ", you’ll develop and lead multi-faceted web-based strategies for some of the most recognized names in the world. You’ll be the face of our software solutions, analytics and digital capabilities &mdash; able to explain the complex in simple ways to your colleagues and clients. And you’ll come up with innovative approaches that change the way companies and candidates connect.";
@@ -188,7 +188,7 @@
                                     <img class="ajd-@{@quickFact.CustomIcon.Icon}__icon" src="@quickFact.CustomIcon.Image" alt="@Html.Raw(quickFact.CustomIcon.Description)">
                                 </a>
                                 
-                                @*<!--DO NOT DELETE THIS IF STATEMENT-->*@
+                                @* DO NOT DELETE THIS IF STATEMENT *@
                                 if(quickFact.CustomIcon.Link.Contains("REPLACEME")){
                                     <p class="error">URL for @quickFact.CustomIcon.Icon logo needs to be replaced.</p>
                                 }
@@ -196,7 +196,7 @@
                                 <img class="ajd-@{@quickFact.CustomIcon.Icon}__icon" src="@quickFact.CustomIcon.Image" alt="@Html.Raw(quickFact.CustomIcon.Description)">
                             }
                             
-                            @*<!--DO NOT DELETE THIS IF STATEMENT-->*@
+                            @* DO NOT DELETE THIS IF STATEMENT *@
                             @if(quickFact.CustomIcon.Image.Contains("e=01")){
                                 <p class="error">Glassdoor logo rating needs to be replaced with client rating. The last two numbers "01" should be updated with the client company number. You can find the company number on the reviews page of the company for example TMP's url is <a href="https://www.glassdoor.com/Reviews/TMP-Worldwide-Reviews-E247764.htm">https://www.glassdoor.com/Reviews/TMP-Worldwide-Reviews-E247764.htm</a> and the company number for TMP is 247764.In addtion to 'horizontalStarRating' you can change this to 'verticalStarRating'</p>
                             }

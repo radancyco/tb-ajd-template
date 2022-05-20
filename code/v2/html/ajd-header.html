@@ -3,36 +3,36 @@
 @using Tmp.TalentBrew.Model
 @model PublishedJobDetailsModuleModel
 
-@*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
-@*<!--==============================================-->*@
+@* RAZOR CODE FOR ALL AJD MODULES *@
+@* ============================================== *@
 @{
-    @*<!--This pulls in the ajdType that was mapped on the page level of the AJD-->*@
+    @* This pulls in the ajdType that was mapped on the page level of the AJD *@
     var ajdType = Html.ViewContext.ParentActionViewContext.ViewBag.ajdType == null ? "" : Html.ViewContext.ParentActionViewContext.ViewBag.ajdType.ToString();
     
-    @*<!--This pulls in the page name if you need to reuse this module on a content page -->*@
+    @* This pulls in the page name if you need to reuse this module on a content page  *@
     var pageName = (Model != null && Model.Page != null && Model.Page.ThemePage != null && !String.IsNullOrEmpty(Model.Page.ThemePage.Name)) ? Html.Tokenize((string)Model.Page.ThemePage.Name) : "";
 }
 
 
-@*<!--RAZOR CODE FOR THIS MODULE-->*@
-@*<!--==============================================-->*@
+@* RAZOR CODE FOR THIS MODULE *@
+@* ============================================== *@
 @{
     var cat = CoreHelper.GetTokenValue(Tmp.TalentBrew.Model.TokenType.Category);
 
-    @*<!--Set to false to hide entire module-->*@
+    @* Set to false to hide entire module *@
     bool showSection = true;
     
-    @*<!-- Navigation links LEAVE EMPTY-->*@
+    @*  Navigation links LEAVE EMPTY *@
     string[,] navLinkArr = new string[,] {};
 }
 
 
-@*<!-- Change content based on filters -->*@
-@*<!------------------------------------->*@
+@*  Change content based on filters  *@
+@* --------------------------------- *@
 @if( ajdType == "ajdAccountServices" ) {
     
-    @*<!--"Link Text" , "Section ID"-->*@
-    @*<!--Make sure your section has the correct ID to anchor to-->*@
+    @* "Link Text" , "Section ID" *@
+    @* Make sure your section has the correct ID to anchor to *@
     navLinkArr  = new string[,] {
         { "Overview", "anchor-overview" },
         { "Success Profile", "anchor-success-profile" },
@@ -107,7 +107,7 @@
     using (var context = Html.BeginScriptContext()) {
         context.AddScriptFile(Url.CdnUrl(Constants.JobDetailsJavascript, "TBCDN"));
 
-        @*<!--THE FOLLOWING SCRIPTS GET ADDED TO THE BOTTOM OF THE PAGE-->*@
+        @* THE FOLLOWING SCRIPTS GET ADDED TO THE BOTTOM OF THE PAGE *@
         Html.AddScriptBlock(
         @<script>
             // adds a return-to-nav anchor to each section

@@ -20,7 +20,7 @@
 @if (Model != null) {
     <section class="ajd" @Html.CustomSelector(Model) @Html.JobDetailsSectionAttributes(Model)>
 
-		@*<!-- AJD Header and Sticky nav -->*@
+		@* AJD Header and Sticky nav *@
 		<div id="ajd-header" class="ajd_header make-sticky">
 			<div class="max-width-wrapper">
 				<div class="ajd_header__content">
@@ -45,7 +45,7 @@
 			</div>
 
 
-			@*<!-- AJD In-page Navigation -->*@
+			@* AJD In-page Navigation *@
 			<nav class="ajd_navigation" aria-label="In-page">
 				<ul class="ajd_navigation__ul max-width-wrapper">
 					<li id="ajd-anchor-overview" class="ajd_navigation__li"><a href="#anchor-overview" class="ajd_navigation__a">Overview</a></li>
@@ -62,7 +62,7 @@
 
 
 
-		@*<!-- AJD Overview -->*@
+		@* AJD Overview *@
 		<section id="anchor-overview" class="ajd_section ajd_overview">
 			<h2 class="ajd_section__heading ajd_overview__heading">Overview</h2>
 
@@ -88,7 +88,7 @@
 
 
 
-		@*<!-- AJD Success Profile -->*@
+		@* AJD Success Profile *@
 		<section id="anchor-success" class="ajd_section ajd_success-profile">
 			<h2 class="ajd_section__heading ajd_success-profile__heading">Success Profile</h2>
 
@@ -211,7 +211,7 @@
 
 
 
-		@*<!-- AJD Culture Points -->*@
+		@* AJD Culture Points *@
 		<section class="ajd_section ajd-culture-points">
 			<h2 class="ajd_section__heading ajd-culture-points__heading">Culture</h2>
 
@@ -226,7 +226,7 @@
 
 
 
-		@*<!-- AJD Career Path -->*@
+		@* AJD Career Path *@
 		@<!-- IF A CAREER PATH MODULE HAS NOT BEEN CREATED YET WE SUGGEST YOU FOLLOW THE STEPS TO CREATE A CAREER PATH IN
 		THE AJD VERSION 2 INSTRUCTIONS, You can also go here to create a career path https://radancy.dev/career-path-generator/ -->*@
 		<section id="anchor-path" class="ajd_section ajd-career-path">
@@ -301,7 +301,7 @@
 
 
 
-		@*<!-- AJD Quote -->*@
+		@* AJD Quote *@
 		<section class="ajd_section ajd_quote enhance-element">
 			<h2 class="wai">Quote</h2>
 
@@ -315,7 +315,7 @@
 
 
 
-		@*<!-- AJD Trending -->*@
+		@* AJD Trending *@
 		<section id="anchor-trending" class="ajd_section ajd_trending">
 			<h2 class="ajd_section__heading ajd_trending__heading">Trending</h2>
 
@@ -374,13 +374,13 @@
 
 
 
-		@*<!-- Featured Image -->*@
+		@* Featured Image *@
 		<div class="ajd_image enhance-element" style="background-image: url('https://placehold.it/1000x1500?text=Parallax%20Image');"></div>
 
 
 
 
-		@*<!-- AJD Rewards / Benefits -->*@
+		@* AJD Rewards / Benefits *@
 		<section id="anchor-rewards" class="ajd_section ajd_rewards">
 			<h2 class="ajd_section__heading ajd_rewards__heading">Rewards</h2>
 
@@ -698,7 +698,7 @@
 
 
 
-		@*<!-- Job Description -->*@
+		@* Job Description *@
 		<section id="anchor-responsibilties" class="ajd_section ajd_job-details job-description" @Html.CustomSelector(Model) @Html.JobDetailsSectionAttributes(Model)>
 			<h2 class="ajd_section__heading ajd_job-details__heading">Responsibilities</h2>
 

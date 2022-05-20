@@ -2,24 +2,24 @@
 @using Tmp.TalentBrew.Model
 @model PublishedCustomHTMLModuleModel
 
-@*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
-@*<!--==============================================-->*@
+@* RAZOR CODE FOR ALL AJD MODULES *@
+@* ============================================== *@
 @{
-    @*<!--This pulls in the ajdType that was mapped on the page level of the AJD-->*@
+    @* This pulls in the ajdType that was mapped on the page level of the AJD *@
     var ajdType = Html.ViewContext.ParentActionViewContext.ViewBag.ajdType == null ? "" : Html.ViewContext.ParentActionViewContext.ViewBag.ajdType.ToString();
     
-    @*<!--This pulls in the page name if you need to reuse this module on a content page -->*@
+    @* This pulls in the page name if you need to reuse this module on a content page  *@
     var pageName = (Model != null && Model.Page != null && Model.Page.ThemePage != null && !String.IsNullOrEmpty(Model.Page.ThemePage.Name)) ? Html.Tokenize((string)Model.Page.ThemePage.Name) : "";
 }
 
 
-@*<!--RAZOR CODE FOR THIS MODULE-->*@
-@*<!--==============================================-->*@
+@* RAZOR CODE FOR THIS MODULE *@
+@* ============================================== *@
 @{
-    @*<!--Page Model-->*@
+    @* Page Model *@
     var jobPage = Model.Page as PublishedJobModel;
 
-    @*<!--Feed Data-->*@
+    @* Feed Data *@
     var jobTitle = "";
 
     if(jobPage != null)
@@ -27,18 +27,18 @@
        jobTitle = @jobPage.Job.Title;
     }
 
-    @*<!--Set to false to hide entire module-->*@
+    @* Set to false to hide entire module *@
     bool showSection = true;
 
-    @*<!--Global Variables-->*@
+    @* Global Variables *@
     var sectionHeading = "Success Profile";
     var sectionIntro = "";
     var dynamicJobTitleIntro = "What makes a successful " + jobTitle + "? Check out the traits we’re looking for and see if you have the right skill level.";
 
-    @*<!-- Main Skills-->*@
+    @*  Main Skills *@
     string[,] mainSkillArr = new string[,] {};
     
-    @*<!-- Sub Skills-->*@
+    @*  Sub Skills *@
     string[] subSkillArr = new string[] {};
 
 
@@ -46,8 +46,8 @@
 }
 
 
-@*<!-- Helper function - converts string to number -->*@
-@*<!------------------------------------->*@
+@*  Helper function - converts string to number  *@
+@* --------------------------------- *@
 @functions {
     public string convertToInt(String value) {
         String number = "";
@@ -80,7 +80,7 @@
     }
 }
 
-@*<!--
+@* 
     HOW TO ADD MAIN SKILLS
     -------------------------------------
     
@@ -107,10 +107,10 @@
         "Label_Text",
         "Label_Text"
     };
--->*@
+*@
 
-@*<!-- Change content based on filters -->*@
-@*<!------------------------------------->*@
+@*  Change content based on filters  *@
+@* --------------------------------- *@
 @if( ajdType == "ajdAccountServices" ) {
     
     sectionIntro = dynamicJobTitleIntro;

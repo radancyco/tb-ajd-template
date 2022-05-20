@@ -2,25 +2,25 @@
 @using Tmp.TalentBrew.Model
 @model PublishedCustomHTMLModuleModel
 
-@*<!--RAZOR CODE FOR ALL AJD MODULES-->*@
-@*<!--==============================================-->*@
+@* RAZOR CODE FOR ALL AJD MODULES *@
+@* ============================================== *@
 @{
-    @*<!--This pulls in the ajdType that was mapped on the page level of the AJD-->*@
+    @* This pulls in the ajdType that was mapped on the page level of the AJD *@
     var ajdType = Html.ViewContext.ParentActionViewContext.ViewBag.ajdType == null ? "" : Html.ViewContext.ParentActionViewContext.ViewBag.ajdType.ToString();
     
-    @*<!--This pulls in the page name if you need to reuse this module on a content page -->*@
+    @* This pulls in the page name if you need to reuse this module on a content page  *@
     var pageName = (Model != null && Model.Page != null && Model.Page.ThemePage != null && !String.IsNullOrEmpty(Model.Page.ThemePage.Name)) ? Html.Tokenize((string)Model.Page.ThemePage.Name) : "";
 }
 
 
-@*<!--RAZOR CODE FOR THIS MODULE-->*@
-@*<!--==============================================-->*@
+@* RAZOR CODE FOR THIS MODULE *@
+@* ============================================== *@
 @{
 
-    @*<!--Page Model-->*@
+    @* Page Model *@
     var jobPage = Model.Page as PublishedJobModel;
 
-    @*<!--Feed Data-->*@
+    @* Feed Data *@
     var jobTitle = "";
 
     if(jobPage != null)
@@ -28,10 +28,10 @@
        jobTitle = @jobPage.Job.Title;
     }
 
-    @*<!--Set to false to hide entire module-->*@
+    @* Set to false to hide entire module *@
     bool showSection = true;
 
-    @*<!--Global Variables-->*@
+    @* Global Variables *@
     var sectionHeading = "Success Profile";
     var sectionIntro = "";
     var dynamicJobTitleIntro = "What makes a successful " + jobTitle + "? Check out the traits we’re looking for and see if you have the right skill level.";
@@ -39,11 +39,11 @@
     var traitCircleText = "";
 
     
-    @*<!-- Trait Bullets LEAVE EMPTY-->*@
+    @*  Trait Bullets LEAVE EMPTY *@
     string[,] traitBulletArr = new string[,] {};
 }
 
-@*<!--
+@* 
 
     HOW TO ADD TRAITS TO TRAIT CIRCLE
     -------------------------------------
@@ -58,17 +58,17 @@
         { "Label_Text", "HexColor" },
     };
 
--->*@
+*@
 
 
-@*<!-- Change content based on filters -->*@
-@*<!------------------------------------->*@
+@*  Change content based on filters  *@
+@* --------------------------------- *@
 @if( ajdType == "ajdAccountServices" ) {
     
     sectionIntro = dynamicJobTitleIntro;
     traitImg = "https://picsum.photos/300/300?image=1";
 
-    @*<!--"Label_Text", "HexColor"-->*@
+    @* "Label_Text", "HexColor" *@
     traitBulletArr = new string[,] {
         { "Organized", "#0299ff" },
         { "Goal-oriented in the business", "#fdda04" },
@@ -96,7 +96,7 @@
         @if(traitBulletArr.GetLength(0) > 0){
         <div class="ci-pie-chart enhance-element js-ajd-script-animate-chart">
         
-            @*<!--TRAIT CIRCLE-->*@
+            @* TRAIT CIRCLE *@
             <div class="js-ci-pie-chart__graph trait-circle__graph" data-chart="traitcircle">
                 @if(!String.IsNullOrWhiteSpace(traitCircleText)) {
                     traitImg = "";
@@ -104,7 +104,7 @@
                 }
             </div>
             
-            @*<!--TRAIT CIRCLE BULLETS-->*@
+            @* TRAIT CIRCLE BULLETS *@
             <ul class="js-ci-pie-chart__legend trait-circle__legend" 
                 data-chart="traitcircle" 
                 data-width="300" 
