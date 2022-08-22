@@ -7,7 +7,9 @@ defaults:
     layout: "default"
 exclude: [
   README.md,
-  CNAME
+  CNAME,
+  _config.yml,
+  _template.bat
 ]
 destination: _httpdocs
 git-url: https://radancy.dev
@@ -19,6 +21,7 @@ owner-name: Michael Spellacy
 owner-email: michael.spellacy@radancy.com
 owner-image: https://www.gravatar.com/avatar/89e429d4a3effa9601cd19a851c0003e.jpg
 permalink: /:title/
+port: 4006
 repo: https://github.com/radancyco/tb-ajd-template
 sass:
   style: :compressed
