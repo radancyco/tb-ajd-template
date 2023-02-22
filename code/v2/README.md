@@ -5,6 +5,7 @@
 - [Advanced Job Details (Version 2)](#advanced-job-details-version-2)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
+  - [Visual Examples](#visual-examples)
   - [Introduction](#introduction)
   - [Technologies used](#technologies-used)
   - [What this template works with](#what-this-template-works-with)
@@ -28,6 +29,9 @@
 ## Overview
 This folder contains the version 2 template used to create Advanced Job Detail pages on TalentBrew.
 
+## Visual Examples (Note: In the future these will be replaced with ones in a reference site that is hosted in the actual admin)
+* [Developer - Skeleton Example](https://radancy.dev/tb-ajd-template/examples/skeleton/) This example shows what an AJD would look like if you made one only using the default styles of a Full TB, with alerts that remind the developer to update links.
+* [Creative - Skeleton Example](https://radancy.dev/tb-ajd-template/examples/skeleton/?no-checks) This example shows what an AJD would look like if you made one only using the default styles of a Full TB, without alerts.
 
 ## Introduction
 This version was created with the goal of making the HTML and SCSS more modular. Decoupling the JS is still on our roadmap but as of right now we are rolling out the HTML and SCSS changes.
@@ -106,8 +110,14 @@ Almost all of these should be created as Custom HTML modules. **The only excepti
 
 IMPORTANT: Make sure to add the appropriate ID that corresponds to the in-page navigation for EACH module.
 
-Each module has instructions on how to utilize the razor in it. If you come across any issues please report them to Brock Barnett or Daniel Chacon as soon as possible.
+Each module has instructions on how to utilize the razor in it. If you come across any issues please report them to Brock Barnett as soon as possible.
 
+- For GST sites:
+- **[NOTE: If you are working in GST find your layout code for AJD Pages here instead](https://tbadmin.radancy.net/layoutmanagement/designlayoutitem/3)**
+- **[NOTE: If you are working in GST find your layout code for AJD modules here instead](https://tbadmin.radancy.net/layoutmanagement/designlayoutitem/0)**
+
+
+- For Legacy sites you can use the layout below:
 - [Code for Header Module](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/html/ajd-header.html)
 - [Code for Overview Module](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/html/ajd-overview.html)
 - [Code for Success Profile (Graph) Module](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/html/ajd-success-profile-graph.html)
@@ -120,7 +130,6 @@ Each module has instructions on how to utilize the razor in it. If you come acro
 - [Code for Benefits / Rewards Module](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/html/ajd-rewards.html)
 - [Code for Job Description Module](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/html/ajd-job-description.html)
 
-- [NOTE: If you are working in GST find your layout code here instead](https://tbadmin.radancy.net/layoutmanagement/designlayoutitem/0)
 
 
 ## Understanding what you can do and change
