@@ -24,6 +24,7 @@
     - [Adjusting the scroll to offset when using the in page navigation](#adjusting-the-scroll-to-offset-when-using-the-in-page-navigation)
     - [Updating Glassdoor to match company](#updating-glassdoor-to-match-company)
     - [Adding a video to the banner](#adding-a-video-to-the-banner)
+  - [Troubleshooting](#troubleshooting)
 
 
 ## Overview
@@ -73,14 +74,16 @@ IMPORTANT: ONLY CREATE ONE AJD THEME. CREATE A NEW AJD PAGE ONLY IF THE DESIGN D
     * Name this theme "AJD Theme"
 2. Edit the new theme HTML and Razor
     * Copy all the HTML and Razor from the Default "Full" Theme to this new theme
-    * Add the modules from the full theme to this new theme
-    * Make sure the SASS and JavaScript that are assigned to the new theme matches the "Full" Theme
-    * Add the following attributes to the `<html>` tag on the theme level: `data-theme-name="@pageModel.ThemePage.SiteTheme.Name" data-category-id="@pageModel.CategoryIds" data-location-id="@pageModel.LocationIds" data-facet-id="@pageModel.FacetIds"`. This code will help with debugging.
-    * Add the following scripts below `@Html.Partial("_ThemeJavascript")` in this order
+      * If you are on GST then you should just make sure the same layout code is linked to the default theme and the ajd theme 
+    * Add the modules from the default theme to this new theme
+    * Make sure the SASS and JavaScript that are assigned to the new theme matches the "Full/GST" Theme
+      *  If it is a GST then it should have the same theme layout code
+    * (If you are not on a FULL Site Type skip this)  Add the following attributes to the `<html>` tag on the theme level: `data-theme-name="@pageModel.ThemePage.SiteTheme.Name" data-category-id="@pageModel.CategoryIds" data-location-id="@pageModel.LocationIds" data-facet-id="@pageModel.FacetIds"`. This code will help with debugging.
+    * (You only need to add this code at the theme level if you are having issues with the endscripts) Add the following scripts below `@Html.Partial("_ThemeJavascript")` in this order
         1. `<script src="https://clientfiles.tmpwebeng.com/tmp/tb-assets/ajd/jquery-scrolltofixed-min.js"></script>`
         2. `<script src="https://clientfiles.tmpwebeng.com/tmp/tb-assets/ajd/ajd-scripts-min.js"></script>`
         3. `<script id="js-custom-imports" src="https://services1.tmpwebeng.com/custom-imports/custom-imports.js?scripts=charts,video"></script>`
-3. Add [AJD SASS](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/styles/ajd-styles.scss) to full theme SASS
+3. Add [AJD SASS](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/styles/ajd-styles.scss) to full/GST theme SASS
 4. Do NOT map any filters to the Theme Level.
 5. Create page for theme - only create ONE AJD page per design.
     * Map Filter at the Page Level.
@@ -246,3 +249,12 @@ Ideally, AJD sections should use Padding to offset where the sticky nav will sto
 ```
 * If you want to do you own styles you can remove the class `ci-video-btn`
 3. To test to make sure everything is working load the page with `?playvideo=ajdvideo` added to the end of URL in the browser
+
+
+## Troubleshooting
+Issue: When using the in page navigation links the scroll seems to be really slow and then fast or acts like it is getting stuck.
+Solution: In your endscripts add
+`    <style>
+        html { scroll-behavior: auto !important;}
+    </style>
+`
