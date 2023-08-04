@@ -56,6 +56,16 @@
 
 @* End Scripts *@
 @section EndScripts {
+    <input type="hidden" data-ci-script="charts"/>
+    <script src="https://clientfiles.tmpwebeng.com/tmp/tb-assets/ajd/jquery-scrolltofixed-min.js"></script>
+    <script src="https://clientfiles.tmpwebeng.com/tmp/tb-assets/ajd/ajd-scripts-min.js"></script>
+
+    @* Do no comment out this hidden input, as it is needed for the Admin Helper *@
     <input id="ajdType" type="hidden" name="ajdType"  value="@ViewBag.ajdType">
+
+    @* TEMP FIX: fixing bug with AJD script and scroll-behavior css *@
+    <style>
+        html { scroll-behavior: auto !important;}
+    </style>
 }
 
