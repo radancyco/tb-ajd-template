@@ -20,18 +20,20 @@
     var cat = CoreHelper.GetTokenValue(Tmp.TalentBrew.Model.TokenType.Category);
 }
 
-@helper ApplyButton(string position) {
-    var buttonText = Model.PageTypeId == PageType.QuickApply ? Model.QuickApplyButtonText : Model.ApplyButtonText;
+@{
+    void ApplyButton(string position) {
+        var buttonText = Model.PageTypeId == PageType.QuickApply ? Model.QuickApplyButtonText : Model.ApplyButtonText;
+        
+        if(Model.ShowApplyAndQuickApply && Model.PageTypeId == PageType.QuickApply) {
+            <a class="ajd_btn__apply button job-apply @position" @Html.JobDetailIncludeApplyUrlAttributes(Model)>@Model.ApplyButtonText</a> 
+        }
+        
+        <a class="ajd_btn__apply button job-apply @position" @Html.JobDetailsApplyUrlAttributes(Model)>@buttonText</a>
+    }
     
-    if(Model.ShowApplyAndQuickApply && Model.PageTypeId == PageType.QuickApply) {
-        <a class="ajd_btn__apply button job-apply @position" @Html.JobDetailIncludeApplyUrlAttributes(Model)>@Model.ApplyButtonText</a> 
-	}
-	
-	<a class="ajd_btn__apply button job-apply @position" @Html.JobDetailsApplyUrlAttributes(Model)>@buttonText</a>
-}
-
-@helper ApplyLaterButton(string position) {
-	<a class="ajd_btn__apply button job-apply job-apply-later @position" @Html.JobDetailsApplyLaterUrlAttributes(Model)>@Model.ApplyLaterText</a>
+    void ApplyLaterButton(string position) {
+        <a class="ajd_btn__apply button job-apply job-apply-later @position" @Html.JobDetailsApplyLaterUrlAttributes(Model)>@Model.ApplyLaterText</a>
+    }
 }
 
 @if (Model != null) {
@@ -51,11 +53,11 @@
         </div>
 
         @if (Model.JobDetailsAlign != JobDetailsAlignType.Above) {
-            @ApplyButton("bottom")
+            ApplyButton("bottom");
         }
 
         @if (Model.ShowApplyLater && Model.ApplyLaterAlign != JobDetailsAlignType.Above) {
-            @ApplyLaterButton("bottom")
+            ApplyLaterButton("bottom");
         }
 
         @if (Model.CanShowReferrerPage) {
