@@ -30,7 +30,11 @@
 
         {% if page.navigation != false %}
 
-          {% include navigation.html %}
+          <nav aria-label="Main" id="main-navigation">
+
+            {% include navigation.html %}
+
+          </nav>
 
         {% endif %}
 
@@ -45,6 +49,35 @@
       {% if page.heading != false %}
 
       <h1 class="primary-heading">{{ page.title }}</h1>
+
+      {% if page.layout == "micropubpost" %}
+
+      <div class="post-overview">
+
+        <div>
+
+          <img src="{{ page.img }}" alt="Headshot of {{ page.author }}">
+          
+        </div>
+
+        <div>
+
+          <ul>
+            <li><span class="visually-hidden">Posted by:</span> <a href="mailto:{{ page.email }}?Subject={{ page.title }}">{{ page.author }}</a>{% if page.role %}, {{ page.role }}{% endif %}</li>
+            {% if page.pronouns %}
+            <li><span class="visually-hidden">Pronouns:</span> {{ page.pronouns }}</li>
+            {% endif %}
+            <li><span class="visually-hidden">Posted:</span> {{ page.date | date: "%A, %B %e, %Y" }}</li>
+            {% if page.update %}
+            <li><span>Update:</span> {{ page.update | date: "%A, %B %e, %Y" }}</li>
+            {% endif %}
+          </ul>
+
+        </div>
+
+      </div>
+
+      {% endif %}
 
       {% endif %}
 
