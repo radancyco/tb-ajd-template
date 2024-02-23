@@ -1,8 +1,3 @@
-## Table of Contents
-- [What's new?](#whats-new)
-- [Which AJD Should I Use?](#which-ajd-should-i-use)
-- [Quick Links](#quick-links)
-
 ## What's New
 A new version of the AJD has been created. The new version was created with the goal of making the HTML and SCSS more modular. Decoupling the JS is still on our roadmap but as of right now we are rolling out the HTML and SCSS changes.
 
