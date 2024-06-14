@@ -259,5 +259,5 @@ Solution: In your endscripts add
     </style>
 `
 
-Issue: In page navigation links are not highlighting when the corresponding section is in view.
+Issue: In page navigation links are not highlighting when the corresponding section is in view.\
 Solution: Ensure each section has the "ajd_section" class on it.
