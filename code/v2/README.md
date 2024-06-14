@@ -170,7 +170,7 @@ add `enhance-element` class to any elements you want to enhacne when they come i
 
 
 ### Make in page navigation highlight only one section at a time
-In order to do this all you have to do is look for the class `ajd_navigation` in the HTML and add a class to that same div called `singular-highlighting`
+In order to do this all you have to do is look for the class `ajd_navigation` in the HTML and add a class to that same div called `singular-highlighting`.
 
 
 ### Adjusting the scroll to offset when using the in page navigation
@@ -258,3 +258,6 @@ Solution: In your endscripts add
         html { scroll-behavior: auto !important;}
     </style>
 `
+
+Issue: In page navigation links are not highlighting when the corresponding section is in view.
+Solution: Ensure each section has the "ajd_section" class on it.
