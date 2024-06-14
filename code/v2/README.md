@@ -252,7 +252,7 @@ Ideally, AJD sections should use Padding to offset where the sticky nav will sto
 
 
 ## Troubleshooting
-Issue: When using the in page navigation links the scroll seems to be really slow and then fast or acts like it is getting stuck.
+Issue: When using the in page navigation links the scroll seems to be really slow and then fast or acts like it is getting stuck.\
 Solution: In your endscripts add
 `    <style>
         html { scroll-behavior: auto !important;}
