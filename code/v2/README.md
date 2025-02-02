@@ -87,6 +87,7 @@ IMPORTANT: ONLY CREATE ONE AJD THEME. CREATE A NEW AJD PAGE ONLY IF THE DESIGN D
 4. Do NOT map any filters to the Theme Level.
 5. Create page for theme - only create ONE AJD page per design.
     * Map Filter at the Page Level.
+    * For GST sites you can only make a Job Details page, so make sure you check the box that says "If selected, page will allow for the tracking of AJDs"
     * Name the page "AJD Design (number)"
     * [AJD Page HTML](https://github.com/radancyco/tb-ajd-template/blob/main/code/v2/html/ajd-page-level.html)
     * If any modules on the current JD page exist on the design add those modules to this new AJD page
