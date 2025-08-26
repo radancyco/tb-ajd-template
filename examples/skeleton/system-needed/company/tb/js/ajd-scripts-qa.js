@@ -1,5 +1,5 @@
 // Advanced Job Details (AJD) Template version 1.0
-// Last Updated 10/06/2021
+// Last Updated 08/06/2025
 //
 
 
@@ -526,7 +526,7 @@ function replaceGlassdoorWidget() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', replaceGlassdoorWidget);
+replaceGlassdoorWidget();
 
 
 
