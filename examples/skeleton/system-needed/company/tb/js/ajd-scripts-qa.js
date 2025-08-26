@@ -508,5 +508,26 @@ function traitsCircle() {
 traitsCircle();
 
 
+// Replace Glasdoor dynamic Rating with static image
+function replaceGlassdoorWidget() {
+    // Step 1: Try targeting only known icon class
+    let targets = document.querySelectorAll('.ajd-glassdoor__icon');
+
+    if (targets.length === 0) {
+        // Step 2: Fallback to all images if none found
+        targets = document.querySelectorAll('img');
+    }
+
+    targets.forEach(img => {
+        const src = img.getAttribute('src');
+        if (src && /\/\/.*glassdoor\.[a-z.]+\/api\/widget\/horizontalStarRating/.test(src)) {
+            img.setAttribute('src', 'https://tbcdn.talentbrew.com/company/3461/shared/img/glassdoor-tm.png');
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', replaceGlassdoorWidget);
+
+
 
 })();  // end on doc ready
