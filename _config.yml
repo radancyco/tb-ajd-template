@@ -25,4 +25,5 @@ port: 4006
 repo: https://github.com/radancyco/tb-ajd-template
 sass:
   style: :compressed
+segment: ajd
 theme-color: "#6E00EE"
